@@ -9,6 +9,8 @@ Name | Best | Average | Worst | Memory | Stable | Method
 **Insertion Sort** | <img src="https://latex.codecogs.com/svg.latex?\Large&space;n"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;n^2"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;n^2"> | 1 | Yes | *insertion*
  
 - *сложността на един алгоритъм описва нарастването на броя операции спрямо нарастването на броя данни (и състоянието им - почти подредени, средно разбъркани, силно разбъркани).*
+
+ [Визуално може да видите как работят алгоритмите ТУК](https://visualgo.net/en/sorting).
   
  ### Selection Sort      
   - за всеки елемент обикаля всички останали след него <img src="https://latex.codecogs.com/svg.latex?\Large&space;\bigg[\frac{(n-1)n}{2}\bigg]\sim{O}(n^2)"> , като започва от първия и търси най-малкия от тях, който е по-малък и от текущия и след това ги разменя.

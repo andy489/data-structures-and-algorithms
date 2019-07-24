@@ -112,6 +112,33 @@ size_t partition(int* arr, int start, int end)
 	std::swap(arr[pIndex], arr[end]); // swap pIndex with Pivot	
 	return pIndex; // return pIndex (index of pivot element)
 }
+```
+Нека тестваме извикаме имплементираната функция със следния *main()* и дебъгнем кода за да проследим още ведъь действието и което сме описали по-горе:
+```cpp
+int main()
+{
+	int arr[] = { 2,8,3,4,2,9,3,5 };
+	size_t arrLen = sizeof(arr) / sizeof(arr[0]);
+
+	printArr(arr, arrLen);
+	size_t position = partition(arr, 0, arrLen - 1);
+	printArr(arr, arrLen);
+
+	return 0;
+}
+```
+За целта добавете *най-тогоре* в *.cpp* файла си или в *h* файла си следната функция за принтиране на масив:
+```cpp
+void printArr(int* arr, size_t arrLen)
+{
+	for (size_t i = 0; i < arrLen; i++)
+		std::cout << arr[i] << ' ';
+	std::cout << std::endl;
+}
+```
+Получения резултат е логично да бъде следния: {*2,3,4,2,3,* ***5*** *,8,9,10,*}. 
+
+```cpp
 void quickSort(int* arr, int start, int end)
 {
 	if (start >= end) return; // base condition		

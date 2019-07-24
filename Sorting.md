@@ -66,9 +66,89 @@ void insertionSort(int* arr, size_t arrLen)
 	}
 }
 ```
+ ### 4. Merge Sort 
+ 
+Това е алгоритъм, който разделя входния масив на две половини, извиква себе си за двете половини и след това слива двете подредени половинки. Функцията за сливане *merge()* се използва за сливане на две половини. Обединяването *(arr, l, m, r)* е ключов процес, който приема, че arr *[l..m]* и arr *[m+1..r]* са сортирани и слива двaта подредени под-масивa в един. 
 
+    mergeSort(arr[], l,  r) - псевдокод
+    Ако r > l
+    1. Намери средния индекс и раздели масива на два подмасива:  
+             middle m = (l+r)/2
+     
+    2. Извикай mergeSort за първата половина:   
+             mergeSort(arr, l, m)
+    3. Извикай mergeSort за втората половина:
+             mergeSort(arr, m+1, r)
+    4. Обедини двете сортирани половини от стъпка 2 и 3:
+             merge(arr, l, m, r)
+	     
+```cpp
+/* Merges two subarrays of arr[].
+   First subarray is arr[l..m]
+   Second subarray is arr[m+1..r] */
+void merge(int arr[], size_t l, size_t m, size_t r) //l<=r
+{
+	size_t i, j, k;
+	size_t n1 = m - l + 1;
+	size_t n2 = r - m;
+	/* Create temp arrays, which we should delete afterwards (dynamic memory) */
+	int* L = new int[n1];
+	int* R = new int[n2];
+	/* Copy data to temp arrays L[] and R[] */
+	for (i = 0; i < n1; i++) L[i] = arr[l + i];
+	for (j = 0; j < n2; j++) R[j] = arr[m + 1 + j];
+	/* Merge the temp arrays back into arr[l..r]*/
+	i = 0; // Initial index of first subarray 
+	j = 0; // Initial index of second subarray 
+	k = l; // Initial index of merged subarray 
+	while (i < n1 && j < n2)
+	{
+		if (L[i] <= R[j])
+		{
+			arr[k] = L[i];
+			i++;
+		}
+		else
+		{
+			arr[k] = R[j];
+			j++;
+		}
+		k++;
+	}
+	while (i < n1) // Copy the remaining elements of L[], if there are any
+	{
+		arr[k] = L[i];
+		i++;
+		k++;
+	}
+	while (j < n2) // Copy the remaining elements of R[], if there are any 
+	{
+		arr[k] = R[j];
+		j++;
+		k++;
+	}
+	delete[] L;
+	delete[] R;
+}
+// l is for left index and r for right index of the sub-array of arr to be sorted 
+void mergeSort(int* arr, int l, int r)
+{
+	if (l < r)
+	{
+		// Same as (l+r)/2, but avoids overflow for large l and r 		
+		int m = l + (r - l) / 2;
+		// Sort first and second halves 
+		mergeSort(arr, l, m);
+		mergeSort(arr, m + 1, r);
+
+		merge(arr, l, m, r);
+	}
+}
+```
+	     
+ 
  ### 5. Quick Sort      
-Tози алгоритъм се базира на техниката *„разделяй и владей“* и следователно е *рекурсивен* алгоритъм. Той избира начален елемент като *централна точка* и *разделя* дадената колекция спрямо тази точка. Спрямо тази централна точка, алгоритъма *Quick Sort* придобива множество различни версии:
+Също като Merge Sort, този алгоритъм се базира на техниката *„разделяй и владей“* и следователно е *рекурсивен* алгоритъм. Той избира начален елемент като *централна точка* и *разделя* дадената колекция спрямо тази точка. Спрямо тази централна точка, алгоритъма *Quick Sort* придобива множество различни версии:
 
   - винаги избира пъврия елемент като централна точка;
   - винаги избира последния елемент като централна точка;

@@ -77,8 +77,8 @@ Tози алгоритъм се базира на техниката *„раз�
 Но при която и версия да се реализира алгоритъма, ключовото действие в него ще е винаги разделянето *(за това ще е по-удобно и прегледно да го имплементираме като отделна функция **partition()**)*.
 При дадена колекция избираме централна точка да бъде елемента `X` принадлежащ на колекцията и го поставяме на правилната му позиция в сортираната колекция и поставяме всички по-малки (от `X`) елементи преди `X` и по-големи елементи (от `X`) след `X`. Сложността на този алгоритъм е описана в таблицата по-горе.
 ```cpp
-int partition(int* arr, int start, int end)
-{	
+size_t partition(int* arr, int start, int end)
+{
 	int pivot = arr[end]; // pick rightmost element as pivot from the array
 	/* elements less than pivot will be pushed to the left of pIndex
 	   elements more than pivot will be pushed to the right of pIndex
@@ -93,17 +93,17 @@ int partition(int* arr, int start, int end)
 			std::swap(arr[i], arr[pIndex]);
 			pIndex++;
 		}
-	}	
-	std::swap(arr[pIndex], arr[end]); // swap pIndex with Pivot		
+	}
+	std::swap(arr[pIndex], arr[end]); // swap pIndex with Pivot	
 	return pIndex; // return pIndex (index of pivot element)
 }
 void quickSort(int* arr, int start, int end)
-{	
+{
 	if (start >= end) return; // base condition		
-	int pivot = partition(arr, start, end); // rearrange the elements across pivot	
+	size_t pivot = partition(arr, start, end); // rearrange the elements across pivot	
 	// recursion on sub-array containing elements that are less than pivot
-	quickSort(arr, start, pivot - 1); 
+	quickSort(arr, start, pivot - 1);
 	// recursion on sub-array containing elements that are more than pivot
-	quickSort(arr, pivot + 1, end); 
+	quickSort(arr, pivot + 1, end);
 }
 ```

@@ -4,9 +4,10 @@
 
 Name | Best | Average | Worst | Memory | Stable | Method
 ------------ | ------------- | ------------- | ------------- | ------------- | ------------- | -------------
-**Selection Sort** | <img src="https://latex.codecogs.com/svg.latex?\Large&space;n^2"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;n^2"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;n^2"> | 1 | No | *selection*
-**Bubble Sort** | <img src="https://latex.codecogs.com/svg.latex?\Large&space;n"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;n^2"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;n^2"> | 1 | Yes | *exchanging*
-**Insertion Sort** | <img src="https://latex.codecogs.com/svg.latex?\Large&space;n"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;n^2"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;n^2"> | 1 | Yes | *insertion*
+**Selection Sort** | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n^2)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n^2)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n^2)}"> | 1 | No | *selection*
+**Bubble Sort** | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n^2)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n^2)}"> | 1 | Yes | *exchanging*
+**Insertion Sort** | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n^2)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n^2)}"> | 1 | Yes | *insertion*
+**Quick Sort** [*(Tony Hoare)*](https://en.wikipedia.org/wiki/Tony_Hoare) | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.\log_{2}n)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.\log_{2}n)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n^2)}"> | 1 | No | *parting*
  
 - *сложността на един алгоритъм описва нарастването на броя операции спрямо нарастването на броя данни (и състоянието им - почти подредени, средно разбъркани, силно разбъркани).*
 

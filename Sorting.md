@@ -113,11 +113,11 @@ size_t partition(int* arr, int start, int end)
 	return pIndex; // return pIndex (index of pivot element)
 }
 ```
-Нека тестваме извикаме имплементираната функция със следния *main()* и дебъгнем кода за да проследим още ведъь действието и което сме описали по-горе:
+Нека извикаме имплементираната функция със следния *main()* и дебъгнем кода за да проследим още ведъж действието ѝ, което описахме по-горе:
 ```cpp
 int main()
 {
-	int arr[] = { 2,8,3,4,2,9,3,5 };
+	int arr[] = { 2,8,3,4,2,9,10,5 };
 	size_t arrLen = sizeof(arr) / sizeof(arr[0]);
 
 	printArr(arr, arrLen);
@@ -136,7 +136,7 @@ void printArr(int* arr, size_t arrLen)
 	std::cout << std::endl;
 }
 ```
-Получения резултат е логично да бъде следния: {*2,3,4,2,3,* ***5*** *,8,9,10,*}. 
+Получения резултат е логично да бъде следния: {*2,3,4,2,* ***5*** *,9,10,8*}. 
 
 ```cpp
 void quickSort(int* arr, int start, int end)

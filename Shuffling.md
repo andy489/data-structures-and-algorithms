@@ -24,7 +24,7 @@ int myRandom(size_t index)
 void shuffleArr(int* arr, size_t arrLen)
 {
 	for (size_t i = 0; i < arrLen; i++)
-	{
+	{ // exchange arr[i] with random element in arr[i..n-1]
 		size_t r = i + myRandom(arrLen - i);
 		std::swap(arr[i], arr[r]);
 	}

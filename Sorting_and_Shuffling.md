@@ -219,6 +219,7 @@ void printArr(int* arr, size_t arrLen)
 ```
 Получения резултат е логично да бъде следния: {*2,3,4,2,* ***5*** *,9,10,8*}. 
 
+Сега за функцията за сортирането имаме:
 ```cpp
 void quickSort(int* arr, int start, int end)
 {
@@ -230,6 +231,22 @@ void quickSort(int* arr, int start, int end)
 	quickSort(arr, pivot + 1, end);
 }
 ```
+За нея може да използваме следния *main()*:
+
+```cpp
+int main()
+{
+	int arr[] = { 17,16,2,7,20,12,1,19,9,18,6,4,10,8,11,0,5,14,13,15,3 };
+	size_t arrLen = sizeof(arr) / sizeof(arr[0]);
+
+	printArr(arr, arrLen);
+	quickSort(arr, 0, arrLen - 1);
+	printArr(arr, arrLen);
+
+	return 0;
+}
+```
+
 # Shuffling Algorithms
 
 Разбъркване на елементите на дадена колекция. Това означава да се генерира произволна пермутация на елементите от тази колекция.

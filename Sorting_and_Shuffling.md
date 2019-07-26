@@ -250,12 +250,12 @@ int main()
 
    - за ***деление с централна точка първия елемент*** може да приложим следното в началото на алгоритъма за разделяне *partition()*: 
 ```cpp
-	std::swap(arr[start], arr[end]); // разменяме първия с последния елемент
+	std::swap(arr[start], arr[end]); // swap the first with the last element
 ``` 
    - за ***деление с централна точка средния елемент***  
 ```cpp
-size_t midIndex= start + (end - start) / 2;   // find position of the middle element from the interval [start..end]
-	std::swap(arr[midIndex], arr[end]);   // swap the middle with the last element
+size_t midIndex= start + (end - start) / 2; // find position of the middle element from the interval [start..end]
+	std::swap(arr[midIndex], arr[end]); // swap the middle with the last element
 ``` 
    - за ***деление с централна точка всеки път произволен елемент***  
 ```cpp

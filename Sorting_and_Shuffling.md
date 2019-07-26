@@ -254,13 +254,13 @@ int main()
 ``` 
    - за ***деление с централна точка средния елемент***  
 ```cpp
-size_t midIndex= start + (end - start) / 2;       // find position of the middle element from the interval [start..end]
-	std::swap(arr[midIndex], arr[end]);       // swap the middle with the last element
+size_t midIndex= start + (end - start) / 2;   // find position of the middle element from the interval [start..end]
+	std::swap(arr[midIndex], arr[end]);   // swap the middle with the last element
 ``` 
    - за ***деление с централна точка всеки път произволен елемент***  
 ```cpp
-size_t randIndex = start + rand()%((end-start)+1); // find position of the random element from the interval [start..end]
-	std::swap(arr[randIndex], arr[end]);       //swap the random with the last element
+size_t randIndex = start + rand()%((end-start)+1);// find position of the random element from the interval [start..end]
+	std::swap(arr[randIndex], arr[end]);      //swap the random with the last element
 ``` 
 # Shuffling Algorithms
 

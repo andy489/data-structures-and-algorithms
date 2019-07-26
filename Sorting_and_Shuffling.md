@@ -173,7 +173,7 @@ void mergeSort(int* arr, int l, int r)
    - и най-накрая извън цикъла - размени 5 и 8 и върни новата позиция на 5;
 	
 ```cpp
-size_t partition(int* arr, int start, int end)
+size_t partition(int* arr, size_t start, size_t end)
 {
 	int pivot = arr[end]; // pick rightmost element as pivot from the array
 	/* elements less than pivot will be pushed to the left of pIndex
@@ -182,7 +182,7 @@ size_t partition(int* arr, int start, int end)
 	size_t pIndex = start;
 	/* each time we finds an element less than or equal to pivot, pIndex
 	  is incremented and that element would be placed before the pivot. */
-	for (int i = start; i < end; i++)
+	for (size_t i = start; i < end; i++)
 	{
 		if (arr[i] <= pivot)
 		{

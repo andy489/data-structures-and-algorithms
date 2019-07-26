@@ -250,7 +250,7 @@ int main()
 
    * за деление с централна точка средния елемент може да приложим следното:
    
-``cpp
+```cpp
 size_t midIndex= start + (end - start) / 2;
 	std::swap(arr[midIndex], arr[end]);
 ```

@@ -332,7 +332,51 @@ int main()
 	return 0;
 }
 ````
+Проблемът с предишния подреден брой беше, че не може да подредим елементите, ако имаме отрицателни числа в него. Тъй като няма отрицателни индекси на масив. Така че това, което правим е da намерим минималния елемент и ще съхраним броя на този минимален елемент при нулев индекс.
 
+````cpp
+//Counting sort which takes negative numbers as well 
+#include <iostream> 
+#include <vector> 
+#include <algorithm> 
+using namespace std;
+
+void countSort(vector <int>& arr)
+{
+	int max = *max_element(arr.begin(), arr.end());
+	int min = *min_element(arr.begin(), arr.end());
+	int range = max - min + 1;
+
+	vector<int> count(range), output(arr.size());
+	for (int i = 0; i < (int)arr.size(); i++) count[arr[i] - min]++;
+
+	for (int i = 1; i < (int)count.size(); i++) count[i] += count[i - 1];
+
+	for (int i = (int)arr.size() - 1; i >= 0; i--)
+	{
+		output[count[arr[i] - min] - 1] = arr[i];
+		count[arr[i] - min]--;
+	}
+	for (int i = 0; i < (int)arr.size(); i++) arr[i] = output[i];
+}
+void printArray(vector <int> & arr)
+{
+	for (int i = 0; i < (int)arr.size(); i++)
+		cout << arr[i] << " ";
+	cout << "\n";
+}
+int main()
+{
+	vector<int> arr = { -5, -10, 0, -3, 8, 5, -1, 10 };
+	countSort(arr);
+	printArray(arr);
+	return 0;
+}
+````
+- Counting Sort е ефикасен, ако обхватът на входните данни не е значително по-голям от броя на обектите, които ще бъдат сортирани. Помислете за ситуацията, в която последователността на въвеждане е в диапазон от 1 до 10K и данните са 10, 5, 10K, 5K.
+- както споменахме по-горе, това не е сортиране, основано на сравнение. Сложността на време на работа е O(n) с пространство, пропорционално на диапазона от данни.
+- Counting Sort използва частично хеширане за отчитане на появата на обекта на данни в O(1).
+- алгоритъма може да се разшири, за да работи и за отрицателни входове.
 
 # Shuffling Algorithms
 

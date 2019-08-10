@@ -261,8 +261,81 @@ size_t midIndex= start + (end - start) / 2; // find position of the middle eleme
    - за ***деление с централна точка всеки път произволен елемент***  
 ```cpp
 size_t randIndex = start + rand()%((end-start)+1);// find position of the random element from the interval [start..end]
-	std::swap(arr[randIndex], arr[end]);      //swap the random with the last element
+	std::swap(arr[randIndex], arr[end]);      //swap the random with the last element	
 ``` 
+### 4. Counting Sort
+Това е един много хитър и ефективен метод за сортиране на числа, който вместо да ги сравнява по между им ги брои. В случая е необходимо да знаем колко са големи числата, т.е. трябва да имаме някакъв rangе (k). Нека се опитаме да разберем метода по-лесно чрез следния пример:
+````
+За яснота взимаме числа, които са от 0 до 9. 
+Входни данни: 1, 4, 1, 2, 7, 5, 2
+  1) Вземаме масив, който да съхранява всички уникални числа от 0 до 9.
+  Индекс:     0  1  2  3  4  5  6  7  8  9
+  Брой:       0  2  2  0  1  1  0  1  0  0
+
+  2) Модифицираме масива с преброените срещания на уникални числа така, че елемента на всеки индекс да съхранява сумата на
+     елементите на предходния и текущия индекси: 
+  Индекс:     0  1  2  3  4  5  6  7  8  9
+  Брой:       0  2  4  4  5  6  6  7  7  7
+
+Модифицирания масив с преброените срещания индикира позицията на всеки обект (число) в изходната редица.
+ 
+  3) Извеждаме всеки обект от входната редица, след което декрементираме броя му.
+  Обработваме входните данни: 1, 4, 1, 2, 7, 5, 2. Позицията на 1 е 2.
+  Слагаме данна 1 на позиция 1 в изходните данни. намаляме броя и с 1, за да поставим
+  следващата данна 1 на позиция 0.
+````
+
+`````cpp
+#include<iostream>
+#include<cstring> 
+#define RANGE 255  
+
+// The main function that sort the given string arr[] in alphabatical order  
+void countSort(char arr[])
+{	// The output character array that will have sorted arr  
+	char* output=new char[strlen(arr)];
+	// Create a count array to store count of inidividul  
+	// characters and initialize count array as 0  
+	int count[RANGE + 1], i;
+	memset(count, 0, sizeof(count));
+	// Store count of each character  
+	for (i = 0; arr[i]; i++) ++count[arr[i]];
+	// Change count[i] so that count[i] now contains actual  
+	// position of this character in output array  
+	for (i = 1; i <= RANGE; i++) count[i] += count[i - 1];
+	// Build the output character array  
+	for (i = 0; arr[i]; i++)
+	{
+		output[count[arr[i]] - 1] = arr[i];
+		--count[arr[i]];
+	}
+
+	/*
+	For Stable algorithm
+	for (i = sizeof(arr)-1; i>=0; i--)
+	{
+		output[count[arr[i]]-1] = arr[i];
+		--count[arr[i]];
+	}
+	*/
+
+	// Copy the output array to arr, so that arr now contains sorted characters  
+	for (i = 0; arr[i]; ++i) arr[i] = output[i];
+	delete[] output;
+} 
+int main()
+{
+	char arr[] = "Data Structures and Algorithums";
+	countSort(arr);
+
+	std::cout << "Sorted character array is: " << arr;
+	return 0;
+}
+
+
+````
+
+
 # Shuffling Algorithms
 
 Разбъркване на елементите на дадена колекция. Това означава да се генерира произволна пермутация на елементите от тази колекция.

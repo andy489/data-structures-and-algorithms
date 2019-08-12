@@ -8,8 +8,9 @@ Name | Best | Average | Worst | Memory | Stable | Method
 **Bubble Sort** | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n^2)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n^2)}"> | 1 | Yes | *exchanging*
 **Insertion Sort** | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n^2)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n^2)}"> | 1 | Yes | *insertion*
 **Merge Sort** | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.\log_{2}n)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.\log_{2}n)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.\log_{2}n)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(n)"> | Yes | *middle partitioning*
-**Quick Sort** [*(Tony Hoare)*](https://en.wikipedia.org/wiki/Tony_Hoare) | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.\log_{2}n)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.\log_{2}n)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n^2)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(n)"> | Depends | *choice partitioning*
-**Counting Sort** | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n+k)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n+k)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n+k)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(n+k)"> | Yes | counting
+**Quick Sort** [*(Tony Hoare)*](https://en.wikipedia.org/wiki/Tony_Hoare) | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.\log_{2}n)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.\log_{2}n)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n^2)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(n)"> | Yes (depends) | *choice partitioning*
+**Counting Sort** | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n+k)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n+k)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n+k)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(n+k)"> | Yes (depends)| counting
+**Bucket Sort** | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n+k)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.log{n})}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n+k)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(n+k)"> | Yes (depends) | partition into buckets
  
 - *сложността на един алгоритъм описва нарастването на броя операции спрямо нарастването на броя данни (и състоянието им - почти подредени, средно разбъркани, силно разбъркани).*
 
@@ -263,7 +264,7 @@ size_t midIndex= start + (end - start) / 2; // find position of the middle eleme
 size_t randIndex = start + rand()%((end-start)+1);// find position of the random element from the interval [start..end]
 	std::swap(arr[randIndex], arr[end]);      //swap the random with the last element	
 ``` 
-### 4. Counting Sort
+### 6. Counting Sort
 Това е един много хитър и ефективен метод за сортиране на числа, който вместо да ги сравнява по между им ги брои. В случая е необходимо да знаем колко са големи числата, т.е. трябва да имаме някакъв rangе (k). Нека се опитаме да разберем метода по-лесно чрез следния пример:
 ````
 За яснота взимаме числа, които са от 0 до 9. 
@@ -377,6 +378,27 @@ int main()
 - както споменахме по-горе, това не е сортиране, основано на сравнение. Сложността на време на работа е O(n) с пространство, пропорционално на диапазона от данни.
 - Counting Sort използва частично хеширане за отчитане на появата на обекта на данни в O(1).
 - алгоритъма може да се разшири, за да работи и за отрицателни входове.
+
+### 6. Bucket Sort 
+
+Подобно на Counting Sort, Bucket Sort-a дефинита направени от него контейнери като диапазони. Представете си следното: искаме да сортираме дадена група хора по години, но ни интересува само в какъв диапазон години са, например - от 10 до 20, от 20 до 30 и т.н. Съответно ние взимаме обектите (хората) и ги поставяме в конкретния диапазон (bucket) с този рейндж и вече конкретния диапазон може да изберем да го сортираме с алгоритъм, който работи добре за малко елементи. Т.е. разцепваме данните на групи и ако искаме да ги досортираме - отделната група я сортираме с нещо елементарно и оптимално.
+Алгоритъма аналогично не използва сравнения между елементите.
+
+Ето и друг пример: Сортирайте голям набор от числа с плаваща запетая, които са в диапазон от 0,0 до 1,0 и са равномерно разпределени в обхвата. Как да подредим числата ефективно?
+
+Прост начин е да се приложи алгоритъм за сортиране, базиран на сравнение. Долната граница за алгоритъм за сортиране на базата на Сравнение (Merge Sort, Heap Sort, Quick-Sort... и т.н.) е <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.\log{n})}">, т.е. те не могат да се справят по-добре от <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.\log{n})}">. Можем ли да сортираме масива в линейно време? Тук не може да се приложи Counting Sort, тъй като ние използваме ключовете като индекс при отброяване. Тук ключовете са числа с плаваща запетая.
+Идеята е да се използва сортиране с "кофички". Следва псевдокод на алгоритъм на кофичките:
+
+````bucketSort (arr [], n)
+1) Създаваме n празни кофи (или списъци).
+2) Правим следното за всеки елемент от масива - arr[i].
+- a) Вмъкваме arr[i] в кофичка [n * масив[i]]
+3) Сортираме отделните кофички с помощта на Insertion Sort.
+4) Съединяваме всички сортирани кофички.
+````
+
+![alt text](https://upload.wikimedia.org/wikipedia/commons/e/e3/Bucket_sort_2.svg)
+
 
 # Shuffling Algorithms
 

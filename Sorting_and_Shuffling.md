@@ -11,7 +11,7 @@ Name | Best | Average | Worst | Memory | Stable | Method
 **Quick Sort** [*(Tony Hoare)*](https://en.wikipedia.org/wiki/Tony_Hoare) | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.\log{n})}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.\log{n})}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n^2)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\log{n}"> | Yes (depends) | *choice partitioning*
 **Counting Sort** | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n+k)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n+k)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n+k)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(n+k)">, worst-case | Yes (depends)| counting
 **Bucket Sort** | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n+k)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n+\frac{n^2}{k}+k)}">, where <img src="https://latex.codecogs.com/svg.latex?\Large&space;k"> is the number of buckets and <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n)}">, when <img src="https://latex.codecogs.com/svg.latex?\Large&space;k\approx{n}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n^2)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(n.k)">, worst-case | Yes (depends) | partition into buckets
-**Heap Sort** | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.\log{n})}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.\log{n})}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.\log{n})}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;O{(1)}"> or <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(n)"> | No | *improved selection*
+**Heap Sort** [*(J. W. J. Williams)*](https://en.wikipedia.org/wiki/J._W._J._Williams) | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.\log{n})}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.\log{n})}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.\log{n})}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;O{(1)}"> or <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(n)"> | No | *improved selection*
  
 - *сложността на един алгоритъм описва нарастването на броя операции спрямо нарастването на броя данни (и състоянието им - почти подредени, средно разбъркани, силно разбъркани).*
 
@@ -439,6 +439,20 @@ int main()
 	return 0;
 }
 ```
+
+### 7. Heap Sort 
+
+В компютърните науки, Heap Sort е алгоритъм за сортиране базиран на сравнение. Heap Sort може да се разглежда като подобрен вид на Selection Sort. Подобно на него, той разделя своя вход на сортиран и несортиран регион и итеративно свива несортирания регион, като извлича най-големия елемент и го премества в сортирания регион. Подобрението се състои в използването на структура от данни за купчина, а не в линейно търсене за намиране на максимум. Макар и малко по-бавен на практика на повечето машини, отколкото един добре имплементиран Quick Sort, той има предимството на по-благоприятното време за изпълнение <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.\log{n})}"> в най-лошия случай. Heap Sort е изобретен от J.W.J. Williams през 1964 г. Тази година също така беше и рожденната на heap-a, представена вече от Williams като полезна структура от данни сама по себе си. През същата година R.W.Floyd публикува подобрена версия, продължавайки по-ранните си изследвания в алгоритъма на Tree Sort.
+
+Heap Sort алгоритъма може да бъде разделен на две части. В първата стъпка от данните се изгражда купчина. Купчината често се поставя в масив с оформлението на цялостно бинарно дърво. Цялостното двоично дърво картира (maps) двоичната структура на индексите на масива; всеки индекс на масива представлява възел в дървото; индексът на родителския възел, левия наследен клон или десния наследен клон са прости изрази. За масив базиран на нула, коренният възел (корена на дървото) се съхранява в индекс 0; ако i е индексът на текущия възел, тогава:
+````
+iParent(i)     = floor((i-1) / 2) където floor функциите картографират реално число до най-малкото водещо цяло число.
+  iLeftChild(i)  = 2*i + 1
+  iRightChild(i) = 2*i + 2
+````
+Във втората сръпка се подрежда сортиран масив, като многократно се премахва най-големият елемент от грамадата (коренът на купчината) и се вмъква в масива. Купчината се актуализира след всяко премахване, за да се поддържа свойството ѝ. След като всички обекти са извадени от купчината, резултатът е подреден масив. Heap Sort може да се извърши in place. Масивът може да бъде разделен на две части, сортиран масив и купчина. Тук съхранението на купичини като масиви е под формата на диаграми. Инвариантът на купчината се запазва след всяко извличане, така че единствената цена е тази на извличането.
+
+*Алгоритъма:*
 
 # Shuffling Algorithms
 

@@ -530,7 +530,7 @@ int main()
 	printArray(arr, n);
 }
 ```
-![Alt Text](https://en.wikipedia.org/wiki/Heapsort#/media/File:Heapsort-example.gif)
+![Alt Text](https://upload.wikimedia.org/wikipedia/commons/4/4d/Heapsort-example.gif)
 
 # Shuffling Algorithms
 

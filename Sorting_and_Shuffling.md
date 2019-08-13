@@ -530,6 +530,8 @@ int main()
 	printArray(arr, n);
 }
 ```
+*Heap Sort Descending Example:*
+
 ![Alt Text](https://upload.wikimedia.org/wikipedia/commons/4/4d/Heapsort-example.gif)
 
 # Shuffling Algorithms

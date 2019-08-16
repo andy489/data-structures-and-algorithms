@@ -535,6 +535,78 @@ int main()
 
 ![Alt Text](https://upload.wikimedia.org/wikipedia/commons/4/4d/Heapsort-example.gif)
 
+### 8. Bogo Sort 
+
+*BogoSort* известен още като сортиране чрез пермутация, глупаво сортиране, бавно сортиране, сортиране на пробния изстрел или маймунско сортиране е особено неефективен алгоритъм, базиран на парадигмата - генериране и тестване. Алгоритъмът последователно генерира пермутации на своя вход, докато не намери сортирана :smile: . Звучи смешно, но все пак си е *ИДЕЯ*, а всяка идея, която работи заслужава внимание.
+Например, ако *bogosort* се използва за сортиране на тесте карти, това ще се състои в проверка дали тестето е в ред, а ако не е, човек би хвърлил тестето във въздуха, след което би събирал картите на случаен принцип и би повтори процесът, ако тестето не е било сортирано.
+
+*Псевдо код:*
+
+while not Sorted(list) do
+    shuffle (list)
+done
+
+Пример:
+
+Нека разгледаме следния списък ( 3 2 5 1 0 4 )
+4 5 0 3 2 1 (1-во разбъркване)
+4 1 3 2 5 0 (2-ро разбъркване)
+1 0 3 2 5 4 (3-то разбъркване)
+3 1 0 2 4 5 (4-то разбъркване)
+1 4 5 0 3 2 (5-то разбъркване)
+...
+0 1 2 3 4 5 (n-то разбъркване) — сортиран списък
+
+В случая <img src="https://latex.codecogs.com/svg.latex?\Large&space;n"> не е известно, защото алгоритъма не казва на коя стъпка резултатната пермутация ще е желаната.
+
+```cpp
+#include<iostream> 
+
+// To check if array is sorted or not 
+bool isSorted(int a[], size_t n)
+{
+	for (size_t i = 0; i < n - 1; i++)
+	{
+		if (a[i] > a[i + 1]) return false;
+	}
+	return true;
+}
+
+// To generate permuatation of the array 
+void shuffle(int a[], int n)
+{
+	for (int i = 0; i < n; i++)
+		std::swap(a[i], a[rand() % n]);
+}
+
+// Sorts array a[0..n-1] using Bogo sort 
+void bogosort(int a[], int n)
+{
+	// if array is not sorted then shuffle 
+	// the array again 
+	while (!isSorted(a, n)) shuffle(a, n);
+}
+
+// prints the array 
+void printArray(int a[], int n)
+{
+	for (int i = 0; i < n; i++)
+		std::cout << a[i] << ' ';
+	std::cout << std::endl;
+}
+
+int main()
+{
+	int a[] = { 3, 2, 5, 9, 1, 0, 4, 7, 6, 8, 10 };
+	size_t n = sizeof a / sizeof a[0];
+	bogosort(a, n);
+	printf("Sorted array :\n");
+	printArray(a, n);
+	return 0;
+}
+
+```
+
 # Shuffling Algorithms
 
 Разбъркване на елементите на дадена колекция. Това означава да се генерира произволна пермутация на елементите от тази колекция.

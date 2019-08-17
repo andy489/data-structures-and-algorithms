@@ -247,3 +247,7 @@ int main()
 	return 0;
 }
 ```
+
+### 2. Търсене със стъпка. Квадратично търсене (Qadratic search)
+
+Нека отново разгледаме случая на наредено множество. Разгледаният по-горе метод на търсене в сортиран списък се отличаваше незначително от стандартното последователно търсене и не използваше достатъчно пълноценно наредбата на елементите. Ще се опитаме да поправим тази грешка, като за целта ще възприемем коренно различен подход. Нека изберем някаква стъпка <img src="https://latex.codecogs.com/svg.latex?\Large&space;k"> и последователно извършваме проверката дали ключът на търсения елемент е по-голям от първия елемент, от <img src="https://latex.codecogs.com/svg.latex?\Large&space;k+1">-ия елемент, от <img src="https://latex.codecogs.com/svg.latex?\Large&space;2k+1">-ия елемент, от <img src="https://latex.codecogs.com/svg.latex?\Large&space;3k+1">-ия елемент, ... Т.е. сравняваме го с <img src="https://latex.codecogs.com/svg.latex?\Large&space;m[1].key,m[k+1].key,m[2*k+1].key,...">. Процесът приключва при достигане на елемент, по-голям или равен на <img src="https://latex.codecogs.com/svg.latex?\Large&space;x">, или на края на масива.

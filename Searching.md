@@ -155,14 +155,14 @@ int main()
 	listPrint();
 
 	std::cout << "Serching: \n";
-	CPPElem *el = listSearch(8);
-	if (el) std::cout <<"Element found: "<< el->data << ' ' << el->key<<'\n';	
+	CPPElem *el = listSearch(10);
+	if (el) std::cout << "Element found: key " << el->key << "; data " << el->data << '\n';
 	else std::cout << "No element with such key found.\n";
-	
+
 	return 0;
 }
 ```
-#### 1.1. Последователно търсене с преподреждане:
+#### 1.2. Последователно търсене с преподреждане:
 
 В случай, че разполагаме с предварителна информация относно вероятността за достъп до всеки от елементите, бихме могли да ги подредим така, че най-често търсеният да бъде на върха на списъка, следващият - непосредствено след него и т.н. Използването на подобна стратегия се оказва изключително ефективно, особено при силно неравномерно разпределение, при което малък брой елементи се търсят с много голяма ефективност.
 
@@ -170,3 +170,79 @@ int main()
 
 Предложената по-горе схема с поддържане на специални броячи обаче се оказва тромава, изисква допълнителна памет от порядъка на <img src="https://latex.codecogs.com/svg.latex?\Large&space;n"> и би могла да се оптимизира. За пореден път се оказва, че простото е по-добро. Действително, в този случай се оказва изключително ефективно прилагането на по-проста стратегия за реорганизация. Не се поддържат никакви броячи и не се води никаква статистика. Вместо това, при всяко успешно търсене на елемент той се поставя в началото на списъка. Разбира се тази стратегия не ни гарантира оптимално подреждане на елементите съгласно честотата им на достъп, но пък е лесна за поддържане и достатъчно ефективна. Действително, за разлика от варианта с броячите, тук реорганизацията става за време константа. От друга страна, колкото по-често е осъществяван достъп до даден елемент, с толкова по-голяма вероятност той ще се намира сред първите елементи на списъка. При това така по-добре се отчитат локалните особености: ако някой глобално погледнато рядко търсен елемент в даден момент се търси често, тази стратегия ще ни позвили да се възползваме от това.
 
+```cpp
+#define DataType int
+#define MAX 10
+#include <iostream>
+#include <time.h>
+
+struct CPPElem
+{
+	int key;
+	DataType data;
+	struct CPPElem *next;
+	/* ... */
+} *head;
+
+void listInit(void) /* Инициализиране */
+{
+	head = (struct CPPElem*) malloc(sizeof *head);
+	head->next = nullptr;
+}
+
+void listInsert(int key, DataType data)/* Добавя нов елемент */
+{
+	struct CPPElem *q = (struct CPPElem*) malloc(sizeof *head);
+	q->key = key; q->data = data;
+	q->next = head; head = q;
+}
+struct CPPElem *listSearch(int key) /* Последователно търсене с преподреждане */
+{
+	struct CPPElem *q, *p = head;
+	if (nullptr == head)
+		return nullptr;
+	if (head->key == key) return head;
+	for (q = head->next; q != nullptr; )
+	{
+		if (q->key != key)
+		{
+			p = q;
+			q = q->next;
+		}
+		else
+		{
+			p->next = q->next;
+			q->next = head;
+			return (head = q);
+		}
+	}
+	return nullptr;
+}
+
+void listPrint(void) /* Извежда списъка на екрана */
+{
+	struct CPPElem *q;
+	for (q = head; q->next != nullptr; q = q->next)
+	{
+		std::cout << q->key << ' ' << q->data;
+		std::cout << std::endl;
+	}
+}
+
+int main()
+{
+	srand(unsigned(time(0)));
+	unsigned ind;
+	listInit();
+	for (ind = 0; ind < MAX; ind++) listInsert(rand() % (MAX * 2), ind);
+	std::cout << "the list contains the following items:\n";
+	listPrint();
+
+	std::cout << "Serching: \n";
+	CPPElem *el = listSearch(10);
+	if (el) std::cout << "Element found: key " << el->key << "; data " << el->data << '\n';
+	else std::cout << "No element with such key found.\n";
+	listPrint();
+	return 0;
+}
+```

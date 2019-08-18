@@ -302,7 +302,8 @@ int jmpSearch(int key, unsigned step) /* квадратично търсене *
 void seqPrint(void) /*Извежда списъка на екрана*/
 {
 	unsigned i;
-	for (i = 1; i <= n; i++) std::cout << "position " << i << " : key " << m[i].key << " data " << m[i].data << std::endl;
+	for (i = 1; i <= n; i++) std::cout << "position " << i << " : key " << m[i].key 
+	<< " data " << m[i].data << std::endl;
 }
 
 int main()
@@ -316,7 +317,8 @@ int main()
 
 	std::cout << "Testing:\n";
 	int el = jmpSearch(KEY, (unsigned)(sqrt(n)));
-	(el != -1) ? std::cout << "Element with key " << KEY << " found at position " << el : std::cout << "no element with key " << KEY;
+	(el != -1) ? std::cout << "Element with key " << KEY << " found at position " 
+	<< el : std::cout << "no element with key " << KEY;
 
 	return 0;
 }
@@ -334,3 +336,9 @@ n/k|1|2|3|4|5|6|7|8
 **6**|6|4|4|4|5|6| | 
 **7**|7|4|4|4|5|6|7| 
 **8**|8|5|4|5|5|6|7|8
+
+**Таблица 2.1.** Максимален брой сравнения при различни стойности на <img src="https://latex.codecogs.com/svg.latex?\Large&space;n"> и <img src="https://latex.codecogs.com/svg.latex?\Large&space;k">.
+
+Вижда се, че най-добрите стойности на <img src="https://latex.codecogs.com/svg.latex?\Large&space;k"> са близки до <img src="https://latex.codecogs.com/svg.latex?\Large&space;frac{n}{2}">, т.е. разположени са в средата на съответния ред на таблицата или непосредствени вляво от нея. За да определим по-прецизно кои стойности на <img src="https://latex.codecogs.com/svg.latex?\Large&space;k"> са най-добри и как зависят от <img src="https://latex.codecogs.com/svg.latex?\Large&space;n">, следва да определим при каква зависимост между <img src="https://latex.codecogs.com/svg.latex?\Large&space;n"> и <img src="https://latex.codecogs.com/svg.latex?\Large&space;k"> функцията <img src="https://latex.codecogs.com/svg.latex?\Large&space;f(k)"> приема минимална стойност: 
+
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;f(k)=[\frac{n}{k}]+k-1">.

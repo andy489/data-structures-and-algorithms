@@ -362,8 +362,7 @@ n/k|1|2|3|4|5|6|7|8
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;f(k)=[\frac{n}{k}]+k-1,k\in{[1,n]}">.
 За да има локални екстремуми в този интервал, първата производна на функцията трябва да е равна на нула. Т.е.
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;f'(k)=\big([\frac{n}{k}]+k-1\big)'=-1.[n.k^{-2}]+1=0">, т.е.
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;[\frac{n}{k^2}]=1"> или максималното <img src="https://latex.codecogs.com/svg.latex?\Large&space;k">, за което това е изпълнено е <img src="https://latex.codecogs.com/svg.latex?\Large&space;\max{k}=\sqrt{n}">. A от това, че <img src="https://latex.codecogs.com/svg.latex?\Large&space;f''(k)=[2.n.k^{-3}]>0"> следва, че за <img src="https://latex.codecogs.com/svg.latex?\Large&space;k=\sqrt{n}">, функцията която отброяваше сравненията в най-лошия случай, достига своя минимум.
-
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;[\frac{n}{k^2}]=1"> или максималното <img src="https://latex.codecogs.com/svg.latex?\Large&space;k">, за което това е изпълнено е <img src="https://latex.codecogs.com/svg.latex?\Large&space;\max{k}=\sqrt{n}">. A от това, че <img src="https://latex.codecogs.com/svg.latex?\Large&space;f''(k)=[2.n.k^{-3}]>0"> следва, че за <img src="https://latex.codecogs.com/svg.latex?\Large&space;k=\sqrt{n}">, функцията която отброява сравненията в най-лошия случай, достига своя минимум.
 
 </p>
 </details>

@@ -285,14 +285,14 @@ void seqInsert(int key, DataType data) /*Добавя нов елемент*/
 	std::sort(m + 1, m + n + 1, wayToSort); /* сортитаме масива */
 }
 
-int seqSearch(unsigned l, unsigned r, int key)
+int seqSearch(unsigned l, unsigned r, int key) /* последователно търсене */
 {
 	while (l <= r)
 		if (m[l++].key == key) return l - 1;
 	return -1;
 }
 
-int jmpSearch(int key, unsigned step)
+int jmpSearch(int key, unsigned step) /* квадратично търсене */
 {
 	unsigned ind;
 	for (ind = 0; ind < n && m[ind].key < key; ind += step);
@@ -321,3 +321,16 @@ int main()
 	return 0;
 }
 ```
+
+Възниква важният въпрос: Как, при зададено <img src="https://latex.codecogs.com/svg.latex?\Large&space;n"> да избираме <img src="https://latex.codecogs.com/svg.latex?\Large&space;k"> така, че да осигурим максимална ефективност? Таблица 2.1. показва максималния брой сравнения, извършвани от вмъкването със стъпка при различни стойности на <img src="https://latex.codecogs.com/svg.latex?\Large&space;n"> и <img src="https://latex.codecogs.com/svg.latex?\Large&space;k">:
+
+n/k|1|2|3|4|5|6|7|8
+----|----|----|----|----|----|----|----|----
+1|1| | | | | | |  
+2|2| | | | | | | 
+3|3|2|3| | | | | 
+4|4|3|3|4| | | |  
+5|5|3|3|4|5| | | 
+6|6|4|4|4|5|6| | 
+7|7|4|4|4|5|6|7| 
+8|8|5|4|5|5|6|7|8

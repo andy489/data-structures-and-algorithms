@@ -393,9 +393,10 @@ const int jmpSearch(unsigned l, unsigned r,int key, unsigned step) /* квадр
 	for (ind = 0; ind < n && a[ind] < key; ind += step);
 	if (counter==3)	return seqSearch(ind + 1 < step ? 0 : ind + 1 - step, n < ind ? n : ind, key); 
 	/* ако е извикано два пъти квадратичното търсене - продължи с последователно търсене със стъпка 
-	равна на корен квадратен от дължината на сектора в който търсим, т.е. корен квадратен от корен от n,
-	което е корен 4-ти от дължината на цялата колекцията */
-	else return jmpSearch(ind + 1 < step ? 0 : ind + 1 - step, n < ind ? n : ind,key, (unsigned)(pow(n,1.0/(counter+1))));
+	равна на корен квадратен от дължината на сектора в който търсим, т.е. корен квадратен от корен 
+	от n, което е корен 4-ти от дължината на цялата колекцията */
+	else return jmpSearch(ind + 1 < step ? 0 : ind + 1 - step, n < ind ? n : 
+	ind,key, (unsigned)(pow(n,1.0/(counter+1))));
 }
 int main()
 {

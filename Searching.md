@@ -483,3 +483,35 @@ int main()
 	return 0;
 }
 ```
+Описаният по-горе процес попринцип е рекурсиве. На практика обаче на вяка стъпка се разглежда *точно едно* от двете подмножества. Вземайки предвид това, не е трудно да реализираме съответно итеративно решение:
+
+```cpp
+int binSearch(int key) /* Рекурсивно бинарно търсене */
+{
+	int l = 0, r = n - 1, mid;
+	while (l<=r)
+	{
+		mid = (l + r) / 2;
+		if (key < m[mid].key) r = mid - 1;
+		else if (key > m[mid].key) l = mid + 1;
+		else return mid;
+	}
+	return -1;
+}
+```
+Със съответната *main()* функция за тестване:
+
+```cpp
+int main()
+{
+	srand(unsigned(time(0)));
+	char ind;
+	for (ind = 'a'; ind < 97 + MAX; ind++) seqInsert(rand() % (MAX * 2), ind);
+	std::cout << "the list contains the following items:\n";
+	seqPrint();
+	int el = binSearch(KEY);
+	(el != -1) ? std::cout << "Element with key: " << KEY << " is found at position " << el
+		<< " with data " << m[el].data : std::cout << "No such element with key " << KEY << " in the array";
+	return 0;
+}
+```

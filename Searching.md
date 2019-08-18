@@ -372,7 +372,7 @@ n/k|1|2|3|4|5|6|7|8
 <details><summary>РЕШЕНИЕ 2.</summary>
 <p>
 	
-След като доказахме, че първата стъпка <img src="https://latex.codecogs.com/svg.latex?\Large&space;k"> е най-добра при <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sqrt{n}">, то получения интервал, в който отново трябва да приложим квадратичното търсене ще е в най-лошия случай пълен и (*jmpSearch()*) ще е с дължина <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sqrt{n}">, от където следва че втората стъпка трябва да е с дължина <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sqrt[4]{n}">:
+След като доказахме, че първата стъпка <img src="https://latex.codecogs.com/svg.latex?\Large&space;k"> е най-добра при <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sqrt{n}">, то получения интервал, в който отново трябва да приложим квадратичното търсене ще е в най-лошия случай пълен и (*jmpSearch()*) ще е с дължина <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sqrt{n}">, откъдето следва че втората стъпка трябва да е с дължина <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sqrt[4]{n}">:
 
 ```cpp
 #include <iostream>

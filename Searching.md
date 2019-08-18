@@ -511,7 +511,8 @@ int main()
 	seqPrint();
 	int el = binSearch(KEY);
 	(el != -1) ? std::cout << "Element with key: " << KEY << " is found at position " << el
-		<< " with data " << m[el].data : std::cout << "No such element with key " << KEY << " in the array";
+		<< " with data " << m[el].data : std::cout << "No such element with key " 
+		<< KEY << " in the array";
 	return 0;
 }
 ```

@@ -347,3 +347,25 @@ n/k|1|2|3|4|5|6|7|8
 
 И така, постигнахме едно наистина добро подобрение: от <img src="https://latex.codecogs.com/svg.latex?\Large&space;n"> до 
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sqrt{n}">. Бихме ли могли да постигнем повече? Както следва да се очаква, отговорът на този въпрос е положителен. Действително по-горе минимизирахме <img src="https://latex.codecogs.com/svg.latex?\Large&space;f(k)"> предполагайки, че след определяне на интервала ще извършим последователно търсене. И точно тук идва идеята: А какво ще стане, ако в този момент приложим още веднъж търсене с някаква нова стъпка <img src="https://latex.codecogs.com/svg.latex?\Large&space;l(1\le{l}\le{k})"> и едва след това последователно търсене? Действително, действително дължината на интервала след първото търсене със стъпка <img src="https://latex.codecogs.com/svg.latex?\Large&space;k"> е <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sqrt{n}">, което може да бъде достатъчно голямо число, така че подобно подобрение би било разумно. Сега на първата стъпка ще имаме не повече от <img src="https://latex.codecogs.com/svg.latex?\Large&space;k"> сравнения за определяне на първия интервал, след това не повече от <img src="https://latex.codecogs.com/svg.latex?\Large&space;l"> сравнения - за определяне на втория, и накрая не повече от <img src="https://latex.codecogs.com/svg.latex?\Large&space;\frac{n}{k.l}"> - за последователното търсене. Можем да образуваме нова функция, която да минимизираме, като в този случай лесно се получава, че минимумът се достига за <img src="https://latex.codecogs.com/svg.latex?\Large&space;k=l=\frac{n}{k.l}">, откъдето <img src="https://latex.codecogs.com/svg.latex?\Large&space;n=k^3">. В този случай алгоритъмът ще извършва не повече от <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sqrt[3]{n}"> сравнения. За <img src="https://latex.codecogs.com/svg.latex?\Large&space;n\ge{12}"> се получава, че <img src="https://latex.codecogs.com/svg.latex?\Large&space;3\sqrt[3]{n}<2\sqrt{n}">, т.е. постигнахме подобрение [*Gregory, Rawlins-1997*].
+
+А какво би станало, ако приложим алгоритъма и трети и четвърти и т.н. път? Разсъждения, аналогични на горните, ни водят до граничната *логаритмична сложност*. Въпреки значението на описаното обобщение (постигнахме логаритмична сложност!) ние няма да се спираме повече на него, тъй като съществува по-прост начин за постигане на такава сложност.
+
+*Задачи за упражнение:*
+
+1. Да се докаже, че най-добрата стъпка при квадратично търсене в нареден масив с <img src="https://latex.codecogs.com/svg.latex?\Large&space;n"> елемента е <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sqrt{n}">.
+
+<details><summary>ДОКАЗАТЕЛСТВО</summary>
+<p>
+	
+- В най-лошия случай търсеният ключ е в последния интервал, което означава, че ще ни бъде необходимо <img src="https://latex.codecogs.com/svg.latex?\Large&space;{n/k]"> сравнения, за да определим нужния ни интервал, в който да приложим линейното търсене. Към тях следва да прибавим дължината на интервала, която при <img src="https://latex.codecogs.com/svg.latex?\Large&space;n">, кратно на <img src="https://latex.codecogs.com/svg.latex?\Large&space;k"> (в най-лошия случай, т.е. най-голям (пълен) интервал), е <img src="https://latex.codecogs.com/svg.latex?\Large&space;k-1">. Получаваме, че в най-лошия случай при търсене със стъпка <img src="https://latex.codecogs.com/svg.latex?\Large&space;k"> се извършват не повече от <img src="https://latex.codecogs.com/svg.latex?\Large&space;[n/k]+k-1"> сравнения. Нека изследваме тази функция спрямо променливата <img src="https://latex.codecogs.com/svg.latex?\Large&space;k">, която съхранява големината на стъпката. Искаме функцията да приема минимална стойност.
+	
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;f(k)=[\frac{n}{k}]+k-1,k\in{[1,n]}">.
+За да има локални екстремуми в този интервал, първата производна на функцията трябва да е равна на нула. Т.е.
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;f'(k)=\big([\frac{n}{k}]+k-1\big)'=-1.[n.k^{-2}]+1=0">, т.е.
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;[\frac{n}{k^2}]=1"> или максималното <img src="https://latex.codecogs.com/svg.latex?\Large&space;k">, за което това е изпълнено е <img src="https://latex.codecogs.com/svg.latex?\Large&space;\max{k}=\sqrt{n}">. A от това, че <img src="https://latex.codecogs.com/svg.latex?\Large&space;f''(k)=[2.n.k^{-3}]>0"> следва, че за <img src="https://latex.codecogs.com/svg.latex?\Large&space;k=\sqrt{n}">, функцията която отброяваше сравненията в най-лошия случай, достига своя минимум.
+
+
+</p>
+</details>
+
+2. Да се реализира двустепенно търсене със стъпки <img src="https://latex.codecogs.com/svg.latex?\Large&space;k"> и <img src="https://latex.codecogs.com/svg.latex?\Large&space;l">. Да се намерят експериментално оптималните стойности на <img src="https://latex.codecogs.com/svg.latex?\Large&space;k"> и <img src="https://latex.codecogs.com/svg.latex?\Large&space;l"> като функции на <img src="https://latex.codecogs.com/svg.latex?\Large&space;n">.

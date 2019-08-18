@@ -257,3 +257,67 @@ int main()
 Съгласно приведеното по-горе описание, предложеният метод винаги започва с <img src="https://latex.codecogs.com/svg.latex?\Large&space;m[1].key">. Доколко подобно начало е удачно? Не е трудно да се види, че това всъщност е лош избор, при това по същите причини, по които е лош изборът <img src="https://latex.codecogs.com/svg.latex?\Large&space;m[n].key">: носи минимално количество информация. Оказва се, че е много по удачно да се започне направо с <img src="https://latex.codecogs.com/svg.latex?\Large&space;m[k].key">. Лесно се вижда, че и в този случай при <img src="https://latex.codecogs.com/svg.latex?\Large&space;k=1"> се получава линейно търсене.
 
 Каква е ефективността на описания метод при фиксирано <img src="https://latex.codecogs.com/svg.latex?\Large&space;k"> и кой е най-лошия случай? Ясно е, че линейното търсене има еднаква цена за всички инервали от вида <img src="https://latex.codecogs.com/svg.latex?\Large&space;\big[m[i*k+1].key;m[(i+1)*k].key\big]">, тъй като се извършва върху еднакъв брой елементи. Изключение може да прави единствено последният интервал, който евентуално може да съдържа по малко от <img src="https://latex.codecogs.com/svg.latex?\Large&space;k"> елемента. В най-лошия случай търсеният ключ е в последния интервал, което означава, че ще ни бъде необходимо <img src="https://latex.codecogs.com/svg.latex?\Large&space;{n/k]"> сравнения, за да определим нужния ни интервал, в който да приложим линейното търсене. Към тях следва да прибавим дължината на интервала, която при <img src="https://latex.codecogs.com/svg.latex?\Large&space;n">, кратно на <img src="https://latex.codecogs.com/svg.latex?\Large&space;k">, е <img src="https://latex.codecogs.com/svg.latex?\Large&space;k-1">. Получаваме, че в най-лошия случай при търсене със стъпка <img src="https://latex.codecogs.com/svg.latex?\Large&space;k"> се извършват не повече от <img src="https://latex.codecogs.com/svg.latex?\Large&space;[n/k]+k-1"> сравнения. Следва примерна реализация на описания алгоритъм:
+
+```cpp
+#define KEY 7
+#define MAX 10
+#define DataType int
+#include <iostream>
+#include <time.h>
+#include <algorithm>
+#include <cmath>
+struct CPPElem
+{
+	int key;
+	DataType data;
+	/*...*/
+}m[MAX + 1]; /* Масив от записи*/
+unsigned n;  /*Брой елементи в масива*/
+
+void seqInit(void) { n = 0; }  /*Инициализиране*/
+
+bool wayToSort(CPPElem i, CPPElem j) { return i.key < j.key; } /* критерии за сортиране */
+
+void seqInsert(int key, DataType data) /*Добавя нов елемент*/
+{
+	m[++n].key = key;
+	m[n].data = data;
+	std::sort(m + 1, m + n + 1, wayToSort); /* сортитаме масива */
+}
+
+int seqSearch(unsigned l, unsigned r, int key)
+{
+	while (l <= r)
+		if (m[l++].key == key) return l - 1;
+	return -1;
+}
+
+int jmpSearch(int key, unsigned step)
+{
+	unsigned ind;
+	for (ind = 0; ind < n && m[ind].key < key; ind += step);
+	return seqSearch(ind + 1 < step ? 0 : ind + 1 - step, n < ind ? n : ind, key);
+}
+
+void seqPrint(void) /*Извежда списъка на екрана*/
+{
+	unsigned i;
+	for (i = 1; i <= n; i++) std::cout << "position " << i << " : key " << m[i].key << " data " << m[i].data << std::endl;
+}
+
+int main()
+{
+	srand(unsigned(time(0)));
+	unsigned ind;
+	seqInit();
+	for (ind = 0; ind < MAX; ind++) seqInsert(rand() % (MAX * 2), ind);
+	std::cout << "the list contains the following items:\n";
+	seqPrint();
+
+	std::cout << "Testing:\n";
+	int el = jmpSearch(KEY, (unsigned)(sqrt(n)));
+	(el != -1) ? std::cout << "Element with key " << KEY << " found at position " << el : std::cout << "no element with key " << KEY;
+
+	return 0;
+}
+```

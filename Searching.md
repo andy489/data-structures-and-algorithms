@@ -420,3 +420,65 @@ int main()
 
 Следвайки директно горните предписания, получаваме следната очевидна рекурсивна реализация на двоичното търсене (извиква се с *binSearch(ключ_който_търсим,0,n-1)*):
 
+```cpp
+#include <iostream>
+#include <algorithm>
+#define MAX 10
+#define DataType char
+#define KEY 10
+#include <time.h>
+
+struct CPPElem
+{
+	int key;
+	DataType data;
+	/* ... */
+
+}m[MAX]; /* Масив от записи */
+unsigned n; /* Брой елементи в масива */
+void seqInit(void) { n = 0; } /* Инициализиране */
+bool wayToSort(CPPElem i, CPPElem j) { return i.key < j.key; } /* критерии за сортиране */
+void seqInsert(int key, DataType data)
+{
+	m[n].key = key;
+	m[n].data = data;
+	n++;
+	std::sort(m, m + n, wayToSort); /* Поддържаме масива сортиран след като добавим елемент */
+}
+
+int binSearch(int key, int l, int r) /* Рекурсивно бинарно търсене */
+{
+	int mid;
+	if (l > r) return -1;
+	mid = (l + r) / 2;
+	if (key < m[mid].key)
+	{
+		return binSearch(key, l, mid - 1);
+	}
+	else if (key > m[mid].key)
+	{
+		return binSearch(key, mid + 1, r);
+	}
+	else return mid;
+}
+
+void seqPrint(void) /*Извежда списъка на екрана*/
+{
+	unsigned i;
+	for (i = 0; i < n; i++) std::cout << "position " << i << " : key " << m[i].key
+		<< " data " << m[i].data << std::endl;
+}
+
+int main()
+{
+	srand(unsigned(time(0)));
+	char ind;
+	for (ind = 'a'; ind < 97 + MAX; ind++) seqInsert(rand() % (MAX * 2), ind);
+	std::cout << "the list contains the following items:\n";
+	seqPrint();
+	int el = binSearch(KEY, 0, MAX);
+	(el != -1) ? std::cout << "Element with key: " << KEY << " is found at position " << el
+		<< " with data " << m[el].data : std::cout << "No such element with key " << KEY << " in the array";
+	return 0;
+}
+```

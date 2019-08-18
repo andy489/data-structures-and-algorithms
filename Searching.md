@@ -368,3 +368,44 @@ n/k|1|2|3|4|5|6|7|8
 </details>
 
 2. Да се реализира двустепенно търсене със стъпки <img src="https://latex.codecogs.com/svg.latex?\Large&space;k"> и <img src="https://latex.codecogs.com/svg.latex?\Large&space;l">. Да се намерят експериментално оптималните стойности на <img src="https://latex.codecogs.com/svg.latex?\Large&space;k"> и <img src="https://latex.codecogs.com/svg.latex?\Large&space;l"> като функции на <img src="https://latex.codecogs.com/svg.latex?\Large&space;n">.
+
+<details><summary>ДОКАЗАТЕЛСТВО</summary>
+<p>
+	
+След като доказахме, че първата стъпка <img src="https://latex.codecogs.com/svg.latex?\Large&space;k"> е най-добра при <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sqrt{n}">, то получения интервал, в който отново трябва да приложим квадратичното търсене ще е в най-лошия случай пълен и (*jmpSearch()*) ще е с дължина <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sqrt{n}">, от където следва че втората стъпка трябва да е с дължина <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sqrt[4]{n}">:
+
+```cpp
+#include <iostream>
+#include <cmath>
+int a[] = { 3,4,9,12,13,14,40,44,45,50,60,60,70,80,90,100 };
+unsigned n = sizeof(a) / sizeof(a[0]);
+unsigned counter = 1; /* променлива, която съхранява броя на извиканите квадратични търсения */
+const int seqSearch(unsigned l, unsigned r, int key) /* последователно търсене */
+{
+	while (l <= r)
+		if (a[l++] == key) return l - 1;
+	return -1;
+}
+const int jmpSearch(unsigned l, unsigned r,int key, unsigned step) /* квадратично търсене */
+{
+	counter++;
+	unsigned ind;
+	for (ind = 0; ind < n && a[ind] < key; ind += step);
+	if (counter==3)	return seqSearch(ind + 1 < step ? 0 : ind + 1 - step, n < ind ? n : ind, key); 
+	/* ако е извикано два пъти квадратичното търсене - продължи с последователно търсене със стъпка 
+	равна на корен квадратен от дължината на сектора в който търсим, т.е. корен квадратен от корен от n,
+	което е корен 4-ти от дължината на цялата колекцията */
+	else return jmpSearch(ind + 1 < step ? 0 : ind + 1 - step, n < ind ? n : ind,key, (unsigned)(pow(n,1.0/(counter+1))));
+}
+int main()
+{
+	int el=jmpSearch(0,n-1,40,(unsigned)(pow(n, 1.0 / (counter + 1))));
+	(el != -1) ? std::cout << "element found at position: " << el : std::cout << "no such element";
+
+	return 0;
+}
+```
+
+</p>
+</details>
+

@@ -354,7 +354,7 @@ n/k|1|2|3|4|5|6|7|8
 
 1. Да се докаже, че най-добрата стъпка при квадратично търсене в нареден масив с <img src="https://latex.codecogs.com/svg.latex?\Large&space;n"> елемента е <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sqrt{n}">.
 
-<details><summary>ДОКАЗАТЕЛСТВО</summary>
+<details><summary>ДОКАЗАТЕЛСТВО 1.</summary>
 <p>
 	
 - В най-лошия случай търсеният ключ е в последния интервал, което означава, че ще ни бъдат необходими <img src="https://latex.codecogs.com/svg.latex?\Large&space;[n/k]"> сравнения, за да определим нужния ни интервал, в който да приложим линейното търсене. Към тях следва да прибавим дължината на интервала, която при <img src="https://latex.codecogs.com/svg.latex?\Large&space;n"> кратно на <img src="https://latex.codecogs.com/svg.latex?\Large&space;k"> (в най-лошия случай, т.е. най-голям (пълен) интервал), е <img src="https://latex.codecogs.com/svg.latex?\Large&space;k-1">. Получаваме, че в най-лошия случай при търсене със стъпка <img src="https://latex.codecogs.com/svg.latex?\Large&space;k"> се извършват не повече от <img src="https://latex.codecogs.com/svg.latex?\Large&space;[n/k]+k-1"> сравнения. Нека изследваме тази функция спрямо променливата <img src="https://latex.codecogs.com/svg.latex?\Large&space;k">, която съхранява големината на стъпката. Искаме функцията да приема минимална стойност.
@@ -369,7 +369,7 @@ n/k|1|2|3|4|5|6|7|8
 
 2. Да се реализира двустепенно търсене със стъпки <img src="https://latex.codecogs.com/svg.latex?\Large&space;k"> и <img src="https://latex.codecogs.com/svg.latex?\Large&space;l">. Да се намерят експериментално оптималните стойности на <img src="https://latex.codecogs.com/svg.latex?\Large&space;k"> и <img src="https://latex.codecogs.com/svg.latex?\Large&space;l"> като функции на <img src="https://latex.codecogs.com/svg.latex?\Large&space;n">.
 
-<details><summary>ДОКАЗАТЕЛСТВО</summary>
+<details><summary>РЕШЕНИЕ 2.</summary>
 <p>
 	
 След като доказахме, че първата стъпка <img src="https://latex.codecogs.com/svg.latex?\Large&space;k"> е най-добра при <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sqrt{n}">, то получения интервал, в който отново трябва да приложим квадратичното търсене ще е в най-лошия случай пълен и (*jmpSearch()*) ще е с дължина <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sqrt{n}">, от където следва че втората стъпка трябва да е с дължина <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sqrt[4]{n}">:

@@ -717,4 +717,4 @@ int interpolSearch(int key)
 
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,10000">
 
-Освен това при малки стойности на  <img src="https://latex.codecogs.com/svg.latex?\Large&space;n"> числата <img src="https://latex.codecogs.com/svg.latex?\Large&space;log_2{n}"> и <img src="https://latex.codecogs.com/svg.latex?\Large&space;log_2{log_2{n}}"> не се различават съществено, поради което обикновено се счита, че използването на интерполационното търсене не се струва риска.
+Освен това при малки стойности на  <img src="https://latex.codecogs.com/svg.latex?\Large&space;n"> числата <img src="https://latex.codecogs.com/svg.latex?\Large&space;log_2{n}"> и <img src="https://latex.codecogs.com/svg.latex?\Large&space;log_2{log_2{n}}"> не се различават съществено, поради което обикновено се счита, че използването на интерполационното търсене не си струва риска. От друга страна, при особено големи файлове, при големи ключове или при външно разположение на данните, когато сравненията са особено скъпи, следва твърдо да се предпочита интерполационното търсене.

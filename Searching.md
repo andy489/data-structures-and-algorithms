@@ -602,4 +602,56 @@ int binSearch(int key)
 
 Фибоначиевото търсене силно напомня двоичното - масивът се разделя на две части, като едната се изключва от по-нататъшни разглеждания/ Единствената разлика е начинът на избор на елемента, с който ще сравняваме. Нека предположим, че търсеното става в <img src="https://latex.codecogs.com/svg.latex?\Large&space;n">-елементен масив, като <img src="https://latex.codecogs.com/svg.latex?\Large&space;n=F_k-1">. На първата стъпка сравняваме търсения ключ <img src="https://latex.codecogs.com/svg.latex?\Large&space;x"> с <img src="https://latex.codecogs.com/svg.latex?\Large&space;m[F_{k-1}].key">. В случай на равенство търсенето приключва успешно. В случай че <img src="https://latex.codecogs.com/svg.latex?\Large&space;x<m[F_{k-1}].key"> на следващата стъпка разглеждаме елементите <img src="https://latex.codecogs.com/svg.latex?\Large&space;1,2,3,...,F_{k-1}-1">. Ако пък <img src="https://latex.codecogs.com/svg.latex?\Large&space;x>m[F_{k-1}].key"> на следващата стъпка остават за разглеждане елементите <img src="https://latex.codecogs.com/svg.latex?\Large&space;F_{k-1}+1,F_{k-1}+2,...,n=F_k">. Директно се пресмята, че в първия случай за следващата стъпка получаваме последователност с дължина <img src="https://latex.codecogs.com/svg.latex?\Large&space;F_{k-1}-1">, а във втория - <img src="https://latex.codecogs.com/svg.latex?\Large&space;F_{k-2}-1">. Процесът се повтаря върху неотхвърлената част до намиране на търсения елемент или достигане до празната последователност (*Horowitz-1977*). Една възможна реализация на Фибоначиевото търсене изглежда така (<img src="https://latex.codecogs.com/svg.latex?\Large&space;l\ge{0}"> и е такова, че <img src="https://latex.codecogs.com/svg.latex?\Large&space;F_k+l=n+1">) и <img src="https://latex.codecogs.com/svg.latex?\Large&space;F_{k+1}>n+1">):
 
+```cpp
+unsigned fib[MAX]; /* Числата на Фибоначи, ненадвишаващи n */
 
+unsigned findFib(unsigned n)
+{
+	unsigned k;
+	fib[0] = 0;
+	fib[1] = 1;
+	for (k = 2; ; k++)
+	if ((fib[k] = fib[k - 1] + fib[k - 2]) > n) return k - 1;
+	return 0;
+}
+
+int fibSearch(int key)
+{
+	int p, q, r, k;
+	k = findFib(n);
+	p = fib[k - 1];
+	q = fib[k - 2];
+	r = fib[k - 3];
+	if (key > m[p].key) p += n - fib[k] + 1;
+	while (p > 0)
+	{
+		if (key == m[p].key) return p;
+		else
+		{
+			if (key<m[p].key)
+			{
+				if (0 == r) p = 0;
+				else
+				{
+					int t;
+					p -= r;
+					t = q;
+					q = r;
+					r = t - r;
+				}
+			}
+			else
+			{
+				if (1==q) p = 0;				
+				else
+				{
+					p += r;
+					q -= r;
+					r -= q;
+				}
+			}
+		}
+	}
+	return -1;
+}
+```

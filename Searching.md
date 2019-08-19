@@ -673,4 +673,41 @@ int fibSearch(int key)
 
 Каква е ефективността на разгледаното подобрение? В случай на равномерно разпределение интерполационното търсене дава наистина забележителни резултати! Тогава горното приближение, зададено от <img src="https://latex.codecogs.com/svg.latex?\Large&space;k">, се оказва много близо до истинската позиция на търсения елемент и той бива открит значително по-бързо в сравнение с двоичното търсене. Доказва се, че тогава интерполационното търсене извършва по-малко от <img src="https://latex.codecogs.com/svg.latex?\Large&space;log_2{(log_2{n})}+1"> сравнения както при успешно, така и при неуспешно търсене. За да може да оценим по видимо ефективността на изложения метод, ще посочим, че функцията <img src="https://latex.codecogs.com/svg.latex?\Large&space;log_2{(log_2{n})}"> расте изключително бавно. Например <img src="https://latex.codecogs.com/svg.latex?\Large&space;log_2{(log_2{1000000000})}<5">.
 
-
+```cpp
+int interpolSearch(int key)
+{
+	unsigned r, l, mid;
+	float k;
+	l = 0; r = n - 1;
+	while (l <= r)
+	{
+		if (m[r].key == m[l].key)
+		{
+			if (m[l].key==key)
+			{
+				return l;
+			}
+			else
+			{
+				return-1;
+			}
+		}
+		k = (float)(key - m[l].key) / (m[r].key - m[l].key);
+		if (k<0||k>1)
+		{
+			return -1;
+		}
+		mid = (unsigned)(l + k * (r - l) + 0.5);
+		if (key<m[mid].key)
+		{
+			r = mid - 1;
+		}
+		else if(key>m[mid].key)
+		{
+			l = mid + 1;
+		}
+		else return mid;
+	}
+	return -1;
+}
+```

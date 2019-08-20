@@ -6,6 +6,7 @@ Name | Best | Average | Worst | Memory | Stable | Method
 ------------ | ------------- | ------------- | ------------- | ------------- | ------------- | -------------
 **Selection Sort** | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n^2)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n^2)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n^2)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;O{(1)}"> | No | *selection*
 **Bubble Sort** | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n^2)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n^2)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;O{(1)}"> | Yes | *exchanging*
+**Cocktail Sort** | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n^2)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n^2)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;O{(1)}"> | Yes | *exchanging*
 **Insertion Sort** | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n^2)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n^2)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;O{(1)}"> | Yes | *insertion*
 **Merge Sort** | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.\log{n})}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.\log{n})}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.\log{n})}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;1"> or <img src="https://latex.codecogs.com/svg.latex?\Large&space;n"> | Yes | *middle partitioning*
 **Quick Sort** [*(Tony Hoare)*](https://en.wikipedia.org/wiki/Tony_Hoare) | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.\log{n})}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.\log{n})}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n^2)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\log{n}"> | Yes (depends) | *choice partitioning*
@@ -53,8 +54,129 @@ Name | Best | Average | Worst | Memory | Stable | Method
 	}
 }
 ```
+ ### 3. Cocktail Sort  
+Коктейлното сортиране (*Cocktail Sort*) е разновидност на сортирането с метода на балончето (*Bubble Sort*). Алгоритъмът за сортиране с метода на балончетата винаги преминава елементите отляво и премества най-големия елемент в правилната му позиция при първа итерация и втори по големина при втората итерация и така нататък. Коктейлното сортиране преминава през даден масив и в двете посоки алтернативно. 
 
- ### 3. Insertion Sort      
+*Алгоритъм:*
+
+Всяка итерация на алгоритъма се разделя на 2 етапа:
+
+- Първият етап преминава през масива отляво надясно, точно както сортирането с балончета. По време на цикъла се сравняват съседните елементи и ако стойността вляво е по-голяма от стойността вдясно, тогава стойностите се разменят. В края на първата итерация най-голямото число ще пребивава в края на масива.
+- Вторият етап преминава през масива в противоположна посока - започвайки от елемента непосредствено преди последния сортиран елемент и се връща обратно към началото на масива. Тук също се сравняват съседни елементи и се разменят, ако е необходимо.
+
+Пример : Нека разгледаме примерната редица (5 1 4 2 8 0 2)
+
+Първо преминаване напред:
+
+  - (**5 1** 4 2 8 0 2) ? (**1 5** 4 2 8 0 2), разменя, т.к. 5 > 1
+  - (1 **5 4** 2 8 0 2) ? (1 **4 5** 2 8 0 2), разменя, т.к. 5 > 4
+  - (1 4 **5 2** 8 0 2) ? (1 4 **2 5** 8 0 2), разменя, т.к. 5 > 2
+  - (1 4 2 **5 8** 0 2) ? (1 4 2 **5 8** 0 2)
+  - (1 4 2 5 **8 0** 2) ? (1 4 2 5 **0 8** 2), разменя, т.к. 8 > 0
+  - (1 4 2 5 0 **8 2**) ? (1 4 2 5 0 **2 8**), разменя, т.к. 8 > 2
+
+След първото преминаване напред, най-големият елемент от масива ще е на последния индекс на масива.
+
+Първо преминаване назад:
+
+  - (1 4 2 5 **0 2** 8) ? (1 4 2 5 **0 2** 8)
+  - (1 4 2 **5 0** 2 8) ? (1 4 2 **0 5** 2 8), разменя, т.к. 5 > 0
+  - (1 4 **2 0** 5 2 8) ? (1 4 **0 2** 5 2 8), разменя, т.к. 2 > 0
+  - (1 **4 0** 2 5 2 8) ? (1 **0 4** 2 5 2 8), разменя, т.к. 4 > 0
+  - (**1 0** 4 2 5 2 8) ? (**0 1** 4 2 5 2 8), разменя, т.к. 1 > 0
+
+След първо преминаване назад, най-малкият елемент от масива ще е на първия индекс на масива.
+
+Второ преминаване напред:
+
+(0 1 4 2 5 2 8) ? (0 1 4 2 5 2 8)
+(0 1 **4 2** 5 2 8) ? (0 1 **2 4** 5 2 8), разменя, т.к. 4 > 2
+(0 1 2 4 5 2 8) ? (0 1 2 4 5 2 8)
+(0 1 2 4 **5 2** 8) ? (0 1 2 4 **2 5** 8), разменя, т.к. 5 > 2
+
+Второ преминаване назад:
+
+(0 1 2 **4 2** 5 8) ? (0 1 2 **2 4** 5 8), разменя, т.к. 4 > 2
+
+Сега масивът вече е почти сортиран, но алгоритъмът ни не знае дали е завършен. Алгоритъмът трябва да завърши целия този пропуск без никакъв *swap* (без никакво разменяне), за да знае, че е сортиран.
+
+(0 1 2 2 4 5 8) ? (0 1 2 2 4 5 8)
+(0 1 2 2 4 5 8) ? (0 1 2 2 4 5 8)
+
+По-долу е имплементацията на горния алгоритъм:
+
+```cpp
+#include <iostream> 
+void cocktailSort(int a[], int n)
+{
+	bool swapped = true;
+	int start = 0;
+	int end = n - 1;
+
+	while (swapped) {
+		// reset the swapped flag on entering 
+		// the loop, because it might be true from 
+		// a previous iteration. 
+		swapped = false;
+
+		// loop from left to right same as 
+		// the bubble sort 
+		for (int i = start; i < end; ++i) {
+			if (a[i] > a[i + 1]) {
+				std::swap(a[i], a[i + 1]);
+				swapped = true;
+			}
+		}
+
+		// if nothing moved, then array is sorted. 
+		if (!swapped)
+			break;
+
+		// otherwise, reset the swapped flag so that it 
+		// can be used in the next stage 
+		swapped = false;
+
+		// move the end point back by one, because 
+		// item at the end is in its rightful spot 
+		--end;
+
+		// from right to left, doing the 
+		// same comparison as in the previous stage 
+		for (int i = end - 1; i >= start; --i) {
+			if (a[i] > a[i + 1]) {
+				std::swap(a[i], a[i + 1]);
+				swapped = true;
+			}
+		}
+
+		// increase the starting point, because 
+		// the last stage would have moved the next 
+		// smallest number to its rightful spot. 
+		++start;
+	}
+}
+
+/* Prints the array */
+void printArray(int a[], int n)
+{
+	for (int i = 0; i < n; i++)
+		std::cout<<a[i]<<' ';
+	std::cout << std::endl;
+}
+
+// Driver code 
+int main()
+{
+	int arr[] = { 5, 1, 4, 2, 8, 0, 2 };
+	int n = sizeof(arr) / sizeof(arr[0]);
+	cocktailSort(arr, n);
+	printf("Sorted array :\n");
+	printArray(arr, n);
+	return 0;
+}
+```
+
+ ### 4. Insertion Sort      
 Алгоритъма започва от втория елемент в колекцията и върви надясно. За всеки текущ елемент проверява във вече сортираните елементи преди него, къде да го подпъхне (докато достигне първия или не достигне по-малък от текущия елемент → измества елементите преди него надясно, след което поставя текущия елемент на достигнатата позиция). Сложност <img src="https://latex.codecogs.com/svg.latex?\Large&space;\leq{O}\big(\frac{n(n-1)}{2}\big)\sim{n^2}">, „=“ в най-лошия случай.
 ```cpp
 void insertionSort(int* arr, size_t arrLen)
@@ -71,7 +193,7 @@ void insertionSort(int* arr, size_t arrLen)
 	}
 }
 ```
- ### 4. Merge Sort 
+ ### 5. Merge Sort 
  
 Това е алгоритъм, който разделя входния масив на две половини, извиква себе си за двете половини и след това слива двете подредени половинки. Функцията за сливане *merge()* се използва за сливане на две половини. Обединяването *(arr, l, m, r)* е ключов процес, който приема, че arr *[l..m]* и arr *[m+1..r]* са сортирани и слива двaта подредени под-масивa в един. Сложността на този алгоритъм може да се изрази рекурсивно чрез следната формула <img src="https://latex.codecogs.com/svg.latex?\Large&space;T(n)=2T(\frac{n}{2})+\Theta(n)"> 
 
@@ -154,7 +276,7 @@ void mergeSort(int* arr, int l, int r)
 ```
 	     
  
- ### 5. Quick Sort      
+ ### 6. Quick Sort      
 Също като Merge Sort, този алгоритъм се базира на техниката *„разделяй и владей“* и следователно е *рекурсивен* алгоритъм. Той избира начален елемент като *централна точка* и *разделя* дадената колекция спрямо тази точка. Спрямо тази централна точка, алгоритъма *Quick Sort* придобива множество различни версии:
 
   - винаги избира пъврия елемент като централна точка;
@@ -268,7 +390,7 @@ size_t midIndex= start + (end - start) / 2; // find position of the middle eleme
 size_t randIndex = start + rand()%((end-start)+1);// find position of the random element from the interval [start..end]
 	std::swap(arr[randIndex], arr[end]);      //swap the random with the last element	
 ``` 
-### 6. Counting Sort
+### 7. Counting Sort
 Това е един много хитър и ефективен метод за сортиране на числа, който вместо да ги сравнява по между им ги брои. В случая е необходимо да знаем колко са големи числата, т.е. трябва да имаме някакъв rangе (k). Нека се опитаме да разберем метода по-лесно чрез следния пример:
 ````
 За яснота взимаме числа, които са от 0 до 9. 
@@ -383,7 +505,7 @@ int main()
 - Counting Sort използва частично хеширане за отчитане на появата на обекта на данни в O(1).
 - алгоритъма може да се разшири, за да работи и за отрицателни входове.
 
-### 7. Bucket Sort 
+### 8. Bucket Sort 
 
 Подобно на Counting Sort, Bucket Sort-a дефинита направени от него контейнери като диапазони. Представете си следното: искаме да сортираме дадена група хора по години, но ни интересува само в какъв диапазон години са, например - от 10 до 20, от 20 до 30 и т.н. Съответно ние взимаме обектите (хората) и ги поставяме в конкретния диапазон (bucket) с този рейндж и вече конкретния диапазон може да изберем да го сортираме с алгоритъм, който работи добре за малко елементи. Т.е. разцепваме данните на групи и ако искаме да ги досортираме - отделната група я сортираме с нещо елементарно и оптимално.
 Алгоритъма аналогично не използва сравнения между елементите.
@@ -443,7 +565,7 @@ int main()
 }
 ```
 
-### 8. Heap Sort 
+### 9. Heap Sort 
 
 В компютърните науки, Heap Sort е алгоритъм за сортиране базиран на сравнение. Heap Sort може да се разглежда като подобрен вид на Selection Sort. Подобно на него, той разделя своя вход на сортиран и несортиран регион и итеративно свива несортирания регион, като извлича най-големия елемент и го премества в сортирания регион. Подобрението се състои в използването на структура от данни за купчина, а не в линейно търсене за намиране на максимум. Макар и малко по-бавен на практика на повечето машини, отколкото един добре имплементиран Quick Sort, той има предимството на по-благоприятното време за изпълнение <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.\log{n})}"> в най-лошия случай. Heap Sort е изобретен от J.W.J. Williams през 1964 г. Тази година също така беше и рожденната на heap-a, представена вече от Williams като полезна структура от данни сама по себе си. През същата година R.W.Floyd публикува подобрена версия, продължавайки по-ранните си изследвания в алгоритъма на Tree Sort.
 
@@ -535,7 +657,7 @@ int main()
 
 ![Alt Text](https://upload.wikimedia.org/wikipedia/commons/4/4d/Heapsort-example.gif)
 
-### 8. Bogo Sort 
+### 10. Bogo Sort 
 
 *BogoSort* известен още като сортиране чрез пермутация, глупаво сортиране, бавно сортиране, сортиране на пробния изстрел или маймунско сортиране е особено неефективен алгоритъм, базиран на парадигмата - генериране и тестване. Алгоритъмът последователно генерира пермутации на своя вход, докато не намери сортирана :smile: . Звучи смешно, но все пак си е *ИДЕЯ*, а всяка идея, която работи заслужава внимание.
 Например, ако *bogosort* се използва за сортиране на тесте карти, това ще се състои в проверка дали тестето е в ред, а ако не е, човек би хвърлил тестето във въздуха, след което би събирал картите на случаен принцип и би повтори процесът, ако тестето не е било сортирано.

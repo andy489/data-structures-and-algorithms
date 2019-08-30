@@ -73,15 +73,17 @@ long long fact(unsigned n)
  
  **Задача 1.** Да се напише рекурсивен метод който печата на конзолата следната фигура:
  
- 			****
-			***
-			**
-			*
-			#
-			##
-			###
-			####
- за подадено число <img src="https://latex.codecogs.com/svg.latex?\Large&space;n=4">.
+ 		****			*****
+		***			****
+		**			***
+		*			**
+		#			*
+		##			#
+		###			##
+		####			###
+					####
+					#####
+съответно за подадено число <img src="https://latex.codecogs.com/svg.latex?\Large&space;n=4">, <img src="https://latex.codecogs.com/svg.latex?\Large&space;n=5"> и т.н.
  
  *Решение: *
  

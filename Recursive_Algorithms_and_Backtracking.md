@@ -69,4 +69,43 @@ long long fact(unsigned n)
   - *По-трудна за разбиране и осмисляне* - рекурсията не е толкова очевидно разбираема колкото итерацията например
   - *Коства повече памет* - всяко рекурсивно извикване заделя допълнителна памет от стека
   
+ ## Примери
+ 
+ **Задача 1.** Да се напише рекурсивен метод който печата на конзолата следната фигура:
+ 
+ 			****
+			***
+			**
+			*
+			#
+			##
+			###
+			####
+ за подадено число <img src="https://latex.codecogs.com/svg.latex?\Large&space;n=4">.
+ 
+ *Решение: *
+ 
+ ```cpp
+ #include <iostream>
+void helpFunctionPrint(unsigned n, char symbol)
+{
+	for (size_t i = 0; i < n; i++) std::cout << symbol;
+	std::cout << std::endl;
+}
+void recursionPrint(unsigned n)
+{
+	if (n == 0) return;
+	helpFunctionPrint(n, '*');
+	recursionPrint(n - 1);
+	helpFunctionPrint(n, '#');
+}
+int main()
+{
+	unsigned n;
+	std::cin >> n;
+	recursionPrint(n);
+	return 0;
+}
+ ```
+ 
  

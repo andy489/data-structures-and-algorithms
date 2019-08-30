@@ -302,3 +302,97 @@ int main()
         	 4, 4	 
         	 8
 *Решение:*
+
+**Алгоритъм:**
+
+1. Сортираме масива (не намаляващ).
+2. Премахваме всички дубликати от масива.
+3. Използваме рекурсия и backtracking за решаване проблемa.
+   - (A) Ако в даден текущата сума стане равна на 0, тогава добавяме този вектор към резултата (вектор от вектори);
+   - (Б) В противен случай, ако е сумата стане отрицателна - това не е потенциално решение и го игнорираме;
+   - (C) Докато индекса е по-малък от дължината на вектора с елементи и сумата е не по-малка от 0 - викаме рекурсията за всички останали елементи (вкл. и потенциално добавения), като преди нея сме добавили потенциалния елемент във вектора с потенциалния резултат, а след нея (рекурсията) сме увеличили индекса и сме премахнали елемента от списъка който не води до потенциално решение.
+
+```cpp
+#include <iostream>
+#include <set> 
+#include <vector>
+#include <algorithm>
+
+void printVecOfVecs(std::vector<std::vector<int>> a)
+{
+	if (a.size() == 0) std::cout << "No such combination\n";	
+	else // Принтираме всички възможни комбинации във вектора от вектори
+	{   
+		for (unsigned i = 0; i < a.size(); i++)
+		{
+			if (a[i].size() > 0)
+			{
+				std::cout << "(";
+				for (unsigned j = 0; j < a[i].size(); j++)
+				{
+					if (j == a[i].size() - 1) std::cout << a[i][j];
+					else std::cout << a[i][j] << ',';
+				}
+				std::cout << ")\n";
+			}
+		}
+	}
+}
+
+void findSumComb(std::vector<int> a, int sum, std::vector<std::vector<int>>& res, std::vector<int> r, unsigned i)
+{
+	// Ако текущата сума стане отрицателна
+	if (sum < 0) return;
+
+	// Ако получим точната сума
+	if (sum == 0)
+	{
+		res.push_back(r);
+		return;
+	}
+
+	// Викаме рекурсията за всички останали елементи, 
+	// които са със стойност по малка от текущата сума
+	while (i < a.size() && sum - a[i] >= 0)
+	{ // До всеки елемент в масива започвайки от i, 
+	  // който може да се включи в сумата
+		r.push_back(a[i]); // добавяме го към потенциалната комбинация
+
+		// Викаме рекурсията за следващите елементи
+		findSumComb(a, sum - a[i], res, r, i);
+		i++;
+
+		// Махаме елементa от списъка, който не води 
+		// до потенциална комбинация (backtracking)
+		r.pop_back();
+	}
+}
+
+std::vector<std::vector<int>> combinationSum(std::vector<int>& a, int sum)
+{
+	// sort input array 
+	sort(a.begin(), a.end());
+
+	// remove duplicates 
+	a.erase(unique(a.begin(), a.end()), a.end());
+
+	std::vector<int> r;
+	std::vector<std::vector<int> > res;
+	findSumComb(a, sum, res, r, 0);
+	return res;
+}
+int main()
+{
+	std::vector<int> a = { 4,2,6,2,8,4 };
+	int X = 8;
+	// Сортираме вектора, за да може да използваме готовата функция за 
+	// премахване на дубликатите
+	sort(a.begin(), a.end());
+	// Премахваме дублиращите се стойности от вече сортирания вектор
+	a.erase(unique(a.begin(), a.end()), a.end());
+
+	std::vector<std::vector<int>> res = combinationSum(a, X);
+	printVecOfVecs(res);
+	return 0;
+}
+```

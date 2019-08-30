@@ -200,13 +200,13 @@ void printVector(std::vector<int> vector)
 	{
 		for (unsigned i = 0; i < n; i++)
 		{
-			std::cout << vector[i] << ' ';
+			std::cout << vector[i];
 		}
 		std::cout << std::endl;
 	}
 }
 
-void generate01(unsigned indx, std::vector<int> vector)
+void generate4digitNumbers(unsigned indx, std::vector<int> vector)
 {
 	if (indx == vector.size()) printVector(vector);
 	else
@@ -214,7 +214,7 @@ void generate01(unsigned indx, std::vector<int> vector)
 		for (int i = 0; i <= 9; i++)
 		{
 			vector[indx] = i;
-			generate01(indx + 1, vector);
+			generate4digitNumbers(indx + 1, vector);
 		}
 	}
 }
@@ -222,7 +222,7 @@ void generate01(unsigned indx, std::vector<int> vector)
 int main()
 {
 	std::vector<int> vector = { 0,0,0,0 };
-	generate01(0, vector);
+	generate4digitNumbers(0, vector);
 	return 0;
 }
 ```
@@ -230,51 +230,54 @@ int main()
 
 *Решение:*
 
-Аналогично на горната задача, ще вземем първи вектор от две позиции и втори вектор с допустимите елементи от които ще се грнерират комбинациите. Отново ще генерираме всички двойни вектора с повторения, а от тях ще изберем само тези които например образуват монотонна редица. Отговора ще са исканите комбинации.
+Аналогично на горната задача, ще вземем първи вектор от две позиции където ще съхраняваме комбинациите и втори вектор с допустимите елементи от които ще се грнерират комбинациите. Отново ще генерираме всички двойни вектора с повторения, а от тях ще изберем само тези които например образуват монотонна редица. Отговора ще бъде точно исканите комбинации.
 
 ```cpp
 #include <iostream>
 #include <vector>
 bool monotoneVector(std::vector<int> vector)
 {
-	for (size_t i = 0; i < vector.size()-1; i++)
+	for (size_t i = 0; i < vector.size() - 1; i++)
 	{
-		if (vector[i]>=vector[i+1]) return false;		
+		if (vector[i] >= vector[i + 1]) return false;
 	}
 	return true;
 }
+
 void printVector(std::vector<int> vector)
 {
-	unsigned n = vector.size();
 	if (monotoneVector(vector))
 	{
-		for (unsigned i = 0; i < n; i++)
+		unsigned n = vector.size();
 		{
-			std::cout << vector[i] << ' ';
+			for (unsigned i = 0; i < n; i++)
+			{
+				std::cout << vector[i] << ' ';
+			}
+			std::cout << std::endl;
 		}
-		std::cout << std::endl;
 	}
 }
 
-void generate01(unsigned indx, std::vector<int> vector, std::vector<int>mainVector)
+void generateComb(std::vector<int> set, std::vector<int>vector, unsigned indx)
 {
-	if (indx == vector.size()) printVector(vector);
+	if (indx >= vector.size()) printVector(vector);
 	else
 	{
-		for (unsigned i = 0; i <= mainVector.size(); i++)
+		for (unsigned i = 0; i < set.size(); i++)
 		{
-			vector[indx] = i;
-			generate01(indx + 1, vector,mainVector);
+			vector[indx] = set[i];
+			generateComb(set, vector, indx + 1);
 		}
 	}
 }
 
 int main()
 {
-	std::vector<int>mainVector = { 1,2,3,4 };
+	std::vector<int>set = { 4,8,9,22 };
 	std::vector<int>vector = { 0,0 };
 
-	generate01(0, vector,mainVector);
+	generateComb(set, vector, 0);
 	return 0;
 }
 ```

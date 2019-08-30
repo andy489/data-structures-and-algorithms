@@ -445,5 +445,4 @@ int main()
 -----
 *****
 ```
-
-*Решение:* [РЕШЕНИЕТО Е ИМПЛЕМЕНТИРАНО ТУК](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/8_Queens_Problem.cpp)
+*Решение:* [РЕШЕНИЕТО Е ИМПЛЕМЕНТИРАНО ТУК](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Finding_All_Paths_In_Labyrinth.cpp)

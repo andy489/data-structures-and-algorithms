@@ -81,7 +81,7 @@ long long fact(unsigned n)
 		###	##
 			###
 			####
-съответно за подадено число <img src="https://latex.codecogs.com/svg.latex?\Large&space;n=2">, <img src="https://latex.codecogs.com/svg.latex?\Large&space;n=3">, <img src="https://latex.codecogs.com/svg.latex?\Large&space;n=4"> и т.н.
+съответно за подадено число <img src="https://latex.codecogs.com/svg.latex?\Large&space;n=2,3,4,..."> и т.н.
  
  *Решение: *
  
@@ -108,4 +108,8 @@ int main()
 }
  ```
  
- 
+ #### Комбинаторни алгоритми чрез рекурсия
+**Задача 2** Да се генерират рекурсивно всички вектори с дължина 8 съставени само от 0 и 1.
+
+*Решение:*
+

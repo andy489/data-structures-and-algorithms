@@ -290,4 +290,13 @@ int main()
 
 Бектрекинг алгоритъмът обхожда рекурсивно дървото на търсене от корена надолу към листата в дълбочина (*depth-first*). На всеки възел <img src="https://latex.codecogs.com/svg.latex?\Large&space;c">, алгоритъмът проверява дали <img src="https://latex.codecogs.com/svg.latex?\Large&space;c"> може да бъде завършено до валидно решение. Ако не може, цялото поддърво с корен в <img src="https://latex.codecogs.com/svg.latex?\Large&space;c"> се отстранява. В противен случай, алгоритъмът *(1)* проверява дали самият кандидат <img src="https://latex.codecogs.com/svg.latex?\Large&space;c"> е валидно решение, и ако да, съобщава за това на потребителя и *(2)* рекурсивно номерира всички поддървета на <img src="https://latex.codecogs.com/svg.latex?\Large&space;c">. Тези две проверки се дефинират по зададени от потребителя процедури. 
 
-**Задача 5.** Даден е масив от положителни числа <img src="https://latex.codecogs.com/svg.latex?\Large&space;a"> и сума <img src="https://latex.codecogs.com/svg.latex?\Large&space;X">, да се намерят всички уникални комбинации в <img src="https://latex.codecogs.com/svg.latex?\Large&space;a"> чиято сума е равна на <img src="https://latex.codecogs.com/svg.latex?\Large&space;X">. Едно и също число от <img src="https://latex.codecogs.com/svg.latex?\Large&space;a"> може да бъде избирано неограничен брой пъти. Елементите в комбинациия <img src="https://latex.codecogs.com/svg.latex?\Large&space;C=(a_1,a_2,...,a_k)"> трябва да бъдат принтирани в ненамаляващ ред, т.е. <img src="https://latex.codecogs.com/svg.latex?\Large&space;a_1\le{a_2}\le{,...,\le{a_k}">.
+**Задача 5.** Даденa е редица от положителни числа <img src="https://latex.codecogs.com/svg.latex?\Large&space;a"> и сума <img src="https://latex.codecogs.com/svg.latex?\Large&space;X">, да се намерят всички уникални комбинации в <img src="https://latex.codecogs.com/svg.latex?\Large&space;a"> чиято сума е равна на <img src="https://latex.codecogs.com/svg.latex?\Large&space;X">. Едно и също число от <img src="https://latex.codecogs.com/svg.latex?\Large&space;a"> може да бъде избирано неограничен брой пъти. Елементите в комбинациия <img src="https://latex.codecogs.com/svg.latex?\Large&space;C=(a_1,a_2,...,a_k)"> трябва да бъдат принтирани в ненамаляващ ред, т.е. <img src="https://latex.codecogs.com/svg.latex?\Large&space;a_1\le{a_2}\le{,...,\le{a_k}">. Комбинациите сами по себе си трябва да бъдат сортирани в нарастващ ред, т.е., комбинацията с най-малък първи елемент трябва да бъде принтирана на първо място. Ако не съществува възможна комбинация удовлетворяваща условието да се принтира подходящо съобщение.
+
+*Пример:*
+Вход: a={2,4,6,8}, X=8
+Изход:   2, 2, 2, 2
+         2, 2, 4
+         2, 6
+         4, 4
+         8
+*Решение:*

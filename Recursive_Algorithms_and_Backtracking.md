@@ -109,7 +109,78 @@ int main()
  ```
  
  #### Комбинаторни алгоритми чрез рекурсия
-**Задача 2** Да се генерират рекурсивно всички вектори с дължина 8 съставени само от 0 и 1.
+**Задача 2.** Да се генерират рекурсивно всички вектори с дължина 4 съставени само от 0 и 1.
 
 *Решение:*
 
+```cpp
+#include <iostream>
+#include <vector>
+
+void printVector(std::vector<int> vector)
+{
+	unsigned n = vector.size();
+	for (unsigned i = 0; i < n; i++)
+	{
+		std::cout << vector[i] << ' ';
+	}
+	std::cout << std::endl;
+}
+
+void generate01(unsigned indx, std::vector<int> vector)
+{
+	if (indx >= vector.size()) printVector(vector);
+	else
+	{
+		for (int i = 0; i <= 1; i++)
+		{
+			vector[indx] = i;
+			generate01(indx + 1, vector);
+		}
+	}
+}
+
+int main()
+{
+	std::vector<int> vector = { 8,8,8,8 };
+	generate01(0, vector);
+	return 0;
+}
+```
+
+Аналогично, ако искаме да започнем на обратно като принтираме най-големия (според *лексикографска наредба*) вектор може да подходим така:
+
+```cpp
+#include <iostream>
+#include <vector>
+
+void printVector(std::vector<int> vector)
+{
+	unsigned n = vector.size();
+	for (unsigned i = 0; i < n; i++)
+	{
+		std::cout << vector[i] << ' ';
+	}
+	std::cout << std::endl;
+}
+
+void generate01(unsigned indx, std::vector<int> vector)
+{
+	if (indx >= vector.size()) printVector(vector);
+	else
+	{
+		for (int i = 1; i >= 0; i--)
+		{
+			vector[indx] = i;
+			generate01(indx - 1, vector);
+		}
+	}
+}
+
+int main()
+{
+	std::vector<int> vector = { 8,8,8,8 };
+	generate01(vector.size()-1, vector);
+	return 0;
+}
+```

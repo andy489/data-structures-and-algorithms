@@ -184,3 +184,97 @@ int main()
 	return 0;
 }
 ```
+**Задача 3.** Напишете рекурсивна функция, която принтира всички 4-цифрени числа.
+
+*Решение:*
+Аналогично на предходната задача, това са всикчи 4-метни вектора с компоненти цифрите от 0,1,...,9, без тези които започват с 0.
+
+```cpp
+#include <iostream>
+#include <vector>
+
+void printVector(std::vector<int> vector)
+{
+	unsigned n = vector.size();
+	if (vector[0] != 0)
+	{
+		for (unsigned i = 0; i < n; i++)
+		{
+			std::cout << vector[i] << ' ';
+		}
+		std::cout << std::endl;
+	}
+}
+
+void generate01(unsigned indx, std::vector<int> vector)
+{
+	if (indx == vector.size()) printVector(vector);
+	else
+	{
+		for (int i = 0; i <= 9; i++)
+		{
+			vector[indx] = i;
+			generate01(indx + 1, vector);
+		}
+	}
+}
+
+int main()
+{
+	std::vector<int> vector = { 0,0,0,0 };
+	generate01(0, vector);
+	return 0;
+}
+```
+**Задача 4.** Напишете рекурсивна функция, която извежда на конзолата всички двойни комбинации от 4 на брой елемента.
+
+*Решение:*
+
+Аналогично на горната задача, ще вземем първи вектор от две позиции и втори вектор с допустимите елементи от които ще се грнерират комбинациите. Отново ще генерираме всички двойни вектора с повторения, а от тях ще изберем само тези които например образуват монотонна редица. Отговора ще са исканите комбинации.
+
+```cpp
+#include <iostream>
+#include <vector>
+bool monotoneVector(std::vector<int> vector)
+{
+	for (size_t i = 0; i < vector.size()-1; i++)
+	{
+		if (vector[i]>=vector[i+1]) return false;		
+	}
+	return true;
+}
+void printVector(std::vector<int> vector)
+{
+	unsigned n = vector.size();
+	if (monotoneVector(vector))
+	{
+		for (unsigned i = 0; i < n; i++)
+		{
+			std::cout << vector[i] << ' ';
+		}
+		std::cout << std::endl;
+	}
+}
+
+void generate01(unsigned indx, std::vector<int> vector, std::vector<int>mainVector)
+{
+	if (indx == vector.size()) printVector(vector);
+	else
+	{
+		for (unsigned i = 0; i <= mainVector.size(); i++)
+		{
+			vector[indx] = i;
+			generate01(indx + 1, vector,mainVector);
+		}
+	}
+}
+
+int main()
+{
+	std::vector<int>mainVector = { 1,2,3,4 };
+	std::vector<int>vector = { 0,0 };
+
+	generate01(0, vector,mainVector);
+	return 0;
+}
+```

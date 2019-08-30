@@ -8,6 +8,7 @@ Name | Best | Average | Worst | Memory | Stable | Method
 **Bubble Sort** | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n^2)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n^2)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;O{(1)}"> | Yes | *exchanging*
 **Cocktail Sort** | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n^2)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n^2)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;O{(1)}"> | Yes | *exchanging*
 **Insertion Sort** | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n^2)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n^2)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;O{(1)}"> | Yes | *insertion*
+**Shell Sort** | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.\log{n})}"> *(most gap sequences)*,<img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.\log^2{n})}">*(best known worst case gap sequence)*| *depends on choice of gap sequence* |  <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n^2)}"> *(worst known worst case gap sequence)*, <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.\log^2{n})}"> *(best known worst case gap sequence)*| <img src="https://latex.codecogs.com/svg.latex?\Large&space;O{(n)}"> total, <img src="https://latex.codecogs.com/svg.latex?\Large&space;O{(1)}"> auxiliary | No | *improved insertion with gapping*
 **Merge Sort** | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.\log{n})}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.\log{n})}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.\log{n})}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;1"> or <img src="https://latex.codecogs.com/svg.latex?\Large&space;n"> | Yes | *middle partitioning*
 **Quick Sort** [*(Tony Hoare)*](https://en.wikipedia.org/wiki/Tony_Hoare) | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.\log{n})}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.\log{n})}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n^2)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\log{n}"> | Yes (depends) | *choice partitioning*
 **Counting Sort** | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n+k)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n+k)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n+k)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(n+k)">, worst-case | Yes (depends)| counting
@@ -196,7 +197,110 @@ void insertionSort(int* arr, size_t arrLen)
 	}
 }
 ```
- ### 5. Merge Sort 
+ ### 5. Shell Sort
+
+Towa e aлгоритъм, който сравнява елементите и може да се разглежда като генерализация на сортирането чрез размяна (*bubbleSort*) или сортирането чрез вмъкване (*insertionSort*). Методът започва със сортиране на двойки елементи, отдалечени един от друг, след което постепенно намалява разликата в разстоянията между елементите, които трябва да се сравняват. Започвайки с далеч един от друг елементи, той може да премести някой неуместни елементи в добра позиция по-бързо от обикновената размяна на най-близки съседи. [Donald Shell](https://en.wikipedia.org/wiki/Donald_Shell) публикува първата версия на този алгоритъм през 1959 г. Времето на работа на *shellSort* силно зависи от последователността на разликата, която използва. За много практични варианти определянето на сложността им остава отворен въпрос във времето.
+
+Сортирането чрез този метод позволява пренареждането на елементи които са далеч един от друг. Идеята на *shellSort* е да правим списъка *h* сортиран за голяма стойност на *h*. Продължаваме да намаляваме стойността на *h*, докато тя стане *1*. Казва се, че списъкът е *h* сортиран , ако са подредени всички подсписъци на всеки *h*-елемент.
+
+![Alt Text](https://upload.wikimedia.org/wikipedia/commons/d/d8/Sorting_shellsort_anim.gif)
+
+```cpp
+#include  <iostream> 
+void printArr(int arr[], int n)
+{
+	for (int i = 0; i < n; i++) std::cout << arr[i] << " ";
+}
+void shellSort(int arr[], int n)
+{
+	// Start with a big gap, then reduce the gap 
+	for (int gap = n / 2; gap > 0; gap /= 2)
+	{
+		// Do a gapped insertion sort for this gap size. 
+		// The first gap elements a[0..gap-1] are already in gapped order 
+		// keep adding one more element until the entire array is 
+		// gap sorted  
+		for (int i = gap; i < n; i += 1)
+		{
+			// add a[i] to the elements that have been gap sorted 
+			// save a[i] in temp and make a hole at position i 
+			int temp = arr[i];
+
+			// shift earlier gap-sorted elements up until the correct  
+			// location for a[i] is found 
+			int j;
+			for (j = i; j >= gap && arr[j - gap] > temp; j -= gap)
+				arr[j] = arr[j - gap];
+
+			//  put temp (the original a[i]) in its correct location 
+			arr[j] = temp;
+		}
+	}
+}
+
+int main()
+{
+	int arr[] = { 12, 34, 54, 2, 3 };
+	int n = sizeof(arr) / sizeof(arr[0]);
+
+	std::cout << "Array before sorting: \n";
+	printArr(arr, n);
+
+	shellSort(arr, n);
+
+	std::cout << "\nArray after sorting: \n";
+	printArr(arr, n);
+
+	return 0;
+}
+```
+
+Имплементация на метода използвайки редицата **gaps = [1, 4, 10, 23, 57, 132, 301, 701]** на Marcin Ciura's за разстояния: 
+
+```cpp
+#include <iostream>
+void shellSortPhase(int arr[], int length, int gap)
+{
+	int i;
+	for (i = gap; i < length; ++i)
+	{
+		int value = arr[i];
+		int j;
+		for (j = i-gap; j >= 0 && arr[j] > value; j -= gap)
+		{
+			arr[j + gap] = arr[j];
+		}
+		arr[j + gap] = value;
+	}
+}
+
+void shellSort(int arr[], size_t length)
+{
+	static const int gaps[] = { 1, 4, 10, 23, 57, 132, 301, 701 };
+	int sizeIndex;
+
+	for (sizeIndex = sizeof(gaps) / sizeof(gaps[0])-1; sizeIndex >= 0; --sizeIndex)
+		shellSortPhase(arr, length, gaps[sizeIndex]);
+}
+
+void printArr(int arr[], size_t n)
+{
+	for (size_t i = 0; i < n; i++) std::cout << arr[i] << " ";
+}
+
+int main()
+{
+	int arr[] = { 12, 34, 54, 2, 3 };
+	size_t n = sizeof(arr) / sizeof(arr[0]);
+
+	shellSort(arr, n);
+	printArr(arr, n);
+
+	return 0;
+}
+```
+
+ ### 6. Merge Sort 
  
 Това е алгоритъм, който разделя входния масив на две половини, извиква себе си за двете половини и след това слива двете подредени половинки. Функцията за сливане *merge()* се използва за сливане на две половини. Обединяването *(arr, l, m, r)* е ключов процес, който приема, че arr *[l..m]* и arr *[m+1..r]* са сортирани и слива двaта подредени под-масивa в един. Сложността на този алгоритъм може да се изрази рекурсивно чрез следната формула <img src="https://latex.codecogs.com/svg.latex?\Large&space;T(n)=2T(\frac{n}{2})+\Theta(n)"> 
 
@@ -279,7 +383,7 @@ void mergeSort(int* arr, int l, int r)
 ```
 	     
  
- ### 6. Quick Sort      
+ ### 7. Quick Sort      
 Също като Merge Sort, този алгоритъм се базира на техниката *„разделяй и владей“* и следователно е *рекурсивен* алгоритъм. Той избира начален елемент като *централна точка* и *разделя* дадената колекция спрямо тази точка. Спрямо тази централна точка, алгоритъма *Quick Sort* придобива множество различни версии:
 
   - винаги избира пъврия елемент като централна точка;
@@ -393,7 +497,7 @@ size_t midIndex= start + (end - start) / 2; // find position of the middle eleme
 size_t randIndex = start + rand()%((end-start)+1);// find position of the random element from the interval [start..end]
 	std::swap(arr[randIndex], arr[end]);      //swap the random with the last element	
 ``` 
-### 7. Counting Sort
+### 8. Counting Sort
 Това е един много хитър и ефективен метод за сортиране на числа, който вместо да ги сравнява по между им ги брои. В случая е необходимо да знаем колко са големи числата, т.е. трябва да имаме някакъв rangе (k). Нека се опитаме да разберем метода по-лесно чрез следния пример:
 ````
 За яснота взимаме числа, които са от 0 до 9. 
@@ -508,7 +612,7 @@ int main()
 - Counting Sort използва частично хеширане за отчитане на появата на обекта на данни в O(1).
 - алгоритъма може да се разшири, за да работи и за отрицателни входове.
 
-### 8. Bucket Sort 
+### 9. Bucket Sort 
 
 Подобно на Counting Sort, Bucket Sort-a дефинита направени от него контейнери като диапазони. Представете си следното: искаме да сортираме дадена група хора по години, но ни интересува само в какъв диапазон години са, например - от 10 до 20, от 20 до 30 и т.н. Съответно ние взимаме обектите (хората) и ги поставяме в конкретния диапазон (bucket) с този рейндж и вече конкретния диапазон може да изберем да го сортираме с алгоритъм, който работи добре за малко елементи. Т.е. разцепваме данните на групи и ако искаме да ги досортираме - отделната група я сортираме с нещо елементарно и оптимално.
 Алгоритъма аналогично не използва сравнения между елементите.
@@ -568,7 +672,7 @@ int main()
 }
 ```
 
-### 9. Heap Sort 
+### 10. Heap Sort 
 
 В компютърните науки, Heap Sort е алгоритъм за сортиране базиран на сравнение. Heap Sort може да се разглежда като подобрен вид на Selection Sort. Подобно на него, той разделя своя вход на сортиран и несортиран регион и итеративно свива несортирания регион, като извлича най-големия елемент и го премества в сортирания регион. Подобрението се състои в използването на структура от данни за купчина, а не в линейно търсене за намиране на максимум. Макар и малко по-бавен на практика на повечето машини, отколкото един добре имплементиран Quick Sort, той има предимството на по-благоприятното време за изпълнение <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.\log{n})}"> в най-лошия случай. Heap Sort е изобретен от J.W.J. Williams през 1964 г. Тази година също така беше и рожденната на heap-a, представена вече от Williams като полезна структура от данни сама по себе си. През същата година R.W.Floyd публикува подобрена версия, продължавайки по-ранните си изследвания в алгоритъма на Tree Sort.
 
@@ -660,7 +764,7 @@ int main()
 
 ![Alt Text](https://upload.wikimedia.org/wikipedia/commons/4/4d/Heapsort-example.gif)
 
-### 10. Bogo Sort 
+### 11. Bogo Sort 
 
 *BogoSort* известен още като сортиране чрез пермутация, глупаво сортиране, бавно сортиране, сортиране на пробния изстрел или маймунско сортиране е особено неефективен алгоритъм, базиран на парадигмата - генериране и тестване. Алгоритъмът последователно генерира пермутации на своя вход, докато не намери сортирана :smile: . Звучи смешно, но все пак си е *ИДЕЯ*, а всяка идея, която работи заслужава внимание.
 Например, ако *bogosort* се използва за сортиране на тесте карти, това ще се състои в проверка дали тестето е в ред, а ако не е, човек би хвърлил тестето във въздуха, след което би събирал картите на случаен принцип и би повтори процесът, ако тестето не е било сортирано.

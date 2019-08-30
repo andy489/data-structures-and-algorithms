@@ -438,6 +438,7 @@ int main()
 -*-
 --е
 
+Вход:   Изход:
 3	DRRRRU
 5 	DRRRUR
 -**-e

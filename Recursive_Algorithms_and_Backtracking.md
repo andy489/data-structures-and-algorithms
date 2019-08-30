@@ -320,9 +320,9 @@ int main()
 
 void printVecOfVecs(std::vector<std::vector<int>> a)
 {
-	if (a.size() == 0) std::cout << "No such combination\n";	
+	if (a.size() == 0) std::cout << "No such combination\n";
 	else // Принтираме всички възможни комбинации във вектора от вектори
-	{   
+	{
 		for (unsigned i = 0; i < a.size(); i++)
 		{
 			if (a[i].size() > 0)
@@ -339,7 +339,8 @@ void printVecOfVecs(std::vector<std::vector<int>> a)
 	}
 }
 
-void findSumComb(std::vector<int> a, int sum, std::vector<std::vector<int>>& res, std::vector<int> r, unsigned i)
+void findSumComb(std::vector<int> a, int sum, 
+	std::vector<std::vector<int>>& res, std::vector<int> r, unsigned i)
 {
 	// Ако текущата сума стане отрицателна
 	if (sum < 0) return;
@@ -358,8 +359,8 @@ void findSumComb(std::vector<int> a, int sum, std::vector<std::vector<int>>& res
 	  // който може да се включи в сумата
 		r.push_back(a[i]); // добавяме го към потенциалната комбинация
 
-		// Викаме рекурсията за следващите елементи
-		findSumComb(a, sum - a[i], res, r, i);
+		// Викаме рекурсията за останалите елементи (вкл. първия)
+		findSumComb(a, sum - a[i], res, r, i); // без повтарящи се елементи: i+1, вместо i
 		i++;
 
 		// Махаме елементa от списъка, който не води 

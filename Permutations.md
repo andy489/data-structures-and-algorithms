@@ -213,4 +213,57 @@ int main()
 }
 ```
 *Обяснение:* започваме да вървим отзад напред с един цикъл и с друг цикъл от другата страна и в момента, в който два елемента се различават ги разменяме. Има и един множо важем момент, в който след като сме изциклили навсякъде с даден елемент, го връщаме обратно на стартовата позиция и рекурсията го разменя ако е необходимо. За по-ясно разбиране може да приложим алгоритъма за списък от вида {1,3,3,3,3,3,3} и да дебъгнем програмата, като преди това анализираме резултата от нея.
+ 
+**Важно!** Алгоритъма ще работи много по-оптимално ако преди да извикаме рекурсивния метод genPermRep() сортираме списъка от елементи.
 
+```cpp
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <vector>
+
+std::vector<int> elements = {3,3,3,1,3,3,3,3};
+unsigned countPermRep(0);
+
+void displayList()
+{
+	std::cout << '(';
+	for (unsigned i = 0; i < elements.size(); i++)
+	{
+		std::cout << elements[i];
+		if (i != elements.size() - 1)	std::cout << ',';
+	}
+	std::cout << ")\n";
+}
+
+void genPermRep(unsigned indx)
+{
+	if (indx > elements.size() - 1)
+	{
+		countPermRep++;
+		displayList();
+	}
+	else
+	{
+		std::set<int> swapped;
+		for (unsigned i = indx; i < elements.size(); i++)
+		{
+			if (!swapped.count(elements[i]))
+			{
+				std::swap(elements[indx], elements[i]);
+				genPermRep(indx + 1);
+				std::swap(elements[indx], elements[i]);
+				swapped.insert(elements[i]);
+			}
+		}
+	}
+}
+
+int main()
+{
+	sort(elements.begin(),elements.end());
+	genPermRep(0);
+	std::cout << "Total: " << countPermRep << " permutations.\n";
+	return 0;
+}
+```

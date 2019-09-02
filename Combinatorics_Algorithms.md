@@ -485,7 +485,7 @@ int main()
 
 В имплементацията на предишната задача пви извикването на рекурсивния метод е необходимо да осигурим достъп и до текущия елемент, който взимаме. Т.е. е необходимо да извикваме метода по следния начин:  „*genComb(indx + 1, i);*“ . Броят им е точно <img src="https://latex.codecogs.com/svg.latex?\Large&space;\binom{n+k-1}{k}=\binom{7}{3}=\frac{7!}{3!(7-3)!}=\frac{7!}{3!4!}=35">.
 
-**Задача 7.** Пресметнете по-колко начина може да изберем <img src="https://latex.codecogs.com/svg.latex?\Large&space;k"> <img src="https://latex.codecogs.com/svg.latex?\Large&space;k"> елементе от <img src="https://latex.codecogs.com/svg.latex?\Large&space;n"> елемента като използвате [триъгълника на Паскал.](https://medium.com/i-math/top-10-secrets-of-pascals-triangle-6012ba9c5e23).
+**Задача 7.** Пресметнете по-колко начина може да изберем <img src="https://latex.codecogs.com/svg.latex?\Large&space;k"> <img src="https://latex.codecogs.com/svg.latex?\Large&space;k"> елементе от <img src="https://latex.codecogs.com/svg.latex?\Large&space;n"> елемента като използвате [триъгълника на Паскал](https://medium.com/i-math/top-10-secrets-of-pascals-triangle-6012ba9c5e23).
 
 *Решение:*
 

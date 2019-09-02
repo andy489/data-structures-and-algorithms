@@ -1,4 +1,4 @@
-**Задача 1.** *(Пермутации без повтарения)* Генерирайте всички пермутации на даден списък от уникални елементи.
+**Задача 1.** *(Пермутации без повтарения)* Имплементирайте рекурсивен метод за генериране на всички пермутации на даден списък от уникални елементи.
 
 *Решение:*
 
@@ -11,7 +11,7 @@ bool* used = new bool[n]();
 int* permutations = new int[n]();
 unsigned countPerm(0);
 
-void displayList()
+void displayPerm()
 {
 	std::cout << '(';
 	for (unsigned i = 0; i < n; i++)
@@ -27,7 +27,7 @@ void genPerm(unsigned indx)
 	if (indx > n - 1)
 	{
 		countPerm++;
-		displayList();
+		displayPerm();
 	}
 	else
 	{
@@ -102,7 +102,7 @@ int main()
 }
 ```
 
-**Задача 2.** *(Пермутации с повтарения)* Генерирайте всички пермутации на даден списък с повтарящи се елементи.
+**Задача 2.** *(Пермутации с повтарения)* Имплементирайте рекурсивен метод за генериране на всички пермутации на даден списък с повтарящи се елементи.
 
 *Пример:* за списъка {A,B,B} съществуват следните пермутации: (A,B,B), (B,A,B) и (B,B,A). Точно <img src="https://latex.codecogs.com/svg.latex?\Large&space;\frac{3!}{2!1!}=3"> на борй.
 
@@ -267,3 +267,167 @@ int main()
 	return 0;
 }
 ```
+**Задача 3.** *(Вариации без повтарения)* Имплементирайте рекурсивен метод за генериране на всички вариации от два елемента на даден списък с уникални елементи.
+
+*Пример:* за списъка {A,B,C} съществуват следните вариации без повторения от два елемента: (A,B), (A,C), (B,A), (B,C), (C,A) и (C,B). Точно <img src="https://latex.codecogs.com/svg.latex?\Large&space;\frac{n!}{(n-k)!}=\frac{3!}{(3-2)!}=6"> на борй.
+
+*Решение:*
+
+```cpp
+#define k 2
+#include <iostream>
+
+int elements[] = { 1,2,3 };
+unsigned n = sizeof(elements) / sizeof(elements[0]);
+int* variations = new int[k]();
+bool* used = new bool[n]();
+unsigned countVar(0);
+
+void displayVar()
+{
+	std::cout << '(';
+	for (unsigned i = 0; i < k; i++)
+	{
+		std::cout << variations[i];
+		if (i !=k - 1)	std::cout << ',';
+	}
+	std::cout << ")\n";
+}
+
+void genVar(unsigned indx)
+{
+	if (indx > k - 1)
+	{
+		countVar++;
+		displayVar();
+	}
+	else
+	{
+		for (unsigned i = 0; i < n; i++)
+		{
+			if (!used[i])
+			{
+				used[i] = true;
+				variations[indx] = elements[i];
+				genVar(indx + 1);
+				used[i] = false;
+			}			
+		}
+	}
+}
+
+int main()
+{
+	genVar(0);
+	std::cout << "Total: " << countVar << " variations.\n";
+	return 0;
+}
+```
+**Задача 4.** *(Вариации с повтарения)* Имплементирайте рекурсивен метод за генериране на всички вариации с повторения от два елемента на даден списък с уникални елементи.
+
+*Пример:* за списъка {A,B,C} съществуват следните вариации с повторения от два елемента: (A,A), (A,B), (A,C), (B,B), (B,A), (B,C), (C,A), (C,B) и (C,C). Точно <img src="https://latex.codecogs.com/svg.latex?\Large&space;n^2=3^2=9"> на борй.
+
+*Решение:*
+
+```cpp
+#define k 2
+#include <iostream>
+
+int elements[] = { 1,2,3 };
+unsigned n = sizeof(elements) / sizeof(elements[0]);
+int* variations = new int[k]();
+bool* used = new bool[n]();
+unsigned countVarRep(0);
+
+void displayVar()
+{
+	std::cout << '(';
+	for (unsigned i = 0; i < k; i++)
+	{
+		std::cout << variations[i];
+		if (i != k - 1)	std::cout << ',';
+	}
+	std::cout << ")\n";
+}
+
+void genVarRep(unsigned indx)
+{
+	if (indx > k - 1)
+	{
+		countVarRep++;
+		displayVar();
+	}
+	else
+	{
+		for (unsigned i = 0; i < n; i++)
+		{
+			variations[indx] = elements[i];
+			genVarRep(indx + 1);
+		}
+	}
+}
+
+int main()
+{
+	genVarRep(0);
+	std::cout << "Total: " << n << '.' << n<<" = " << countVarRep << " variations.\n";
+	return 0;
+}
+```
+**Задача 5.** *(Вариации с повтарения)* Имплементирайте итеративен метод за генериране на всички двумерни вариации с повторения на числата {0,1,2,3,4}.
+
+*Решение:*
+
+```cpp
+#define n 5
+#define k 3
+#include <iostream>
+
+int* variations = new int[k]();
+unsigned countVarRep(0);
+
+void displayVar()
+{
+	std::cout << '(';
+	for (unsigned i = 0; i < k; i++)
+	{
+		std::cout << variations[i];
+		if (i != k - 1)	std::cout << ',';
+	}
+	std::cout << ")\n";
+}
+
+void genVarRepIterative()
+{
+	while (true)
+	{
+		countVarRep++;
+		displayVar();
+		int indx = k - 1;
+		while (indx >= 0 && variations[indx] == n - 1)
+		{
+			indx--;
+		}
+		if (indx < 0)
+		{
+			break;
+		}
+		variations[indx]++;
+		for (int i = indx + 1; i < k; i++)
+		{
+			variations[i] = 0;
+		}
+	}
+}
+
+int main()
+{
+	genVarRepIterative();
+	std::cout << "Total: " << n << '^' << k << " = " << countVarRep << " variations.\n";
+	delete[] variations;
+	return 0;
+}
+```
+
+*Този метод се базира на броенето, аналогично на двоичното, третичното и т.н. броене.* 
+

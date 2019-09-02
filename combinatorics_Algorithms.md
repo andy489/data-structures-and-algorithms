@@ -431,3 +431,50 @@ int main()
 
 *Този метод се базира на броенето, аналогично на двоичното, третичното и т.н. броене.* 
 
+**Задача 6.** *(Комбинации)* Имплементирайте рекурсивен метод за генериране на всички двумерни комбинации на даден списък от уникални елементи, например {2,4,6,8,10}.
+
+*Решение:*
+
+```cpp
+#define k 3
+#define n 5
+#include <iostream>
+int* elements = new int[n]();
+int* comb = new int[k]();
+
+unsigned combCount(0);
+
+void displayComb()
+{
+	for (unsigned i = 0; i < k; i++)
+	{
+		std::cout << comb[i] << ' ';
+	}
+	std::cout << '\n';
+}
+
+void genComb(int indx, int start)
+{
+	if (indx >= k) { displayComb(); combCount++; }
+	else
+	{
+		for (int i = start; i <= n - 1; i++)
+		{
+			comb[indx] = elements[i];
+			genComb(indx + 1, i + 1);
+		}
+	}
+}
+
+int main()
+{
+	for (unsigned i = 0; i < n; i++)
+	{
+		elements[i] = 2 * (i + 1); // {2,4,6,8,10}
+	}
+	genComb(0, 0);
+	std::cout << "Total count: " << combCount << " combinations.\n";
+	return 0;
+}
+```
+*Коментар:* броя на комбинациите е <img src="https://latex.codecogs.com/svg.latex?\Large&space;C_{k}^{n}=\binom{n}{k}=\frac{n!}{k!(n-k)!}=\frac{5!}{3!(5-3)!}=10">.

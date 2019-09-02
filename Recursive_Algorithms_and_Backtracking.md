@@ -584,13 +584,11 @@ void bubbleSortRecursiveBackward(int startIndx, int endIndx)
 
 int main()
 {
-
 	bubbleSortRecursiveForward(0, n - 1);
 	displayList();
 	std::cout << "Total swaps: " << countSwaps << ".\n";
 	std::cout << "Total checks: " << countChecks << ".\n";
 	std::cout << "Recur depth: " << recurCalls << ".\n";
 	return 0;
-
 }
 ```

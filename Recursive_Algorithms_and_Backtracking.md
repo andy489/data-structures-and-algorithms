@@ -453,3 +453,144 @@ int main()
 
 *Решение:* [РЕШЕНИЕТО Е ИМПЛЕМЕНТИРАНО ТУК](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/SudokuSolver.cpp)
 
+**Задача 7.** Напишете рекурсивен bubbleSort алгоритъм. Оптимизирайте го в рекурсивен cocktailSort алгоритъм.
+ 
+*Коментар:* тъй като bubbleSort-а при първата итерация (обхождане на масива в тоя случай) изпраща най-големия елемент в края на списъка, то може рекурсивно да го извикаме отново за всички елементи на списъка без последния и така докато не достигнем дължина от един елемент.
+
+```cpp
+#include <iostream>
+
+int list[] = { 10,2,3,4,5,6,7,8,9,1 };
+unsigned n = sizeof(list) / sizeof(list[0]);
+
+unsigned countSwaps(0);
+unsigned countChecks(0);
+unsigned recurCalls(0);
+
+bool swapped = false;
+
+void displayList()
+{
+	for (unsigned i = 0; i < n; i++)
+	{
+		std::cout << list[i] << " ";
+	}
+	std::cout << std::endl;
+}
+
+void bubbleSortRecursive(unsigned n)
+{
+	if (n ==  1) return;
+	for (int i = 0; i < n; i++)
+	{
+		countChecks++;
+		if (list[i] > list[i + 1])
+		{
+			swapped = true;
+			countSwaps++;
+			std::swap(list[i], list[i + 1]);
+		}
+	}
+	if (!swapped)
+	{
+		return;
+	}
+	swapped = false;
+	recurCalls++;
+	bubbleSortRecursive(n - 1);
+
+}
+
+int main()
+{
+	bubbleSortRecursive(n);
+	displayList();
+	std::cout << "Total swaps: " << countSwaps << ".\n";
+	std::cout << "Total checks: " << countChecks << ".\n";
+	std::cout << "Recur depth: " << recurCalls << ".\n";
+	return 0;
+}
+```
+
+*Аналогично на cocktailSort може да напишем подобна рекурсивна функция на bubbleSort, която обхожда списъка отзад напред и да направим така, че рекурсивно да се извикват една друга двете функции на bubbleSort за обхождане напред и обхождане назад съответно. Къде ще бъде дъното на рекурсиите? *
+
+```cpp
+#include <iostream>
+
+int list[] = { 10,2,3,4,5,6,7,8,9,1 };
+unsigned n = sizeof(list) / sizeof(list[0]);
+
+unsigned countSwaps(0);
+unsigned countChecks(0);
+unsigned recurCalls(0);
+
+bool swapped = false;
+
+void displayList()
+{
+	for (unsigned i = 0; i < n; i++)
+	{
+		std::cout << list[i] << " ";
+	}
+	std::cout << std::endl;
+}
+
+void bubbleSortRecursiveBackward(int startIndx, int endIndx);
+
+void bubbleSortRecursiveForward(int startIndx, int endIndx)
+{
+	if (endIndx == n / 2 - 1) return;
+	for (int i = startIndx; i < endIndx; i++)
+	{
+		countChecks++;
+		if (list[i] > list[i + 1])
+		{
+			swapped = true;
+			countSwaps++;
+			std::swap(list[i], list[i + 1]);
+		}
+	}
+	if (!swapped)
+	{
+		return;
+	}
+	swapped = false;
+	recurCalls++;
+	bubbleSortRecursiveBackward(startIndx, endIndx - 1);
+
+}
+
+void bubbleSortRecursiveBackward(int startIndx, int endIndx)
+{
+	if (startIndx == n / 2 + 1) return;
+	for (int i = endIndx; i > startIndx; i--)
+	{
+		countChecks++;
+		if (list[i] < list[i - 1])
+		{
+			swapped = true;
+			countSwaps++;
+			std::swap(list[i], list[i - 1]);
+		}
+	}
+	if (!swapped)
+	{
+		return;
+	}
+	swapped = false;
+	recurCalls++;
+	bubbleSortRecursiveForward(startIndx + 1, endIndx);
+}
+
+int main()
+{
+
+	bubbleSortRecursiveForward(0, n - 1);
+	displayList();
+	std::cout << "Total swaps: " << countSwaps << ".\n";
+	std::cout << "Total checks: " << countChecks << ".\n";
+	std::cout << "Recur depth: " << recurCalls << ".\n";
+	return 0;
+
+}
+```

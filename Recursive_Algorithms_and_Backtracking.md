@@ -677,7 +677,7 @@ void releaseVectorOfPointers(std::vector<Area*> areas)
 	areas.clear();
 }
 
-/* Хардкоднати матрица за тестване в течение на имплементиране на решението*/
+/* Хардкоднати матрици за тестване в течение на имплементация на решението */
 //char P[ROWS][COLS] = { { '-', '-', '-', '-', '*', '*', '*', '-', '-','-' },
 //					   { '-', '-', '-', '*', '*', '-', '*', '*', '-', '*' },
 //					   { '-', '-', '*', '*', '-', '-', '-', '*', '*', '*' },
@@ -698,7 +698,7 @@ void releaseVectorOfPointers(std::vector<Area*> areas)
 
 template  <typename T>
 void printMatrix(T** M, unsigned rows, unsigned cols)
-{   /* помощна функция за принтиране на оригиналната матрица, за тестване*/
+{   	/* помощна функция за принтиране на оригиналната матрица, за тестване*/
 	for (unsigned r = 0; r < rows; r++)
 	{
 		for (unsigned c = 0; c < cols; c++)

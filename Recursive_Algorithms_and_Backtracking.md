@@ -599,4 +599,210 @@ int main()
 Примери:
 ![](https://i.ibb.co/ynvftdr/matr.png)
  
+ *Решение:*
+ 
+ ```cpp
+//#define ROWS 5
+//#define COLS 10
 
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+/* площадка отбелязваме с тире '-',
+   празна клетка отбелязваме със звездичка '*' */
+
+char** readMatrix(unsigned& rows, unsigned& cols)
+{
+	std::cout << "Enter number of rows: ";
+	std::cin >> rows;
+	std::cout << "Enter number of columns: ";
+	std::cin >> cols;
+	/* заделяме динамично памет за матрицата */
+	char** matrix = new char*[rows];
+	for (unsigned i = 0; i < rows; i++)
+	{
+		matrix[i] = new char[cols];
+	}
+	for (unsigned r = 0; r < rows; r++)
+	{
+		for (unsigned c = 0; c < cols; c++)
+		{
+			std::cin >> matrix[r][c];
+		}
+	}
+	return matrix;
+}
+
+template <typename T>
+void releaseMatrix(T** matrix, unsigned rows, unsigned cols)
+{
+	for (unsigned i = 0; i < rows; i++)
+	{
+		delete[] matrix[i];
+	}
+	delete[] matrix;
+}
+
+bool** createDublicateBool(unsigned rows, unsigned cols)
+{
+	bool** visited = new bool*[rows];
+	for (unsigned i = 0; i < rows; i++)
+	{
+		visited[i] = new bool[cols];
+	}
+	for (unsigned i = 0; i < rows; i++)
+	{
+		for (unsigned j = 0; j < cols; j++)
+		{
+			visited[i][j] = false;
+		}
+	}
+	return visited;
+}
+
+struct Area
+{   /* създаваме си клас описващ площадка*/
+	unsigned startIndx;
+	unsigned endIndx;
+	unsigned size;
+};
+
+void releaseVectorOfPointers(std::vector<Area*> areas)
+{
+	for (int i = 0; i < areas.size(); i++)
+	{
+		delete (areas[i]);
+	}
+	areas.clear();
+}
+
+/* Хардкоднати матрица за тестване в течение на имплементиране на решението*/
+//char P[ROWS][COLS] = { { '-', '-', '-', '-', '*', '*', '*', '-', '-','-' },
+//					   { '-', '-', '-', '*', '*', '-', '*', '*', '-', '*' },
+//					   { '-', '-', '*', '*', '-', '-', '-', '*', '*', '*' },
+//					   { '-', '-', '*', '*', '*', '-', '*', '*', '*', '*' },
+//					   { '-', '*', '*', '*', '*', '*', '*', '*', '*', '-' } };
+//
+//char Q[ROWS][COLS] = { { '*', '-', '-', '*', '-', '-', '-', '*', '-', '-' },
+//					   { '*', '-', '-', '*', '-', '-', '-', '*', '-', '-' },
+//					   { '*', '-', '-', '*', '*', '*', '*', '*', '-', '-' },
+//					   { '*', '-', '-', '*', '-', '-', '-', '*', '-', '-' },
+//					   { '*', '-', '-', '*', '-', '-', '-', '*', '-', '-' } };
+//
+//char R[ROWS][COLS] = { { '-', '-', '-', '*', '-', '-', '-', '*', '-', '*' },
+//					   { '-', '-', '-', '*', '-', '-', '-', '*', '-', '*' },
+//					   { '-', '-', '-', '*', '-', '-', '-', '*', '-', '*' },
+//					   { '-', '-', '-', '-', '*', '-', '*', '-', '-', '*' },
+//					   { '*', '*', '*', '*', '*', '*', '*', '*', '*', '*' } };
+
+template  <typename T>
+void printMatrix(T** M, unsigned rows, unsigned cols)
+{   /* помощна функция за принтиране на оригиналната матрица, за тестване*/
+	for (unsigned r = 0; r < rows; r++)
+	{
+		for (unsigned c = 0; c < cols; c++)
+		{
+			std::cout << M[r][c] << ' ';
+		}
+		std::cout << std::endl;
+	}
+	std::cout << std::endl;
+}
+
+void printVectorWithAreas(std::vector<Area*>& areas)
+{   /* помощна функция за принтиране на вектора от площадки */
+	for (unsigned i = 0; i < areas.size(); i++)
+	{
+		std::cout << "Area #" << i + 1 << " at (" << areas[i]->startIndx << ", "
+			<< areas[i]->endIndx << "), size: " << areas[i]->size << "\n";
+	}
+}
+
+bool isSafe(unsigned row, unsigned col, unsigned rows, unsigned cols, char** M, bool** (&visited))
+{	/* ред и колона не са извън размера на матрицата и клетката не е посетена все още*/
+	return (row >= 0) && (row < rows) && (col >= 0) && (col < cols) && (M[row][col] == '-' && !visited[row][col]);
+}
+
+unsigned countSizeDFS(unsigned row, unsigned col, unsigned rows, unsigned cols, char** M, bool** (&visited), unsigned K, int* rowBr4, int* colBr4,unsigned& size)
+{
+	visited[row][col] = true; /* маркираме клетката като посетена */
+	for (unsigned k = 0; k < K; k++)
+		if (isSafe(row + rowBr4[k], col + colBr4[k], rows, cols, M, visited))
+		{
+			size++;
+			countSizeDFS(row + rowBr4[k], col + colBr4[k], rows, cols, M, visited, K, rowBr4, colBr4,size);
+		}
+	return size;
+}
+
+int countIslandsAndAreas(char** M, unsigned rows, unsigned cols, std::vector<Area*>& areas, bool** (&visited), unsigned K, int* rowBr4, int* colBr4,unsigned& size)
+{
+	int count = 0; /* Инициализираме брояча на 0, като започваме да обхождаме всички клетки на матрицата */
+
+	for (unsigned i = 0; i < rows; i++)
+		for (unsigned j = 0; j < cols; j++)
+		{
+			/* Ако клетката не е посетена и е част от площадка*/
+			if (M[i][j] == '-' && !visited[i][j])
+			{
+				/* инкрементираме броя на площадките */
+				count++;
+				/* не е посещавана до сега - обхождаме и посещаваме всички клетки в тази площадка */
+				unsigned areaSize = countSizeDFS(i, j, rows, cols, M, visited, K, rowBr4, colBr4,size); /* Дълбичинно търсене Depth First Search (DFS) */
+
+				//std::cout << "Area #" << count << " at (" << i << ", " << j << "), size: " << areaSize << "\n";
+
+				Area* a = new Area(); /* оператор new => оператор delete */
+				a->startIndx = i;
+				a->endIndx = j;
+				a->size = areaSize;
+				areas.push_back(a);
+			}
+			size = 1;
+		}
+	return count;
+}
+int main()
+{
+	/* Помощни масиви за достигане на индексите на реда и колоната
+		на всички 8 съседа на дадена клетка (дефиниция с ръбче)*/
+	int rowBr8[] = { -1, -1, -1, 0, 0, 1, 1, 1 };
+	int colBr8[] = { -1, 0, 1, -1, 1, -1, 0, 1 };
+
+	/* Помощни масиви за достигане на индексите на реда и колоната
+	на всички 4 съседа на дадена клетка (дефиниция с точно една обща стена)*/
+	int rowBr4[] = { -1,  0, 0, 1 };
+	int colBr4[] = { 0, -1, 1, 0 };
+
+	unsigned K = sizeof(rowBr4) / sizeof(rowBr4[0]);
+
+	unsigned rows, cols;
+	char** M = readMatrix(rows, cols);
+	std::cout << "\nOriginal matrix is:\n\n";
+	printMatrix(M, rows, cols);
+
+	/* булева матрица дубликат, на която ще отбелязваме дали сме посетили дадена клетка от оригиналната матрица */
+	bool** visited = createDublicateBool(rows, cols);
+	//std::cout << "\nDublicate bool matrix is:\n\n";
+	//printMatrix(visited, rows, cols);
+
+	std::vector<Area*> areas; /*създаваме си вектор от пойнтъри към площадки,
+						  като не забравяме после да изтрием поинтърите*/
+
+	unsigned size(1); /* инициализираме с конструктор с параметър променливата size да приема
+					  стартова стойност 1, защото вече сме намерили площадка с поне единица размер*/
+
+	unsigned totalCount = countIslandsAndAreas(M, rows, cols, areas, visited, K, rowBr4, colBr4,size);
+	std::cout << "Total areas found: " << totalCount << '\n';
+	std::sort(areas.begin(), areas.end(), [](Area const *a, Area const *b) {return a->size > b->size; });
+	printVectorWithAreas(areas);
+
+	releaseMatrix(M, rows, cols);
+	releaseMatrix(visited, rows, cols);
+	releaseVectorOfPointers(areas);
+	
+	return 0;
+}
+
+```

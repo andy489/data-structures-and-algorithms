@@ -11,7 +11,7 @@
 
   Output: {"eat", "oath"}
 ```
-*Solution (Recursive):*
+*First Solution (Recursive):*
 
 ```cpp
 #define N 4
@@ -92,4 +92,9 @@ int main()
 	displayAllReadableInBoardWords(board, words);
 	return 0;
 }
+```
+*First Solution (Building a Trie):*
+
+```cpp
+
 ```

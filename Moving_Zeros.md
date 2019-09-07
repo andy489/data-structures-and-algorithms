@@ -85,7 +85,7 @@ int main()
 	return 0;
 }
 ```
-**c)** We will use a) and b)ideas to move zero to the middle for only the half vector. After that we will make the necessary swaps.
+**c)** We will use a) and b) ideas to move zeros to the middle for only the half vector. After that we will make the necessary swaps.
 
 ```cpp
 #include <iostream>

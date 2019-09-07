@@ -1,4 +1,4 @@
-**Task**. *(word matrix)* Given a <img src="https://latex.codecogs.com/svg.latex?\Large&space;2D"> board and a list of words from a dictionary. Find all the possible words on board from the list.
+**Task**. *(word matrix)* Given a <img src="https://latex.codecogs.com/svg.latex?\Large&space;2D"> board of characters and a list of words from a dictionary. A word is said to be readable with the matrix if we find such word while traversing into the matrix in only 4 allowed directions. The 4 directions are, Horizontally Left and Right, Vertically Up and Down. Find all the possible readable words on board from the list.
 
 *Example:*
 ```

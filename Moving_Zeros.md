@@ -185,4 +185,5 @@ int main()
 	return 0;
 }
 ```
-*the task would be much more difficult if there were no conditions a) and b). They actually emphasize the basic principle of task analysis - the breakdown of smaller tasks.*
+
+*Remark: the task would be much more difficult if there were no conditions a) and b). They actually emphasize the basic principle of task analysis - the breakdown of smaller tasks.*

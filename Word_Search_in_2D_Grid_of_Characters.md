@@ -93,7 +93,7 @@ int main()
 	return 0;
 }
 ```
-*First Solution (Building a Trie):*
+*Second Solution (Building a Trie):*
 
 *Approach:* We can use backtracking (dfs) to traverse from each character on board to all four direction. In order to do a fast searching, we can use a trie from words in dictionary, as soon as we find a word from dictionary in trie, we remove it from trie, so we don't have duplicates. Also, we can use the board to mark '#' (as previous solution) as visited character to achieve backtracking.
 

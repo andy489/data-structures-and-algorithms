@@ -1,4 +1,4 @@
-**Task** *(Moving zeros)* Given a vector containing numbers, move all the zeros in the vector 
+**Task**. *(Moving zeros)* Given a vector containing numbers, move all the zeros in the vector 
 
 **a)** at its end;
 

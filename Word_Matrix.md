@@ -81,9 +81,9 @@ int main()
 {
 	std::vector<std::string> words = { "oath","pea","eat","rain"};
 	char board[][N] = { {'o','a','a','n'},
-						{'e','t','a','e'},
-						{'i','h','k','r'},
-						{'i','f','l','v'} };
+			    {'e','t','a','e'},
+			    {'i','h','k','r'},
+			    {'i','f','l','v'} };
 	displayAllReadableInBoardWords(board, words);
 	return 0;
 }

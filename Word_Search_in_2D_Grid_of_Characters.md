@@ -26,7 +26,7 @@ bool finrWordDFS(int x, int y, std::string word, char board[][N], int length)
 	{
 		return true;
 	}
-	if (x < 0 || y < 0 || x >= N || y >= N )
+	if (x < 0 || y < 0 || x >= N || y >= N)
 	{
 		return false;
 	}
@@ -68,22 +68,27 @@ bool findMatch(std::string word, char board[][N])
 
 void displayAllReadableInBoardWords(char board[][N], std::vector<std::string> words)
 {
+	std::vector<std::string> result;
 	for (size_t i = 0; i < words.size(); i++)
 	{
 		if (findMatch(words[i], board))
 		{
-			std::cout << words[i] << '\n';
+			result.push_back( words[i]);
 		}
+	}
+	for (size_t i = 0; i < result.size(); i++)
+	{
+		std::cout << result[i] << '\n';
 	}
 }
 
 int main()
 {
-	std::vector<std::string> words = { "oath","pea","eat","rain"};
+	std::vector<std::string> words = { "oath","pea","eat","rain" };
 	char board[][N] = { {'o','a','a','n'},
-			    {'e','t','a','e'},
-			    {'i','h','k','r'},
-			    {'i','f','l','v'} };
+				{'e','t','a','e'},
+				{'i','h','k','r'},
+				{'i','f','l','v'} };
 	displayAllReadableInBoardWords(board, words);
 	return 0;
 }

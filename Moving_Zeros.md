@@ -77,7 +77,7 @@ void printVector(const std::vector<int>& vec)
 
 int main()
 {
-	std::vector<int> vec = { 1,0,4,5,3,0,7,8,0,10 };
+	std::vector<int> vec = { 1, 0, 4, 5, 3, 0, 7, 8, 0, 10 };
 	printVector(vec);
 	std::cout << "Moving zeros to the front...\n";
 	moveZerosFront(vec);
@@ -177,7 +177,7 @@ void moveZerosInTheMiddle(std::vector<int>& vec)
 
 int main()
 {
-	std::vector<int> vec{ 1, 0, 0, 0, 0, 0, 2, 6, 4, 5, 3, 0, 7, 8 };
+	std::vector<int> vec = { 1, 0, 4, 5, 3, 0, 7, 8, 0, 10 };
 	printVector(vec);
 	std::cout << "Moving zeros to the middle...\n";
 	moveZerosInTheMiddle(vec);

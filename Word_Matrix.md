@@ -1,4 +1,5 @@
 **Task**. *(word matrix)* Given a <img src="https://latex.codecogs.com/svg.latex?\Large&space;2D"> board and a list of words from a dictionary. Find all the possible words on board from the list.
+
 *Example:*
 ```
   words = {"oath", "pea", "eat", "rain"}

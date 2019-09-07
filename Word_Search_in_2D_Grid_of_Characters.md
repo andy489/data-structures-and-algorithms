@@ -129,7 +129,8 @@ TrieNode* buildTrie(const std::vector<std::string>& dictionary)
 	return root;
 }
 
-void backtrack(std::vector<std::vector<char>>& board, TrieNode* root, unsigned i, unsigned j, std::vector<std::string>& result)
+void backtrack(std::vector<std::vector<char>>& board, TrieNode* root, unsigned i, unsigned j, 
+std::vector<std::string>& result)
 {
 	char c = board[i][j];
 	if (c == '#' || root == nullptr)
@@ -172,7 +173,8 @@ void backtrack(std::vector<std::vector<char>>& board, TrieNode* root, unsigned i
 	board[i][j] = c;
 }
 
-std::vector<std::string> findWords(std::vector<std::vector<char>>& board, std::vector<std::string>& dictionary)
+std::vector<std::string> findWords(std::vector<std::vector<char>>& board, 
+std::vector<std::string>& dictionary)
 {
 	std::vector<std::string> result;
 	for (unsigned i = 0; i < board.size(); i++)

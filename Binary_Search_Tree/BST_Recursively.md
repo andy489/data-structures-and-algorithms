@@ -145,3 +145,62 @@ int main()
 	return 0;
 }
 ```
+
+**Задача.** Да се напише функция, която проверява дали дадено двоично дърво е двоично дърво за търсене.
+
+*Решение:*
+
+Естествено интуитивния, но не толкова ефикасен подход е да използваме отново рекурсия. За да бъде дадено двоично дърво - двоично дърво за търесене е необходимо за корена му да са изпълнени следните условия: 
+- всички елементи на лявото поддърво да са по-малки или равни 
+- всички елементи на дясното поддърво да са по-големи
+- лявото и дясното поддървета са също двоични дърва за търсене
+Остана да добавим и базовия случай или така нареченото дъно на рекурсията - когато дървото или поддървото са празни.
+
+```cpp
+bool isSubtreeLesser(BstNode* root, int data)
+{
+	if (root == nullptr) return true;
+	if (root->data <= data
+		&& isSubtreeLesser(root->left, data)
+		&& isSubtreeLesser(root->right, data)) return true;
+	else return false;
+}
+
+bool isSubtreeGreater(BstNode* root, int data)
+{
+	if (root == nullptr) return true;
+	if (root->data > data
+		&& isSubtreeGreater(root->left, data)
+		&& isSubtreeGreater(root->right, data)) return true;
+	else return false;
+}
+
+bool isBinarySearchTree(BstNode* root)
+{
+	if (root == nullptr) return true;
+	if (isSubtreeLesser(root->left, root->data)
+		&& isSubtreeGreater(root->right, root->data)		
+		&& isBinarySearchTree(root->right)
+		&& isBinarySearchTree(root->left)) return true;
+	else return false;
+}
+```
+Вместо функциите *bool isSubtreeLesser(BstNode* root, int data)* и *bool isSubtreeGreater(BstNode* root, int data)* може да напишем функция, която да намира максималния ключ на лявото поддърво и да го сравним с ключа на корена, ако той е по-малък от него, значи всички ключове на лявото поддървото са по-малки от ключа на корена, аналогично ако минималния ключ на дясното поддърво е по-голям от ключа на корена, значи всички ключове на дясното поддърво са с по-голям ключ от ключа на корена. Но така или иначе и в двата случая ще извършим прекалено много излични и преповтарящи се сравнения на брой, което ще оскъпи прекалено много проверката. За по-ефикасно решение на задачата може да задаваме ограничителни интервали за ключовете на всеки следващ възел и да проверяваме дали ключа на следващия възел се намира в интервала. Тези проверки ще се извършват за константно време, докато предишните се изпълняваха за пропорционално на броя на възлите на поддърветата. Освен това ще преминем през всеки възел точно веднъж.
+
+```cpp
+bool isBstUtil(BstNode* root, int minValue, int maxValue)
+{
+	if (root == nullptr) return true;
+	if (root->data > minValue && root->data < maxValue
+		&& isBstUtil(root->left, minValue, root->data)
+		&& isBstUtil(root->right, root->data, maxValue)) return true;
+	else return false;
+}
+
+bool isBinarySearchTree(BstNode* root)
+{
+	return isBstUtil(root, INT_MIN, INT_MAX);
+}
+```
+
+Сложността на първия алгоритъм е <img src="https://latex.codecogs.com/svg.latex?\Theta{(n^2)}">, а сложността на втория е <img src="https://latex.codecogs.com/svg.latex?\Theta{(n)}">.

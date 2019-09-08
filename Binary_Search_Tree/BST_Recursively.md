@@ -81,7 +81,7 @@ BstNode* remove(BstNode* root, int data)
 			root = nullptr;
 		}
 		else if (root->left == nullptr) //one child
-		{   //case 2.1: right child
+		{  	//case 2.1: right child
 			BstNode* temp = root;
 			root = root->right;
 			delete temp;

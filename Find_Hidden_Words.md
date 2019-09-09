@@ -38,7 +38,7 @@ int y[] = { -1, 0, 1, -1, 1, -1, 0, 1 };
 
 // Function foe searching in all 8-direction from point 
 // (row, col) in grid[][] 
-bool search2D(const char grid[R][C], int row, int col, string word, string& direction)
+bool searchWordInGrid(const char grid[R][C], int row, int col, string word, string& direction)
 {
 	// If first character of word doesn't match with 
 	// given starting point in grid. 
@@ -127,7 +127,7 @@ void patternSearch(const char grid[R][C], string word, string& direction)
 	{
 		for (int col = 0; col < C; col++)
 		{
-			if (search2D(grid, row, col, word, direction))
+			if (searchWordInGrid(grid, row, col, word, direction))
 			{
 				foundWord = true;
 				cout << "Pattern found at (" << row << ", "

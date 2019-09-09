@@ -16,10 +16,12 @@ Y|**N**|A|U|**N**|**A**|**P**|W
 
 In the grid with bold font we can find the words: {DREAMING, PILLOW, BED, NAP}
 
-input|output
+Input|Output
 ---|---
 NAP| Pattern found at (7,1) at North-East direction.<br>pattern found at (7,4) at East direction.
 PILLOW | Pattern found at (1,1) at South-East direction.
+BED |Pattern found at (1, 4) at East direction.
+REST| No such word found in the given grid.
 
 *Solution:*
 
@@ -72,8 +74,8 @@ bool search2D(const char grid[R][C], int row, int col, string word, string& dire
 			case 0:
 			{
 				direction = "North-West";
-					break; 
-			}	
+				break;
+			}
 			case 1:
 			{
 				direction = "North";
@@ -109,10 +111,6 @@ bool search2D(const char grid[R][C], int row, int col, string word, string& dire
 				direction = "South-East";
 				break;
 			}
-
-			default:
-				direction = "None";
-				break;
 			}
 			return true;
 		}
@@ -132,7 +130,7 @@ void patternSearch(const char grid[R][C], string word, string& direction)
 			if (search2D(grid, row, col, word, direction))
 			{
 				foundWord = true;
-				cout << "Pattern found at (" << row << ", " 
+				cout << "Pattern found at (" << row << ", "
 					<< col << ") at " << direction << " direction.\n";
 			}
 		}

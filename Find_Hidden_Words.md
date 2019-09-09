@@ -18,5 +18,5 @@ In the grid with bold font we can find the words: {DREAMING, PILLOW, BED, NAP}
 
 input|output
 ---|---
-NAP| pattern found at (7,1)<br>pattern found at (7,4)
-PILLOW | pattern found at (1,1)
+NAP| Pattern found at (7,1)<br>pattern found at (7,4)
+PILLOW | Pattern found at (1,1)

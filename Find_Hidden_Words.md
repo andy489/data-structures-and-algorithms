@@ -10,9 +10,9 @@ K|**P**|M|Q|**B**|**E**|**D**|N
 P|O|**I**|Z|F|V|T|E
 T|M|A|**L**|F|C|X|Z
 P|O|C|Z|**L**|V|T|S
-D|F|A|**P**|J|**O**|T|S
-R|O|**A**|Z|F|O|**W**|S
-Y|**N**|A|U|**N**|**A**|**P**|S
+D|F|A|**P**|J|**O**|T|B
+R|O|**A**|Z|F|O|**W**|H
+Y|**N**|A|U|**N**|**A**|**P**|W
 
 In the grid with bold font we can find the words: {DREAMING, PILLOW, BED, NAP}
 

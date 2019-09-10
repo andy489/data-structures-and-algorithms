@@ -4,6 +4,7 @@
 - insertAtBeginning();
 - insertAtPosition();
 - deleteAtPosition();
+- **reverseLinkedList()** - *favourite interview question*;
 - eraseLinkedList();
 - printLinkedList().
 #### IMPLEMENTATION (C++):
@@ -87,6 +88,21 @@ Node* insertAtPosition(Node* head, int data, int pos)
 	}
 }
 
+Node* reverseLinkedList(Node* head) // iterative
+{
+	Node* current = head;  // traversal Node
+	Node* prev = nullptr;
+	while (current != nullptr)
+	{
+		Node* next = current->next;
+		current->next = prev;
+		prev = current;
+		current = next;
+	}
+	head = prev;
+	return head;
+}
+
 Node* deleteAtPosition(Node* head, int n)
 {
 	if (n < 1) return head;
@@ -136,8 +152,8 @@ void printLinkedList(Node* head)
 void test()
 {
 	Node* head = nullptr; /* The identity of the linked list.
-							 Not the head, but a pointer to the head.
-							 Initialize an empty list. */
+				Not the head, but a pointer to the head.
+				Initialize an empty list. */
 
 	int countNodes, indx, data;
 	std::cout << "Enter how many Nodes you would like to insert at the beginning?\n";
@@ -171,6 +187,11 @@ void test()
 		head = insertAtPosition(head, data, pos);
 		printLinkedList(head);
 	}
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
+	std::cout << "~Reversing the linked list:\n";
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+	head = reverseLinkedList(head);
+	printLinkedList(head);
 	int deleteNodes;
 	std::cout << "\nEnter number of Nodes you want to DELETE with a selectable index:\n";
 	std::cin >> deleteNodes;
@@ -187,9 +208,9 @@ void test()
 		std::cin >> pos;
 		head = deleteAtPosition(head, pos);
 		printLinkedList(head);
-	}
+	}		
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
-	std::cout << "Clearing the linked list:\n";
+	std::cout << "\n~Clearing the linked list:\n";
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
 	head = deleteLinkedList(head);
 	printLinkedList(head);

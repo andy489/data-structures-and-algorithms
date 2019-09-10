@@ -78,8 +78,8 @@ void printLinkedList(Node* head)
 int main()
 {
 	Node* head = nullptr; /* The identity of the linked list.
-							 Not the head, but a pointer to the head.
-							 Initialize an empty list. */
+				Not the head, but a pointer to the head.
+				Initialize an empty list. */
 
 	int countNodes, indx, data;
 	std::cout << "Enter how many Nodes you would like to insert?\n";

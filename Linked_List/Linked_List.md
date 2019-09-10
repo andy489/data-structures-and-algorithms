@@ -3,6 +3,7 @@
 - insertAtEnd();
 - insertAtBeginning();
 - insertAtPosition();
+- deleteAtPosition();
 - printLinkedList().
 #### IMPLEMENTATION (C++):
 ```cpp
@@ -73,7 +74,7 @@ Node* insertAtPosition(Node* head, int data, int pos)
 		Node* traverseNode = head;
 		for (int i = 0; i < pos - 2; i++)
 		{
-			if (traverseNode == nullptr)
+			if (traverseNode->next->next == nullptr)
 			{
 				return insertAtEnd(head, data);
 			}
@@ -83,6 +84,27 @@ Node* insertAtPosition(Node* head, int data, int pos)
 		traverseNode->next = newNode;
 		return head;
 	}
+}
+
+Node* deleteAtPosition(Node* head, int n)
+{
+	if (n < 1) return head;
+	Node* traverseNode = head;
+	if (n == 1)
+	{
+		head = traverseNode->next; // head now points to second node (nullptr)
+		delete traverseNode;
+		return head; // or else statement
+	}
+	for (int i = 0; i < n - 2; i++)
+	{
+		if (traverseNode->next->next == nullptr) return head;		
+		traverseNode = traverseNode->next;
+	} // traverseNode points to (n-1)th Node
+	Node* temp = traverseNode->next; // nth Node
+	traverseNode->next = temp->next; // (n+1)th Node
+	delete temp; // free(temp);
+	return head;
 }
 
 void printLinkedList(Node* head)
@@ -117,25 +139,42 @@ void test()
 		/* insertAtBeginningVoid(&head, data); // second way */
 		printLinkedList(head);
 	}
-	int nodes;
-	std::cout << "\nEnter number of Nodes you want to insert with a selectable index:\n";
-	std::cin >> nodes;
+	int insertNodes;
+	std::cout << "\nEnter number of Nodes you want to INSERT with a selectable index:\n";
+	std::cin >> insertNodes;
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
-	std::cout << "~\nInsert " << nodes << " Nodes at position of your choice.\n"
+	std::cout << "~\nInsert " << insertNodes << " Nodes at position of your choice.\n"
 		<< "If position is bigger than the size of the linked list,\n"
 		<< "the node will be inserted at the end of the linked list.\n"
 		<< "Else if the position is smaller than the first position,\n"
 		<< "the node will be inserted at the beginning of the linked list.\n"
-		<< "Тhus there are no bad inputs.\n\n";
+		<< "Thus there are no bad inputs.\n\n";
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
-	for (int i = 0; i < nodes; i++)
+	for (int i = 0; i < insertNodes; i++)
 	{
 		int pos, data;
-		std::cout << "Enter a position to insert Node: ";
+		std::cout << "Enter a position to insert a Node: ";
 		std::cin >> pos;
 		std::cout << "Enter data (int) to Node to be inserted: ";
 		std::cin >> data;
 		head = insertAtPosition(head, data, pos);
+		printLinkedList(head);
+	}
+	int deleteNodes;
+	std::cout << "\nEnter number of Nodes you want to DELETE with a selectable index:\n";
+	std::cin >> deleteNodes;
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
+	std::cout << "~\nDelete " << deleteNodes << " Nodes at position of your choice.\n"
+		<< "If position is bigger than the size of the linked list\n"
+		<< "or smaller than 1 - no Node will be deleted.\n"
+		<< "Thus there are no bad inputs.\n\n";
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+	for (int i = 0; i < deleteNodes; i++)
+	{
+		int pos;
+		std::cout << "Enter a position at which you want to delete a Node: ";
+		std::cin >> pos;
+		head = deleteAtPosition(head,pos);
 		printLinkedList(head);
 	}
 }

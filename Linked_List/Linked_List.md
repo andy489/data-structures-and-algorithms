@@ -48,7 +48,7 @@ Node* insertAtBeginning(Node* head, int data)
 	return head;
 }
 
-void insertAtBeginningVoid(Node** ptrToHead, int data) // second approach
+void insertAtBeginningVoid(Node** ptrToHead, int data) // second approach just to show how it will look with void function
 {
 	Node* newNode = getNode(data);
 	newNode->next = *ptrToHead;

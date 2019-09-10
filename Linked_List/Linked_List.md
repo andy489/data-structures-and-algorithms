@@ -4,7 +4,7 @@
 - insertAtBeginning();
 - insertAtPosition();
 - deleteAtPosition();
-- **reverseLinkedList()** - *favourite interview question*;
+- **reverseLinkedList()** iterative approach - *favourite interview question*;
 - eraseLinkedList();
 - printLinkedList().
 #### IMPLEMENTATION (C++):

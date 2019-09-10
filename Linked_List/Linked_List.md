@@ -4,6 +4,7 @@
 - insertAtBeginning();
 - insertAtPosition();
 - deleteAtPosition();
+- eraseLinkedList();
 - printLinkedList().
 #### IMPLEMENTATION (C++):
 ```cpp
@@ -99,12 +100,21 @@ Node* deleteAtPosition(Node* head, int n)
 	}
 	for (int i = 0; i < n - 2; i++)
 	{
-		if (traverseNode->next->next == nullptr) return head;		
+		if (traverseNode->next->next == nullptr) return head;
 		traverseNode = traverseNode->next;
 	} // traverseNode points to (n-1)th Node
 	Node* temp = traverseNode->next; // nth Node
 	traverseNode->next = temp->next; // (n+1)th Node
 	delete temp; // free(temp);
+	return head;
+}
+
+Node* deleteLinkedList(Node* head)
+{
+	while (head != nullptr)
+	{
+		head = deleteAtPosition(head, 1);
+	}
 	return head;
 }
 
@@ -175,9 +185,14 @@ void test()
 		int pos;
 		std::cout << "Enter a position at which you want to delete a Node: ";
 		std::cin >> pos;
-		head = deleteAtPosition(head,pos);
+		head = deleteAtPosition(head, pos);
 		printLinkedList(head);
 	}
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
+	std::cout << "Clearing the linked list:\n";
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+	head = deleteLinkedList(head);
+	printLinkedList(head);
 }
 
 int main()

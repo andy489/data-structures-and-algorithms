@@ -49,7 +49,7 @@ Node* insertAtBeginning(Node* head, int data)
 }
 
 void insertAtBeginningVoid(Node** ptrToHead, int data) 
-{	// second approach just to show how it will look with void function
+{	// second approach just to show how it will look with VOID function
 	Node* newNode = getNode(data);
 	newNode->next = *ptrToHead;
 	*ptrToHead = newNode;

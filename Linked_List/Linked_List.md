@@ -1,3 +1,4 @@
+#### FUNCTIONALITY:
 - getNode();
 - insertAtEnd();
 - insertAtBeginning();

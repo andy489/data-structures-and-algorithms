@@ -48,8 +48,8 @@ Node* insertAtBeginning(Node* head, int data)
 	return head;
 }
 
-void insertAtBeginningVoid(Node** ptrToHead, int data) 
-{	// second approach just to show how it will look with VOID function
+void insertAtBeginningVoid(Node** ptrToHead, int data) // second approach
+{
 	Node* newNode = getNode(data);
 	newNode->next = *ptrToHead;
 	*ptrToHead = newNode;
@@ -92,6 +92,7 @@ Node* deleteAtPosition(Node* head, int n)
 	Node* traverseNode = head;
 	if (n == 1)
 	{
+		if (head == nullptr) return head;
 		head = traverseNode->next; // head now points to second node (nullptr)
 		delete traverseNode;
 		return head; // or else statement
@@ -129,7 +130,7 @@ void test()
 							 Initialize an empty list. */
 
 	int countNodes, indx, data;
-	std::cout << "Enter how many Nodes you would like to insert?\n";
+	std::cout << "Enter how many Nodes you would like to insert at the beginning?\n";
 	std::cin >> countNodes;
 	for (indx = 0; indx < countNodes; indx++)
 	{

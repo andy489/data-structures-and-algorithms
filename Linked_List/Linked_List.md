@@ -4,6 +4,7 @@
 - insertAtBeginning()
 - insertAtPosition()
 - **reverseLinkedList_iterative()** *- favourite interview question*
+- **reverseLinkedList_recursive()** *- favourite interview question*
 - printLinkedList()
 - print_recursive()
 - print_reversedLinkedList_recursive()
@@ -103,6 +104,16 @@ Node* reverseLinkedList_iterative(Node* head)
 	}
 	head = prev;
 	return head;
+}
+
+Node* reverseLinkedList_recursive(Node* head)
+{
+	if (head == nullptr||head->next==nullptr) return head;
+	Node* rest = reverseLinkedList_recursive(head->next);
+	head->next->next=head;
+	head->next = nullptr;
+
+	return rest;
 }
 
 void print_recursive(Node* head, int& count)
@@ -235,9 +246,14 @@ void test()
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
 	print_reversedLinkedList_recursive(head, count);
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
-	std::cout << "\n~Reversing the linked list:\n";
+	std::cout << "\n~Reversing the linked list (iteratively):\n";
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
 	head = reverseLinkedList_iterative(head);
+	printLinkedList(head);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
+	std::cout << "\n~Reversing the linked list (recursively):\n";
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+	head = reverseLinkedList_recursive(head);
 	printLinkedList(head);
 	int deleteNodes;
 	std::cout << "\nEnter number of Nodes you want to DELETE with a selectable index:\n";

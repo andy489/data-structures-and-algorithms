@@ -1,12 +1,17 @@
 #### FUNCTIONALITY:
-- getNode();
-- insertAtEnd();
-- insertAtBeginning();
-- insertAtPosition();
-- deleteAtPosition();
-- **reverseLinkedList()** *iterative approach - favourite interview question*;
-- eraseLinkedList();
-- printLinkedList().
+- getNode()
+- insertAtEnd()
+- insertAtBeginning()
+- insertAtPosition()
+
+- **reverseLinkedList_iterative()** * - favourite interview question*;
+
+- printLinkedList()
+- print_recursive()
+- print_reversedLinkedList_recursive()
+
+- deleteAtPosition()
+- eraseLinkedList()
 #### IMPLEMENTATION (C++):
 ```cpp
 #include <iostream>
@@ -88,7 +93,7 @@ Node* insertAtPosition(Node* head, int data, int pos)
 	}
 }
 
-Node* reverseLinkedList(Node* head) // iterative
+Node* reverseLinkedList_iterative(Node* head)
 {
 	Node* current = head;  // traversal Node
 	Node* prev = nullptr;
@@ -101,6 +106,38 @@ Node* reverseLinkedList(Node* head) // iterative
 	}
 	head = prev;
 	return head;
+}
+
+void print_recursive(Node* head, int& count)
+{
+	if (count == 0 && head == nullptr) std::cout << "empty linked list\n";
+	else if (head == nullptr) std::cout << "end of linked list\n"; // Exit condition
+	else
+	{
+		count++;
+		if (count == 1)	std::cout << "head: ";
+		// First print the data in the node
+		if (head->next != nullptr) std::cout << head->data << " -> ";
+		else std::cout << head->data << " -| ";
+		print_recursive(head->next, count); // Recursive call
+	}
+	count = 0;
+}
+
+void print_reversedLinkedList_recursive(Node* head, int& count)
+{
+	if (head == nullptr && count == 0)
+	{
+		std::cout << "empty linked list\n";
+		return;
+	}
+	if (head == nullptr) return;
+	count++;
+	if (count == 1) std::cout << "head: ";
+	print_reversedLinkedList_recursive(head->next, count);
+	count--;
+	if (count != 0)	std::cout << head->data << " -> ";
+	else std::cout << head->data << " -| end of linked list\n";
 }
 
 Node* deleteAtPosition(Node* head, int n)
@@ -125,7 +162,7 @@ Node* deleteAtPosition(Node* head, int n)
 	return head;
 }
 
-Node* deleteLinkedList(Node* head)
+Node* eraseLinkedList(Node* head)
 {
 	while (head != nullptr)
 	{
@@ -152,8 +189,8 @@ void printLinkedList(Node* head)
 void test()
 {
 	Node* head = nullptr; /* The identity of the linked list.
-				Not the head, but a pointer to the head.
-				Initialize an empty list. */
+							 Not the head, but a pointer to the head.
+							 Initialize an empty list. */
 
 	int countNodes, indx, data;
 	std::cout << "Enter how many Nodes you would like to insert at the beginning?\n";
@@ -175,7 +212,7 @@ void test()
 		<< "the node will be inserted at the end of the linked list.\n"
 		<< "Else if the position is smaller than the first position,\n"
 		<< "the node will be inserted at the beginning of the linked list.\n"
-		<< "Thus there are no bad inputs.\n\n";
+		<< "Thus there are no bad inputs.\n";
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
 	for (int i = 0; i < insertNodes; i++)
 	{
@@ -188,9 +225,22 @@ void test()
 		printLinkedList(head);
 	}
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
-	std::cout << "~Reversing the linked list:\n";
+	std::cout << "\n~Printing the linked list ITERATIVELY:\n";
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
-	head = reverseLinkedList(head);
+	printLinkedList(head);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
+	std::cout << "\n~Printing the linked list RECURSIVELY:\n";
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+	int count(0);
+	print_recursive(head, count);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
+	std::cout << "\n~Printing the linked list REVERSED & RECURSIVELY:\n";
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+	print_reversedLinkedList_recursive(head, count);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
+	std::cout << "\n~Reversing the linked list:\n";
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+	head = reverseLinkedList_iterative(head);
 	printLinkedList(head);
 	int deleteNodes;
 	std::cout << "\nEnter number of Nodes you want to DELETE with a selectable index:\n";
@@ -199,7 +249,7 @@ void test()
 	std::cout << "~\nDelete " << deleteNodes << " Nodes at position of your choice.\n"
 		<< "If position is bigger than the size of the linked list\n"
 		<< "or smaller than 1 - no Node will be deleted.\n"
-		<< "Thus there are no bad inputs.\n\n";
+		<< "Thus there are no bad inputs.\n";
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
 	for (int i = 0; i < deleteNodes; i++)
 	{
@@ -208,11 +258,11 @@ void test()
 		std::cin >> pos;
 		head = deleteAtPosition(head, pos);
 		printLinkedList(head);
-	}		
+	}
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
 	std::cout << "\n~Clearing the linked list:\n";
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
-	head = deleteLinkedList(head);
+	head = eraseLinkedList(head);
 	printLinkedList(head);
 }
 

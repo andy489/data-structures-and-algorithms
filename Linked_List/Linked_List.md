@@ -3,13 +3,10 @@
 - insertAtEnd()
 - insertAtBeginning()
 - insertAtPosition()
-
 - **reverseLinkedList_iterative()** * - favourite interview question*;
-
 - printLinkedList()
 - print_recursive()
 - print_reversedLinkedList_recursive()
-
 - deleteAtPosition()
 - eraseLinkedList()
 #### IMPLEMENTATION (C++):

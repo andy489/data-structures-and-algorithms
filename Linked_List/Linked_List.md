@@ -3,7 +3,7 @@
 - insertAtEnd()
 - insertAtBeginning()
 - insertAtPosition()
-- **reverseLinkedList_iterative()** * - favourite interview question*;
+- **reverseLinkedList_iterative()** *- favourite interview question*
 - printLinkedList()
 - print_recursive()
 - print_reversedLinkedList_recursive()

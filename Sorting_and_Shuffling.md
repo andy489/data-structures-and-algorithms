@@ -23,7 +23,7 @@ Name | Best | Average | Worst | Memory | Stable | Method
  ### 1. Selection Sort      
 За всеки елемент алгоритъма обикаля всички останали след него <img src="https://latex.codecogs.com/svg.latex?\Large&space;\bigg[\frac{(n-1)n}{2}\bigg]\sim{O}(n^2)"> , като започва от първия и търси най-малкия от тях, който е по-малък и от текущия и след това ги разменя.
 ```cpp
- void selectionSort(int* arr, size_t arrLen)
+void selectionSort(int* arr, size_t arrLen)
 {
 	for (size_t index = 0; index < arrLen - 1; index++)
 	{

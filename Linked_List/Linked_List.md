@@ -6,6 +6,7 @@
 - **reverseLL_iterative()** *- favourite interview question*
 - **reverseLL_recursive()** *- favourite interview question*
 - bubbleSortLL()
+- merge2sortedLL()
 - printLL()
 - printLL_recursive()
 - printLL_reversed_recursive()
@@ -15,6 +16,8 @@
 ```cpp
 #include <iostream>
 #include <windows.h>
+#include <assert.h> // used in moveNode function 
+#include <time.h>
 
 struct Node
 {
@@ -119,18 +122,56 @@ Node* reverseLL_recursive(Node* head)
 
 Node* bubbleSortLL(Node* head)
 {
-	bool swapped = false;	
-	for (Node* i = head; i->next != nullptr; i=i->next)
+	if (head==nullptr) return head;	
+	for (Node* i = head; i->next != nullptr; i = i->next)
 	{
-		for (Node* j =i->next; j!=nullptr; j=j->next)
+		for (Node* j = i->next; j != nullptr; j = j->next)
 		{
-			if (i->data>j->data)
+			if (i->data > j->data)
 			{
 				std::swap(i->data, j->data);
 			}
 		}
 	}
 	return head;
+}
+
+void moveNode(Node** destRef, Node** srcRef)
+{	/* moveNode() is an utility function takes the node from the front
+	of the source, and move it to the front of the dest. It is an error
+	to call this function with the source list empty.
+	Before calling moveNode(): source == {1, 2, 3}; dest == {3, 4, 5}
+	Affter calling MoveNode(): source == {2, 3}; dest == {1, 3, 4, 5} */
+	Node* newNode = *srcRef; // the front source node 
+	assert(newNode != nullptr); // assuming that newNode is not nullptr	
+	*srcRef = newNode->next; // Advance the source pointer 	
+	newNode->next = *destRef; // Link the old dest off the new node 	
+	*destRef = newNode; // Move dest to point to the new node 
+}
+
+Node* merge2sortedLL(Node* L1, Node* L2)
+{	//merges two sorted LL into one LL sorted (increasing order)
+	Node dummy; // dummy node to collect the result
+	Node* tail = &dummy; // tail points to the last result node
+	dummy.next = nullptr;
+
+	while (true)
+	{
+		if (L1 == nullptr)
+		{
+			tail->next = L2;
+			break;
+		}
+		else if (L2 == nullptr)
+		{
+			tail->next = L1;
+			break;
+		}
+		if (L1->data <= L2->data) moveNode(&(tail->next), &L1);
+		else moveNode(&(tail->next), &L2);
+		tail = tail->next;
+	}
+	return dummy.next;
 }
 
 void printLL(Node* head)
@@ -301,9 +342,43 @@ void test()
 	printLL(head);
 }
 
+void testMerge()
+{
+	Node* head1 = nullptr;
+	Node* head2 = nullptr;
+	srand((unsigned)time(0));
+	unsigned ran1 = 2 + rand() % 8;
+	unsigned ran2 = 2 + rand() % 8;
+
+	for (unsigned i = 0; i < ran1; i++) head1 = insertAtEnd(head1, rand() % 100);
+	for (unsigned i = 0; i < ran2; i++) head2 = insertAtEnd(head2, rand() % 100);
+
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
+	std::cout << "\n~Printing two randomly created Linked Lists:\n";
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+	printLL(head1);
+	printLL(head2);
+	
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
+	std::cout << "\n~Sorting the Lists:\n";
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+	head1 = bubbleSortLL(head1);
+	head2 = bubbleSortLL(head2);
+	printLL(head1);
+	printLL(head2);
+
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
+	std::cout << "\n~Merging the Lists:\n";
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+	Node* res = nullptr;
+	res = merge2sortedLL(head1, head2);
+	printLL(res); 
+}
+
 int main()
 {
 	test();
+	testMerge();
 	return 0;
 }
 ```

@@ -38,7 +38,7 @@ void selectionSort(int* arr, size_t arrLen)
  ### 2. Bubble Sort      
 Алгоритъма започва от началото и взима двойка елементи и ги сравнява, ако не са правилно наредени ги разменя и така до края на колекцията. Ако е направена поне една размяна - повтаря цикъла отново, в противен случай ще означава, че колекцията е сортирана. Сложност <img src="https://latex.codecogs.com/svg.latex?\Large&space;O\bigg[\frac{(n-1)n}{2}\bigg]\sim{O}(n)"> - за почти сортирана и <img src="https://latex.codecogs.com/svg.latex?\Large&space;O\bigg[\frac{(n-1)n}{2}\bigg]\sim{O}(n^2)"> - за напълно разбъркана колекция.
 ```cpp
- void bubbleSort(int* arr, size_t arrLen)
+void bubbleSort(int* arr, size_t arrLen)
 {
 	while (true)
 	{

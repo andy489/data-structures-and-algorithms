@@ -8,6 +8,8 @@
 - **reverseLL_recursive()** *- favourite interview question*
 - bubbleSortLL()
 - merge2sortedLL()
+- split() *-fast/slow strategy*
+- mergeSort()
 - printLL()
 - printLL_recursive()
 - printLL_reversed_recursive()
@@ -123,7 +125,7 @@ Node* reverseLL_recursive(Node* head)
 
 Node* bubbleSortLL(Node* head)
 {
-	if (head==nullptr) return head;	
+	if (head == nullptr) return head;
 	for (Node* i = head; i->next != nullptr; i = i->next)
 	{
 		for (Node* j = i->next; j != nullptr; j = j->next)
@@ -173,6 +175,48 @@ Node* merge2sortedLL(Node* L1, Node* L2)
 		tail = tail->next;
 	}
 	return dummy.next;
+}
+
+void split(Node* source, Node** frontRef, Node** backRef)
+{
+	/* Split the nodes of the given list into front and back halves,
+	and return the two lists using the reference parameters.
+	If the length is odd, the extra node should go in the front list.
+	Uses the fast/slow pointer strategy. */
+	Node* fast,*slow;
+	
+	slow = source;
+	fast = source->next;
+
+	/* Advance "fast" two nodes, and advance "slow" one node */
+	while (fast != nullptr) 
+	{
+		fast = fast->next;
+		if (fast != nullptr) 
+		{
+			slow = slow->next;
+			fast = fast->next;
+		}
+	}
+
+	/* "slow" is before the midpoint in the list, so split it in two
+	at that point. */
+	*frontRef = source;
+	*backRef = slow->next;
+	slow->next = nullptr;
+}
+
+void mergeSort(Node** headRef)
+{
+	Node* head = *headRef;
+	Node* L1, *L2;
+	if ((head == nullptr) || (head->next == nullptr)) return; // Base case - length 0 or 1 
+	split(head, &L1, &L2); // Split head into L1 and L2 sublists 
+	// Recursively sort the sublists
+	mergeSort(&L1);
+	mergeSort(&L2);
+	// answer = merge the two sorted lists together 
+	*headRef = merge2sortedLL(L1, L2);
 }
 
 void printLL(Node* head)
@@ -359,7 +403,7 @@ void testMerge()
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
 	printLL(head1);
 	printLL(head2);
-	
+
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
 	std::cout << "\n~Sorting the Lists:\n";
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
@@ -373,13 +417,35 @@ void testMerge()
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
 	Node* res = nullptr;
 	res = merge2sortedLL(head1, head2);
-	printLL(res); 
+	printLL(res);
+	std::cout << std::endl;
+}
+
+void testMergeSort()
+{
+	Node* head = nullptr;
+	srand((unsigned)time(0));
+	unsigned ran = 5 + rand() % 20;
+
+	for (unsigned i = 0; i < ran; i++) head = insertAtEnd(head, rand() % 100);
+	
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
+	std::cout << "~Printing the randomly created Linked List:\n";
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+	printLL(head);
+
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
+	std::cout << "\n~Printing the sorted List (via Merge Sort):\n";
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+	mergeSort(&head);
+	printLL(head);
 }
 
 int main()
 {
 	test();
 	testMerge();
+	testMergeSort();
 	return 0;
 }
 ```

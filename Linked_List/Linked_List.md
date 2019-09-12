@@ -3,13 +3,14 @@
 - insertAtEnd()
 - insertAtBeginning()
 - insertAtPosition()
-- **reverseLinkedList_iterative()** *- favourite interview question*
-- **reverseLinkedList_recursive()** *- favourite interview question*
-- printLinkedList()
-- print_recursive()
-- print_reversedLinkedList_recursive()
+- **reverseLL_iterative()** *- favourite interview question*
+- **reverseLL_recursive()** *- favourite interview question*
+- bubbleSortLL()
+- printLL()
+- printLL_recursive()
+- printLL_reversed_recursive()
 - deleteAtPosition()
-- eraseLinkedList()
+- eraseLL()
 #### IMPLEMENTATION (C++):
 ```cpp
 #include <iostream>
@@ -79,7 +80,7 @@ Node* insertAtPosition(Node* head, int data, int pos)
 		Node* traverseNode = head;
 		for (int i = 0; i < pos - 2; i++)
 		{
-			if (traverseNode->next->next == nullptr)
+			if (traverseNode == nullptr)
 			{
 				return insertAtEnd(head, data);
 			}
@@ -91,7 +92,7 @@ Node* insertAtPosition(Node* head, int data, int pos)
 	}
 }
 
-Node* reverseLinkedList_iterative(Node* head)
+Node* reverseLL_iterative(Node* head)
 {
 	Node* current = head;  // traversal Node
 	Node* prev = nullptr;
@@ -106,17 +107,48 @@ Node* reverseLinkedList_iterative(Node* head)
 	return head;
 }
 
-Node* reverseLinkedList_recursive(Node* head)
+Node* reverseLL_recursive(Node* head)
 {
-	if (head == nullptr||head->next==nullptr) return head;
-	Node* rest = reverseLinkedList_recursive(head->next);
-	head->next->next=head;
+	if (head == nullptr || head->next == nullptr) return head;
+	Node* rest = reverseLL_recursive(head->next);
+	head->next->next = head;
 	head->next = nullptr;
 
 	return rest;
 }
 
-void print_recursive(Node* head, int& count)
+Node* bubbleSortLL(Node* head)
+{
+	bool swapped = false;	
+	for (Node* i = head; i->next != nullptr; i=i->next)
+	{
+		for (Node* j =i->next; j!=nullptr; j=j->next)
+		{
+			if (i->data>j->data)
+			{
+				std::swap(i->data, j->data);
+			}
+		}
+	}
+	return head;
+}
+
+void printLL(Node* head)
+{
+	if (head == nullptr) std::cout << "empty linked list\n";
+	else
+	{
+		std::cout << "head: ";
+		while (head->next != nullptr)
+		{
+			std::cout << head->data << " -> ";
+			head = head->next;
+		}
+		std::cout << head->data << " -| end of linked list\n";
+	}
+}
+
+void printLL_recursive(Node* head, int& count)
 {
 	if (count == 0 && head == nullptr) std::cout << "empty linked list\n";
 	else if (head == nullptr) std::cout << "end of linked list\n"; // Exit condition
@@ -127,12 +159,12 @@ void print_recursive(Node* head, int& count)
 		// First print the data in the node
 		if (head->next != nullptr) std::cout << head->data << " -> ";
 		else std::cout << head->data << " -| ";
-		print_recursive(head->next, count); // Recursive call
+		printLL_recursive(head->next, count); // Recursive call
 	}
 	count = 0;
 }
 
-void print_reversedLinkedList_recursive(Node* head, int& count)
+void printLL_reversed_recursive(Node* head, int& count)
 {
 	if (head == nullptr && count == 0)
 	{
@@ -142,7 +174,7 @@ void print_reversedLinkedList_recursive(Node* head, int& count)
 	if (head == nullptr) return;
 	count++;
 	if (count == 1) std::cout << "head: ";
-	print_reversedLinkedList_recursive(head->next, count);
+	printLL_reversed_recursive(head->next, count);
 	count--;
 	if (count != 0)	std::cout << head->data << " -> ";
 	else std::cout << head->data << " -| end of linked list\n";
@@ -170,28 +202,13 @@ Node* deleteAtPosition(Node* head, int n)
 	return head;
 }
 
-Node* eraseLinkedList(Node* head)
+Node* eraseLL(Node* head)
 {
 	while (head != nullptr)
 	{
 		head = deleteAtPosition(head, 1);
 	}
 	return head;
-}
-
-void printLinkedList(Node* head)
-{
-	if (head == nullptr) std::cout << "empty linked list\n";
-	else
-	{
-		std::cout << "head: ";
-		while (head->next != nullptr)
-		{
-			std::cout << head->data << " -> ";
-			head = head->next;
-		}
-		std::cout << head->data << " -| end of linked list\n";
-	}
 }
 
 void test()
@@ -209,7 +226,7 @@ void test()
 		std::cin >> data;
 		head = insertAtBeginning(head, data); //head = insertAtEnd(head, data);
 		/* insertAtBeginningVoid(&head, data); // second way */
-		printLinkedList(head);
+		printLL(head);
 	}
 	int insertNodes;
 	std::cout << "\nEnter number of Nodes you want to INSERT with a selectable index:\n";
@@ -230,31 +247,36 @@ void test()
 		std::cout << "Enter data (int) to Node to be inserted: ";
 		std::cin >> data;
 		head = insertAtPosition(head, data, pos);
-		printLinkedList(head);
+		printLL(head);
 	}
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
 	std::cout << "\n~Printing the linked list ITERATIVELY:\n";
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
-	printLinkedList(head);
+	printLL(head);
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
 	std::cout << "\n~Printing the linked list RECURSIVELY:\n";
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
 	int count(0);
-	print_recursive(head, count);
+	printLL_recursive(head, count);
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
-	std::cout << "\n~Printing the linked list REVERSED & RECURSIVELY:\n";
+	std::cout << "\n~Printing the linked list RECURSIVELY & REVERSED :\n";
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
-	print_reversedLinkedList_recursive(head, count);
+	printLL_reversed_recursive(head, count);
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
 	std::cout << "\n~Reversing the linked list (iteratively):\n";
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
-	head = reverseLinkedList_iterative(head);
-	printLinkedList(head);
+	head = reverseLL_iterative(head);
+	printLL(head);
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
 	std::cout << "\n~Reversing the linked list (recursively):\n";
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
-	head = reverseLinkedList_recursive(head);
-	printLinkedList(head);
+	head = reverseLL_recursive(head);
+	printLL(head);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
+	std::cout << "\n~Sorting the linked list (bubbleSort):\n";
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+	head = bubbleSortLL(head);
+	printLL(head);
 	int deleteNodes;
 	std::cout << "\nEnter number of Nodes you want to DELETE with a selectable index:\n";
 	std::cin >> deleteNodes;
@@ -270,13 +292,13 @@ void test()
 		std::cout << "Enter a position at which you want to delete a Node: ";
 		std::cin >> pos;
 		head = deleteAtPosition(head, pos);
-		printLinkedList(head);
+		printLL(head);
 	}
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
 	std::cout << "\n~Clearing the linked list:\n";
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
-	head = eraseLinkedList(head);
-	printLinkedList(head);
+	head = eraseLL(head);
+	printLL(head);
 }
 
 int main()

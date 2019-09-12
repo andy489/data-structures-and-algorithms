@@ -8,7 +8,7 @@
 - **reverseLL_recursive()** *- favourite interview question*
 - bubbleSortLL()
 - merge2sortedLL()
-- split() *-fast/slow strategy*
+- splitLL() *-fast/slow strategy*
 - mergeSort()
 - printLL()
 - printLL_recursive()
@@ -177,7 +177,7 @@ Node* merge2sortedLL(Node* L1, Node* L2)
 	return dummy.next;
 }
 
-void split(Node* source, Node** frontRef, Node** backRef)
+void splitLL(Node* source, Node** frontRef, Node** backRef)
 {
 	/* Split the nodes of the given list into front and back halves,
 	and return the two lists using the reference parameters.
@@ -211,7 +211,7 @@ void mergeSort(Node** headRef)
 	Node* head = *headRef;
 	Node* L1, *L2;
 	if ((head == nullptr) || (head->next == nullptr)) return; // Base case - length 0 or 1 
-	split(head, &L1, &L2); // Split head into L1 and L2 sublists 
+	splitLL(head, &L1, &L2); // Split head into L1 and L2 sublists 
 	// Recursively sort the sublists
 	mergeSort(&L1);
 	mergeSort(&L2);

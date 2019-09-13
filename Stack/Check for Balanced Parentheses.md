@@ -46,3 +46,30 @@ So the above approach with counting will not work. Apart from count being equal 
 which is the same as LIFO principle (Last In First Out)
 
 The property that must be conserved is that as we scan the expression from left to right any closer should be for the previous unclosed paranthesis (any closer should be for the last unclosed).
+
+What we can do is to scan the expression from left to right and as we scan at any stage we can keep track of all the unclosed paranthesis. Basically what we can do is whenever we get an opening symbol an opening paranthesis an opening curly brace or an opening square bracket, we can add it to a list. If we get a closing symbol it should be the closer for the last element in the list. In case of an inconsistency, like if the last opening symbol in the list is not the same type as the closing symbol, or if there is no last opening symbol at all because the list is empty, we can stop whole process and say that paranthesis are not balanced else we can remove the last opening symbol in the list, because we have got its counterpart and continue this whole process.
+
+If paranthesis are balanced we will always end with an empty list. And if in the end list is not empty then some opening paranthesis have not found its closing counterpart and expression is not balanced. One thing worth noticing here is that we are always inserting or removing one element at a time from the same end of the list. In this whole process whatever is coming in last in the list is going out first. There is a special kind of list that enforces this behaviour that element should be inserted and removed from the same end and we call it a **stack**. In a stack we can insert and remove an element one at a time from the same end in constant time. So what we can do is whenever we get an opening symbol while scanning the list we can push it onto the stack and when we get a closing symbol we can check whether the opening symbol at the top of stack is of the same type as the closing symbol. If it's of the same type we can pop, else if it's not of the same type we can simply say that paranthesis are not balanced. So the pseudocode for this logic will look like something like this:
+
+```cpp
+CheckBalancedParanthesis(expression)
+{
+	n=length(expression);
+	Create a stack of charachters:-S
+	for i=0 to n-1
+	{
+		if expression[i] is opening symbol (is '(' or '{' or '[')
+			Push(expression[i])
+		else if expression[i] is ')' or '}' or ']'
+		{
+			if (S is empty) || (top of stack does not pair with expression[i])
+			{
+				return false;
+			}
+			else
+			Pop()
+		}
+	}
+	return S is empty? true : false
+}
+```

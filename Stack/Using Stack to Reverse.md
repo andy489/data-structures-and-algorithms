@@ -48,3 +48,9 @@ int main()
 	return 0;
 }
 ```
+
+Problem: Reverse a Linked List
+
+head|->|2|150|->|5|250|->|3|300|->|8|0
+-|-|-|-|-|-|-|-|-|-|-|-|-
+|||data|address|||||||||nullptr

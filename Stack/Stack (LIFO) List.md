@@ -15,7 +15,6 @@ The cost of insertion at beginning on the other hand is big of 1, i.e. constant 
 #### IMPLEMENTATION (C++):
 ```cpp
 #include <iostream>
-
 struct Node
 {
 	int data;

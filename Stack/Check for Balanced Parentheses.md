@@ -44,3 +44,5 @@ So the above approach with counting will not work. Apart from count being equal 
 ### Last Opened First Closed
 
 which is the same as LIFO principle (Last In First Out)
+
+The property that must be conserved is that as we scan the expression from left to right any closer should be for the previous unclosed paranthesis (any closer should be for the last unclosed).

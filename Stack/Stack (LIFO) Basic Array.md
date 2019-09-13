@@ -6,9 +6,9 @@ Applications:
 - Undo operation in any editor
 - Balanced Parentheses [{()}]
 #### FUNCTIONALITY:
-- push()
-- pop()
-- top()
+- Push()
+- Pop()
+- Top()
 - isEmpty()
 #### IMPLEMENTATION (C++):
 ```cpp

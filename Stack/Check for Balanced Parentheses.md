@@ -97,7 +97,7 @@ bool ArePair(char opening,char closing)
 bool AreParanthesesBalanced(string exp)
 {
 	stack<char>  S;
-	for(int i =0;i<exp.length();i++)
+	for(unsigned i =0;i<exp.length();i++)
 	{
 		if(exp[i] == '(' || exp[i] == '{' || exp[i] == '[')
 			S.push(exp[i]);

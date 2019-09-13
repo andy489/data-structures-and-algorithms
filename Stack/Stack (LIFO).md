@@ -4,7 +4,7 @@ Stack as ADT (abstract data type): A stack is a list or collection with the rest
 Applications:
 - Function Calls / Recursion
 - Undo operation in any editor
-- balanced Parentheses [{()}]
+- Balanced Parentheses [{()}]
 #### FUNCTIONALITY:
 - push()
 - pop()

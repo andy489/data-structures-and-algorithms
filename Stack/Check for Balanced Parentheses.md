@@ -28,3 +28,19 @@ Compiler must check for this balancing and if symbols are not balanced it should
 - **{()()**
 - **[]()]**
 - **{)**
+
+While parsing a real expression we can simply ignore other characters. All we care about is these characters and their order.
+
+Now, how do we solve this problem? One straight forward thing that comes to mind is that because we should have a closing counter part for an opening paranthesis or opening curly brace or opening square bracket what we can do is, we can count the number of opening and closing symbols for each of these three types and they should be equal. So the number of opening paranthesis should be equal to number of closing paranthesis. And the number of opening curly braces should be equal to number of closings curly braces and same should be true for square brackets as well. But this would not be good enough and here is a counter example:
+- **)(**
+  - this expression has one opening paranthesis and one closing paranthesis, but it is not balanced
+- **[()]**
+  - this one is balanced
+- **[(])**
+  - but this one with the same number of characters of each type as the second expression is not balanced
+
+So the above approach with counting will not work. Apart from count being equal that are some other properties that must be conserved. **Every opening paranthesis must find a closing counterpart to its right and every closing paranthesis must find an opening counterpart in its left**, which is not true in the first expression. And the other property that must be conserved is that **a paranthesis can close only when all the paranthesis opened after it are closed**. In the third expression, the bracket is closed before the paranthesis is closed. 
+
+### Last Opened First Closed
+
+which is the same as LIFO principle (Last In First Out)

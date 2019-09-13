@@ -49,8 +49,79 @@ int main()
 }
 ```
 
-Problem: Reverse a Linked List
+Problem: Reverse a Linked List using Stack 
+```cpp
+#include <iostream>
+#include <stack> // stack from standard template library (STL)
+struct Node
+{
+	Node* next;
+	int data;
+};
 
-head|->|2|150|->|5|250|->|3|300|->|8|0
--|-|-|-|-|-|-|-|-|-|-|-|-
-|||data|address|||||||||nullptr
+Node* getNode(int data) // Creating a Node
+{
+	Node* newNode = new Node(); // Node* newNode = (Node*)malloc(sizeof(Node));
+	newNode->data = data; // (*newNode).data = data;
+	newNode->next = nullptr;
+	return newNode;
+}
+
+Node* insertAtBeginning(Node* head, int data)
+{
+	Node* newNode = getNode(data);
+	/*if (head != nullptr)*/ newNode->next = head;
+	head = newNode;
+	return head;
+}
+
+void printLL(Node* head)
+{
+	if (head == nullptr) std::cout << "empty linked list\n";
+	else
+	{
+		std::cout << "head: ";
+		while (head->next != nullptr)
+		{
+			std::cout << head->data << " -> ";
+			head = head->next;
+		}
+		std::cout << head->data << " -| end of linked list\n";
+	}
+}
+
+Node* head = nullptr;
+
+void reverse()
+{
+	if (head == nullptr) return;
+	std::stack<Node*> S;
+	Node* temp = head;
+	while (temp != nullptr)
+	{
+		S.push(temp);
+		temp = temp->next;
+	}
+	temp = S.top();	head = temp;
+	S.pop();
+	while (!S.empty())
+	{
+		temp->next = S.top();
+		S.pop();
+		temp = temp->next;
+	}
+	temp->next = nullptr;
+}
+
+int main()
+{
+	head = insertAtBeginning(head, 5);	head = insertAtBeginning(head, 10);
+	head = insertAtBeginning(head, 15);	head = insertAtBeginning(head, 20);
+
+	printLL(head);
+	reverse();
+	printLL(head);
+
+	return 0;
+}
+```

@@ -22,7 +22,7 @@ Let us now see what are the rules we need to apply to evaluate such expressions 
 then the expression will reduce to 4 + 12 and finally evaluate to 16. So basically, we can look at this expression in two ways.
 
 Infix
--|
+-|-
 2 + 3 = 5
 4 + 6 * 2 = 4 + 12 = 16
 

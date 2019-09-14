@@ -23,3 +23,19 @@ Finally when we are done with all the operators we can get rid of all the parant
 
 A B * C D * + E -
 -|
+
+OK, now we have the upper post expression and we want to evaluate it. For the purposes of that let's say we have the following values for the variables:
+
+A=2|B=3|C=5|D=4|E=9
+-|-|-|-|-
+
+So we have the following expression in terms of values to evaluate:
+
+2 3 * 5 4 * + 9 -
+-|
+
+We will first quickly examine how we can evaluate a postfix expression manually. What we need to do is to scan the expression from left to right and find the first occurence of an operator. Now, remember that in postfix expressions operands of an operator will always lie to its left. For the first operator, the preceding two entities will always be operands. We need to look for the first occuranse of the following pattern: *operand, operand, operator* in the expression and after that we can apply the operator on the two operands and reduce the expression:
+
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;<op1><op2><operator>:2,3*5,4*+9-\Rightarrow{6,5,4*+9-}">
+  
+

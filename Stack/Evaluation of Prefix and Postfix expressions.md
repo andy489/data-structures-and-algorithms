@@ -47,3 +47,13 @@ We need to repeat this process until we are done with all the operators. Once ag
 Once again we will look for the first occurance of operand, operand and operator. We will go on like this until we are done with all the operators.
 
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;<op1><op2><operator>:2,3*5,4*+9-\Rightarrow{6,5,4*+9-}\Rightarrow{6,20+9-}\Rightarrow{26,9-}\Rightarrow{17}">
+
+Тhe first operator to appear will always be preceeded by two values (not expressions). If we give this some thought we will be able to understand why. 
+
+So if we have to do this programatically, if we have to evaluate a postfix expression given to us in a string like the above ones and let's say operands and operators are separated by space or some other delimeter like comma also to separate operands and operator, what we can do is we can parse the string from left to right. In each step in the parsing (in each step in the scanning process) we can get a token that will either be an operator or an operand. What we can do is - as we parse from left to right, we can keep track of all the operands seen so far:
+
+2 3 * 5 4 * + 9 - 
+-|
+List: 2, 3, ...
+
+So when we need

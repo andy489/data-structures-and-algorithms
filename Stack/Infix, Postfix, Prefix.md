@@ -30,9 +30,13 @@ We can say that operands for addition operator are 4 and 6 and operands for mult
 
 Order of operation|Symbols|Direction|Example
 -|-|-|-
-1.) Parantheses| ( ) { } [ ]||
+1.) Parantheses| ( ) { } [ ]|| (4 + 6) * 2 => 10 * 2 = 20
 2.) Exponents|^|Right to Left|2^3^2 => 2^9 => 512
 3.) Multiplication and division|* /|Left to Right| 6 * 4 / 2 => 24 / 2 => 12
 4.) Addition and Subtraction|+ -|Left to Right|4-2+1 => 2 + 1 = 3 or 4 + 6 * 2 => 4 + 12 => 16
+
+- Another example: 2* 6 / 2 - 3 + 7 => 12 / 2 - 3 + 7 => 6 - 3 + 7 => 3 + 7 => 10
+
+This *"left to right"* and *"right to left"* rule for operators with equal precedence is better termed as operator associativity. If in case of multiple operators with equal precedence we go from left to right then we say that operators are *left* associative and if we go from right to left we say that operators are *right* associative. While evaluating an expression in infix form, we first need to look at precedence, and then to resolve conflict among operator with equal precedence, we need to see associativity. All in all we need to do so many things just to parse and evaluate an infix expression. The use of paranthesis becomes really important, because that's how we can control the order in which operation should be performed. Paranthesis add explicit intent that operations should be performed in this order and also improved readability of expression. 
 
 

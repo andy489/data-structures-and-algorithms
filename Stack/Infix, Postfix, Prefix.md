@@ -18,4 +18,10 @@ An expression can have constants, variables and symbols that can be operators or
 
 -here both the operands of multiplication operator are expressions. We have three operators in this expression. For the first plus operator variables P and Q are operands, for the second plus operator we have R and S  as operands and for the asteriks multiplication operator we have the first operand to be the first expression and the second operand to be the second expression. While evaluating expressions with multiple operators, operations will have to be performed in certain order. Like in the forth example - we will first have to perform the addition and then only we can perform multiplication. In the fifth expression - first we will have to perform the two additions and then we can perform the multiplication. As we can see in all these expressions operator is placed in between operands. This is the syntax that we are following. One thing that we must point out here is that troughout this analysis, we are going to talk only about binary operators. An operator that requires exactly two operands is called a binary operator. Technically we can have an operator that may require just one operand or maybe more than two operands but we are talking only about expressions with binary operators.
 
-Let us now see what are the rules we need to apply to evaluate such expressions written in this syntax that we are calling infix notation. For an expression with just one operator we can simply apply that operator.
+Let us now see what are the rules we need to apply to evaluate such expressions written in this syntax that we are calling infix notation. For an expression with just one operator we can simply apply that operator. For an expression with multiple operators and no paranthesis like 4 + 6 * 2, we need to decide an order in which operator should be applied. In the example expression if we perform the addition first then it will reduce to 10 * 2 nd finally evaluate as 20 but if we perform the multiplication first
+then the expression will reduce to 4 + 12 and finally evaluate to 16. So basically, we can look at this expression in two ways.
+
+Infix
+---|
+2 + 3 = 5
+4 + 6 * 2 = 4 + 12 = 16

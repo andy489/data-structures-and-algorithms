@@ -1,6 +1,6 @@
 ## Infix, Postfix, Prefix
 
-### Evaluation of arithmetic and logical expressions
+### Arithmetic and logical expressions syntax
 
 - 2 + 3
 - A - B

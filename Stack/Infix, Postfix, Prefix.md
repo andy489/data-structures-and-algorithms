@@ -43,7 +43,26 @@ This *"left to right"* and *"right to left"* rule for operators with equal prece
 
 Even though *infix* notation is the most common way of writing expressions, it's not very easy to parse and evaluate an infix expression without ambiguity. So mathematicians and logicians studied this problem and came up with 2 other ways of writing expressions that are paranthesis free and can be passed without ambiguity, without requiring to take care of any of these operator precedence or associativity rules. These two ways are *postfix* and *prefix* notations.
 
-Prefix notation was proposed earlier in year 1924 by Polish logician [Jan Łukasiewicz](https://en.wikipedia.org/wiki/Jan_Łukasiewicz). Prefix notation is also known as [Polish notation](https://en.wikipedia.org/wiki/Polish_notation).
+Prefix notation was proposed earlier in year 1924 by Polish logician [Jan Łukasiewicz](https://en.wikipedia.org/wiki/Jan_Łukasiewicz). Prefix notation is also known as [Polish notation](https://en.wikipedia.org/wiki/Polish_notation). In prefix notation, operator is placed before operands.
 
+prefix: <img src="https://latex.codecogs.com/svg.latex?\Large&space;<operator><operand><operand>">
 
+Infix|Prefix|Postfix 
+-|-|-
+2 + 3 | + 2 3 | 2 3 +
+P - Q | - P Q | P Q -
+a + b * c| + a * b c | b c a * +
+
+postfix: <img src="https://latex.codecogs.com/svg.latex?\Large&space;<operator><operand><operand>">
+
+Postfix notation is also known as [reverse polish notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation
+). This syntax was proposed in 1950s by some computer scientists. In postfix notaton operator is placed after operands. Programmatically, postfix expression is easiest to parse and least costly in terms of time and memory to evaluate, and that's why this was actually invented. Prefix expression can also be evaluated in similar time and memory, but the algorithm to parse and evaluate postfix expression is really straightforward and intuitive and that;s why its prederred for computation using machines.
+
+In prefix and postfix form an operand can be associated with only one operator. So we do not have this ambiguity, while parsing and evaluating prefix and postfix expressions we do not need extra information. We do not need all the operator precedence and associativity rules. To separate the operands we can use a space or some other delimiter like a comma. That's how you would tipically store prefix or postfix in a string when you'll have to write a program.
+
+To convert an expression from infix to any of these other two forms, we need to go step-by-step just the way we would go in evaluation. Let's pick a random expression in infix form: A + B * C . We should first convert the part that should be evaluated first, so we should go in order of precedence. We can also first put all the implicit paranthesis. So here we will first convert B * C . A + B * C => A + (* B C) => + A(* B C) = > + A * B C . We can use paranthesis in intermediate steps and once we are done with all the steps we can erase the paranthesis. 
+
+Let's now do the same thing for postfix. We will first do the conversion for multiplication operator and then in next step we will do it for addition and after that we can get rid of all the paranthesis: A + (B * C) => A + (B C * ) => A( B C * ) + => A B C * + .
+
+Paranthesis surely adds readability to any of these expressions/forms, but if we are not bothered about human readability, then for a machine we are actually saving some memory that would be used to store paranthesis information. Infix expression definitely is most human readable, but prefix and postfix are good for machines.
 

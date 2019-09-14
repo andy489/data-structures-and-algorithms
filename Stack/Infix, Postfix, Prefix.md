@@ -22,14 +22,14 @@ Let us now see what are the rules we need to apply to evaluate such expressions 
 then the expression will reduce to 4 + 12 and finally evaluate to 16. So basically, we can look at this expression in two ways.
 
 Infix
--|-
+-|
 2 + 3 = 5
 4 + 6 * 2 = 4 + 12 = 16
 
 We can say that operands for addition operator are 4 and 6 and operands for multiplication are the expression 4 + 6 and the constant 2 or we can say that all operands for multiplication are 6 and 2 and operands for addition operation are four and the expression 6 * 2. There is some ambiguity here but if we remember our high school mathematics this problem is resolved by following operator precedence rules. In an algebraic expression this is the precedence that we follow:
 
 Order of operation
--|
+-|-
 1) Parantheses
 2) Exponents
 3) Multiplication and division

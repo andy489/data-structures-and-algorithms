@@ -90,7 +90,8 @@ So let's write a pseudocode for the above algorithm (function with a string argu
 EvaluatePostfix(expression)
 {
       Create a stack S
-      // assuming for simplicity that each operand or operator in the expression will be of only one character
+      // assuming for simplicity that each operand or operator in the expression 
+      // will be of only one character
       for i = 0 to length(expression)-1
       {
             if expression[i] is operand
@@ -109,9 +110,8 @@ In our actual implementation we will have to take care of some parsing locic. Op
 
 This was postfix evaluation. Let's now see how we can do prefix evaluation:
 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;<op1><operator><op2>:2*3+5*4-9\Rightarrow{\{(2*3)+(5*4)\}-9}\Rightarrow{\{(*23)+(*54)\}-9}\Rightarrow{\{(*23)(*54)\}-9}"> 
+Convertion:
 
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;<op1><operator><op2>:2*3+5*4-9\Rightarrow{\{(2*3)+(5*4)\}-9}\Rightarrow{\{(*23)+(*54)\}-9}\Rightarrow{\{(*23)(*54)\}-9}\Rightarrow{-\{(*23)(*54)\}9}\Rightarrow{-+*23*549}"> 
 
-
-
-
+Calculation: just like the postfix, only this time we will stack from right to left.

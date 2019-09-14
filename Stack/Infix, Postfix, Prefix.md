@@ -33,4 +33,4 @@ Order of operation
 1) Parantheses
 2) Exponents
 3) Multiplication and division
-4) Addition and Substraction
+4) Addition and Subtraction

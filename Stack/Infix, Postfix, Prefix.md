@@ -39,4 +39,11 @@ Order of operation|Symbols|Direction|Example
 
 This *"left to right"* and *"right to left"* rule for operators with equal precedence is better termed as operator associativity. If in case of multiple operators with equal precedence we go from left to right then we say that operators are *left* associative and if we go from right to left we say that operators are *right* associative. While evaluating an expression in infix form, we first need to look at precedence, and then to resolve conflict among operator with equal precedence, we need to see associativity. All in all we need to do so many things just to parse and evaluate an infix expression. The use of paranthesis becomes really important, because that's how we can control the order in which operation should be performed. Paranthesis add explicit intent that operations should be performed in this order and also improved readability of expression. 
 
+- {(2 * 6) / 2} - (3 + 7) = -4, most often we write infix expressions using a lot of paranthesis 
+
+Even though *infix* notation is the most common way of writing expressions, it's not very easy to parse and evaluate an infix expression without ambiguity. So mathematicians and logicians studied this problem and came up with 2 other ways of writing expressions that are paranthesis free and can be passed without ambiguity, without requiring to take care of any of these operator precedence or associativity rules. These two ways are *postfix* and *prefix* notations.
+
+Prefix notation was proposed earlier in year 1924 by Polish logician [Jan Łukasiewicz](https://en.wikipedia.org/wiki/Jan_Łukasiewicz). Prefix notation is also known as [Polish notation](https://en.wikipedia.org/wiki/Polish_notation).
+
+
 

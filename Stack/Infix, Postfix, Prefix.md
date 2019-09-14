@@ -30,7 +30,7 @@ We can say that operands for addition operator are 4 and 6 and operands for mult
 
 Order of operation
 -|
-1) Parantheses
-2) Exponents
-3) Multiplication and division
-4) Addition and Subtraction
+1.) Parantheses
+2.) Exponents
+3.) Multiplication and division
+4.) Addition and Subtraction

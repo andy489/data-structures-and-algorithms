@@ -39,9 +39,7 @@ We will first quickly examine how we can evaluate a postfix expression manually.
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;<op1><op2><operator>:2,3*5,4*+9-\Rightarrow{6,5,4*+9-}">
   
 We need to repeat this process until we are done with all the operators. Once again we need to scan the expression from left to right and look for the first operator, if the expression is correct it will be preceeded by two values. So basically we need to look for first ocurrence of this pattern: operand, operand, operator. So now we can reduce again:
-
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;<op1><op2><operator>:2,3*5,4*+9-\Rightarrow{6,5,4*+9-}\Rightarrow{6,20+9-}"> *(we are using comma as delimiter)*
 
 Once again we will look for the first occurance of operand, operand and operator. We will go on like this until we are done with all the operators.
-
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;<op1><op2><operator>:2,3*5,4*+9-\Rightarrow{6,5,4*+9-}\Rightarrow{6,20+9-}\Rightarrow{26,9-}\Rightarrow{17}">

@@ -28,9 +28,11 @@ Infix
 
 We can say that operands for addition operator are 4 and 6 and operands for multiplication are the expression 4 + 6 and the constant 2 or we can say that all operands for multiplication are 6 and 2 and operands for addition operation are four and the expression 6 * 2. There is some ambiguity here but if we remember our high school mathematics this problem is resolved by following operator precedence rules. In an algebraic expression this is the precedence that we follow:
 
-Order of operation
--|
-1.) Parantheses
-2.) Exponents
-3.) Multiplication and division
-4.) Addition and Subtraction
+Order of operation|Symbols|Direction|Example
+-|-|-|-
+1.) Parantheses| ( ) { } [ ]||
+2.) Exponents|^|Right to Left|2^3^2 => 2^9 => 512
+3.) Multiplication and division|* /|Left to Right| 6 * 4 / 2 => 24 / 2 => 12
+4.) Addition and Subtraction|+ -|Left to Right|4-2+1 => 2 + 1 = 3 or 4 + 6 * 2 => 4 + 12 => 16
+
+

@@ -24,10 +24,14 @@ A queue is a list or collection with the restriction or the constraint that inse
 
 *Operation to check whether queue is empty or not.*
 
+- IsFull()
+
+*Checks if the queue is full only if it has limited size.*
+
 The signatures of Enqueue and Dequeue for a queue of integers can be something like this:
 ```cpp
 void Enqueue(int x);
 int Dequeue();
 ```
 
-
+All the operations written here must take constant time ot in other words, their time complexity should be big of 1 (O(1)).

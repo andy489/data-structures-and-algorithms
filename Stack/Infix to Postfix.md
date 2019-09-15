@@ -170,7 +170,9 @@ InfixToPostfix(exp)
                   res <- res + exp[i];
             else if exp[i] is operator
             {
-                  while (!s.empty() && !IsOpeningParantheses(S.top()) && HasHigherPrecedence(s.top(), exp[i]))
+                  while (!s.empty() && 
+                  !IsOpeningParantheses(S.top()) && 
+                  HasHigherPrecedence(s.top(), exp[i]))
                   {
                         res <- res + S.top()
                         S.pop()

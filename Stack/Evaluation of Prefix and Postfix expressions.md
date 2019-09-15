@@ -84,7 +84,7 @@ List: 17
 
 Finally when we are done with scanning the whole expression we will have only one element left in the list and this will be the final answer. This is an efficient algorithm. We are doing only one pass on the string representing the expression and we have our result. The list that we are using here if we could notice is being used in a special way. We are inserting operands one at a time from one side and then to perform an operation we are taking out operand from the same side. Whatever is coming in last is getting out first. This whole thing that we're doing here with the list can be done efficiently with a **stack**, which is nothing but a special kind of list in which elements are inserted and removed from the same side in which whatever gets in last comes out first. It's called **Last In First Out (LIFO)** structure. 
 
-So let's write a pseudocode for the above algorithm (function with a string argument):
+So let's write a pseudo code for the above algorithm (function with a string argument):
 
 ```cpp
 EvaluatePostfix(expression)

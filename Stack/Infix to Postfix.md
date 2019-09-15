@@ -46,3 +46,33 @@ In our logic we are not taking care of parantheses. What if our infix expression
 
 ((A + B) * C - D) * E
 |-
+
+There will be slight change from what we were doing previously. With parantheses any part of the expression within parantheses should be treated as independent complete expression in itself and, no element outside the parantheses will influence its execution. In the above expression, the part A + B is within one parantheses. It's execution will not be influenced by this multiplication or this subtraction which is outside it. Similarly, the whole expression within the outer parantheses. So, the last multiplication operator outside, will not have any influence on execution of the previous part as a whole. If parantheses are nested, inner parantheses is sorted out or resolved first, and then only outer parantheses can be resolved. With parantheses, we will have some extra rules: we will still go from left to right and we will still use stack. And, let's say we are going to write the postfix part in some sort of a list (on the right of the following example):
+
+((A + B) * C - D) * E
+|-
+
+While parsing, a token can be an operand or operator or an opening or closing of parantheses. We will use some extra rules. We will first tell them and then we will explain them.
+
+- If it's an opening parantheses, we can push it onto the stack
+- There is no change in rule for operand. It will simply be appended to the postfix part (collection)
+- If we scan an operator, we need at the top of stack. If it's an operator of higher precedence we can pop and then we should look at next top. If it's once again an operator of higher precedence, we should pop again. But we should stop when we see an opening parantheses
+- pop until we are getting an opening parantheses and then finally pop the particular opening parantheses also
+
+The first token in our example is an opening parantheses, so it will be pushed onto the stack. Moving on. We have an opening paranthesis once again, so once again we will push it. Moving on. Now we have an operand. We append it to the postfix part. Next we have an operator. Remember what we were doing for operator earlier. We were looking at top of stack and popping as long as we were getting operator of higher precedence. Earlier when we were not using parantheses, we could go on popping and empty the stack. But now we need to look at top of stack and pop only till we get an opening parantheses, because if we are getting an opening parantheses, then it's the boundary of the last opened parantheses and operator + in our case does not have any influence after that, outside the last opening parantheses in the stack. We look at the top of the stack and in our case we have an opening parantheses and we do not need to look below it. Nothing will be popped anyway. Addition however, will go onto the stack. Remember, after the whole popping game, we push the operator itself. Next we have an operand. It will go on, we will move on. Next, we have a closing of parantheses. When we are getting a closing of parantheses, we are getting a logical end of the last opened parantheses. For part of the expression, within that parantheses, it's coming to the end. Remember what we are doing earlier, when we were reaching the end of infix expression - we were popping all the operators out and placing them. So, this time also we need to pop all the operators out, but only those operators that are part of this parantheses that we are closing. So, we need to pop all the operators until we get an opening parantheses. We are popping the plus in the stack and appending it to the collection with the result. Next, we have an opening of parantheses, so we will stop. But, as last step we will pop the last opening also, because we are done for the current parantheses. Moving on. Next we have an operator (multiplication). We need to look at top of stack. It's an opening of parantheses, so the operator will simply be pushed. Next we have an operand and we simply append into the result collection. Next, we have an operator. Once again we will look at the top of the stack. We have multiplication, which is of higher precedence. So it ( * ) should be popped and appended. We will look at the top again. Again, it's an opening of parantheses, so we should stop looking now. '-' minus will be pushed now. Next, we have an operand - append. Next we have a closing of parantheses. So, we need to pop until we get an opening. '-' wll be appended. Finally, the openning will also be popped. Next, we have an operator and it will simply go (push into the stack). Next, we have an operand and now we have reached the end of expression. So, everything in the stack will be popped and appended.
+
+A B + C * D - E *
+|-
+
+Let's convert another example using the rules. Let's take the expression:
+
+A * (B + C)
+|-
+
+We will mark the position of the scanner with ':
+
+A' * (B + C)
+|-
+
+|-
+stack

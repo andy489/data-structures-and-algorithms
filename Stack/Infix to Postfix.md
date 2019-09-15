@@ -113,7 +113,7 @@ stack
 A * (B + ' C)|List: A B
 -|-
 
-  - at the top of the stack is an opening parantheses so, we cannot look below and we will simply move on after pushing the operator plus
+  ~ at the top of the stack is an opening parantheses so, we cannot look below and we will simply move on after pushing the operator plus
 
 addition +
 |-
@@ -137,7 +137,7 @@ stack
 A * (B + C) '|List: A B C +
 -|-
 
-  -- we are currently at closing parentheses so, we need to pop until we get closing parentheses and pop one opening also
+~ we are currently at closing parentheses so, we need to pop until we get closing parentheses and pop one opening also
 
 addition + 
 |-

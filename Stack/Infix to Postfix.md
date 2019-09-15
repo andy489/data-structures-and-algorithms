@@ -84,6 +84,6 @@ stack
 A * ' (B + C)|List: A
 -|-
 
-*
--|
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;*">
+|-
 stack

@@ -137,7 +137,7 @@ stack
 A * (B + C) '|List: A B C +
 -|-
 
-  - we are currently at closing parentheses so, we need to pop until we get closing parentheses and pop one opening also
+  -- we are currently at closing parentheses so, we need to pop until we get closing parentheses and pop one opening also
 
 addition + 
 |-

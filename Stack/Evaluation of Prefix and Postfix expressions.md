@@ -116,4 +116,4 @@ Convertion:
 
 Calculation: just like the postfix, only this time we will scan from right to left.
 
-[Evaluation OF Postfix Expression Implemented with C++](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Evaluation%20Of%20Postfix%20exp.cpp)
+[Evaluation of Postfix Expression Implemented in C++](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Evaluation%20Of%20Postfix%20exp.cpp)

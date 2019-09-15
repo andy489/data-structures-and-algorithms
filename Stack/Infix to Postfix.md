@@ -95,5 +95,39 @@ A * ( 'B + C)|List: A
 
 (
 |-
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;*"> 
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;*"> (asteriks)
+stack
+
+- 4.)
+
+A * (B ' + C)|List: A B
+-|-
+
+(
+|-
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;*"> (asteriks)
+stack
+
+- 4.)
+
+A * (B + ' C)|List: A B
+-|-
+
+  -at the top of the stack is an opening parantheses so, we cannot look below and we will simply move on after pushing the operator plus
+
++
+|-
+(
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;*"> (asteriks)
+stack
+
+- 5.)
+
+A * (B + C ')|List: A B C
+-|-
+
++
+|-
+(
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;*"> (asteriks)
 stack

@@ -27,6 +27,7 @@ int main()
 	std::getline(std::cin, expression);
 	std::string postfix = InfixToPostfix(expression);
 	std::cout << "Output = " << postfix << "\n";
+	return 0;
 }
 
 // Function to evaluate Postfix expression and return output

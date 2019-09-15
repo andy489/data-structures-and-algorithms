@@ -110,7 +110,7 @@ In our actual implementation we will have to take care of some parsing locic. Op
 
 This was postfix evaluation. Let's now see how we can do prefix evaluation:
 
-Convertion:
+Conversion:
 
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;<op1><operator><op2>:2*3+5*4-9\Rightarrow{\{(2*3)+(5*4)\}-9}\Rightarrow{\{(*23)+(*54)\}-9}\Rightarrow{\{(*23)(*54)\}-9}\Rightarrow{-\{(*23)(*54)\}9}\Rightarrow{-+*23*549}"> 
 

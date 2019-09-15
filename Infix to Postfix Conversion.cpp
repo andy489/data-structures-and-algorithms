@@ -64,7 +64,8 @@ std::string InfixToPostfix(std::string expression)
 
 		else if (expression[i] == ')')
 		{
-			while (!S.empty() && S.top() != '(') {
+			while (!S.empty() && S.top() != '(') 
+			{
 				postfix += S.top();
 				S.pop();
 			}
@@ -72,7 +73,8 @@ std::string InfixToPostfix(std::string expression)
 		}
 	}
 
-	while (!S.empty()) {
+	while (!S.empty()) 
+	{
 		postfix += S.top();
 		S.pop();
 	}

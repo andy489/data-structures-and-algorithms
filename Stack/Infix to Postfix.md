@@ -115,7 +115,7 @@ A * (B + ' C)|List: A B
 
   -at the top of the stack is an opening parantheses so, we cannot look below and we will simply move on after pushing the operator plus
 
-+
+(plus) +
 |-
 (
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;*"> (asteriks)
@@ -126,7 +126,7 @@ stack
 A * (B + C ')|List: A B C
 -|-
 
-+ (plus)
+(plus) + 
 |-
 (
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;*"> (asteriks)

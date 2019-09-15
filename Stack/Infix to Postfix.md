@@ -113,7 +113,7 @@ stack
 A * (B + ' C)|List: A B
 -|-
 
-  ~ at the top of the stack is an opening parantheses so, we cannot look below and we will simply move on after pushing the operator plus
+~ at the top of the stack is an opening parantheses so, we cannot look below and we will simply move on after pushing the operator plus
 
 addition +
 |-
@@ -139,8 +139,62 @@ A * (B + C) '|List: A B C +
 
 ~ we are currently at closing parentheses so, we need to pop until we get closing parentheses and pop one opening also
 
-addition + 
-|-
-(
 multiplication *
+|-
 stack
+
+- 7.)
+
+A * (B + C)|List: A B C + *
+-|-
+
+~ end of expression reached.
+
+empty
+|-
+stack
+
+
+In the pseudo code we have written earlier only the part in the for loop will change. In case we have an operator, we need to look at top of the stack and pop but only till we are getting an opening parantheses. So, we have put an extra restriction "!IsOpeningParantheses(S.top())". This condition will make sure that we will stop once we get an opening parantheses. After that in the for loop we are dealing with operand and operators, we will have two more conditions: 
+- if it's an opening of parantheses, we should push
+- else, if it's a closure, we can go on
+
+```cpp
+InfixToPostfix(exp)
+{
+      Create a Stack S
+      res <- empty string
+      for i <- 0 to length(exp)-1
+      {
+            if exp[i] is operand
+                  res <- res + exp[i];
+            else if exp[i] is operator
+            {
+                  while (!s.empty() && !IsOpeningParantheses(S.top()) && HasHigherPrecedence(s.top(), exp[i]))
+                  {
+                        res <- res + S.top()
+                        S.pop()
+                  }
+                  S.push(exp[i])
+            }
+            else if (IsOpeningParantheses(exp[i])) //exp[i] == '('||'{'||'['
+                  S.push(exp[i])
+            else if (IsClosingParantheses(exp[i])) //exp[i] == ')'||'}'||']'
+            {
+                  while (!S.empty() && !IsOpeningParantheses(S.top()))
+                  {
+                        res <- res + S.top()
+                        S.pop()
+                  }
+                  S.pop() // extra pop for the opening parantheses
+            }     
+       }
+       while (!S.empty())
+       {
+            res <- res + S.top()
+            S.pop()
+       }
+       return res
+}
+```
+

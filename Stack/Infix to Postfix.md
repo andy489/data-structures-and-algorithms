@@ -12,9 +12,32 @@ Infix: A + B * C - D * E
 
 Now, we want to convert the upper expression to postfix form (we have just expanded it). We re not having any parantheses here. We will see how we can deal with prntheses later. Let's look at an expression where parantheses does not override operator precedence. Right now in the above expression while parsing from left to righr, we are at the first multiplication operator. The multiplication operator itself cannot go into the postfix expression because we have not seen his right operand yet. And, until it's right operand is placed in the postfix expression, we cannot place it. The operator that we would be looking at while parsing, that operator itself cannot be placed right away. But looking at that operator, we can decide whether something from the collection, something from the stack can be placed into the postfix expression that we are constructing or not. Any operator in the stack having higher precedence than the operator that we are looking at, can be popped and placed into the postfix expression. Let's just follow this as rule for now and we will explain it later. There is only one operator in the stack and it is not having higher precedence than multiplication so we will not pop it and place it in the postfix expression. Multiplication itself will be pushed. *If an element in the stack has something on top of it, that something will always be of higher precedence*. So, let's move on in the above expression now. Now, we are at C, which is an operand, so it can simply go. Next, we have an operator subtraction. Subtraction itself cannot go but as we had said if there is anything on the stack having higher precedence than the operator that we are looking at, it should be popped out and it should god the question is why? We are putting these operators on the stack, we are not plasing them in the postfix expression because we are not sure whether we are done with their right operand ot not. But after the current operator, as soon as we are getting an operator of lower precedence, that marks the boundary of the right operand. For the first multiplication in the above example, C is our right operand. It's the simple variable C. For addition, B * C is our right operand because subtraction has lower precedence. Anything on or after that cannot be part of our right operand. Subtraction, w should say has lower priority because of the associativity tule. If we remember the order of operation, addition and subtraction have same precedence but tha one that would occur in left would be given preference. So, the idea is anytime for an operator, *if we are getting an operator of lower priority, we can pop it from the stack and place it in the expression*. Here, we will first pop multiplication and place it and then we can pop addition and now we will push subtraction onto the stack. Let's move on now. D is an operand. So, it will simply go. Next we have multiplication. There is nothing in the stack having higher precedence than multiplication. So, we will pop nothing. Multiplication will go onto the stack. Next, we have an operand. It will simply go. Now, there are two ways in which we can find the end of the right operand for an operator. The first is if we get an operator of lesser precedence, and the second if we reach the end of the expression. Now that we have reached end of expression, we can simply pop and place these operators. So first multiplication will go and then subtractin will go. Let's quickly write pseudo code for whatever we write so far and then we can analyze the logic with some more examples.
 
-```cpp
-InfixToPostfix(expression)
-{
+We will write a function that will take a string exp (from expression) as an argument, and for the sake of simplisity we will assume that each operand ot operator will be of one character only. In an actual implementation we can assume them to be tokens of multiple characters.
 
+```cpp
+InfixToPostfix(exp)
+{
+      Create a Stack S
+      res <- empty string
+      for i <- 0 to length(exp)-1
+      {
+            if exp[i] is operand
+                  res <- res + exp[i];
+            else if exp[i] is operator
+            {
+                  while (!s.empty() && HasHigherPrecedence(s.top(). exp[i]))
+                  {
+                        res <- res + S.top()
+                        S.pop()
+                  }
+                  S.push(exp[i])
+            }      
+       }
+       while (!S.empty())
+       {
+            res <- res + S.top()
+            S.pop()
+       }
+       return res
 }
 ```

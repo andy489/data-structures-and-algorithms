@@ -5,14 +5,13 @@
   Operands must be integers and there should be space in between two operands.
   Only '+'  ,  '-'  , '*' and '/'  operators are expected.
 */
+
 #include<iostream>
 #include<stack>
 #include<string>
 
-using namespace std;
-
 // Function to evaluate Postfix expression and return output
-int EvaluatePostfix(string expression);
+int EvaluatePostfix(std::string expression);
 
 // Function to perform an operation and return output. 
 int PerformOperation(char operation, int operand1, int operand2);
@@ -25,28 +24,30 @@ bool IsNumericDigit(char C);
 
 int main()
 {
-	string expression;
-	cout << "Enter Postfix Expression \n";
-	getline(cin, expression);
+	std::string expression;
+	std::cout << "Enter Postfix Expression \n";
+	std::getline(std::cin, expression);
 	int result = EvaluatePostfix(expression);
-	cout << "Output = " << result << "\n";
-  return 0;
+	std::cout << "Output = " << result << "\n";
+	return 0;
 }
 
 // Function to evaluate Postfix expression and return output
-int EvaluatePostfix(string expression)
+int EvaluatePostfix(std::string expression)
 {
 	// Declaring a Stack from Standard template library in C++. 
-	stack<int> S;
+	std::stack<int> S;
 
-	for (unsigned i = 0; i < expression.length(); i++) {
+	for (unsigned i = 0; i < expression.length(); i++) 
+	{
 
 		// Scanning each character from left. 
 		// If character is a delimitter, move on. 
 		if (expression[i] == ' ' || expression[i] == ',') continue;
 
 		// If character is operator, pop two elements from stack, perform operation and push the result back. 
-		else if (IsOperator(expression[i])) {
+		else if (IsOperator(expression[i])) 
+		{
 			// Pop two operands. 
 			int operand2 = S.top(); S.pop();
 			int operand1 = S.top(); S.pop();
@@ -55,11 +56,13 @@ int EvaluatePostfix(string expression)
 			//Push back result of operation on stack. 
 			S.push(result);
 		}
-		else if (IsNumericDigit(expression[i])) {
+		else if (IsNumericDigit(expression[i])) 
+		{
 			// Extract the numeric operand from the string
 			// Keep incrementing i as long as you are getting a numeric digit. 
 			int operand = 0;
-			while (i < expression.length() && IsNumericDigit(expression[i])) {
+			while (i < expression.length() && IsNumericDigit(expression[i])) 
+			{
 				// For a number with more than one digits, as we are scanning from left to right. 
 				// Everytime , we get a digit towards right, we can multiply current total in operand by 10 
 				// and add the new digit. 
@@ -89,9 +92,7 @@ bool IsNumericDigit(char C)
 // Function to verify whether a character is operator symbol or not. 
 bool IsOperator(char C)
 {
-	if (C == '+' || C == '-' || C == '*' || C == '/')
-		return true;
-
+	if (C == '+' || C == '-' || C == '*' || C == '/') return true;
 	return false;
 }
 
@@ -103,7 +104,7 @@ int PerformOperation(char operation, int operand1, int operand2)
 	else if (operation == '*') return operand1 * operand2;
 	else if (operation == '/') return operand1 / operand2;
 
-	else cout << "Unexpected Error \n";
+	else std::cout << "Unexpected Error \n";
 	return -1;
 }
 ```

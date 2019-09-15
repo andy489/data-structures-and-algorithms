@@ -25,7 +25,7 @@ InfixToPostfix(exp)
                   res <- res + exp[i];
             else if exp[i] is operator
             {
-                  while (!s.empty() && HasHigherPrecedence(s.top(). exp[i]))
+                  while (!s.empty() && HasHigherPrecedence(s.top(), exp[i]))
                   {
                         res <- res + S.top()
                         S.pop()
@@ -41,3 +41,8 @@ InfixToPostfix(exp)
        return res
 }
 ```
+
+In our logic we are not taking care of parantheses. What if our infix expression would have parantheses like the following example:
+
+((A + B) * C - D) * E
+|-

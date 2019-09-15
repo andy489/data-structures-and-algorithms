@@ -28,10 +28,21 @@ A queue is a list or collection with the restriction or the constraint that inse
 
 *Checks if the queue is full only if it has limited size.*
 
-The signatures of Enqueue and Dequeue for a queue of integers can be something like this:
+The signatures of the fundamental operations for queue of integers for example - Enqueue and Dequeue can be something like this:
 ```cpp
 void Enqueue(int x);
 int Dequeue();
 ```
 
 All the operations written here must take constant time ot in other words, their time complexity should be big of 1 (O(1)).
+
+Logically a queue can be shown as a figure or container open from two sides. So, an element can be inserted or Enqueued from one side and an element can be removed or dequeued from other side. We show a stack as a container open from one side. So, an insertion or what we call push in context of stack and removal or pop, both must happen from the same side. In queue, insertion and removal should happen from different sides. 
+
+One obvious question can be - what are the real scenarios where we can use Queue? What are the use cases of Queue data structre? Queue is more often used in a scenario where there is a shared resource that's supposed to serve some request, but the resource can handle only one request at a time. It can serve only one request at a time. In such a scenario it makes most sense to Queue up the requests. The request that comes first, gets served first. Let's say we have a printer shared in a network. Any machine in the network can send a print request to this printer. Printer can serve only one request at a time, it can print only one document at a time. So, if a request comes when its busy, it can't be like - I'm busy, request later. That will be really rude of the printer :smile:. What really happens is that the program that really manages the printer, puts the print request in a queue. As long as there is something in the queue, printer keeps picking up a request from the front of the queue and serves it. Processor on your computer is also a shared resource. A lot of running programs or processes need time of the processor and the processor can attend to only one process at a time. Processor is the guy who has to execute all the instructions, who has to perform all the arithmetic and logical operations. So, the porcesses are put in a queue. Queue in general can be used to simulate wait in a number of scenarios.
+
+Applications:
+- 1) Printer queue
+- 2) Process scheduling
+- 3) Simulating wait
+
+

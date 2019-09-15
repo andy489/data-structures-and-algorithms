@@ -84,7 +84,7 @@ stack
 A * ' (B + C)|List: A
 -|-
 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;*"> (asteriks)
+multiplication *
 |-
 stack
 
@@ -95,7 +95,7 @@ A * ( 'B + C)|List: A
 
 (
 |-
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;*"> (asteriks)
+multiplication *
 stack
 
 - 4.)
@@ -105,7 +105,7 @@ A * (B ' + C)|List: A B
 
 (
 |-
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;*"> (asteriks)
+multiplication *
 stack
 
 - 4.)
@@ -113,12 +113,12 @@ stack
 A * (B + ' C)|List: A B
 -|-
 
-  -at the top of the stack is an opening parantheses so, we cannot look below and we will simply move on after pushing the operator plus
+  - at the top of the stack is an opening parantheses so, we cannot look below and we will simply move on after pushing the operator plus
 
-(plus) +
+addition +
 |-
 (
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;*"> (asteriks)
+multiplication *
 stack
 
 - 5.)
@@ -126,8 +126,21 @@ stack
 A * (B + C ')|List: A B C
 -|-
 
-(plus) + 
+addition + 
 |-
 (
-(asteriks) *
+multiplication *
+stack
+
+- 6.)
+
+A * (B + C) '|List: A B C +
+-|-
+
+  - we are currently at closing parentheses so, we need to pop until we get closing parentheses and pop one opening also
+
+addition + 
+|-
+(
+multiplication *
 stack

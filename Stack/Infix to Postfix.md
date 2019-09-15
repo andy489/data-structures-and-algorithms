@@ -70,9 +70,19 @@ A * (B + C)
 |-
 
 We will mark the position of the scanner with ':
+
+- 0.)
+
+' A * (B + C)|List: empty
+-|-
+
+empty
+|-
+stack
+
 - 1.)
 
-A ' * (B + C)|List: empty
+A ' * (B + C)|List: A
 -|-
 
 empty

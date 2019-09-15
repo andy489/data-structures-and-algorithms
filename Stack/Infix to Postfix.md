@@ -129,5 +129,5 @@ A * (B + C ')|List: A B C
 (plus) + 
 |-
 (
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;*"> (asteriks)
+(asteriks) *
 stack

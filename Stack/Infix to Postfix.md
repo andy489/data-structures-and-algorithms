@@ -87,3 +87,13 @@ A * ' (B + C)|List: A
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;*"> (asteriks)
 |-
 stack
+
+- 3.)
+
+A * ( 'B + C)|List: A
+-|-
+
+(
+|-
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;*"> (asteriks)
+stack

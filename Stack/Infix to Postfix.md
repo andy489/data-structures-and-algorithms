@@ -74,5 +74,6 @@ We will mark the position of the scanner with ':
 A' * (B + C)
 |-
 
+empty
 |-
 stack

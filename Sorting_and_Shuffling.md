@@ -16,7 +16,7 @@ Name | Best | Average | Worst | Memory | Stable | Method
 **Heap Sort** [*(J. W. J. Williams)*](https://en.wikipedia.org/wiki/J._W._J._Williams) | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.\log{n})}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.\log{n})}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.\log{n})}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;O{(1)}"> or <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(n)"> | No | *improved selection*
 **Bogo Sort** *also known as permutation sort or monkey sort* | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.n!)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;\Theta{(n.n!)}"> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;O{(1)}"> or worst case <img src="https://latex.codecogs.com/svg.latex?\Large&space;O{(1)}"> | No | *luck*
  
-- *сложността на един алгоритъм описва нарастването на броя операции спрямо нарастването на броя данни (и състоянието им - почти подредени, средно разбъркани, силно разбъркани).*
+- *сложността на един алгоритъм описва нарастването на броя операции спрямо нарастването на броя данни (в зависимот от това в какво състояние се намират данните (почти подредени, средно разбъркани, силно разбъркани) - алгоритмите могат да притежават различна сложност).*
 
  [Визуално може да видите как работят алгоритмите ТУК](https://visualgo.net/en/sorting).
   

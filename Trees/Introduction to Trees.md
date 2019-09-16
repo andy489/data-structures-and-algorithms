@@ -12,7 +12,7 @@ Here is the tree that corresponds to each of the HTML tags used to create the pa
 
 ![](https://bradfieldcs.com/algos/trees/introduction/figures/htmltree.png)
 
-### Definitions
+#### Definitions
 
 Now that we have looked at examples of trees, we will formally define a tree and its components.
 
@@ -20,19 +20,19 @@ Now that we have looked at examples of trees, we will formally define a tree and
 
 A node is a fundamental part of a tree. It can have a unique name, which we sometimes call the “key.” A node may also have additional information, which we refer to in this book as the “payload.” While the payload information is not central to many tree algorithms, it is often critical in applications that make use of trees.
 
-### Edge
+#### Edge
 
 An edge is another fundamental part of a tree. An edge connects two nodes to show that there is a relationship between them. Every node other than the root is connected by exactly one incoming edge from another node. Each node may have several outgoing edges.
 
-### Root
+#### Root
 
 The root of the tree is the only node in the tree that has no incoming edges. In a file system, / is the root of the tree. In an HTML document, the <html> tag is the root of the tree.
 
-### Path
+#### Path
 
 A path is an ordered list of nodes that are connected by edges. For example, <img src="https://latex.codecogs.com/svg.latex?\Large&space;html→body→h2→a\"> is a path.
 
-### Children
+#### Children
 
 The set of nodes *C* that have incoming edges from the same node are said to be the children of that node. In our example, nodes ul, h1, and h2 are the children of node body.
 
@@ -52,7 +52,9 @@ A subtree is a set of nodes and edges comprised of a parent and all the descenda
 
 A leaf node is a node that has no children. For example, 'a' is a leaf node.
 
-**Level** The level of a node *n* is the number of edges on the path from the root node to *n*. For example, the level of the ul node in our example is two. By definition, the level of the root node is zero.
+#### Level 
+
+The level of a node *n* is the number of edges on the path from the root node to *n*. For example, the level of the ul node in our example is two. By definition, the level of the root node is zero.
 
 #### Height
 

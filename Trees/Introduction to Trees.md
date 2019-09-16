@@ -30,7 +30,7 @@ The root of the tree is the only node in the tree that has no incoming edges. In
 
 #### Path
 
-A path is an ordered list of nodes that are connected by edges. For example, <img src="https://latex.codecogs.com/svg.latex?\Large&space;html→body→h2→a\"> is a path.
+A path is an ordered list of nodes that are connected by edges. For example, html→body→h2→a is a path.
 
 #### Children
 

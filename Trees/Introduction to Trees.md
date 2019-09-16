@@ -8,6 +8,8 @@ Tree data structure can be defined as a collection of entities called nodes link
 
 The HTML source code and the tree accompanying the source illustrate another hierarchy. Notice that each level of the tree corresponds to a level of nesting inside the HTML tags. The first tag in the source is <img src="https://latex.codecogs.com/svg.latex?\Large&space;<html>"> and the last is <img src="https://latex.codecogs.com/svg.latex?\Large&space;</html>"> All the rest of the tags in the page are inside the pair. If you check, you will see that this nesting property is true at all levels of the tree.
 
+Here is the tree that corresponds to each of the HTML tags used to create the page.
+
 ![](https://bradfieldcs.com/algos/trees/introduction/figures/htmltree.png)
 
 ### Definitions
@@ -28,25 +30,32 @@ The root of the tree is the only node in the tree that has no incoming edges. In
 
 ### Path
 
-A path is an ordered list of nodes that are connected by edges. For example, Mammal→Carnivora→Felidae→Felis→DomesticaMammal \rightarrow Carnivora \rightarrow Felidae \rightarrow Felis \rightarrow DomesticaMammal→Carnivora→Felidae→Felis→Domestica is a path.
-Children
+A path is an ordered list of nodes that are connected by edges. For example, <img src="https://latex.codecogs.com/svg.latex?\Large&space;html→body→h2→a\"> is a path.
 
-The set of nodes ccc that have incoming edges from the same node are said to be the children of that node. In our file system example, nodes log/, spool/, and yp/ are the children of node var/.
-Parent
+### Children
 
-A node is the parent of all the nodes to which it connects with outgoing edges. In our file system example the node var/ is the parent of nodes log/, spool/, and yp/.
-Sibling
+The set of nodes *C* that have incoming edges from the same node are said to be the children of that node. In our example, nodes ul, h1, and h2 are the children of node body.
 
-Nodes in the tree that are children of the same parent are said to be siblings. The nodes etc/ and usr/ are siblings in the file system tree.
-Subtree
+### Parent
+
+A node is the parent of all the nodes to which it connects with outgoing edges. In our example the node head is the parent of nodes meta and title.
+
+### Sibling
+
+Nodes in the tree that are children of the same parent are said to be siblings. The nodes meta and title are siblings in the HTML tags system tree.
+
+### Subtree
 
 A subtree is a set of nodes and edges comprised of a parent and all the descendants of that parent.
-Leaf Node
 
-A leaf node is a node that has no children. For example, Human and Chimpanzee are leaf nodes in our animal taxonomy example.
-Level
+### Leaf Node
 
-The level of a node nnn is the number of edges on the path from the root node to nnn. For example, the level of the Felis node in our animal taxonomy example is five. By definition, the level of the root node is zero.
-Height
+A leaf node is a node that has no children. For example, 'a' is a leaf node.
 
-The height of a tree is equal to the maximum level of any node in the tree. The height of the tree in our file system example is two.
+### Level
+
+The level of a node *n* is the number of edges on the path from the root node to *n*. For example, the level of the ul node in our example is two. By definition, the level of the root node is zero.
+
+### Height
+
+The height of a tree is equal to the maximum level of any node in the tree. The height of the tree in our example is three.

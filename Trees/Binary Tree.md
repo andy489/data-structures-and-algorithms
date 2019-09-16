@@ -22,4 +22,10 @@ If we go numbering all the levels in the tree like L-0, L-1, L-2 and so on, then
 
 As we say, for a complete binary tree, all the levels have to be completely filled. In order a binary tree to be complete binary tree we can give exception to the last level or deepest level. It doesn't have to be full. But the nodes have to be as left as possible. *If all the levels are complete filled*, such a *binary tree* can also be called **perfect binary tree**. 
 
-Maximum no. of nodes in a tree with height h is <img src="https://latex.codecogs.com/svg.latex?\Large&space;2^0+2^1+...">
+Maximum no. of nodes in a binary tree with height h is <img src="https://latex.codecogs.com/svg.latex?\Large&space;2^0+2^1+...+2^h=2^{h+1}-1=2^{no. of levels}-1">. At deepest level we will have 2 to the power *h* nodes.
+
+What will be height of a perfect binary tree with N nodes? Lets say N is the number of nodes in a perfect binary tree. So to find out the hight we have to solve the following equation:
+
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;n=2^{h+1}-1">
+
+Thus, <img src="https://latex.codecogs.com/svg.latex?\Large&space;2^{h+1}=(n+1)\Rightarrow{h=\log_2{(n+1)}-1}">.

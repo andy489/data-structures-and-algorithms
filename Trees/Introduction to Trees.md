@@ -12,7 +12,7 @@ Here is the tree that corresponds to each of the HTML tags used to create the pa
 
 ![](https://bradfieldcs.com/algos/trees/introduction/figures/htmltree.png)
 
-#### Definitions
+### Definitions
 
 Now that we have looked at examples of trees, we will formally define a tree and its components.
 

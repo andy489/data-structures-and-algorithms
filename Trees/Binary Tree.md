@@ -26,6 +26,4 @@ Maximum no. of nodes in a binary tree with height h is <img src="https://latex.c
 
 What will be height of a perfect binary tree with N nodes? Lets say N is the number of nodes in a perfect binary tree. So to find out the hight we have to solve the following equation:
 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;n=2^{h+1}-1">
-
-Thus, <img src="https://latex.codecogs.com/svg.latex?\Large&space;2^{h+1}=(n+1)\Rightarrow{h=\log_2{(n+1)}-1}">.
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;n=2^{h+1}-1">. Thus, <img src="https://latex.codecogs.com/svg.latex?\Large&space;2^{h+1}=(n+1)\Rightarrow{h=\log_2{(n+1)}-1}">.

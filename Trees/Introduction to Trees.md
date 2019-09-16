@@ -59,3 +59,21 @@ The level of a node *n* is the number of edges on the path from the root node to
 #### Height
 
 The height of a tree is equal to the maximum level of any node in the tree. The height of the tree in our example is three.
+
+Now that we have defined the basic vocabulary, we can give two more definitions of a tree: one involving nodes and edges, and other a recursive definition:
+
+**Definition one:** A tree consists of a set of nodes and a set of edges that connect pairs of nodes. A tree has the following properties:
+- One node of the tree is designated as the root node.
+- Every node *n*, except the root node, is connected by an edge from exactly one other node *p*, where *p* is the parent of *n*.
+- A unique path traverses from the root to each node.
+- If each node in the tree has a maximum of two children, we say that the tree is a *binary* tree.
+
+The diagram below illustrates a tree that fits definition one. The arrowheads on the edges indicate the direction of the connection.
+
+![](https://bradfieldcs.com/algos/trees/introduction/figures/tree-definition.png)
+
+**Definition two:** A tree is either empty or consists of a root and zero or more subtrees, each of which is also a tree. The root of each subtree is connected to the root of the parent tree by an edge.
+
+The diagram below illustrates this recursive definition of a tree. Using the recursive definition of a tree, we know that the tree below has at least four nodes, since each of the triangles representing a subtree must have a root. It may have many more nodes than that, but we do not know unless we look deeper into the tree.
+
+![](https://bradfieldcs.com/algos/trees/introduction/figures/tree-definition-recursive.png)

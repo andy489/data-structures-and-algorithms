@@ -12,7 +12,7 @@ Here is the tree that corresponds to each of the HTML tags used to create the pa
 
 ![](https://bradfieldcs.com/algos/trees/introduction/figures/htmltree.png)
 
-### Definitions
+### Definitions:
 
 Now that we have looked at examples of trees, we will formally define a tree and its components.
 
@@ -82,3 +82,23 @@ Recursion basically is reducing something in a self similar manner. This recursi
 
 In a valid tree with N nodes there will be exactly N-1 links/edges. All nodes except the root node will have exactly 1 incoming edge. 
 
+Based on properties, trees are classified into various categories. There are different kinds of trees that are used in different scenarios. Simplest and most common kind of tree is a tree with this property that any node can have at most two children. This kind of tree is called *binary tree*. Binary tree is most famous tree. 
+
+The most common way of implemanting tree is dynamically created nodes linked using pointers or references, just the way we do for linked list. A tree Node will have several fields: one of the fields will store the data and the other fields will store the address of the childs of the tree. If the tree is binary we cannot have more of two children so in the Node we will include only three fields. If a node for example has only one child, the left field with address data will be filled with null. Or if a node is a leaf, then the two address fields will be both filled with null. We can name the children as left child and right child. Programmatically, in C or C++, we can define a node as a structure like this:
+```cpp
+struct Node
+{
+    int data; // assuming data type is integer
+    Node* left;
+    Node* right;
+}
+```
+We have kept only 2 pointers because we can have at most 2 children in binary tree. This particular definition of Node can be used only for a binary tree. For generic trees that can have any number of children, we use some other structure.
+
+### Applications:
+
+#### 1) Storing naturally hierarchical data *→ eg: - file system*
+#### 2) Organize data - for quick search, insertion, deletion *→ eg: - binary search tree*
+#### 3) Trie - a special kind of tree used to store dictionary. Fast and efficient and is used for dynamic spell checking.
+#### 4) Network Routing algorithm
+... and the list goes on

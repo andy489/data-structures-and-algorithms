@@ -77,3 +77,8 @@ The diagram below illustrates a tree that fits definition one. The arrowheads on
 The diagram below illustrates this recursive definition of a tree. Using the recursive definition of a tree, we know that the tree below has at least four nodes, since each of the triangles representing a subtree must have a root. It may have many more nodes than that, but we do not know unless we look deeper into the tree.
 
 ![](https://bradfieldcs.com/algos/trees/introduction/figures/tree-definition-recursive.png)
+
+Recursion basically is reducing something in a self similar manner. This recursive property of tree will be used everywhere in all implementation and uses of tree.
+
+In a valid tree with N nodes there will be exactly N-1 links/edges. All nodes except the root node will have exactly 1 incoming edge. 
+

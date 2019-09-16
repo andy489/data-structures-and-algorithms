@@ -120,8 +120,8 @@ void test()
 {
 	BstNode* root = nullptr; //To store address of root node. 
 						//This is pointer to root and not the root itself. 
-							 //Initially setting the root to NULL, 
-							 //to say that the tree is empty 
+						//Initially setting the root to NULL, 
+						//to say that the tree is empty 
 	root = insert(root, 22); root = insert(root, 9); root = insert(root, 18);
 	root = insert(root, 50); root = insert(root, 10); root = insert(root, 14);
 

@@ -36,26 +36,26 @@ A path is an ordered list of nodes that are connected by edges. For example, <im
 
 The set of nodes *C* that have incoming edges from the same node are said to be the children of that node. In our example, nodes ul, h1, and h2 are the children of node body.
 
-### Parent
+#### Parent
 
 A node is the parent of all the nodes to which it connects with outgoing edges. In our example the node head is the parent of nodes meta and title.
 
-### Sibling
+#### Sibling
 
 Nodes in the tree that are children of the same parent are said to be siblings. The nodes meta and title are siblings in the HTML tags system tree.
 
-### Subtree
+#### Subtree
 
 A subtree is a set of nodes and edges comprised of a parent and all the descendants of that parent.
 
-### Leaf Node
+#### Leaf Node
 
 A leaf node is a node that has no children. For example, 'a' is a leaf node.
 
-### Level
+#### Level
 
 The level of a node *n* is the number of edges on the path from the root node to *n*. For example, the level of the ul node in our example is two. By definition, the level of the root node is zero.
 
-### Height
+#### Height
 
 The height of a tree is equal to the maximum level of any node in the tree. The height of the tree in our example is three.

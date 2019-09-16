@@ -60,6 +60,8 @@ The level of a node *n* is the number of edges on the path (i.e. lenght of path)
 
 The height of a tree is equal to the maximum level of any node in the tree. The height of the tree in our example is three.
 
+We can define an empty tree as a tree with no node and we can say that height of an empty tree is minus one (-1).
+
 Now that we have defined the basic vocabulary, we can give two more definitions of a tree: one involving nodes and edges, and other a recursive definition:
 
 **Definition one:** A tree consists of a set of nodes and a set of edges that connect pairs of nodes. A tree has the following properties:

@@ -52,7 +52,7 @@ A subtree is a set of nodes and edges comprised of a parent and all the descenda
 
 A leaf node is a node that has no children. For example, 'a' is a leaf node.
 
-#### Level 
+#### Level / Depth
 
 The level of a node *n* is the number of edges on the path from the root node to *n*. For example, the level of the ul node in our example is two. By definition, the level of the root node is zero.
 

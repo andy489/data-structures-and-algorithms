@@ -20,6 +20,16 @@ Left and right subtree will be visited recursively in same manner as the origina
 2. visit left subtree
 3. visit right subtree
 
+### Inorder
+1. visit left subtree
+2. visit root
+3. visit right subtree
+
+### Postorder
+1. visit left subtree
+2. visit right subtree
+3. visit root
+
 We want to write a function that should take a pointer or reference to root node as argument and print data in all the nodes in preorder. 
 
 There is one thing that we must mention here for what is happening in this whole process in this algorithm. Even though we are not using any extra memory explicitly in our function, because of the recursion we are growing the function call stack. For each function call we allocate some amount of memory in what we call stack section of applications memory and this allocated memory is reclaimed when the function call finishes. So even though we are not using any extra memory explicitly, we are using memory implicitly in the call stack. Space complaxity, which is measure of rate of growth of extra memory used with input will depend upon the maximum amount of extra memory used in the call stack. The call stack will grow only untill we reach a leaf node, a node with no children and then it will start shrinking again. Maximum growth of call stack to do this recursion will depend upon maximum depth or height of the tree. We can say that extra space used will be proportional to height of the tree or in othre words space complexity of this algorithm is O(h), where h is the height of the tree.

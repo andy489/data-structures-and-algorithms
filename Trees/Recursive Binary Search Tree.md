@@ -206,3 +206,5 @@ bool isBinarySearchTree(BstNode* root)
 ```
 
 Сложността на първия алгоритъм е <img src="https://latex.codecogs.com/svg.latex?\Theta{(n^2)}">, а сложността на втория е <img src="https://latex.codecogs.com/svg.latex?\Theta{(n)}">.
+
+See also [BT & BST full](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/BT%20%26%20BST%20full.cpp).

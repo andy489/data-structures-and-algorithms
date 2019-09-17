@@ -1,4 +1,4 @@
-- < root node > < left subtree > < right subtree >## Binary Tree Traversal
+## Binary Tree Traversal
 
 When we are working with trees, we may often want to visit all the nodes in the tree. Tree is not a linear data structure like array or linked list. In a linear data structure there would be a logical start and a logical end. So, we can start with a pointer at one of the ends and keep moving it forwards the other end. For a linear data structure like linked list, for each node or element we would have only one next element. But tree is not a linear data structure. For a tree at any time if we are pointing to a particular node then we can have more than one possible directions (more than one possible next nodes). And of course if we will go in one direction then we will somehow have to come back and go into the other direction later. So tree traversal is not so straightforward.
 

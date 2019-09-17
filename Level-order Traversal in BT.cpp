@@ -1,50 +1,58 @@
 /* Binary tree - Level Order Traversal */
 #include<iostream>
 #include<queue>
-using namespace std;
 
-struct Node {
-	char data;
+struct Node 
+{
 	Node *left;
+	char data;	
 	Node *right;
 };
 
+Node* getNewNode(char data)
+{
+	Node* newNode = new Node();
+	newNode->data = data;
+	newNode->left = newNode->right = nullptr;
+	return newNode;
+}
+
 // Function to print Nodes in a binary tree in Level order
-void LevelOrder(Node *root) {
-	if (root == NULL) return;
-	queue<Node*> Q;
+void LevelOrder(Node *root)  //DLR (Data-Left-Right)
+{
+	if (root == nullptr) return;
+	std::queue<Node*> Q;
 	Q.push(root);
 	//while there is at least one discovered node
-	while (!Q.empty()) {
+	while (!Q.empty()) 
+	{
 		Node* current = Q.front();
 		Q.pop(); // removing the element at front
-		cout << current->data << " ";
-		if (current->left != NULL) Q.push(current->left);
-		if (current->right != NULL) Q.push(current->right);
+		std::cout << current->data << " ";
+		if (current->left != nullptr) Q.push(current->left);
+		if (current->right != nullptr) Q.push(current->right);
 	}
 }
 // Function to Insert Node in a Binary Search Tree
-Node* Insert(Node *root, char data) {
-	if (root == NULL) {
-		root = new Node();
-		root->data = data;
-		root->left = root->right = NULL;
-	}
+Node* Insert(Node *root, char data) 
+{
+	if (root == nullptr) root = getNewNode(data);
 	else if (data <= root->data) root->left = Insert(root->left, data);
 	else root->right = Insert(root->right, data);
 	return root;
 }
 
-int main() {
+int main() 
+{
 	/*Code To Test the logic
 	  Creating an example tree
-						M
+				M
 			   / \
 			  B   Q
 			 / \   \
 			A   C   Z
 	*/
-	Node* root = NULL;
+	Node* root = nullptr;
 	root = Insert(root, 'M'); root = Insert(root, 'B');
 	root = Insert(root, 'Q'); root = Insert(root, 'Z');
 	root = Insert(root, 'A'); root = Insert(root, 'C');

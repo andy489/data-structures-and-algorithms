@@ -12,7 +12,7 @@ Lets now talk about time and space complexity of level order traversal. If there
 
 - Time-complexity
   - O(n)-all cases
--Space-complexity
+- Space-complexity
  - O(1)-best
  - O(n)-worst/average
 

@@ -85,7 +85,7 @@ int main()
 {
 	/*Code To Test the logic
 	  Creating an example tree
-				5
+			    5
 			   / \
 			  3   10
 			 / \   \

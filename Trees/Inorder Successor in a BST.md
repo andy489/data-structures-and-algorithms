@@ -52,3 +52,7 @@ Now, in the right subtree, we will have to go left as long as it's possible to g
 What would be the successor if there would be no right subtree? What node would we visit after this node with value 8. This node does not have right subtree.
 
 ![](https://i.ibb.co/rp0Ymty/BST6.png)
+
+If we have already visited the node with value 8, then we have already visited its left subtree and its node itself and there is nothing in right, so we can see that right is also visited but we have not found a successor yet. Now where do we go from here? Well if we remember the simulation done earlier for LDR traversal (inorder traversal) - we need to go to the parent form left and if we are going to the parent of left , which is the case here, then the parent would be unvisited. For the node with value 10, we just finished its left subtree and we're coming back. So now we can visit node with value 10 and this is our successor.
+
+![](https://i.ibb.co/tbLdqd4/BST7.png)

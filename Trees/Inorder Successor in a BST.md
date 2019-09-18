@@ -84,4 +84,4 @@ Often it makes a lot of sense to have one more field to store the address of par
 
 But what if there is no link to parent? In this case what we can do is we can start at root and walk the tree from root to the given node. IN a BST this is really easy. For node with value 12 we will start at root. 12 is lesser than value in root so we need to go left. Now we are at node with value 10. Now 12 is greater than 10, so we need to go right and now we are at node with value 12. If we will walk the tree from root to the given node, we will go through all the ancestors of the given node. Inorder successor would be the deepest node or deepest ancestors in this path for which given node would be in left subtree. Node with value 12 has only two ancestors. We have node with value 10, but it is on the right and then node with value 15, which is on the left, so node with value 15 is our successor. We need to look at ancestors only if there is no right subtree.
 
-
+[C++ code for the described algorithm here](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Inorder%20Successor%20in%20a%20BST.cpp)

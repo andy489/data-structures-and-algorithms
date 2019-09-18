@@ -44,6 +44,11 @@ What node would we visit after node with value 10? Now, can we deduce this algor
 
 ![](https://i.ibb.co/YTQp9yH/BST5.png)
 
-Now, in the right subtree, we will have to go left as long as it's possible to go and if we can't go left anymore - there's nothing left of the current node (like node with value 11 in our example). Then this is the node that we're visiting next. So for a node if there is a right subtree then inorder successor would be the left most node in it right subtree. 
+Now, in the right subtree, we will have to go left as long as it's possible to go and if we can't go left anymore - there's nothing left of the node with value 11 in our example, then this is the node that we're visiting next. So for a node, if there is a right subtree, then inorder successor would be the left most node in it's right subtree. In a BST it would be the node with minimum value in its right subtree. So, this was the case one.
 
+#### Case 1: Node has right subtree
+- *Go deep to leftmost node in right subtree OR find min in right subtree*
 
+What would be the successor if there would be no right subtree? What node would we visit after this node with value 8. This node does not have right subtree.
+
+![](https://i.ibb.co/rp0Ymty/BST6.png)

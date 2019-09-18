@@ -56,3 +56,32 @@ What would be the successor if there would be no right subtree? What node would 
 If we have already visited the node with value 8, then we have already visited its left subtree and its node itself and there is nothing in right, so we can see that right is also visited but we have not found a successor yet. Now where do we go from here? Well if we remember the simulation done earlier for LDR traversal (inorder traversal) - we need to go to the parent form left and if we are going to the parent of left , which is the case here, then the parent would be unvisited. For the node with value 10, we just finished its left subtree and we're coming back. So now we can visit node with value 10 and this is our successor.
 
 ![](https://i.ibb.co/tbLdqd4/BST7.png)
+
+Let's now pick another node with no right subtree. What would be inorder successor for node with value 12? What node would be visit next?
+
+[!](https://i.ibb.co/KL4B3Rt/BST8.png)
+
+Now here, once again, we do not have right subtree for this node with value 12, so we must go back to its parent and see if it's unvisited. But if we're going to the parent from right, if the node that we just visited is a right child, which is the case here, then the parent would already be visited, because we are coming back after visiting its right subtree. The node with value 10 must have been visited before going right. So what should we do? Now the recursion will rollback further and we need to go to parent of node with value 10. And now we are going to node with value 15 from left. So this is our guy, because its unvisited (node with value 15 is our searched inorder successor).
+
+![](https://i.ibb.co/bXxZMKY/BST9.png)
+
+#### Case 2: No right subtree
+- *Go to the nearest ancestor for which given node would be in left subtree*
+
+IN the above example we went from node with value 12 to node with value 10, but node with value 12 is in right subtree of node with value 10, so we went to the next ancestor - node with value 15. Now node with value 12 in in left of 15, so this is the nearest ancestor for which node with value 12 is in left and hence this is our inorder successor.
+
+This algorithm works fine but there is an issue. How do we go from a node to its parent? Well, we can design a tree such that node can have reference to its parent. 
+```cpp
+struct Node
+{
+      Node* left;
+      int data;
+      Node* right;
+      Node* parent; //additional pointer to store the address of parent
+}
+```
+Often it makes a lot of sense to have one more field to store the address of parent. We can design a tree like this and then e will not have problem walking the tree up using parent link. We can easily go to the ancestors. 
+
+But what if there is no link to parent? In this case what we can do is we can start at root and walk the tree from root to the given node. IN a BST this is really easy. For node with value 12 we will start at root. 12 is lesser than value in root so we need to go left. Now we are at node with value 10. Now 12 is greater than 10, so we need to go right and now we are at node with value 12. If we will walk the tree from root to the given node, we will go through all the ancestors of the given node. Inorder successor would be the deepest node or deepest ancestors in this path for which given node would be in left subtree. Node with value 12 has only two ancestors. We have node with value 10, but it is on the right and then node with value 15, which is on the left, so node with value 15 is our successor. We need to look at ancestors only if there is no right subtree.
+
+

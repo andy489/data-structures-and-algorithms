@@ -32,4 +32,5 @@ To solve the problem we can just perform inorder traversal and while performing 
 
 Let's analyze inorder traversal:
 
-![](https://i.ibb.co/vmmfx3F/assss.png)
+![](https://i.ibb.co/DLbwrzW/assss.png)
+![](https://i.ibb.co/gwSqcWg/ass1ss.png)

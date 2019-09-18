@@ -112,16 +112,16 @@ void print(BstNode* root, int leftLim, int rightLim)
 	if (leftLim < root->data) print(root->left, leftLim, rightLim);
 	// If value of root's key is in range, then print the root's key
 	if (leftLim <= root->data && rightLim >= root->data) cout << root->data << " ";
-	//If value of root's key is smaller than krightLim, then recursively call in right subtree
+	//If value of root's key is smaller than rightLim, then recursively call in right subtree
 	if (rightLim > root->data) print(root->right, leftLim, rightLim);
 }
 
 void test()
 {
 	BstNode* root = nullptr; //To store address of root node. 
-						//This is pointer to root and not the root itself. 
-						//Initially setting the root to NULL, 
-						//to say that the tree is empty 
+				 //This is pointer to root and not the root itself. 
+				 //Initially setting the root to NULL, 
+				 //to say that the tree is empty 
 	root = insert(root, 22); root = insert(root, 9); root = insert(root, 18);
 	root = insert(root, 50); root = insert(root, 10); root = insert(root, 14);
 

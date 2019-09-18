@@ -38,7 +38,12 @@ Let's analyze inorder traversal:
 
 Notice that we have printed the integers (in our case the data in the note is of type int) in sorted order. When we perform inorder traversal on a binary search tree then elements are visited in sorted order. 
 
+![](https://i.ibb.co/bzV2nFm/as3sss.png)
+
 What node would we visit after node with value 10? Now, can we deduce this algorithm logically. Well, if we see the simulation of inorder traversal that we had done earlier and we have already visited this node, then we are done with its left subtree and we have read the data in this node and we need to go right.
 
-![](https://i.ibb.co/bzV2nFm/as3sss.png)
+![](https://i.ibb.co/StW50bG/as4sss.png)
+
+Now, in the right subtree, we will have to go left as long as it's possible to go and if we can't go left anymore - there's nothing left of the current node (like node with value 11 in our example). Then this is the node that we're visiting next. So for a node if there is a right subtree then inorder successor would be the left most node in it right subtree. 
+
 

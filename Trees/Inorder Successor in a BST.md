@@ -34,3 +34,4 @@ Let's analyze inorder traversal:
 
 ![](https://i.ibb.co/DLbwrzW/assss.png)
 ![](https://i.ibb.co/gwSqcWg/ass1ss.png)
+![](https://i.ibb.co/Xjc7cCL/asss2.png)

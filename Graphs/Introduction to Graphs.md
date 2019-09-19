@@ -25,6 +25,7 @@ So our set of vertices here is <img src="https://latex.codecogs.com/svg.latex?\L
   - directed - one way connection
   - undirected - two way connection
 
-![](https://i.ibb.co/ctSDPvD/graph3.png)
+![](https://i.ibb.co/Y7TXwqy/graph3.png)
+
 In a tree we have directed edges. With the directed edge in the above example , we are saying that there is a link or path
 

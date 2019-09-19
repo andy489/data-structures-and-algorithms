@@ -57,4 +57,17 @@ Next thing that we should mention is the concept of weighted graph. Sometimes in
 
 ![](https://i.ibb.co/ZMpJbWX/graph9.png)
 
-We're assuming that all highways would be bi-directional. Intra-city road network that is road network within a city would definitely have one-way roads and so intra-city road network must be represented as a directed graph, but intercity road network can be represented as an undirected graph. Now clearly we cannot treat all connections as equal here. Roads would be of different lengths and to perform a lot of tasks, to solve a lot of problems, we need to take length of roads into account. In such cases, we associate some weight or cost with every edge. We label the edge with their weights. In the above case weight can be length of the roads, so what to do here is we'll just label this edges with some values for the lengths.
+We're assuming that all highways would be bi-directional. Intra-city road network that is road network within a city would definitely have one-way roads and so intra-city road network must be represented as a directed graph, but intercity road network can be represented as an undirected graph. Now clearly we cannot treat all connections as equal here. Roads would be of different lengths and to perform a lot of tasks, to solve a lot of problems, we need to take length of roads into account. In such cases, we associate some weight or cost with every edge. We label the edge with their weights. In the above case weight can be length of the roads, so what to do here is we'll just label this edges with some values for the lengths. Lets say these values are in kilometers. And now edges in this graph are weighted and this graph can be called a weighted graph. 
+
+Let's say in this graph, we want to pick the best route from city A to city D. We have 4 possible routs shown in four possible colours. Now, if we would treat all edges as equal then we would say that the green route through B and C and a red route through E and F are equally good. Both these paths have three edges and the yellow rout through E is the best, because we have only two edges in this path. 
+
+But with different weights assigned to the connections, we need to add up weights of edges in a path to calculate total cost. When we are taking weight into account, shortest route is through B and C. Connections have different weights and this is really important here in this graph. 
+
+Actually, we can look at all the graphs as weighted graphs. An unweighted graph can basically be seen as a weighted graph in which weight of all the edges is same and typically we assume the weight as 1. 
+
+So we have represented inter-city road network as a weighted undirected graph. Social network was an unweighted undirected graph ans World Wide Web was an unweighted directed graph. Intra-city road network that is road network within a city can be modeled as a weighted directed graph because in a city there would be some one-ways. Intersections in intra-city's road network would be Nodes and road segments would be our edges. 
+
+![](https://i.ibb.co/L1KpH3M/graph10.png)
+
+And by the way we can also draw an undirected graph as directed - it's just that for each undirected edge we will have 2 directed edges. We may not be able to redraw a directed graph as undirected but we can always redraw an undirected graph as directed.
+

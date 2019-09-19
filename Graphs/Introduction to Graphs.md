@@ -27,5 +27,5 @@ So our set of vertices here is <img src="https://latex.codecogs.com/svg.latex?\L
 
 ![](https://i.ibb.co/Y7TXwqy/graph3.png)
 
-In a tree we have directed edges. With the directed edge in the above example , we are saying that there is a link or path
+In a tree we have directed edges. With the directed edge in the above example , we are saying that there is a link or path from vertex *u* to *v*, but we cannot assume a path form *v* to *u*. This connection is one way. For a directed edge, one of the end points would be the origin and other end point would be the destination and we draw the edge with an arrow head pointing towards the destination. FOr our edge above, origin is *u* and destination is *v*. A directed edge can be represented as ordered pair. First element of the pair cn be the origin and second element can be the destination - *(u,v)* - we have a path from *u* to *v*. If we want a path from *v* to *u*, then we need to draw another directed edge with *v* as origin and *u* as destination and then the result will be represented as ordered pair *(v,u)*. Now, if the edge is undirected, the connection is two way and undirected edge can be represented as an unordered pair, because the edge is bi-directional origin and destination are not fixed. We only need to know what two end points are being connected.
 

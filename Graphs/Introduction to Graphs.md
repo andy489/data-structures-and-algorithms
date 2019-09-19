@@ -18,7 +18,7 @@ In our definition of a graph, first object in the pair must always be a set of v
 
 The above graph has 8 vertices and 10 edges. We want to give some names to these vertices because each node in a graph must have some identification. It can be a name or it can be an index. We are giving names, so that the naming is not indicative of any order. There is no 1st, 2nd and 3rd node here. We could give any name to any node. 
 
-![](https://i.ibb.co/z2Gb0B2/graph2.png)
+![](https://i.ibb.co/QHjMfBL/graph2.png)
 
 So our set of vertices here is <img src="https://latex.codecogs.com/svg.latex?\Large&space;V=\{V1,V2,V3,V4,V5,V6,V7,V8\}"> and what is the set of edges? An edge is uniquely identified by it's two endpoints, so we can just write the names of the two endpoints of an edge as a pair and it can be a representation for the edge. But edges can be of two types:
 - Edges: 

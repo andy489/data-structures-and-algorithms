@@ -37,7 +37,9 @@ Tipically in a graph, all edges would either be directed or undirected. It's pos
 
 A graph with all directed edges is called a directed graph or digraph and a graph with all undirected edges is called undirected graph. There is no special name for an undirected graph. Usually, if the graph is directed, we explicitly say that it's directed graph or digraph. So these are two types of graphs. So these are two types of graphs. Directed graph or digraph in which edges are uni-directional or ordered pairs and undirected graph in which edges are bi-directional or unordered pairs. Now many real-world systems and problems can be modeled using a graph. Graphs can be used to represent any collection of objects having some kind of pairwise relationship. Let's have a look at some of the interesting examples.
 
-![](https://i.ibb.co/jvP1HcR/graph5.png)
+![](https://i.ibb.co/MPFR11S/graph5.png)
+
+A social network like Facebook can be represented as an undirected graph. A user would be a node in the graph and if two users are friends, there would be an edge connecting them. A real social network would have millions and billions of nodes. In our diagram above we can show only few, because we are short of space. Social network is an undirected graph because friendship is a mutual relationship. If I'm your friend, you are my friend too.
 
 
 

@@ -55,6 +55,6 @@ Now, once again if we are able to represent web as a directed graph, we can appl
 
 Next thing that we should mention is the concept of weighted graph. Sometimes in a graph, all connections cannot be treated as equal. Some connections can be preferable to others. Like for example we can represent intercity road network that is the network of hoghways and freeways between cities as an undirected graph. 
 
-![](https://i.ibb.co/7zggtDj/graph8.png)
+![](https://i.ibb.co/ZMpJbWX/graph9.png)
 
-We're assuming that all highways would be bi-directional. Intra-city road network that is road network within a city would definitely have one-way roads and so intra-city road network must be represented as a directed graph, but intercity road network can be represented as an undirected graph. Now clearly we cannot treat all connections as equal here.
+We're assuming that all highways would be bi-directional. Intra-city road network that is road network within a city would definitely have one-way roads and so intra-city road network must be represented as a directed graph, but intercity road network can be represented as an undirected graph. Now clearly we cannot treat all connections as equal here. Roads would be of different lengths and to perform a lot of tasks, to solve a lot of problems, we need to take length of roads into account. In such cases, we associate some weight or cost with every edge. We label the edge with their weights. In the above case weight can be length of the roads, so what to do here is we'll just label this edges with some values for the lengths.

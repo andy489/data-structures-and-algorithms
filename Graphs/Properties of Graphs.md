@@ -38,3 +38,9 @@ Assuming no self-loop or multiedge <img src="https://latex.codecogs.com/svg.late
 
 Number of edges in the graph can be really large compared to a number of vertices. For example if number of vertices in a directed graph is equal to 10, maximum number of edges would be 90. If number of vertices is 100, maximum number of edges would be 9900. Maximum nubmer of edges would be close to square of number of vertices.
 
+A graph is called dense if number of edges in the graph is close to maximum possible number of edges, that is if the number of edges is of the order of square of number of vertices, and a graph is called sparse if the number of edges is really less - tipically close to a number of vertices and not more than that. There is no defined boundary for what can be called dense and what can be called sparse. It all depends on context. This is an important classification. While working with graphs, a lot of decisions are made based on whether the graph is dense or sparse. For example we typically choose a different kind of storage structure in computer's memory for a dense graph. We typically store a dense graphs in something called adjacency matrix, and for a sparse graph we typically use something called adjacency list. 
+
+The next concept that we are going to talk about is concept of path in a graph. A path in a graph is *a sequence of vertices where each adjacent pair in the sequence is connected by an edge*. 
+
+![](https://i.ibb.co/RTX2pDQ/POG9.png)
+

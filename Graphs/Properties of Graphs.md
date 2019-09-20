@@ -46,7 +46,7 @@ The next concept that we are going to talk about is concept of path in a graph. 
 
 The sequence of vertices < A,B,F,H > is a path in this graph. Now, we have undirected graph here, edges are bi-directional. In a directed graph, all edges must also be aligned in 1 direction - the direction og the path. A path is called *simple path if no vertices are repeated and if vertices are not repeated then edges will also not be repeated*. So in a simple path both vertices and edges are not repeated. This path < A,B,F,H > that we have highlighted here is a simple path but we could also have a path like the show below:
 
-![](https://i.ibb.co/w6Nx3nc/POG10.png)
+![](https://i.ibb.co/rGWP55b/POG10p.png)
 
 Here, start vertex is A and end vertex is D. In this path, 1 edge and 2 vertices are repeated - < A,B,F,H,E,B,A,D >. In graph theory there is some inconsistency in use of this term path. Most of the time, when we say path, we mean a simple path. And if repetition is possible we used this term *walk*. So a path is basically a walk in which no vertices (and thus no edges) are repeated. A walk is called a *trail* if vertices can be repeated but edges cannot be repeated.
 

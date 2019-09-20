@@ -44,5 +44,7 @@ The next concept that we are going to talk about is concept of path in a graph. 
 
 ![](https://i.ibb.co/RTX2pDQ/POG9.png)
 
-The sequence of vertices < A,B,F,H > is a path in this graph.
+The sequence of vertices < A,B,F,H > is a path in this graph. Now, we have undirected graph here, edges are bi-directional. In a directed graph, all edges must also be aligned in 1 direction - the direction og the path. A path is called *simple path if no vertices are repeated and if vertices are not repeated then edges will also not be repeated*. So in a simple path both vertices and edges are not repeated. This path < A,B,F,H > that we have highlighted here is a simple path but we could also have a path like the show below:
+
+![](]https://i.ibb.co/w6Nx3nc/POG10.png)
 

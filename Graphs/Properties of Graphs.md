@@ -10,7 +10,7 @@ We can have a self loop in both directed and undirected graphs, but the question
 
 The next special type of edge that we are going to talk about is multi-edge.
 
-![](https://i.ibb.co/6DzK7d7/POG3.png)
+![](https://i.ibb.co/HP7tnJP/POG3.png)
 
 An edge is called a multi-edge if it occurs more than once in a graph. Once again we can have a multi-edge in both directed and undirected graphs. 
 

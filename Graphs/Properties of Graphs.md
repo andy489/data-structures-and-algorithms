@@ -28,4 +28,4 @@ Obviously minimum possible number of edges in a graph is zero. Now, if this is a
 
 In this figure here, each node can have directed edges to 3 other nodes. We have 4 nodes in total, so maximum possible number of edges here is 4 * 3 that is 12.
 
-![](https://i.ibb.co/fQDVMGp/POG7.png)
+![](https://i.ibb.co/DMCMmrH/POG8.png)

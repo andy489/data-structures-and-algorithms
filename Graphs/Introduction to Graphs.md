@@ -31,7 +31,7 @@ In a tree we have directed edges. With the directed edge in the above example , 
 
 The set of edges is: <img src="https://latex.codecogs.com/svg.latex?\Large&space;E=\{\{V1,V2\},\{V1,V3\},\{V1,V4\},\{V2,V5\},\{V2,V6\},\{V3,V7\},\{V4,V8\},\{V7,V8\},\{V5,V8\},\{V6,V8\}\}">
 
-So, <img src="https://latex.codecogs.com/svg.latex?\Large&space;|V|=8, |E|=10">, where with <img src="https://latex.codecogs.com/svg.latex?\Large&space;|V|"> and <img src="https://latex.codecogs.com/svg.latex?\Large&space;|E|"> we define the number of verticles and the number of edges, respectively.
+So, <img src="https://latex.codecogs.com/svg.latex?\Large&space;|V|=8,|E|=10">, where with <img src="https://latex.codecogs.com/svg.latex?\Large&space;|V|"> and <img src="https://latex.codecogs.com/svg.latex?\Large&space;|E|"> we define the number of verticles and the number of edges, respectively.
 
 Tipically in a graph, all edges would either be directed or undirected. It's possible for  graph to have both directed and undirected edges. We are only going to work with such graphs in which all edges would either be directed or undirected. 
 

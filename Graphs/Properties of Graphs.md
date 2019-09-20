@@ -73,3 +73,9 @@ Now we have 2 disjoint connected components here. But the graph overall is not c
 Lets now talk about *cycle* in a graph. A walk is called a closed walk if it starts and ends at same vertex and there is one more condition - the length of the walk must be greater than 0.
 
 ![](https://i.ibb.co/X3wpHK2/POG15.png)
+
+Length of a walk or path is number of edges in the path. Like for the above closed walk in the example - length is 5 because we have 5 edges in the walk. So, a closed walk is a walk that starts and ends at same vertex and the length of which is greater than 0. Now some may call close walk a cycle but generally we used the term cycle for a simple cycle. *A simple cycle is a closed walk in which other than start and end vertices - no other vertex or edge is repeated*. The example above is also a simple cycle or we can just say cycle. 
+
+A graph with no cycle is called an acyclyc graph. A tree if drawn with undirected edges would be an example of an undirected acyclic graph. In the following tree we can have a closed walk but we cannot have a simple cycle.
+
+![](https://i.ibb.co/pQXybNm/POG16.png)

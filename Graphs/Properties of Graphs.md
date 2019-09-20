@@ -14,7 +14,7 @@ The next special type of edge that we are going to talk about is multi-edge.
 
 An edge is called a multi-edge if it occurs more than once in a graph. Once again we can have a multi-edge in both directed and undirected graphs. The first multiedge in the above example is undirected and the second one is directed. Once again the question why should be ever have a multi-edge. Well, lets say we are representing flight network between cities as a graph. A city would be a node and we can have an edge if there is a direct flight connection between any 2 cities, but then there can be multiple flights between a pair of cities. These flights would have different names and may have different costs. If we want to keep the information about all the flights in our graph, we can draw multi-edges. We can draw 1 directed edge for each flight and then we can label an edge with its cost or any other propery. 
 
-![](https://i.ibb.co/K2tb9rY/POG4.png)
+![](https://i.ibb.co/L5Nj63Z/POG4.png)
 
 
 

@@ -29,3 +29,5 @@ Obviously minimum possible number of edges in a graph is zero. Now, if this is a
 In this figure here, each node can have directed edges to 3 other nodes. We have 4 nodes in total, so maximum possible number of edges here is 4 * 3 that is 12.
 
 ![](https://i.ibb.co/DMCMmrH/POG8.png)
+
+This is the maximum that we can draw if there is no self loop or multi-edges. In general if there are N vertices, then maximum number of edges in a directed graph would be N * (N-1). So in a simple directed graph, number of edges would be in the range <img src="https://latex.codecogs.com/svg.latex?\Large&space;0\le{|E|}\le{n(n-1)}">. Now what will be the maximum for an undirected graph? In an undirected graph we can have only 1 bi-directional edge between a pair of nodes. We can't have 2 edges in different directions, so here the maximum would be half of maximum for directed, i.e.  <img src="https://latex.codecogs.com/svg.latex?\Large&space;0\le{|E|}\le\frac{{n(n-1)}}{2}"> .

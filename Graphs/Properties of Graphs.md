@@ -85,3 +85,5 @@ In this closed walk shown above, our edge is repeated. There would be no simple 
 Now, we can also have a directed acyclic graph, as we can see in the following example, we do not have any cycle.
 
 ![](https://i.ibb.co/dfLKbnF/POG17.png)
+
+We cannot have a path of length greater than 0 starting and ending at the same vertex. A directed cyclic graph is often called a DAG. A cycles in a graph cause a lot of issues in designing algorithms for problems like finding shortest route from one vertex to another.

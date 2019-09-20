@@ -44,3 +44,5 @@ The next concept that we are going to talk about is concept of path in a graph. 
 
 ![](https://i.ibb.co/RTX2pDQ/POG9.png)
 
+The sequence of vertices < A,B,F,H > is a path in this graph.
+

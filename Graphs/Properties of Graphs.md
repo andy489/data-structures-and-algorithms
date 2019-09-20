@@ -52,7 +52,12 @@ Here, start vertex is A and end vertex is D. In this path, 1 edge and 2 vertices
 
 ![](https://i.ibb.co/HDDp54d/POG11p.png)
 
-Walk and path are used as synonyms, but most often when we say path we mean simple path, a path in which vertices and edges are not repeated. Between 2 different vertices if there is a walk in which vertices or edges are repeated like the highlighted in the above example, then there must also be a path or simple path that is a walk in which vertices or edges would not be repeated. In the walk from the above example, we're starting at A and we are ending our walk at C. There is a simple path from A to C with just 1 edge. All we need to do is, we need to avoid going to B E H. 
+Walk and path are used as synonyms, but most often when we say path we mean simple path, a path in which vertices and edges are not repeated. Between 2 different vertices if there is a walk in which vertices or edges are repeated like the highlighted in the above example, then there must also be a path or simple path that is a walk in which vertices or edges would not be repeated. In the walk from the above example, we're starting at A and we are ending our walk at C. There is a simple path from A to C with just 1 edge. All we need to do is, we need to avoid going to B E H D and then coming back again to A. 
 
 ![](https://i.ibb.co/XzYXgqp/POG12.png)
 
+So this is why we mostly talk about simple path between 2 vertices, because if any other walk is possible - simle path is also possible and it makes most sense to look for a simple path. When we say path we mean a simple path and if it's not a simple path we will say it explicitly. 
+
+A graph is called *strongly connected if in the graph there is a path from any vertex to any other vertex.* If it's an undirected graph, we simply call it connected and if it's a directed graph, we call it strongly connected. 
+
+![](https://i.ibb.co/hDs90m6/POG13.png)

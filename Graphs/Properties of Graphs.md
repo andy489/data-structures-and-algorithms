@@ -16,5 +16,10 @@ An edge is called a multi-edge if it occurs more than once in a graph. Once agai
 
 ![](https://i.ibb.co/GdKCJMj/POG5.png)
 
+We have just labeled edges here with some unique random flight numbers. Now as we were saying earlier, self loops and multi-edges often complicate working with graphs. Their presence means that we need to take extra care while solving problems. If a graph contains no self loop or multi-edge then it's called a simple graph. Here, we will mostly be dealing with simple graphs. 
+
+Given number of vertices in a simple graph that is a graph with no self loops or multi-edge. What would be maximum possible number of edges? 
+
+![](https://i.ibb.co/kS4tgVv/POG6.png)
 
 

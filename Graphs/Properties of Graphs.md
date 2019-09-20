@@ -79,3 +79,9 @@ Length of a walk or path is number of edges in the path. Like for the above clos
 A graph with no cycle is called an acyclyc graph. A tree if drawn with undirected edges would be an example of an undirected acyclic graph. In the following tree we can have a closed walk but we cannot have a simple cycle.
 
 ![](https://i.ibb.co/pQXybNm/POG16.png)
+
+In this closed walk shown above, our edge is repeated. There would be no simple cycle in a tree and apart from thee, we can have other kind of undirected acyclic graphs also. A tree also has to be connected. 
+
+Now, we can also have a directed acyclic graph, as we can see in the following example, we do not have any cycle.
+
+![](https://i.ibb.co/dfLKbnF/POG17.png)

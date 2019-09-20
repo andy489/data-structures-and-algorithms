@@ -72,4 +72,4 @@ Now we have 2 disjoint connected components here. But the graph overall is not c
 
 Lets now talk about *cycle* in a graph. A walk is called a closed walk if it starts and ends at same vertex and there is one more condition - the length of the walk must be greater than 0.
 
-![](https://i.ibb.co/syFz4Yd/POG15.png)
+![](https://i.ibb.co/X3wpHK2/POG15.png)

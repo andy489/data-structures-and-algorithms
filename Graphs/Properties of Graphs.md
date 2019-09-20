@@ -32,6 +32,9 @@ In this figure here, each node can have directed edges to 3 other nodes. We have
 
 This is the maximum that we can draw if there is no self loop or multi-edges. In general if there are n vertices, then maximum number of edges in a directed graph would be <img src="https://latex.codecogs.com/svg.latex?\Large&space;n(n-1)">. So in a simple directed graph, number of edges would be in the range <img src="https://latex.codecogs.com/svg.latex?\Large&space;0\le{|E|}\le{n(n-1)}">. Now what will be the maximum for an undirected graph? In an undirected graph we can have only 1 bi-directional edge between a pair of nodes. We can't have 2 edges in different directions, so here the maximum would be half of maximum for directed, i.e. <img src="https://latex.codecogs.com/svg.latex?\Large&space;0\le{|E|}\le\frac{{n(n-1)}}{2}">.
 
-Assuming no self-loop or multiedge (<img src="https://latex.codecogs.com/svg.latex?\Large&space;|V|=n">):
+Assuming no self-loop or multiedge <img src="https://latex.codecogs.com/svg.latex?\Large&space;(|V|=n)">:
 - <img src="https://latex.codecogs.com/svg.latex?\Large&space;0\le{|E|}\le{n(n-1)}">, *if directed*
 - <img src="https://latex.codecogs.com/svg.latex?\Large&space;0\le{|E|}\le\frac{{n(n-1)}}{2}">, *if undirected*
+
+Number of edges in the graph can be really large compared to a number of vertices. For example if number of vertices in a directed graph is equal to 10, maximum number of edges would be 90. If number of vertices is 100, maximum number of edges would be 9900. Maximum nubmer of edges would be close to square of number of vertices.
+

@@ -60,4 +60,6 @@ So this is why we mostly talk about simple path between 2 vertices, because if a
 
 A graph is called *strongly connected if in the graph there is a path from any vertex to any other vertex.* If it's an undirected graph, we simply call it connected and if it's a directed graph, we call it strongly connected. 
 
-![](https://i.ibb.co/hDs90m6/POG13.png)
+![](https://i.ibb.co/mS2jx74/POG13.png)
+
+IN leftmost and rightmost graphs shown in the above example, we have a path from any vertex to any other vertex. But for the graph in the middle, we do not have a path from any vertex to any other vertex. We cannot go from vertex C to A. We can go from A to C but we cannot go in the oposite direction. So this is not a strongly connected graph. Remember, if it's an undirected graph we simply say connected and if it's a directed graph we say strongly connected. If a directed graph is not strongly connected, but can be turned into connected graph by treating all edges as undirected, then such a directed graph is called weakly connected. 

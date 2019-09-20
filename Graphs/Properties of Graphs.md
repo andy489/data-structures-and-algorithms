@@ -22,6 +22,10 @@ Given number of vertices in a simple graph that is a graph with no self loops or
 
 ![](https://i.ibb.co/kS4tgVv/POG6.png)
 
-Obviously minimum possible number of edges in a graph is zero. Now, if this is a directed graph, what do you think can be maximum number of edges here? Well, each node can have directed edges to all other nodes:
+Obviously minimum possible number of edges in a graph is zero. Now, if this is a directed graph, what do you think can be maximum number of edges here? Well, each node can have directed edges to all other nodes.
+
+![](https://i.ibb.co/fQDVMGp/POG7.png)
+
+In this figure here, each node can have directed edges to 3 other nodes. We have 4 nodes in total, so maximum possible number of edges here is 4 * 3 that is 12.
 
 ![](https://i.ibb.co/fQDVMGp/POG7.png)

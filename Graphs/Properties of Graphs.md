@@ -48,3 +48,11 @@ The sequence of vertices < A,B,F,H > is a path in this graph. Now, we have undir
 
 ![](https://i.ibb.co/w6Nx3nc/POG10.png)
 
+Here, start vertex is A and end vertex is D. In this path, 1 edge and 2 vertices are repeated - < A,B,F,H,E,B,A,D >. In graph theory there is some inconsistency in use of this term path. Most of the time, when we say path, we mean a simple path. And if repetition is possible we used this term *walk*. So a path is basically a walk in which no vertices (and thus no edges) are repeated. A walk is called a *trail* if vertices can be repeated but edges cannot be repeated.
+
+![](https://i.ibb.co/w42by32/POG11.png)
+
+Walk and path are used as synonyms, but most often when we say path we mean simple path, a path in which vertices and edges are not repeated. Between 2 different vertices if there is a walk in which vertices or edges are repeated like the highlighted in the above example, then there must also be a path or simple path that is a walk in which vertices or edges would not be repeated. In the walk from the above example, we're starting at A and we are ending our walk at C. There is a simple path from A to C with just 1 edge. All we need to do is, we need to avoid going to B E H. 
+
+![](https://i.ibb.co/XzYXgqp/POG12.png)
+

@@ -81,10 +81,11 @@ class Edge
 
 ![](https://i.ibb.co/k2ymnSV/gr5.png)
 
-This definetely is a better design.
+This definetely is a better design. Now each row in the edge list would cost us the same amount of memory. So overall space consumed in edge list would be proportional to number of edges or in other words, space complexity here is O(number of edges). So this was the analysis of memory usage. Overall space complexity of this design would be O(number of vertices + number of edges).<br>
+Is this usage of memory unreasonably high? We cannot do a lot better than this if we want to store a graph in computer's memory. So we are alright in terms of memory usage.
 
 #### Cost:
 - Time cost of operations (*time complexity*)
-- Memory usage (*space complexity*)
+- Memory usage (*space complexity*) = O(|V|+|E|)
 
 

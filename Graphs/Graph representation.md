@@ -59,7 +59,7 @@ But this is not very efficient. For any possible way of storing and organazing d
 
 Time and space complexity are most commonly expressed in terms of what we call Big-O notation. We always want to minimize the time cost of most frequently performed operations and we always want to make sure that we do not consume unreasonably high memory.<br> Let's now analyze the particular structure that we're trying to use to store our graph. Let's first discuss the memory usage. For the first list, the vertex list, least number of rows needed or consumed would be equal to number of vertices. Now, each row in the vertex list is a name or string and string can be of any length. Right now all strings have just one character because we simply named the nodec A, B, C and so on but we could have names with multiple characters. And because strings can be of different lengths - all rows may not be consuming the same amount of memory - like the following example:
 
-![](https://i.ibb.co/G3mF4LL/gr4.png)
+![](https://i.ibb.co/1qxRbYs/gr4.png)
 
 #### Cost:
 - Time cost of operations (*time complexity*)

@@ -10,10 +10,15 @@ struct Edge
    char *startVertex;
    char* *endVertex;
 }
-    OR
+    //OR
 class Edge
 {
     string startVertex;
     string endVertex;
 }
 ```
+Edge list would basically be an array or list of this type - struct Edge. In these two definitions of edges - int he first one we have used character pointers, because in C we typically use character pointers to store or refer to strings. We could use character array also. In C++ or Java, where we can create classes, we have string available to us as a data-type, so we can use that also. So we can use any of these for the fields depending on how we want to design our implementation.
+
+The graph that we have is an undirected graph, so any vertex can be called start vertex and any vertex can be called end vertex. Order of the vertices is not important here. 
+
+![](https://i.ibb.co/cy2pxg6/gr2.png)

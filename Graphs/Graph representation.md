@@ -88,9 +88,11 @@ Let's now discuss time cost of the operations. (*What can be most frequently per
 
 #### Cost:
 - Time cost of operations (*time complexity*)
-  - operation
-    - finding adjacent nodes (*running time*) O(|E|)
-    - check if given nodes are connected O(|E|)
+  Operation|Running time
+  -|-
+ finding adjacent nodes|O(|E|)
+check if given nodes are connected| O(|E|)
+
 - Memory usage (*space complexity*) = O(|V|+|E|)
 
 

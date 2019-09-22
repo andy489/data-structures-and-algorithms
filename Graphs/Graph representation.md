@@ -84,8 +84,13 @@ class Edge
 This definetely is a better design. Now each row in the edge list would cost us the same amount of memory. So overall space consumed in edge list would be proportional to number of edges or in other words, space complexity here is O(number of edges). So this was the analysis of memory usage. Overall space complexity of this design would be O(number of vertices + number of edges).<br>
 Is this usage of memory unreasonably high? We cannot do a lot better than this if we want to store a graph in computer's memory. So we are alright in terms of memory usage.
 
+Let's now discuss time cost of the operations. (*What can be most frequently performed operations while working with graph?*) One of the most frequently performed operations while working with graph would be *finding all nodes* adjacent to a given node, that is finding all nodes directly connected to a given node. (*What do you think would be time cost of finding all nodes directly connected to a given node?*) We will have to scan the whole edge list. We will have to perform a linear search. We will have to go through all the entries in the list and see if the start or end node in the entry is our given node. For a directed graph, we would see that if the start node in the entry is our given node or not and for an undirected graph we would see both the start as well as the end node. Running time would be proportional to number of edges or in other words time complexity of this operation would be O(number of edges).<br>Another frequently performed operation can be finding if two given nodes are connected or not. In this case also, we will have to perform a linear search on the edge list. In worst case we will have to look at all the entries in the edge list. So worst case running time would be proportional to number of edges. So for this operation too, time complexity is O(number of edges).
+
 #### Cost:
 - Time cost of operations (*time complexity*)
+  - operation
+    - finding adjacent nodes (*running time*) O(|E|)
+    - check if given nodes are connected O(|E|)
 - Memory usage (*space complexity*) = O(|V|+|E|)
 
 

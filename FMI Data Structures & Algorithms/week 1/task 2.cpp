@@ -50,7 +50,6 @@ int main()
 	return 0;
 }
 
-
 /* //Or shortly:
 #include <iostream>
 #include <vector>

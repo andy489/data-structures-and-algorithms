@@ -49,3 +49,23 @@ int main()
 	delete[] products;
 	return 0;
 }
+
+
+/* //Or shortly:
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int main()
+{
+	size_t n, k; std::cin >> n >> k;
+	std::vector<size_t> products(n);
+	for (size_t i = 0; i < n; i++) std::cin >> products[i];	
+	sort(products.begin(), products.end(), std::greater<size_t>());
+	size_t minBill(0);
+	size_t SIZE = products.size();
+	for (size_t i = 0; i < SIZE; i++) if ((i + 1) % k != 0) minBill += products[i];	
+	std::cout << minBill;
+	return 0;
+}*/
+

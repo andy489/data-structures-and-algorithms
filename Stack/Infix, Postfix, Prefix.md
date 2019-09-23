@@ -6,7 +6,7 @@
 - A - B
 - (P * 2)
 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;<operand><operator><operand>">
+< operand >< operator >< operand >
 
 Operand -> object in which operation is performed
 
@@ -45,7 +45,7 @@ Even though *infix* notation is the most common way of writing expressions, it's
 
 Prefix notation was proposed earlier in year 1924 by Polish logician [Jan Łukasiewicz](https://en.wikipedia.org/wiki/Jan_Łukasiewicz). Prefix notation is also known as [Polish notation](https://en.wikipedia.org/wiki/Polish_notation). In prefix notation, operator is placed before operands.
 
-prefix: <img src="https://latex.codecogs.com/svg.latex?\Large&space;<operator><operand><operand>">
+prefix: < operator >< operand >< operand >
 
 Infix|Prefix|Postfix 
 -|-|-
@@ -53,7 +53,7 @@ Infix|Prefix|Postfix
 P - Q | - P Q | P Q -
 a + b * c| + a * b c | b c a * +
 
-postfix: <img src="https://latex.codecogs.com/svg.latex?\Large&space;<operator><operand><operand>">
+postfix: < operator >< operand >< operand >
 
 Postfix notation is also known as [reverse polish notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation
 ). This syntax was proposed in 1950s by some computer scientists. In postfix notaton operator is placed after operands. Programmatically, postfix expression is easiest to parse and least costly in terms of time and memory to evaluate, and that's why this was actually invented. Prefix expression can also be evaluated in similar time and memory, but the algorithm to parse and evaluate postfix expression is really straightforward and intuitive and that;s why its prederred for computation using machines.

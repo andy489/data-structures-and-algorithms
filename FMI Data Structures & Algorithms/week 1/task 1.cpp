@@ -2,6 +2,7 @@
 The following logic literally extracts all numbers from a given text, covering their lenghts and delimiters.
 For example if we have a text like "Example1, number 12 asd489asd. 1st and 2nd. 00asd" The stack will be filled with:
 1, 12, 489, 1, 2 and 0. */
+
 #include <iostream>
 #include <string>
 #include <stack>

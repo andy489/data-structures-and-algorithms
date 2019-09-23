@@ -72,9 +72,7 @@ int main()
 		if (durations[i] > maxTrip) maxTrip = durations[i];
 		if (durations[i] < minTrip) minTrip = durations[i];
 	}
-	std::cout << minTrip / 60 << ':' << std::setfill('0')
-		<< std::setw(2) << minTrip % 60 << '\n';
-	std::cout << maxTrip / 60 << ':' << std::setfill('0')
-		<< std::setw(2) << maxTrip % 60 << '\n';
+	std::cout << minTrip / 60 << ':' << std::setfill('0') << std::setw(2) << minTrip % 60 << '\n';
+	std::cout << maxTrip / 60 << ':' << std::setfill('0') << std::setw(2) << maxTrip % 60 << '\n';
 	return 0;
 }

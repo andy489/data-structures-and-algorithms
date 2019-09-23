@@ -36,14 +36,11 @@ size_t getDurationOfJourneyInMinutes(std::string line)
 		numUtil.pop();
 	} // now in min stack we have extracted all numbers from the input line 
 
-	size_t hoursStart, minStart, hoursFin, minFin;
-	hoursStart = num.top(); num.pop();
-	minStart = num.top(); num.pop();
-	hoursFin = num.top(); num.pop();
-	minFin = num.top(); num.pop();
+	size_t hoursStart, minStart, hoursFin, minFin;	
+	hoursStart = num.top(); num.pop();	minStart = num.top(); num.pop();
+	hoursFin = num.top(); num.pop();	minFin = num.top(); num.pop();
 
-	size_t minutes1 = hoursStart * 60 + minStart;
-	size_t minutes2 = hoursFin * 60 + minFin;
+	size_t minutes1 = hoursStart * 60 + minStart;	size_t minutes2 = hoursFin * 60 + minFin;
 	size_t check;
 	
 	if (minutes1 <= minutes2) check = 0;	

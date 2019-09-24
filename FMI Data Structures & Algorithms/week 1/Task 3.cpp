@@ -1,5 +1,6 @@
 /* The idea is to create a char histogram for any of the two given words and after that to print the minimum usage of
-any char in both of the words (if that minimum is greater than 0) in lexicographical order */
+any char in both of the words (if that minimum is greater than 0) in lexicographical order. Time and memory complexity is
+O(m+n), where m and n are the lenghts of the given words. */
 
 #include <iostream>
 #include <string>

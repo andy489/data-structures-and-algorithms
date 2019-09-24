@@ -1,6 +1,5 @@
 /* We will generate all N*(N-1)/2 possible pairs of socks and collect them in a vector<PairSocks>. After that we will sort 
 the vector by key - diff (the difference between first and second sock in the pair). Finally we will display the k-th pair. */
-
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -63,7 +62,7 @@ const size_t PairSocks::getDiff() const
 
 PairSocks::PairSocks(size_t p, size_t q)
 {
-	if (p < q) { a = p;	b = q; }
+	if (p < q) { a = p; b = q; }
 	else { a = q; b = p; }
 	diff = b - a;
 }

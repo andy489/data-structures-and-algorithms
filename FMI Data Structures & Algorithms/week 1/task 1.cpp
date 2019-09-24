@@ -1,7 +1,7 @@
 /* logic that will work even with input data in the form "asd23s  kjd30n x1 &$3ds" instead of "23 30 1 3" .
 The following logic literally extracts all numbers from a given text, covering their lenghts and delimiters.
 For example if we have a text like "Example1, number 12 asd489asd. 1st and 2nd. 00asd" The stack will be filled with:
-1, 12, 489, 1, 2 and 0. */
+1, 12, 489, 1, 2 and 0. Stack operations are performed for a constant time. */
 
 #include <iostream>
 #include <string>

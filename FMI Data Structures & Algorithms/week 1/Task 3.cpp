@@ -28,17 +28,14 @@ int main()
 
 	std::string secWord;	std::cin >> secWord;
 	int* secHis = lowLetterHistogram(secWord);
-	int curr;
+	size_t curr;
 	for (size_t i = 0; i < 26; i++)
 	{
 		curr = getMin(firstHis[i], secHis[i]);
-		if (curr>0)
+		for (size_t j = 0; j < curr; j++)
 		{
-			for (size_t j = 0; j < curr; j++)
-			{
-				std::cout << char(i + 97);
-			}
+			std::cout << char(i + 97);
 		}
-	}	
+	}
 	delete[] firstHis; delete[] secHis;
 }

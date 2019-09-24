@@ -72,3 +72,19 @@ int main()
 	delete[] arr;
 	return 0;
 }
+
+/* //Or shortly:
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+int main()
+{	
+	size_t n; std::cin >> n;
+	std::vector<std::string> data(n);
+	for (size_t i = 0; i < n; i++) std::cin >> data[i];
+	sort(data.begin(), data.end(), std::greater<std::string>());
+	for (size_t i = 0; i < n; i++)std::cout << data[i];
+	return 0;
+}// which is the same logic as above one */
+

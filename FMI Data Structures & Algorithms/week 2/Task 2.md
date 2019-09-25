@@ -15,7 +15,7 @@
 
 Примерен вход|Oчакван изход
 -|-
-aab|Yes (Пояснение: aab -> aba)
+aab|Yes (*Пояснение: aab -> aba*)
 aaab|No
 abbcbb|No
 abbcb|Yes

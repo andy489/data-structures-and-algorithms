@@ -1,4 +1,4 @@
-/* Recursive solution. Idea: look up for the cheapest toy in the array (recursively: which one is cheaper - 
+/* My Recursive Solution (true masterpiece). Idea: look up for the cheapest toy in the array (recursively: which one is cheaper - 
 the first or the cheaper in all other toys except the first one?) and move it in front of the array.
 After that recursively repeat the same operation for the remaining array (without the first element) */
 #include <iostream>

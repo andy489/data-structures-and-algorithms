@@ -18,5 +18,4 @@
 
 Примерен вход|Очакван изход|Пояснения
 -|-|-
-2 1<br>1 1<br>1 4|1|Всички възможни <img src="https://latex.codecogs.com/svg.latex?\Large&space;P=\frac{\sum_{i=1}^{K}V_i}{\sum_{i=1}^{K}W_i}"> (при <img src="https://latex.codecogs.com/svg.latex?\Large&space;K=1">) са: 1 / 1 = 1, 1 / 4 = 0.25. Следователно 
-P = {(1,1)} е оптималното и единствено, затова изваждаме сумата от цените на елементите в случая: 1.
+2 1<br>1 1<br>1 4|1|Всички възможни <img src="https://latex.codecogs.com/svg.latex?\Large&space;P=\frac{\sum_{i=1}^{K}V_i}{\sum_{i=1}^{K}W_i}"> (при <img src="https://latex.codecogs.com/svg.latex?\Large&space;K=1">) са: 1 / 1 = 1, 1 / 4 = 0.25. Следователно P = {(1,1)} е оптималното и единствено, затова изваждаме сумата от цените на елементите в случая: 1.

@@ -1,4 +1,4 @@
-#### Задача 5
+## Задача 5.
 
 Джизъса има <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> скъпоценни камъка. Всеки от неговите камъни има стойност <img src="https://latex.codecogs.com/svg.latex?\Large&space;V_i"> и тегло <img src="https://latex.codecogs.com/svg.latex?\Large&space;W_i">. Обаче, жената на Джизъса - Зелената Златка решила да го разори и Джизъса почти фалирал. Той решил да продаде част от своите скъпоценни камъни, но Зелената Златка разкрила  „спасителния му план“ и решила да запази <img src="https://latex.codecogs.com/svg.latex?\Large&space;K"> от най-добрите диаманта за себе си.
 

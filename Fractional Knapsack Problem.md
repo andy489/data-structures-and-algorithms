@@ -12,8 +12,7 @@ Input|Output
 -|-
 Capacity: 16<br>Items: 3<br>25 -> 10<br>12 -> 8<br>16 -> 8|Take 100% of item with price 25.00 and weight 10.00<br>Take 75.00% of item with price 16.00 and weight 8.00<br>Total price: 37.00
 Capacity: 13<br>Items: 2<br>13 -> 7<br>15 -> 7|Take 100% of item with price 15.00 and weight 7.00<br>Take 85.71% of item with price 13.00 and weight 7.00<br>Total price: 26.14
-Capacity: 22<br>Items: 4<br>50 -> 25<br>34 -> 25<br>41 -> 25<br>3 -> 25|Take 88.00% of item with price 50.00 and weight 25.00<br>
-Total price: 44.00
+Capacity: 22<br>Items: 4<br>50 -> 25<br>34 -> 25<br>41 -> 25<br>3 -> 25|Take 88.00% of item with price 50.00 and weight 25.00<br>Total price: 44.00
 Capacity: 134<br>Items: 9<br>12 -> 14<br>45 -> 54<br>98 -> 78<br>21 -> 51<br>64 -> 11<br>90 -> 117<br>33 -> 17<br>64 -> 23<br>7 -> 3|Take 100% of item with price 64.00 and weight 11.00<br>Take 100% of item with price 64.00 and weight 23.00<br>Take 100% of item with price 7.00 and weight 3.00<br>Take 100% of item with price 33.00 and weight 17.00<br>Take 100% of item with price 98.00 and weight 78.00<br>Take 14.29% of item with price 12.00 and weight 14.00<br>Total price: 267.71
 Capacity: 10<br>Items: 1<br>25 -> 5|Take 100% of item with price 25 and weight 5<br>Total price: 25.00
 

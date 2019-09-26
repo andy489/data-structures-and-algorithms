@@ -12,7 +12,7 @@ public:
 	const size_t getB() const;
 	const size_t getDiff() const;
 	PairSocks(size_t p, size_t q);
-	friend std::ostream& operator<<(std::ostream& os, const PairSocks& v);
+	friend std::ostream& operator<<(std::ostream& os, const PairSocks &pair);
 };
 
 struct byDiff

@@ -14,30 +14,9 @@
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;W_i\le{10000000}">
 
 #### Изходен формат
-За намереното множество от <img src="https://latex.codecogs.com/svg.latex?\Large&space;K"> диаманта такива че <img src="https://latex.codecogs.com/svg.latex?\Large&space;P=\frac{\sum_{i=1}^{K}V_i}{\sum_{i=1}^{K}W_i}"> е максимално (възможно е да има няколко такива максимални K множества ), затова от вас се иска да изведете само максималното S_K(V) сред всички възможни P множества.
+За намереното множество от <img src="https://latex.codecogs.com/svg.latex?\Large&space;K"> диаманта такива че <img src="https://latex.codecogs.com/svg.latex?\Large&space;P=\frac{\sum_{i=1}^{K}V_i}{\sum_{i=1}^{K}W_i}"> е максимално (възможно е да има няколко такива максимални K множества ), затова от вас се иска да изведете само максималното <img src="https://latex.codecogs.com/svg.latex?\Large&space;S_K(V_i)}"> сред всички възможни <img src="https://latex.codecogs.com/svg.latex?\Large&space;P"> множества.
 
-Пример:
-
-Вход:
-
-2 1
-
-1 1
-
-1 4
-
-Изход:
-
-1
-
-Пояснения:
-
-Всички възможни P = S_K(V) / S_K(W) ( при K = 1) са:
-
-1 / 1 = 1
-
-1 / 4 = 0.25
-
-=> P = {(1,1)} е оптималното и единствено затова изваждаме сумата от цените на елементите в случая: 1
-
-
+Примерен вход|Очакван изход|Пояснения
+-|-|-
+2 1<br>1 1<br>1 4|1|Всички възможни <img src="https://latex.codecogs.com/svg.latex?\Large&space;P=\frac{\sum_{i=1}^{K}V_i}{\sum_{i=1}^{K}W_i}"> (при <img src="https://latex.codecogs.com/svg.latex?\Large&space;K=1">) са: 1 / 1 = 1, 1 / 4 = 0.25. Следователно 
+P = {(1,1)} е оптималното и единствено, затова изваждаме сумата от цените на елементите в случая: 1.

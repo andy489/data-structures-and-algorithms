@@ -13,7 +13,7 @@
 
 #### Ограничения
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;N\le{1000000}"><br>
-Всеки един елемент е между 1 и 1234 (включително)<br>
+Всеки един елемент е между <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{N_i}\le{1000000}"><br>
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;P\le{3000}"><br> 
 Всяко едно число <img src="https://latex.codecogs.com/svg.latex?\Large&space;0\le{P_i}\le{1234}"> 
 

@@ -9,15 +9,15 @@ struct Node
 };
 
 Node* getNewNode(unsigned data)
-{
+{	// creates new node
 	Node* newNode = new Node();
 	newNode->data = data;
 	newNode->next = nullptr;
 	return newNode;
 }
 
-Node* add(Node* head, unsigned data)
-{
+Node* addBack(Node* head, unsigned data)
+{	// adds at end of the listа - time complexity О(n)
 	Node* nodeToAdd = getNewNode(data);
 	if (head == nullptr)
 	{
@@ -31,6 +31,22 @@ Node* add(Node* head, unsigned data)
 			traversal = traversal->next;
 		}
 		traversal->next = nodeToAdd;
+	}
+	return head;
+}
+
+Node* addFront(Node* head, unsigned data)
+{	// adds at head of the list - time complexity O(1)
+	Node* nodeToAdd = getNewNode(data);
+	if (head == nullptr)
+	{
+		head = nodeToAdd;
+	}
+	else
+	{
+		Node* temp = head;
+		head = nodeToAdd;
+		nodeToAdd->next = temp;
 	}
 	return head;
 }
@@ -98,8 +114,8 @@ void test()
 	Node* head = nullptr;
 	unsigned data;
 	while (std::cin >> data)
-	{
-		head = add(head, data);
+	{	//we will use addFront, because time complexity there is constant - O(1)
+		head = addFront(head, data); //head = addBack(head, data);
 	}
 	std::cout << "\nmin: ";  (head != nullptr) ? std::cout << getMin(head) : std::cout << "no min element";
 	std::cout << "\nmax: ";  (head != nullptr) ? std::cout << getMax(head) : std::cout << "no max element";
@@ -113,5 +129,5 @@ void test()
 int main()
 {
 	test();
-	return 0;	
+	return 0;
 }

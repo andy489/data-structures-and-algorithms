@@ -1,6 +1,3 @@
-//for full implementation see:
-//https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Linked%20List/Singly%20Linked%20List.md
-
 #include <iostream>
 #include <climits>
 #include <windows.h>
@@ -134,3 +131,5 @@ int main()
 	test();
 	return 0;
 }
+//for full implementation see:
+//https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Linked%20List/Singly%20Linked%20List.md

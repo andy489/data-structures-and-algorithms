@@ -24,7 +24,7 @@
 
 *Пояснение за примера:*
 
-Заявките започват с номерация <img src="https://latex.codecogs.com/svg.latex?\Large&space;1"> ! При <img src="https://latex.codecogs.com/svg.latex?\Large&space;N=8"> номерацията на заявките ще започне от <img src="https://latex.codecogs.com/svg.latex?\Large&space;1"> до ... <img src="https://latex.codecogs.com/svg.latex?\Large&space;8">.<img src="https://latex.codecogs.com/svg.latex?\Large&space;i">-я снежен човек се получава след <img src="https://latex.codecogs.com/svg.latex?\Large&space;i">-тата заявка !
+Заявките започват с номерация <img src="https://latex.codecogs.com/svg.latex?\Large&space;1"> ! При <img src="https://latex.codecogs.com/svg.latex?\Large&space;N=8"> номерацията на заявките ще започне от <img src="https://latex.codecogs.com/svg.latex?\Large&space;1"> до ... <img src="https://latex.codecogs.com/svg.latex?\Large&space;8">. <img src="https://latex.codecogs.com/svg.latex?\Large&space;i">-я снежен човек се получава след <img src="https://latex.codecogs.com/svg.latex?\Large&space;i">-тата заявка !
 
 В началото имате снежен човек с <img src="https://latex.codecogs.com/svg.latex?\Large&space;0"> топки, който е създаден при заявка <img src="https://latex.codecogs.com/svg.latex?\Large&space;i=0"> по подразбиране
 

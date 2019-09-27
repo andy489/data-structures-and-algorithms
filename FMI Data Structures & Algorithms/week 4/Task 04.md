@@ -63,38 +63,10 @@ add 1<br>
 Вход: <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> заявки от вида: add x, gun, milen
 
 #### Изходен формат
-
-Изход:
-
 Броят пищови под чина на Митьо и на нов ред:
+Крайната наредба на пищовите на Митьо след <img src="https://latex.codecogs.com/svg.latex?\Large&space;N">-те заявки.
 
-Крайната наредба на пищовите на Митьо след N-те заявки.
-
-Пример:
-
-Вход:
-
-8
-
-add 1
-
-add 2
-
-add 4
-
-add 3
-
-add 5
-
-add 8
-
-gun
-
-milen
-
-Изход:
-
-5
-
-4 3 5 1 2
+Примерен вход|Очакван изход
+-|-
+8<br>add 1<br>add 2<br>add 4<br>add 3<br>add 5<br>add 8<br>gun<br>milen|5<br>4 3 5 1 2
 

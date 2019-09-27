@@ -28,19 +28,22 @@
 
 В началото имате снежен човек с *0* топки, който е създаден при заявка <img src="https://latex.codecogs.com/svg.latex?\Large&space;i=0"> по подразбиране
 
-0 1, това е заявка номер 1, след нея е създаден снежен човек за <img src="https://latex.codecogs.com/svg.latex?\Large&space;i=1">, който клонира снежен човек <img src="https://latex.codecogs.com/svg.latex?\Large&space;i=0"> и му добавя топка с тежест 1 => 0 + 1 => [1]
+**0 1**, това е заявка номер 1, след нея е създаден снежен човек за <img src="https://latex.codecogs.com/svg.latex?\Large&space;i=1">, който клонира снежен човек <img src="https://latex.codecogs.com/svg.latex?\Large&space;i=0"> и му добавя топка с тежест 1 => 0 + 1 => [1]
 
-1 5, това е заявка номер 2, след нея е създаден снежен човек за <img src="https://latex.codecogs.com/svg.latex?\Large&space;i=2">, който клонира снежен човек <img src="https://latex.codecogs.com/svg.latex?\Large&space;i=1"> и му добавя топка с тежест 5 => 1 + 5 => [6]
+**1 5**, това е заявка номер 2, след нея е създаден снежен човек за <img src="https://latex.codecogs.com/svg.latex?\Large&space;i=2">, който клонира снежен човек <img src="https://latex.codecogs.com/svg.latex?\Large&space;i=1"> и му добавя топка с тежест 5 => 1 + 5 => [6]
 
-2 4, това e заявка номер 3, след нея е създаден снежен човек за <img src="https://latex.codecogs.com/svg.latex?\Large&space;i=3">, който клонира снежен човек <img src="https://latex.codecogs.com/svg.latex?\Large&space;i=2"> и му добавя топка с тежест 4 => 6 + 4 => [10]
+**2 4**, това e заявка номер 3, след нея е създаден снежен човек за <img src="https://latex.codecogs.com/svg.latex?\Large&space;i=3">, който клонира снежен човек <img src="https://latex.codecogs.com/svg.latex?\Large&space;i=2"> и му добавя топка с тежест 4 => 6 + 4 => [10]
 
-3 2, това е заявка номер 4, след нея е създаден снежен човек за <img src="https://latex.codecogs.com/svg.latex?\Large&space;i=4">, който клонира снежен човек <img src="https://latex.codecogs.com/svg.latex?\Large&space;i=3"> и му добавя топка с тежест 2 => 10 + 2 => [12]
+**3 2**, това е заявка номер 4, след нея е създаден снежен човек за <img src="https://latex.codecogs.com/svg.latex?\Large&space;i=4">, който клонира снежен човек <img src="https://latex.codecogs.com/svg.latex?\Large&space;i=3"> и му добавя топка с тежест 2 => 10 + 2 => [12]
 
-4 3, това е заявка номер 5, след нея е създаден снежен човек за <img src="https://latex.codecogs.com/svg.latex?\Large&space;i=5">, който клонира снежен човек <img src="https://latex.codecogs.com/svg.latex?\Large&space;i=4"> и му добавя топка с тежест 3 => 12 + 3 => [15]
+**4 3**, това е заявка номер 5, след нея е създаден снежен човек за <img src="https://latex.codecogs.com/svg.latex?\Large&space;i=5">, който клонира снежен човек <img src="https://latex.codecogs.com/svg.latex?\Large&space;i=4"> и му добавя топка с тежест 3 => 12 + 3 => [15]
 
-5 0, това е заявка номер 6, след нея е създаден снежен човек за <img src="https://latex.codecogs.com/svg.latex?\Large&space;i=6">, който клонира снежен човек <img src="https://latex.codecogs.com/svg.latex?\Large&space;i=5"> и премахва най-горната му топка => 15 - 3 => [12]
+**5 0**, това е заявка номер 6, след нея е създаден снежен човек за <img src="https://latex.codecogs.com/svg.latex?\Large&space;i=6">, който клонира снежен човек <img src="https://latex.codecogs.com/svg.latex?\Large&space;i=5"> и премахва най-горната му топка => 15 - 3 => [12]
 
-6 6, това е заявка номер 7, след нея е създаден снежен човек за <img src="https://latex.codecogs.com/svg.latex?\Large&space;i=7">, който клонира снежен човек за <img src="https://latex.codecogs.com/svg.latex?\Large&space;i=6"> и добавя топка с тежест 6 => 12 + 6 => [18]
+**6 6**, това е заявка номер 7, след нея е създаден снежен човек за <img src="https://latex.codecogs.com/svg.latex?\Large&space;i=7">, който клонира снежен човек за <img src="https://latex.codecogs.com/svg.latex?\Large&space;i=6"> и добавя топка с тежест <img src="https://latex.codecogs.com/svg.latex?\Large&space;6\Rightarrow{12+6}\Rightarrow{[18]}">
+
+**1 0**, това е заявка номер 8, след нея е създаден снежен човек за <img src="https://latex.codecogs.com/svg.latex?\Large&space;i=8">, който клонира снежен човек за <img src="https://latex.codecogs.com/svg.latex?\Large&space;i=1"> и премахва топка с тежест 1 => 1 - 1 => [0]
+
 
 Общата сума на всички снежни човеци е: 1 + 6 + 10 + 12 + 15 + 12 + 18 => 74
 

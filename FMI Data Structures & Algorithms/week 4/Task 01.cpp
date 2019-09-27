@@ -1,3 +1,6 @@
+//for full implementation see:
+//https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Linked%20List/Singly%20Linked%20List.md
+
 #include <iostream>
 #include <climits>
 #include <windows.h>
@@ -17,7 +20,7 @@ Node* getNewNode(unsigned data)
 }
 
 Node* addBack(Node* head, unsigned data)
-{	// adds at end of the listа - time complexity О(n)
+{	// adds at end of the linked list - time complexity О(n)
 	Node* nodeToAdd = getNewNode(data);
 	if (head == nullptr)
 	{
@@ -36,7 +39,7 @@ Node* addBack(Node* head, unsigned data)
 }
 
 Node* addFront(Node* head, unsigned data)
-{	// adds at head of the list - time complexity O(1)
+{	// adds at head of the linked list - time complexity O(1)
 	Node* nodeToAdd = getNewNode(data);
 	if (head == nullptr)
 	{

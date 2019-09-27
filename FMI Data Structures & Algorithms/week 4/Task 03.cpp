@@ -12,8 +12,8 @@ int main()
 	size_t N; std::cin >> N;
 	Snowman* arr = new Snowman[N + 1]; //the first one is the zero snowman
 
-	size_t dupTarget = 0;
-	size_t add = 0;
+	size_t dupTarget(0);
+	short add(0);
 
 	for (size_t i = 1; i < N + 1; i++)
 	{
@@ -33,9 +33,9 @@ int main()
 		}
 	}
 
-	size_t sum = 0;
+	size_t sum(0);
 
-	for (int i = 0; i < N + 1; i++)
+	for (size_t i = 0; i < N + 1; i++)
 	{
 		sum += arr[i].total;
 	}

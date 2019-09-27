@@ -13,9 +13,9 @@
 
 #### Ограничения
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;N\le{1000000}"><br>
-Всеки един елемент е между <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{N_i}\le{1000000}"><br>
+Всеки един елемент е между <img src="https://latex.codecogs.com/svg.latex?\Large&space;0\le{N_i}\le{1000000}"><br>
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;P\le{3000}"><br> 
-Всяко едно число <img src="https://latex.codecogs.com/svg.latex?\Large&space;0\le{P_i}\le{1234}"> 
+Всяко едно число <img src="https://latex.codecogs.com/svg.latex?\Large&space;0\le{P_i}\le{100000}"> 
 
 #### Изходен формат
 Число <img src="https://latex.codecogs.com/svg.latex?\Large&space;X"> броят на двойките които удовлетворяват условието.

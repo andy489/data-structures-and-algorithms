@@ -13,7 +13,7 @@ int main()
 	Snowman* arr = new Snowman[N + 1]; //the first one is the zero snowman
 
 	size_t dupTarget(0);
-	short add(0);
+	unsigned short add(0);
 
 	for (size_t i = 1; i < N + 1; i++)
 	{

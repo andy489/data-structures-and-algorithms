@@ -10,6 +10,11 @@ struct Node
 int main()
 {
 	size_t N; std::cin >> N;
+	if (!(N & N - 1)) // optimization: if N is power of 2 the answer is always the first who attacks
+	{
+		std::cout << 1;
+		return 0;
+	}
 	Node *head(nullptr), *tail(nullptr);
 
 	for (size_t i = 1; i <= N; i += 2)
@@ -29,7 +34,7 @@ int main()
 
 	if (N & 1) // N is even
 	{	// because knight at the end will be killed and he is our tail
-		head = tail; 
+		head = tail;
 	}
 	while (head->next != head /*head->next != tail*/)
 	{

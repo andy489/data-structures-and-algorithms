@@ -511,6 +511,8 @@ size_t midIndex= start + (end - start) / 2; // find position of the middle eleme
 size_t randIndex = start + rand()%((end-start)+1);// find position of the random element from the interval [start..end]
 	std::swap(arr[randIndex], arr[end]);      //swap the random with the last element	
 ``` 
+Любопитен факт: *Insertion Sort* е по-бърз алгоритъм от *Quick Sort* за n<9.
+
 ### 8. Counting Sort
 Това е един много хитър и ефективен метод за сортиране на числа, който вместо да ги сравнява по между им ги брои. В случая е необходимо да знаем колко са големи числата, т.е. трябва да имаме някакъв rangе (k). Нека се опитаме да разберем метода по-лесно чрез следния пример:
 ````

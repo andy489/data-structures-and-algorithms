@@ -136,4 +136,4 @@ decimal fibonacci(int n)
 }
 ```
 - Runs in exponential time <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(2^n)">
-- The number of elementary steps is <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sim{fib_{n+1})}">, where <img src="https://latex.codecogs.com/svg.latex?\Large&space;fib_{k)}"> is the <img src="https://latex.codecogs.com/svg.latex?\Large&space;k">-th Fibonacci's number
+- The number of elementary steps is <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sim{f_{n+1}}">, where <img src="https://latex.codecogs.com/svg.latex?\Large&space;f_{k}"> is the <img src="https://latex.codecogs.com/svg.latex?\Large&space;k">-th Fibonacci's number

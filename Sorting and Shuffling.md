@@ -18,6 +18,20 @@ Name | Best | Average | Worst | Memory | Stable | Method
  
 - *сложността на един алгоритъм описва нарастването на броя операции спрямо нарастването на броя данни (в зависимот от това в какво състояние се намират данните (почти подредени, средно разбъркани, силно разбъркани) - алгоритмите могат да притежават различна сложност).*
 
+Ориентировъчна таблица, която показва каква сложност горе-долу колко време ще отнеме:
+
+Сложност|10|20|50|100|1 000|10 000|100 000
+-|-|-|-|-|-|-|-
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;O{(1)}">|< 1 сек|< 1 сек|< 1 сек|< 1 сек|< 1 сек|< 1 сек|< 1 сек
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;O{(log(n))}">|< 1 сек|< 1 сек|< 1 сек|< 1 сек|< 1 сек|< 1 сек|< 1 сек
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;O{(n)}">|< 1 сек|< 1 сек|< 1 сек|< 1 сек|< 1 сек|< 1 сек|< 1 сек
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;O{n.log(n)}">|< 1 сек|< 1 сек|< 1 сек|< 1 сек|< 1 сек|<1 s|<1 s
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;O{(n^2)}">|< 1 сек|< 1 сек|<1 сек|< 1 сек|< 1 сек|2 сек|3-4 мин
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;O{(n^3)}">|< 1 сек|< 1 сек|< 1 сек|< 1 сек| 20 сек|5 часа|< 231 дни
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;O{(2^n)}">|< 1 сек|< 1 сек|260 дни|увисва|увисва|увисва|увисва
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;O{(n!)}">|< 1 сек|увисва|увисва|увисва|увисва|увисва|увисва
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;O{(n^n)}">|3-4 мин|увисва|увисва|увисва|увисва|увисва|увисва
+
  [Визуално може да видите как работят алгоритмите ТУК](https://visualgo.net/en/sorting).
   
  ### 1. Selection Sort      

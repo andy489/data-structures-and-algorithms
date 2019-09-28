@@ -10,6 +10,11 @@ struct Node
 int main()
 {
 	size_t N; std::cin >> N;
+	if (N==0)
+	{
+		std::cout << 0;
+		return 0;
+	}
 	if (!(N & N - 1)) // optimization: if N is power of 2 the answer is always the first who attacks
 	{
 		std::cout << 1;

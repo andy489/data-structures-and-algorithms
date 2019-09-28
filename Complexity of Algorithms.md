@@ -1,3 +1,4 @@
+#### Example 1
 ```cs
 int findMaxElement(int[] array)
 {
@@ -15,7 +16,7 @@ int findMaxElement(int[] array)
 - Runs in <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(n)"> where <img src="https://latex.codecogs.com/svg.latex?\Large&space;n"> is the size of the array
 - The number of elementary steps is <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sim{n}">
 
-
+#### Example 2
 ```cs
 int findInversions(int[] array)
 {
@@ -36,7 +37,7 @@ int findInversions(int[] array)
 - Runs in <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(n^2)"> where <img src="https://latex.codecogs.com/svg.latex?\Large&space;n"> is the size of the array
 - The number of elementary steps is <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sim\frac{n.(n+1)}{2}">
 
-
+#### Example 3
 ```cs
 decimal sum3(int n)
 {
@@ -57,7 +58,7 @@ decimal sum3(int n)
 - Runs in cubic time <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(n^3)">
 - The number of elementary steps is <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sim{n^3}">
 
-
+#### Example 4
 ```cs
 long sumMN(int n, int m)
 {
@@ -75,7 +76,7 @@ long sumMN(int n, int m)
 - Runs in quadratic time <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(n*m)">
 - The number of elementary steps is <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sim{n.m}">
 
-
+#### Example 5
 ```cs
 long sumMN(int n, int m)
 {
@@ -99,8 +100,8 @@ long sumMN(int n, int m)
 - Runs in quadratic time <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(n*m)">
 - The number of elementary steps is <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sim{n.m+min(m,n}.n}">
 
-
-````cs
+#### Example 6
+```cs
 decimal calculation(int n)
 {
 	decimal result = 0;
@@ -113,3 +114,26 @@ decimal calculation(int n)
 ```
 - Runs in exponential time <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(2^n)">
 - The number of elementary steps is <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sim{2^n}">
+
+#### Example 7
+```cs
+decimal factorial(int n)
+{
+	if (n == 0) return 1;	
+	else return n * factorial(n - 1);
+}
+```
+- Runs in linear time <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(n)">
+- The number of elementary steps is <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sim{n}">
+
+#### Example 8
+```cs
+decimal fibonacci(int n)
+{
+	if (n == 0) return 1;
+	else if (n == 1) return 1;
+	else return fibonacci(n - 1) + fibonacci(n - 2);
+}
+```
+- Runs in exponential time <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(2^n)">
+- The number of elementary steps is <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sim{fib_{n+1})}">, where <img src="https://latex.codecogs.com/svg.latex?\Large&space;fib_{k)}"> is the <img src="https://latex.codecogs.com/svg.latex?\Large&space;k">-th Fibonacci's number

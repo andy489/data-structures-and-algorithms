@@ -52,3 +52,4 @@ int main()
 	std::cout << josephify(N);
 	return 0;
 } 
+//See also https://en.wikipedia.org/wiki/Josephus_problem

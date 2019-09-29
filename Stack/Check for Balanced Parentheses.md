@@ -123,3 +123,45 @@ int main()
 	return 0;
 }
 ```
+#### Example:
+For example if we know that the parantheses int he input string are balanced, we can extract all expressions from that given string which are within parantheses:
+
+```cpp
+#include <iostream>
+#include <string>
+#include <stack>
+
+void extract(std::string exp)
+{
+	std::stack<int> stack;
+
+	for (int i = 0; i < exp.length(); i++)
+	{
+		char c = exp[i];
+		if (c == '(')
+		{
+			stack.push(i);
+		}
+		else if (c == ')')
+		{
+			int startIndx = stack.top(); stack.pop();
+			int length = i + 1;
+
+			std::string contents("");
+			for (size_t j = startIndx; j < length; j++)
+			{
+				contents += exp[j];
+			}
+			std::cout << contents << '\n';
+		}
+	}
+}
+
+int main()
+{
+	std::string exp1("1+(2-(2+3)*4/(3+1))*5"),exp2("C++ (C plus plus)");
+	extract(exp1);
+	extract(exp2);
+	return 0;
+}
+```

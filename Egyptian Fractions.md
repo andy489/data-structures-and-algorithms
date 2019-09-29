@@ -1,6 +1,6 @@
 ## Egyptian Fractions
 In mathematics, a fraction is the rational number <img src="https://latex.codecogs.com/svg.latex?\Large&space;\frac{p}{q}"> where <img src="https://latex.codecogs.com/svg.latex?\Large&space;p"> and <img src="https://latex.codecogs.com/svg.latex?\Large&space;q"> are integers. An Egyptian fraction is a sum of fractions, each with numerator <img src="https://latex.codecogs.com/svg.latex?\Large&space;1"> where all denominators are different, e.g. <img src="https://latex.codecogs.com/svg.latex?\Large&space;\frac{1}{2}+\frac{1}{3}+\frac{1}{16}"> is an Egyptian fraction, but <img src="https://latex.codecogs.com/svg.latex?\Large&space;\frac{1}{3}+\frac{1}{3}+\frac{1}{5}"> is not (repeated denominator <img src="https://latex.codecogs.com/svg.latex?\Large&space;3">). 
-Every positive fraction <img src="https://latex.codecogs.com/svg.latex?\Large&space;(q\neq{0},{\:}p<q)"> can be represented by an Egyptian fraction, for instance, <img src="https://latex.codecogs.com/svg.latex?\Large&space;\frac{43}{48}=\frac{1}{2}+\frac{1}{3}+\frac{1}{16}">. Given <img src="https://latex.codecogs.com/svg.latex?\Large&space;p"> and <img src="https://latex.codecogs.com/svg.latex?\Large&space;q">, write a program to represent the fraction <img src="https://latex.codecogs.com/svg.latex?\Large&space;\frac{p}{q}"> as an Egyptian fraction.
+Every positive fraction <img src="https://latex.codecogs.com/svg.latex?\Large&space;(q\neq{0},{\:}p\le{q})"> can be represented by an Egyptian fraction, for instance, <img src="https://latex.codecogs.com/svg.latex?\Large&space;\frac{43}{48}=\frac{1}{2}+\frac{1}{3}+\frac{1}{16}">. Given <img src="https://latex.codecogs.com/svg.latex?\Large&space;p"> and <img src="https://latex.codecogs.com/svg.latex?\Large&space;q">, write a program to represent the fraction <img src="https://latex.codecogs.com/svg.latex?\Large&space;\frac{p}{q}"> as an Egyptian fraction.
 #### Examples
 Input|Output
 -|-
@@ -9,6 +9,7 @@ Input|Output
 23/46|23/46 = 1/2
 22/7|Error (fraction is equal to or greater than 1)
 134/3151|134/3151 = 1/24 + 1/1164 + 1/2445176
+2019/2019|2019/2019 = 1/2 + 1/3 + 1/6
 
 **Note**: There may be more than one correct solution, e.g. 3/7 = 1/4 + 1/8 + 1/19 + 1/1064. If you follow the greedy algorithm logic, you should get the solutions given in the input/output examples.
 

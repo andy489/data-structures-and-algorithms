@@ -447,7 +447,7 @@ int main()
 -----
 *****
 ```
-*Решение:* [РЕШЕНИЕТО Е ИМПЛЕМЕНТИРАНО ТУК](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Finding_All_Paths_In_Labyrinth.cpp)
+*Решение:* [РЕШЕНИЕТО Е ИМПЛЕМЕНТИРАНО ТУК](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Finding%20All%20Paths%20in%20Labyrinth.cpp)
 
 **Задача 6.** Да се намерят всички решения на дадено частично запълнено судоку 9х9.
 

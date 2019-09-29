@@ -32,4 +32,4 @@ Input|	Sample Output|	Comments
 -|-|-
 2|	SR<br>Snakes count = 1|	Note that **SU, SL** and **SD** are also correct outputs. However, SR takes precedence because R has priority over all other directions.
 4|	SRRR<br>SRRD<br>SRDR<br>SRDL<br>Snakes count = 4|Note that there are many other correct outputs for N = 4, but this is the expected output according to the priority of directions (right, down, left, up).
-5|SRRRR<br>SRRRD<br>SRRDR<br>SRRDD<br>SRRDL<br>SRDRD<br>SRDRU<br>SRDDR<br>SRDDL<br>Snakes count = 9|
+

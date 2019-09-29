@@ -137,3 +137,43 @@ decimal fibonacci(int n)
 ```
 - Runs in exponential time <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(2^n)">
 - The number of elementary steps is <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sim{f_{n+1}}">, where <img src="https://latex.codecogs.com/svg.latex?\Large&space;f_{k}"> is the <img src="https://latex.codecogs.com/svg.latex?\Large&space;k">-th Fibonacci's number
+
+#### Example 9
+```cs
+long compute(int arr[], int n)
+{
+	long count = 0; 
+	for (int i = 0; i < n; i++)
+	{
+		int start = 0, end = n-1;
+		while (start < end)
+		{
+			if (arr[start] < arr[end]) start++; count++;			
+			else end--;			
+		}
+	}
+	return count;
+}
+```
+- Runs in quadratic time <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(n^2)">
+- The number of elementary steps is <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sim{n(n-1)}">
+
+#### Example 10
+```cs
+long compute(int arr[], int n)
+{
+	long count = 0; 
+	for (int i = 0; i < n; i++)
+	{
+		int start = 0, end = n-1;
+		while (start < end)
+		{
+			if (arr[start] < arr[end]) start++; count++;			
+			else end--;			
+		}
+	}
+	return count;
+}
+```
+- Runs in quadratic time <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(n^2)">
+- The number of elementary steps is <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sim{n(n-1)}">

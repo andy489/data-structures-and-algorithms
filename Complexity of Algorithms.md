@@ -160,20 +160,43 @@ long compute(int arr[], int n)
 
 #### Example 10
 ```cs
-long compute(int arr[], int n)
+ long calcCount(int[,] matrix)
+        {
+            long count = 0;
+            for (int row = 0; row < matrix.GetLength(0); row++)
+            {
+                if (matrix[row, 0] % 2 == 0)
+                {
+                    for (int col = 0; col < matrix.GetLength(1); col++)
+                    {
+                        if (matrix[row, col] > 0)
+                        {
+                            count++;
+                        }
+                    }
+                }
+            }
+            return count;
+        }
+```
+- Runs in linear time in best case and in quadratic time in worst case. <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(n)"> at best, <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(n.m)"> - at worst.
+- The number of elementary steps on average case is <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sim{\frac{n.m}{2}}">
+
+#### Example 11
+```cs
+long calcSum(int[,] matrix, int row)
 {
-	long count = 0; 
-	for (int i = 0; i < n; i++)
-	{
-		int start = 0, end = n-1;
-		while (start < end)
-		{
-			if (arr[start] < arr[end]) start++; count++;			
-			else end--;			
-		}
-	}
-	return count;
+    long sum = 0;
+    for (int col = 0; col < matrix.GetLength(0); col++)
+    {
+        sum += matrix[row.col];
+    }
+    if (row+1<matrix.GetLength(1))
+    {
+        sum += calcSum(matrix, row + 1);
+    }
+    return sum;
 }
 ```
-- Runs in quadratic time <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(n^2)">
-- The number of elementary steps is <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sim{n(n-1)}">
+- Runs in quadratic time <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(max(n,m)^2)">
+- The number of elementary steps is <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sim{(n-1).n+\frac{(m-1).m}{2}}">

@@ -200,3 +200,19 @@ long calcSum(int[,] matrix, int row)
 ```
 - Runs in quadratic time <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(max(n,m)^2)">
 - The number of elementary steps is <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sim{(n-1).n+\frac{(m-1).m}{2}}">
+
+#### Example 12
+```cs
+int[] Union(int[] firstArr, int[] secondArr)
+{
+    List<int> union = new List<int>();
+    union.AddRange(firstArray);
+    foreach (int item in secondArray)
+    	if(!union.Contains(item))
+		union.Add(item);
+    return union.ToArray();
+}
+```
+- Runs in quadratic time <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(m.n)">
+- The number of elementary steps is <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sim{m.n}">
+

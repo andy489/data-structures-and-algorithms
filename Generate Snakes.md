@@ -34,6 +34,142 @@ Input|	Sample Output|	Comments
 4|	SRRR<br>SRRD<br>SRDR<br>SRDL<br>Snakes count = 4|Note that there are many other correct outputs for N = 4, but this is the expected output according to the priority of directions (right, down, left, up).
 5|SRRRR<br>SRRRD<br>SRRDR<br>SRRDD<br>SRRDL<br>SRDRD<br>SRDRU<br>SRDDR<br>SRDDL<br>Snakes count = 9|
 
+#### Solution C++
+```cpp
+#include <iostream>
+#include <string>
+#include <unordered_set>
+
+std::string currentSnake;
+
+std::unordered_set<std::string> visitedCells;
+std::unordered_set<std::string> result;
+std::unordered_set<std::string> allPossibleSnakes;
+
+std::string Rotate(std::string snake);
+std::string Reverse(std::string snake);
+std::string Flip(std::string snake);
+void MarkSnake();
+void GenerateSnakes(size_t index, int row, int col, char direction);
+
+int main()
+{
+	size_t n; std::cin >> n;
+	for (size_t i = 0; i < n; i++) currentSnake += 's';
+	
+	GenerateSnakes(0, 0, 0, 'S');
+
+	for (auto x : result)
+	{
+		std::cout << x << '\n';
+	}
+	std::cout << "Snakes count = " << result.size();
+	return 0;
+}
+
+void GenerateSnakes(size_t index, int row, int col, char direction)
+{
+	if (index >= currentSnake.length())
+	{
+		MarkSnake();
+	}
+	else
+	{
+		std::string cell = std::to_string(row) + std::to_string(col);
+
+		if (!visitedCells.count(cell))
+		{
+			currentSnake[index] = direction;
+
+			visitedCells.insert(cell);
+
+			GenerateSnakes(index + 1, row, col + 1, 'R');
+			GenerateSnakes(index + 1, row + 1, col, 'D');
+			GenerateSnakes(index + 1, row, col - 1, 'L');
+			GenerateSnakes(index + 1, row - 1, col, 'U');
+
+			visitedCells.erase(cell);
+		}
+	}
+}
+
+void MarkSnake()
+{
+	std::string normalSnake(currentSnake);
+
+	if (allPossibleSnakes.count(normalSnake))
+	{
+		return;
+	}
+	result.insert(normalSnake);
+
+	std::string flippedSnake (Flip(normalSnake));
+	std::string reversedSnake (Reverse(normalSnake));
+	std::string reversedFlippedSnake (Flip(reversedSnake));
+
+	for (size_t i = 0; i < 4; i++)
+	{
+		allPossibleSnakes.insert(normalSnake);
+		normalSnake = Rotate(normalSnake);
+
+		allPossibleSnakes.insert(flippedSnake);
+		flippedSnake = Rotate(flippedSnake);
+
+		allPossibleSnakes.insert(reversedSnake);
+		reversedSnake = Rotate(reversedSnake);
+
+		allPossibleSnakes.insert(reversedFlippedSnake);
+		reversedFlippedSnake = Rotate(reversedFlippedSnake);
+	}
+}
+
+std::string Rotate(std::string snake)
+{
+	std::string newSnake(snake);
+	size_t length = snake.length();
+	for (size_t i = 0; i < length; i++)
+	{
+		switch (snake[i])
+		{
+		case 'R': newSnake[i] = 'D'; break;
+		case 'D': newSnake[i] = 'L'; break;
+		case 'L': newSnake[i] = 'U'; break;
+		case 'U': newSnake[i] = 'R'; break;
+		default: newSnake[i] = snake[i]; break;
+		}
+	}
+	return newSnake;
+}
+
+std::string Reverse(std::string snake)
+{
+	std::string newSnake(snake);
+	newSnake[0] = 'S';
+	size_t length = snake.length();
+	for (size_t i = 1; i < length; i++)
+	{
+		newSnake[length - i] = snake[i];
+	}
+	return newSnake;
+}
+
+std::string Flip(std::string snake)
+{
+	std::string newSnake(snake);
+	size_t length = snake.length();
+	for (size_t i = 0; i < length; i++)
+	{
+		switch (snake[i])
+		{
+		case 'U': newSnake[i] = 'D'; break;
+		case 'D': newSnake[i] = 'U'; break;
+		default: newSnake[i] = snake[i]; break;
+		}
+	}
+	return newSnake;
+}
+```
+
 #### Solution C#
 
 ```cs

@@ -1,12 +1,11 @@
-/**
- * Find the missing number in Arithmetic Progression
- * Examples:
- * Input: arr[]  = {2, 4, 8, 10, 12, 14}
- * Output: 6
- *
- * Input: arr[]  = {1, 6, 11, 16, 21, 31};
- * Output: 26
- */
+/* Find the missing number in Arithmetic Progression
+   Examples:
+   Input: arr[]  = {2, 4, 8, 10, 12, 14}
+   Output: 6
+
+   Input: arr[]  = {1, 6, 11, 16, 21, 31};
+   Output: 26
+*/
 
 #include <iostream>
 #include <vector>

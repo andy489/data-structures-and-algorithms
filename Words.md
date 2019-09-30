@@ -17,6 +17,61 @@ Input|	Sample Output|	Comments
 xy|	2|	Two possible words: "xy" and "yx"
 xxxy|	0|	It is impossible to construct a word with these letters.
 aahhhaa|	1|	The only possible word is "ahahaha".
-nopqrstuvw|	3628800|	There are 3628800 possible words.
+pizza|	36|	There are 36 possible words.
 
 #### Solution
+```cpp
+#include <iostream>
+#include <string>
+#include <unordered_set>
+
+size_t count(0);
+
+void swap(std::string& word, int first, int second)
+{
+	char temp = word[first];
+	word[first] = word[second];
+	word[second] = temp;
+}
+
+void generateWords(size_t index, std::string& word,size_t len)
+{
+	if (index >= len)
+	{
+
+		for (size_t i = 1; i < len; i++)
+		{
+			if (word[i] == word[i - 1])
+			{
+				return;
+			}
+		}
+		count++;
+		std::cout << word << '\n';
+	}
+	else
+	{
+		std::unordered_set<int> swapped;
+		for (size_t i = index; i < len; i++)
+		{
+			if (!swapped.count(word[i]))
+			{
+				swap(word, index, i);
+				generateWords(index + 1, word, len);
+				swap(word, index, i);
+				swapped.insert(word[i]);
+			}
+		}
+	}
+}
+
+int main()
+{
+	std::string word; std::cin >> word;
+	size_t len = word.length();
+	generateWords(0, word,len);
+	std::cout << count << '\n';
+
+	return 0;
+}
+```

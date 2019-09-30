@@ -86,3 +86,10 @@ int main()
 	return 0;
 }
 ```
+#### Compare Fibonacci solutions
+- Recursive Fibonacci (divide-and-conquer, no memorization)
+  - Complexity: <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sim{O(1.6^n)}">
+- *Top-down* dynamic programming (recursive with memorization)
+  - Complexity: <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sim{O(n)}">
+- *Bottom-up* dynamic programming (iterative)
+  - Complexity: <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sim{O(n)}">

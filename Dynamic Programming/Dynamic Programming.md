@@ -25,7 +25,8 @@
   - Solve *recursively* by *breaking down* the problem further and further
 - *Bottom up* approach
   - Solve *iteratively* by solving smaller problems and *constructing the whole solution from the bottom up*
-    - **Recursive approach (*without optimization*) showing the overlapping problem**
+  
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;\blacksquare"> **Recursive approach (*without optimization*) showing the overlapping problem**
 ```cpp
 #include <iostream>
 static long overlap(0);
@@ -43,7 +44,7 @@ int main()
 	return 0;
 }
 ```
-    - **Recursive approach with optimization**
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;\blacksquare"> **Recursive approach with optimization**
 ```cpp
 #include <iostream>
 static long count(0);
@@ -66,7 +67,7 @@ int main()
 	return 0;
 }
 ```
-- **Iterative approach (*do while cycle*)**
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;\blacksquare"> **Iterative approach (*do while cycle*)**
 
 ```cpp
 #include <iostream>

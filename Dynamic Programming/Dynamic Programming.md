@@ -25,9 +25,7 @@
   - Solve *recursively* by *breaking down* the problem further and further
 - *Bottom up* approach
   - Solve *iteratively* by solving smaller problems and *constructing the whole solution from the bottom up*
-
-- **Recursive approach (*without optimization*) showing the overlapping problem**
-
+    - **Recursive approach (*without optimization*) showing the overlapping problem**
 ```cpp
 #include <iostream>
 static long overlap(0);
@@ -45,8 +43,7 @@ int main()
 	return 0;
 }
 ```
-- **Recursive approach with optimization**
-
+    - **Recursive approach with optimization**
 ```cpp
 #include <iostream>
 static long count(0);

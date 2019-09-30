@@ -25,3 +25,7 @@
   - **Save** the length of the LIS **starting/ending** with each number
   
   ![](https://i.ibb.co/19yTTW7/seq2.png)
+
+- Iterative approach
+
+![](https://i.ibb.co/2N9V3c6/seq3.png)

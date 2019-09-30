@@ -32,6 +32,59 @@
 
 For every sub-problem we find the optimal solution and use it to solve the next larger sub-problem problem until we solve the whole problem.
 
+#### Solution C++
+```cpp
+#include <iostream>
+#include <vector>
+int numbers[] = { 3,14,5,12,15,7,8,9,11,10,1 }; int n = sizeof(numbers) / sizeof(numbers[0]);
+int* solutions = new int[n];
+int* prev = new int[n];
+
+int maxSolution(0), maxSolutionIndex(0);
+
+int main()
+{
+	for (int current = 0; current < n; current++)
+	{
+		int solution(1), prevIndex(-1);
+		int currentNumber = numbers[current];
+		for (int solIndex = 0; solIndex < current; solIndex++)
+		{
+			int prevNumber = numbers[solIndex];
+			int prevSolution = solutions[solIndex];
+
+			if (currentNumber > prevNumber && solution <= prevSolution)
+			{
+				solution = prevSolution + 1;
+				prevIndex = solIndex;
+			}
+		}
+		solutions[current] = solution;
+		prev[current] = prevIndex;
+
+		if (solution > maxSolution) // >= for last best solution
+		{
+			maxSolution = solution;
+			maxSolutionIndex = current;
+		}
+	}
+	std::cout << maxSolution << '\n';
+	int index = maxSolutionIndex;
+
+	std::vector<int> result;
+	while (index != -1)
+	{
+		int currentNumber = numbers[index];
+		result.push_back(currentNumber);
+		index = prev[index];
+	}
+	for (int i = (int)result.size() - 1; i >= 0; i--)
+	{
+		std::cout << result[i] << ' ';
+	}std::cout << '\n';
+	return 0;
+}
+```
 #### Solution C#
 
 ```cs

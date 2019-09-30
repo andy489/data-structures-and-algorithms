@@ -1,11 +1,4 @@
-# Dynamic Programming
-- Dynamic programming (DP)
-  - Solve *optimization* problems
-  - Usually by breaking down into *overlapping sub-problems*
-- In contrast -> *Divide and Conquer*
-  - Sub-problems don't overlap
-  
-## Example Fibonacci Sequence
+## Fibonacci Sequence
 - *The Fibonacci sequence* holds the following unsigned integers:
   - 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ...
   - The *first two* numbers are *0* and *1*

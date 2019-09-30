@@ -57,6 +57,7 @@ int main()
 	unsigned short n; std::cin >> n;
 	numbers = new unsigned long long[n+1]();
 	std::cout <<"Recur: "<< count << "\nFib: " << Fib(n) << '\n';
+	delete[] numbers;
 	return 0;
 }
 ```

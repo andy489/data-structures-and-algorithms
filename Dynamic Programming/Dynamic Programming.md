@@ -88,8 +88,11 @@ int main()
 ```
 #### Compare Fibonacci solutions
 - Recursive Fibonacci (divide-and-conquer, no memorization)
-  - Complexity: <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sim{O(1.6^n)}">
+  - Complexity : <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sim{O(1.6^n)}"> - *exponential*
 - *Top-down* dynamic programming (recursive with memorization)
-  - Complexity: <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sim{O(n)}">
+  - Complexity : <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sim{O(n)}"> - *linear*
 - *Bottom-up* dynamic programming (iterative)
-  - Complexity: <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sim{O(n)}">
+  - Complexity : <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sim{O(n)}"> - *linear*
+#### If we want to find the <img src="https://latex.codecogs.com/svg.latex?\Large&space;36^{th}"> Fibonacci number:
+- Recursive solution takes <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sim{48{\:}315{\:}633}"> steps
+- Dynamic programming solution takes <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sim{36}"> steps

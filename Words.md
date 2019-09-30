@@ -75,3 +75,18 @@ int main()
 	return 0;
 }
 ```
+*Commentary:*
+
+How many arrangements of the letters in the word **CALIFORNIA** have no consecutive letters the same?<br>
+We can arrange the six distinct letters **C,L,F,O,R,N** in 6!ways. This creates seven spaces, five between successive letters and two at the ends of the row.
+
+**Case 1**: We choose two of these seven spaces in which to place the two A's, thereby separating them.
+
+We now have eight letters. This creates nine spaces, seven between successive letters and two at the ends of the row. We choose two of these nine spaces for the I's. The number of such arrangements is <img src="https://latex.codecogs.com/svg.latex?\Large&space;6!\binom{7}{2}\binom{9}{2}=544,320">
+
+**Case 2**: We place both A's in the same space.
+
+We again have eight letters. This again creates nine spaces. The space between the two A's must be filled with an I. Therefore, there are eight ways to choose the position of the other I. The number of such arrangements is
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;6!\binom{7}{1}\binom{8}{1}=40,320">
+
+**Total:** These two cases are mutually exclusive. Hence, the total number of arrangements of the letters of the word CALIFORNIA in which no two consecutive letters are the same is <img src="https://latex.codecogs.com/svg.latex?\Large&space;6!\Bigg[\binom{7}{2}\binom{9}{2}+\binom{7}{1}\binom{8}{1}\Bigg]=584,640">

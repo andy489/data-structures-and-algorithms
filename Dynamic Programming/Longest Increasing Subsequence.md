@@ -28,6 +28,6 @@
 
 - Iterative approach
 
-![](https://i.ibb.co/NtHZr0X/seq3.png)
+![](https://i.ibb.co/PFJsFHq/seq3.png)
 
 For every sub-problem we find the optimal solution and use it to solve the next larger sub-problem problem until we solve the whole problem.

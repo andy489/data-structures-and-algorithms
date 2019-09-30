@@ -63,17 +63,17 @@ int main()
 
 		if (top > left)
 		{
-			currRes.clear();
-			currRes = '[' + std::to_string(currRow - 1) + ", " + std::to_string(currCol) + ']';
-			resultPath.push(currRes);
-			currRow--;
+		      currRes.clear();
+		      currRes = '[' + std::to_string(currRow - 1) + ", " + std::to_string(currCol) + ']';
+		      resultPath.push(currRes);
+		      currRow--;
 		}
 		else
 		{
-			currRes.clear();
-			currRes = '[' + std::to_string(currRow) + ", " + std::to_string(currCol - 1) + ']';
-			resultPath.push(currRes);
-			currCol--;
+		      currRes.clear();
+		      currRes = '[' + std::to_string(currRow) + ", " + std::to_string(currCol - 1) + ']';
+		      resultPath.push(currRes);
+		      currCol--;
 		}
 	}
 	if (currRow == 0)

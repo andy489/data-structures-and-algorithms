@@ -1,5 +1,6 @@
 ## Задача 1.
 ***НЕ СЕ ПОЗВОЛЯВА ИЗПОЛЗВАНЕТО НА ГОТОВИ БИБЛИОТЕКИ ЗА КОЛЕКЦИИ***
+
 Рицарите от приказния свят Алгоритмия много обичат да се сражават и да измислят хитри стратегии и алгоритми, с които да побеждават техните противници. Когато нямат битки те рашават да играят помежду си на следната игра: рицарите, които са <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> на брой се нареждат в кръг. Те са номерирани с числата от <img src="https://latex.codecogs.com/svg.latex?\Large&space;1"> до <img src="https://latex.codecogs.com/svg.latex?\Large&space;N">, като рицаря стоящ отляво на <img src="https://latex.codecogs.com/svg.latex?\Large&space;1"> е номериран с числото <img src="https://latex.codecogs.com/svg.latex?\Large&space;2">, рицаря стоящ отляво на <img src="https://latex.codecogs.com/svg.latex?\Large&space;2"> е номериран с числото <img src="https://latex.codecogs.com/svg.latex?\Large&space;3"> и т.н (отляво на рицаря с номер <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> стои рицаря с номер <img src="https://latex.codecogs.com/svg.latex?\Large&space;1">, *всички рицари са обърнати с лице към центъра на кръга*). 
 
 ![](https://i.ibb.co/1GGY4q3/knights.png)

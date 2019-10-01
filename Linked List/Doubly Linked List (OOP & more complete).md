@@ -1,12 +1,12 @@
 ## My Doubly Linked List (OOP)
 #### FUNCTIONALITY:
-- getNewNode<br>
+- getNewNode<br><br>
 - addAtHead
 - addAtTail
-- addAtPosition - *no bad entries*<br>
+- addAtPosition - *no bad entries*<br><br>
 - eraseAtHead
 - eraseAtTail
-- eraseAtPosition - *no bad entries*<br>
+- eraseAtPosition - *no bad entries*<br><br>
 - displayDLL
 - operator >> - *instead of print/display function*
 

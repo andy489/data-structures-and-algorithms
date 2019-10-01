@@ -8,7 +8,7 @@
 От вас се иска да помогнете на Лили да промени пътеката, като извършите непосилните за нея изчисления. На първия ред ще получите число <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> - броя камъни от които се състои пътеката. Следват <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> реда, като всеки ред е от вида: *white K* или *blue К* или *green К*, като думата съответства на цвета на камъка, а <img src="https://latex.codecogs.com/svg.latex?\Large&space;K"> съотвества на числото, с което е номериран. След, като промените пътеката на един ред изведете номерата на камъните, от които е съставена новата пътека.
 
 #### Входен формат
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> - големината на пътеката
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> - големината на пътеката<br>
 Следват <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> реда от вида: *white К* или *green K* или *blue K*, където първата дума съответства на цвета на камъка, а *K* съотвества на числото записано на камъка
 
 #### Ограничения

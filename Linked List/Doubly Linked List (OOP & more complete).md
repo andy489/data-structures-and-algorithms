@@ -1,13 +1,13 @@
 ## My Doubly Linked List (OOP)
 #### FUNCTIONALITY:
-- getNewNode()
-- addAtHead()
-- addAtTail()
-- addAtPosition() - *no bad entries*
-- eraseAtHead()
-- eraseAtTail()
-- eraseAtPosition() - *no bad entries*
-- displayPath()
+- getNewNode<br>
+- addAtHead
+- addAtTail
+- addAtPosition - *no bad entries*<br>
+- eraseAtHead
+- eraseAtTail
+- eraseAtPosition - *no bad entries*<br>
+- displayDLL
 - operator >> - *instead of print/display function*
 
 #### IMPLEMENTATION (C++):

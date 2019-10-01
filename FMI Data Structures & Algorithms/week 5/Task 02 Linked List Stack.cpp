@@ -3,24 +3,24 @@
 #include <windows.h>
 #include <climits>
 
-struct Node
+struct Stone
 {
-	Node *prev, *next;
+	Stone *prev, *next;
 	std::string color;
 	int number;
 
-	Node(std::string color, int number, Node *prev = nullptr, Node *next = nullptr); //constructor with two default arguments
+	Stone(std::string color, int number, Stone *prev = nullptr, Stone *next = nullptr); //constructor with two default arguments
 };
 
 struct Path
 {
-	Node *head; // in our case we use head only for printing
-	Node *tail;
+	Stone *head; // in our case we use head only for printing
+	Stone *tail;
 	int size = 0;
 
 	Path(); // default constructor
 
-	Node* getNewNode(std::string color, int number); // utility function for creating a new Node
+	Stone* getNewNode(std::string color, int number); // utility function for creating a new Node
 
 	void addAtTail(std::string color, int number);
 	bool eraseAtTail();
@@ -81,7 +81,7 @@ int main()
 	return 0;
 }
 
-Node::Node(std::string color, int number, Node *prev, Node *next)
+Stone::Stone(std::string color, int number, Stone *prev, Stone *next)
 {
 	this->color = color;
 	this->number = number;
@@ -94,22 +94,22 @@ Path::Path()
 	head = tail = nullptr;
 }
 
-Node * Path::getNewNode(std::string color, int number)
+Stone * Path::getNewNode(std::string color, int number)
 {
-	Node *newNode = new Node(color, number);
+	Stone *newNode = new Stone(color, number);
 	return newNode;
 }
 
 void Path::addAtTail(std::string color, int number)
 {
-	Node *newNode = getNewNode(color, number); size++;
+	Stone *newNode = getNewNode(color, number); size++;
 	if (head == nullptr)
 	{
 		head = tail = newNode;
 	}
 	else
 	{
-		Node* temp = tail;
+		Stone* temp = tail;
 		tail = newNode;
 		newNode->prev = temp;
 		temp->next = tail;
@@ -141,7 +141,7 @@ bool Path::eraseAtTail()
 
 std::ostream & operator<<(std::ostream & os, const Path& path)
 {
-	Node* traversal = path.head;
+	Stone* traversal = path.head;
 	if (traversal == nullptr)
 	{
 		os << "path is empty\n";

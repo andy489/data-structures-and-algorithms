@@ -1,6 +1,6 @@
 ## My Doubly Linked List (OOP)
 #### FUNCTIONALITY:
-- getNewNode<br><br>
+- getNewNode - *utility*<br><br>
 - addAtHead
 - addAtTail
 - addAtPosition - *no bad entries*<br><br>

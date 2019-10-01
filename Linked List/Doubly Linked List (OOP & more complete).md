@@ -2,15 +2,15 @@
 #### FUNCTIONALITY:
 - getNewNode()
 
-- addAtHead()
-- addAtTail()
+- addAtHead()<br>
+- addAtTail()<br>
 - addAtPosition() - *no bad entries*
 
-- eraseAtHead()
-- eraseAtTail()
+- eraseAtHead()<br>
+- eraseAtTail()<br><br>
 - eraseAtPosition() - *no bad entries*
 
-- displayPath()
+- displayPath()<br>
 - operator >> - *instead of print/display function*
 
 #### IMPLEMENTATION (C++):

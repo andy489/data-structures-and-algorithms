@@ -1,4 +1,4 @@
-![](https://www.sadev.co.za/sites/default/files/sftpk_bst.png)
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Recursive%20Binary%20Search%20Tree%2001.png)
 
 ***Двоичното дърво за търсене*** е специален вид бинарно дърво. То е ефективна структора за организиране на данни, за която е необходимо бързо търсене и бързa актуализация. 
 

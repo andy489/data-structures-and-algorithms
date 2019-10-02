@@ -2,7 +2,7 @@
 
 Binary tree is a tree with the property that each node in the tree can have at most two children.
 
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Binary_tree.svg/1200px-Binary_tree.svg.png)
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Binary%20Tree%2001.png)
 
 In the above tree each node have either zero, one or two children. Le call one of the children left chile and another right child. For the root node 2, the node 7 is the left child and the node 5 is the right child. In a program, we would set the reference or pointer to left or right child as NULL (nullptr). So, we can say that for right child of 9 is NULL and similarly left and right childs of 4 are both NULL. For all nodes that do not have children, that are leaf nodes (a node with 0 childs is called a leaf) we can say that both left and right child are NULL. 
 
@@ -16,7 +16,7 @@ We call a binary tree **complete binary tree** if all levels except possibly the
 
 In the above example the tree is not complete, because we are missing a node at the second level and at the last level the nodes are not most-left oriented (we have two vacant positions at the left side of the tree). Here is an example of complete binary tree:
 
-![](https://upload.wikimedia.org/wikipedia/commons/3/38/Max-Heap.svg)
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Binary%20Tree%2002.svg)
 
 If we go numbering all the levels in the tree like L-0, L-1, L-2 and so on, then the maximum number of nodes that we can have at some level *i*, will be equal to 2 to the power *i*. 
 

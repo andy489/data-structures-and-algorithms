@@ -3,17 +3,17 @@ A **snake** is a sequence of several square blocks, attached one after another. 
 
 You are given a number **N** and you should find all possible snakes of **N** blocks, represented as sequences of moves denoted as: **S** (start), **L** (move left), **R** (move right), **U** (move up) and **D** (move down). Examples (for N = 1, 2, 3, 4, and 5):
  
-![](https://i.ibb.co/sJ6btNv/snakes1.png)
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Generate%20Snakes%2001.png)
  
 Note: some figures could look visually the same but represent different snakes, e.g. **SRRDL** and **SRDRU**.
 
 Some snakes (sequences of blocks) are the same and should be printed only once. If after a number of rotations and/or flips two snakes are equal they are considered the same and should be printed only once. For example the snakes **SRRD, SRRU, SLLD, SLLU, SRUU** and **SUUR** are the same:
  
-![](https://i.ibb.co/kV7hdS1/snakes2.png)
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Generate%20Snakes%2002.png)
  
 Not all forms consisting of N blocks are snakes of size N. Examples of non-snake forms:
  
-![](https://i.ibb.co/NWL8Sv0/snakes3.png)
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Generate%20Snakes%2003.png)
 
 **Note: When generating the snakes, there may be different correct answers. When testing your solution, priority should be as follows: R -> D -> L -> U. The visual example above for n = 5 does NOT follow this priority.**
 

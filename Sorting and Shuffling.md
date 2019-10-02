@@ -217,7 +217,7 @@ Towa e aлгоритъм, който сравнява елементите и м
 
 Сортирането чрез този метод позволява пренареждането на елементи които са далеч един от друг. Идеята на *shellSort* е да правим списъка *h* сортиран за голяма стойност на *h*. Продължаваме да намаляваме стойността на *h*, докато тя стане *1*. Казва се, че списъкът е *h* сортиран , ако са подредени всички подсписъци на всеки *h*-елемент.
 
-![Alt Text](https://upload.wikimedia.org/wikipedia/commons/d/d8/Sorting_shellsort_anim.gif)
+![Alt Text](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Sorting%20and%20Shuffling%2001.gif)
 
 ```cpp
 #include  <iostream> 
@@ -318,7 +318,7 @@ int main()
  
 Това е алгоритъм, който разделя входния масив на две половини, извиква себе си за двете половини и след това слива двете подредени половинки. Функцията за сливане *merge()* се използва за сливане на две половини. Обединяването *(arr, l, m, r)* е ключов процес, който приема, че arr *[l..m]* и arr *[m+1..r]* са сортирани и слива двaта подредени под-масивa в един. Сложността на този алгоритъм може да се изрази рекурсивно чрез следната формула <img src="https://latex.codecogs.com/svg.latex?\Large&space;T(n)=2T(\frac{n}{2})+\Theta(n)"> 
 
-![alt text](https://www.101computing.net/wp/wp-content/uploads/Merge-Sort-Algorithm.png)
+![alt text](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Sorting%20and%20Shuffling%2002.png)
 
     mergeSort(arr[], l,  r) - псевдокод
     Ако r > l
@@ -646,7 +646,7 @@ int main()
 4) Съединяваме всички сортирани кофички.
 ````
 
-![alt text](https://upload.wikimedia.org/wikipedia/commons/e/e3/Bucket_sort_2.svg)
+![alt text](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Sorting%20and%20Shuffling%2003.svg)
 
 ```cpp
 #include <iostream> 
@@ -778,7 +778,7 @@ int main()
 ```
 *Heap Sort Descending Example:*
 
-![Alt Text](https://upload.wikimedia.org/wikipedia/commons/4/4d/Heapsort-example.gif)
+![Alt Text](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Sorting%20and%20Shuffling%2004.gif)
 
 ### 11. Bogo Sort 
 

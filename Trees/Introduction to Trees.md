@@ -1,6 +1,6 @@
 Tree is one data structure that's quite often used to represent hierarchical data. For example. let's say we want to show employees in an organization and their positions in organizational hierarchy, then we can show it something like this. Let's say the following example is organization hierarchy of some company.
 
-![](https://i.ibb.co/8XBf95W/Line-Organizational-Structure-1.png)
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Introduction%20to%20Trees%2001.png)
 
 We have to look at the structure upside down and then it will resemble a real tree. The root is at top and we are branching out in downward direction. Logical representation of tree data structure is always like this. Root at top and branching out in downward direction. Tree is an efficient way of storing and organazing data that is naturally hierarchical, but this is not the only application of tree in computer science. Before we proceed to other applications and implementation, let's first define tree as a logical model.
 
@@ -10,7 +10,7 @@ The HTML source code and the tree accompanying the source illustrate another hie
 
 Here is the tree that corresponds to each of the HTML tags used to create the page.
 
-![](https://bradfieldcs.com/algos/trees/introduction/figures/htmltree.png)
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Introduction%20to%20Trees%2002.png)
 
 ### Definitions:
 
@@ -72,13 +72,13 @@ Now that we have defined the basic vocabulary, we can give two more definitions 
 
 The diagram below illustrates a tree that fits definition one. The arrowheads on the edges indicate the direction of the connection.
 
-![](https://bradfieldcs.com/algos/trees/introduction/figures/tree-definition.png)
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Introduction%20to%20Trees%2003.png)
 
 **Definition two:** A tree is either empty or consists of a root and zero or more subtrees, each of which is also a tree. The root of each subtree is connected to the root of the parent tree by an edge.
 
 The diagram below illustrates this recursive definition of a tree. Using the recursive definition of a tree, we know that the tree below has at least four nodes, since each of the triangles representing a subtree must have a root. It may have many more nodes than that, but we do not know unless we look deeper into the tree.
 
-![](https://bradfieldcs.com/algos/trees/introduction/figures/tree-definition-recursive.png)
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Introduction%20to%20Trees%2004.png)
 
 Recursion basically is reducing something in a self similar manner. This recursive property of tree will be used everywhere in all implementation and uses of tree.
 

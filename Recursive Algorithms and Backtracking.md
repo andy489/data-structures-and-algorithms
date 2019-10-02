@@ -1,4 +1,4 @@
-![alt text](https://www.boredpanda.es/blog/wp-content/uploads/2015/04/plantas-geometricas-10.jpg)
+![alt text](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Recursive%20Algorithms%20and%20Backtracking%2001.png)
 
 # Recursion
 
@@ -597,7 +597,7 @@ int main()
 Подредете площадките по размер (в намаляващ ред), така че най-голямата площадка да е принтирана първа. Ако няколко площадки имат един и същи размер, сортирайте ги по позиция, първо по редове, после по колони от най-горния ляв ъгъл. Така, ако има две площадки с един и същ размер, тази която е над и/или от ляво на другата ще се принтира първа.
 
 Примери:
-![](https://i.ibb.co/ynvftdr/matr.png)
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Recursive%20Algorithms%20and%20Backtracking%2002.png)
  
  *Решение:*
  

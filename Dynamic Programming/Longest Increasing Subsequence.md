@@ -1,7 +1,7 @@
 ## Longest Increasing Subsequence 
 *Finding and Reconstructing LIS*
 
-![](https://i.ibb.co/9sM7FMK/seq.png)
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Longest%20Increasing%20Subsequence%2001.png)
 
 ***3-5-7-8-9-11** and **3-5-7-8-9-10** are possible solutions for the above example, because both are increasing and with maximum length*
 
@@ -24,11 +24,11 @@
 - Example:
   - **Save** the length of the LIS **starting/ending** with each number
   
-  ![](https://i.ibb.co/19yTTW7/seq2.png)
+  ![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Longest%20Increasing%20Subsequence%2002.png)
 
 - Iterative approach
 
-![](https://i.ibb.co/PFJsFHq/seq3.png)
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Longest%20Increasing%20Subsequence%2003.png)
 
 For every sub-problem we find the optimal solution and use it to solve the next larger sub-problem problem until we solve the whole problem.
 

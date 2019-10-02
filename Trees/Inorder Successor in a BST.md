@@ -59,7 +59,7 @@ If we have already visited the node with value 8, then we have already visited i
 
 Let's now pick another node with no right subtree. What would be inorder successor for node with value 12? What node would be visit next?
 
-[!](https://i.ibb.co/KL4B3Rt/BST8.png)
+![](https://i.ibb.co/KL4B3Rt/BST8.png)
 
 Now here, once again, we do not have right subtree for this node with value 12, so we must go back to its parent and see if it's unvisited. But if we're going to the parent from right, if the node that we just visited is a right child, which is the case here, then the parent would already be visited, because we are coming back after visiting its right subtree. The node with value 10 must have been visited before going right. So what should we do? Now the recursion will rollback further and we need to go to parent of node with value 10. And now we are going to node with value 15 from left. So this is our guy, because its unvisited (node with value 15 is our searched inorder successor).
 

@@ -16,7 +16,7 @@ Example input|Expected output|Explanation
 //5a3 1f a0aaaa f1fg3
 size_t largest(std::string& line)
 {
-	// помощен стек, в който ще си сухраняваме извадените числа
+	// помощен стек, в който ще си съхраняваме извадените числа
 	std::stack<size_t> numbers;
 	// идеята ми е да изваждаме числа от думата като в обратен полски запис или postfix запис
 	size_t length = line.length();

@@ -8,7 +8,7 @@ Example input|Expected output|Explanation
 1 2 3|3|The numbers are 1 2 3, of which 3 is the max
 1.][.3 5--aA3:)5 2asd=@14|535|The numbers are 13 535 214, of which 535 is the max
 
-##Solution
+## Solution Task 1
 ```cpp
 #include <iostream>
 #include <string>
@@ -72,3 +72,91 @@ Expected input|Expected output|Explanation
 5bbbb3 1f a0aaa f1fg3|aaaa|The noises are bbbb f aaaa ffg, aaaa and bbbb are equal length, but aaaa is before bbbb lexicographically
 1 2 3|no noise	
 1.][.3 5-aA3:)5 2asd=@14|–aA:)|The noises are .][. –aA:) asd=@, of which –aA:) and asd=@ are of equal max length (5), but in the ASCII table, the – sign ("hyphen-minus") is before the letter a, so –aA:) is the first lexicographically
+
+## Solution Task 2
+```cpp
+#include <iostream>
+#include <string>
+#include <stack>
+
+bool lenlexcmp(std::string& l, std::string& r)
+{
+	size_t len_l = l.size();
+	size_t len_r = r.size();
+	if (len_l > len_r) return true;
+	else if (len_l < len_r) return false;
+	else
+	{
+		for (size_t i = 0; i < len_r; i++)
+		{
+			if (l[i] < r[i])
+			{
+				return true;
+			}
+			else if (l[i] > r[i])
+			{
+				return false;
+			}
+		}
+	}
+	return len_l > len_r ? true : false;
+}
+
+std::string longest(std::string& line) // 1.][.3 5-aA3:)5 2asd=@14
+{
+	// помощен стек, в който ще си съхраняваме извадените "думи"
+	std::stack<std::string> words;
+
+	size_t length = line.length();
+	bool flag = false;
+	for (size_t i = 0; i < length; i++) // O(n)
+	{
+		char curr = line[i];
+		if ((curr < '0' || curr > '9') && curr != ' ')
+		{
+			if (flag)
+			{
+				std::string currWord = words.top() + curr;
+				words.pop(); // O(1)
+				words.push(currWord); // O(1)
+			}
+			else
+			{
+				std::string newWord("");
+				newWord += curr;
+				words.push(newWord); // O(1)
+				flag = true;
+			}
+		}
+		else if (curr == ' ')
+		{
+			flag = false;
+		}
+
+	} // сега в помощния стек сме извадили всички "думи", но в обратен ред, което в случая не е значимо
+	if (words.empty())
+	{
+		return "2019";
+	}
+	std::string result(words.top());
+	words.pop();
+	while (!words.empty()) // докато има "думи" в стека -> изкарваме и търсим най-голямата
+	{
+		std::string curr = words.top();
+		if (lenlexcmp(curr, result))
+		{
+			result = curr;
+		}
+		words.pop();
+	}
+	return result;
+}
+
+int main()
+{
+	std::string sentence; getline(std::cin, sentence);
+	std::string result = longest(sentence);
+	result == "2019" ? std::cout << "no noise\n" : std::cout << result << "\n";
+	return 0;
+}
+```

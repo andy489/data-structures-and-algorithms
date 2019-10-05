@@ -13,7 +13,7 @@ Given such expressions we want to write a program that would tell us whether par
 - **{a+z)** *not balanced*
   - corresponding to the opening curly brace we do not have a closing curly brace and corresponding to the closing paranthesis we do not have an opening paranthesis
   
-  Checking for balanced paranthesis is one of the tasks performed by a compiler. WHen we write a program we often miss an opening or closing curly brace or an opening or closing paranthesis:
+  Checking for balanced paranthesis is one of the tasks performed by a compiler. When we write a program we often miss an opening or closing curly brace or an opening or closing paranthesis:
 ```cpp
 int main()
 {

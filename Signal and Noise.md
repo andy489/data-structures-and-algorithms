@@ -1,4 +1,4 @@
-## The Signal and the Noise
+## Task 1 The Signal and the Noise
 Write a program which reads a sequence of non-negative integer numbers (in the decimal numeral system), separated by spaces, and finds the maximum number. The numbers in the input may have “noise” – symbols before, after, or between the digits of the number, which are not decimal digits (you need to ignore these when reading the numbers). All symbols in the input will be either letters, digits, punctuation, or signs from the standard ASCII table (no control symbols like newlines or tabs, delete, etc.)
 #### Examples
 
@@ -62,3 +62,13 @@ int main()
 	return 0;
 }
 ```
+
+## Task 2 – The Noise and the Signal
+Your task here is to find the longest noise in a number (numbers will always be positive integers). There are several noises with equal length, print the one that is the first lexicographically. If there are no noises, print “no noise”. All symbols in the input will be either letters, digits, punctuation, or signs from of the standard ASCII table (no control symbols like newlines or tabs, delete, etc.)
+#### Examples
+
+Expected input|Expected output|Explanation
+-|-|-
+5bbbb3 1f a0aaa f1fg3|aaaa|The noises are bbbb f aaaa ffg, aaaa and bbbb are equal length, but aaaa is before bbbb lexicographically
+1 2 3|no noise	
+1.][.3 5-aA3:)5 2asd=@14|–aA:)|The noises are .][. –aA:) asd=@, of which –aA:) and asd=@ are of equal max length (5), but in the ASCII table, the – sign ("hyphen-minus") is before the letter a, so –aA:) is the first lexicographically

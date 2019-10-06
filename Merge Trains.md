@@ -17,8 +17,7 @@ The “input” railcars will always be correctly ordered (i.e. will be a line o
 
 Example input|Expected output|Explanation
 -|-|-
-11 4 2 1<br>5 3|AABABA<br>11 5 4 3 2 1|We first move from A, railcar 1, and the result becomes: 1<br>We again move from A, railcar 2, which pushes railcar 1 more to the right: 2 1<br>Now we need B (the rightmost of A is 4, the rightmost of B is 3), which again pushes the railcars in the merge:3 2 1<br>We now again need A: 4 3 2 1<br>Back to B, that's the last railcar there:
-5 4 3 2 1<br>Finally we move the last from A and get the result: 11 5 4 3 2 1 - the sequence was AABABA
+11 4 2 1<br>5 3|AABABA<br>11 5 4 3 2 1|We first move from A, railcar 1, and the result becomes:<br>1<br>We again move from A, railcar 2, which pushes railcar 1 more to the right:<br>2 1<br>Now we need B (the rightmost of A is 4, the rightmost of B is 3), which again pushes the railcars in the merge:<br>3 2 1<br>We now again need A:<br>4 3 2 1<br>Back to B, that's the last railcar there:<br>5 4 3 2 1<br>Finally we move the last from A and get the result:<br>11 5 4 3 2 1<br>- the sequence was AABABA
 2<br>1|BA<br>2 1|Only two railcars, line B has the smaller railcar, so move that first, then move from A
 
 #### Solution

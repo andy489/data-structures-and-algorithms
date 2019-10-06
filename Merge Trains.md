@@ -1,36 +1,23 @@
 ## Merge Trains
-At a certain train station, trains arrive on two tracks – Track A and Track B – and are merged onto a single track. Each railcar has a number, and in each train the railcars are ordered by number – the front railcar has the lowest number, the back railcar has the highest number. 
+At a certain train station, trains arrive on two tracks – Track A and Track B – and are merged onto a single track. Each railcar has a number, and in each train the railcars are ordered by number – the front railcar has the lowest number, the back railcar has the highest number.
+
 Given the railcar numbers on Track A and Track B, given from the back car to the front car, output the order in which railcars from Track A and Track B should be merged into the single track, then output the new train configuration, starting from the last railcar, and finishing at the first railcar. Railcars are moved starting from the front to the back (i.e. you can only move the front car of a train). Each time you move a railcar from the parallel tracks A and B to the merge track, it pushes forward any railcars that are already there.
+
 The first line of the console will contain the numbers of the railcars on Track A, from the last railcar to the first railcar.
+
 The second line of the console will contain the numbers of the railcars on Track B, from the last railcar to the first railcar.
+
 If a railcar from Track A should be moved to the single track, print A. Otherwise, print B. 
+
 On a separate line print the final configuration of the train (numbers separated by spaces, representing the railcar numbers from the last railcar to the first).
+
 The “input” railcars will always be correctly ordered (i.e. will be a line of descending positive integer numbers). The input will be such that the result will never have any railcars with the same numbers.
-Examples
-Input	Output	Explanation
-11 4 2 1
-5 3	AABABA
-11 5 4 3 2 1	We first move from A, railcar 1, and the result becomes:
-1
-We again move from A, railcar 2, which pushes railcar 1 more to the right:
-2 1
-Now we need B (the rightmost of A is 4, the rightmost of B is 3), which again pushes the railcars in the merge:
-3 2 1
-We now again need A:
-4 3 2 1
-Back to B, that's the last railcar there:
-5 4 3 2 1
-Finally we move the last from A and get the result:
-11 5 4 3 2 1
 
-- the sequence was AABABA
-2
-1	BA
-2 1	Only two railcars, line B has the smaller railcar, so move that first, then move from A
-
-
-
-
+#### Examples
+Example input|Expected output|Explanation
+11 4 2 1<br>5 3|AABABA<br>11 5 4 3 2 1|We first move from A, railcar 1, and the result becomes: 1<br>We again move from A, railcar 2, which pushes railcar 1 more to the right: 2 1<br>Now we need B (the rightmost of A is 4, the rightmost of B is 3), which again pushes the railcars in the merge:3 2 1<br>We now again need A: 4 3 2 1<br>Back to B, that's the last railcar there:
+5 4 3 2 1<br>Finally we move the last from A and get the result: 11 5 4 3 2 1 - the sequence was AABABA
+2<br>1|BA<br>2 1|Only two railcars, line B has the smaller railcar, so move that first, then move from A
 
 #### Solution
 

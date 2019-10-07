@@ -24,7 +24,7 @@ Top view : 1 -> 2 -> 5 -> 6
 You are given a function,
 
 ```
-void topView(node * root) 
+void topView(node *root) 
 {
    //some code
 }

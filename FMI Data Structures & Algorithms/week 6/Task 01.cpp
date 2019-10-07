@@ -2,12 +2,12 @@
 
 struct Node
 {
-	int data;
+	short data;
 	Node* left, * right;
-	Node(int data) :left(nullptr), right(nullptr), data(data) {};
+	Node(short data) :left(nullptr), right(nullptr), data(data) {};
 };
 
-Node* add(Node* root, int data)
+Node* add(Node* root, short data)
 {
 	if (root == nullptr)
 	{
@@ -40,8 +40,8 @@ int height(Node* root)
 int main()
 {
 	Node* root = nullptr;
-	unsigned countNodes;std::cin >> countNodes;
-	unsigned i(0), data; std::cout << "Enter data for nodes to be inserted: ";
+	short countNodes;std::cin >> countNodes;
+	short i(0), data; std::cout << "Enter data for nodes to be inserted: ";
 	for (; i < countNodes; ++i)
 	{
 		std::cin >> data;

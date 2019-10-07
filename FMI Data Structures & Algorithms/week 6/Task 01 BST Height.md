@@ -15,8 +15,8 @@ getHeight or height has the following parameter(s):
 
 #### Input Format
 
-The first line contains an integer , the number of nodes in the tree. 
-Next line contains  space separated integer where th integer denotes node[i].data.
+The first line contains an integer - the number of nodes in the tree.<br>
+Next line contains  space separated integer where the integer denotes <img src="https://latex.codecogs.com/svg.latex?\Large&space;node.data[i]">.
 
 **Note**: *Node values are inserted into a binary search tree before a reference to the tree's root node is passed to your function. In a binary search tree, all nodes on the left branch of a node are less than the node value. All values on the right branch are greater than the node value.*
 

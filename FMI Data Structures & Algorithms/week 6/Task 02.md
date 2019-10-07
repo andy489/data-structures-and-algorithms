@@ -1,7 +1,7 @@
 
 ## Task 2.
-You are given a pointer to the root of a binary tree. Print the top view of the binary tree. 
-Top view means when you look the tree from the top the nodes, what you will see will be called the top view of the tree. See the example below. 
+You are given a pointer to the root of a binary tree. Print the top view of the binary tree.<br>
+Top view: when you look the tree from the top, what you will see will be called the top view of the tree. See the example below. 
 You only have to complete the function. 
 For example :
 
@@ -17,27 +17,26 @@ For example :
        4
 ```
 
-Top View : 1 -> 2 -> 5 -> 6
+Top view : 1 -> 2 -> 5 -> 6
 
-**Input Format**
+#### Input Format
 
 You are given a function,
 
 ```
-void topView(node * root) {
-
+void topView(node * root) 
+{
+   //some code
 }
 ```
 
-**Constraints**
+#### Constraints
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{nodes}\le{500}"><br>
 
-1 Nodes in the tree  500
-
-**Output Format**
-
+#### Output Format
 Print the values on a single line separated by space.
 
-**Sample Input**
+#### Sample input
 
 ```
    1
@@ -51,23 +50,10 @@ Print the values on a single line separated by space.
        4
 ```
 
-**Sample Output**
+#### Sample output
 
 1 2 5 6
 
-**Explanation**
-
-```
-   1
-    \
-     2
-      \
-       5
-      /  \
-     3    6
-      \
-       4
-```
-
+#### Explanation
 From the top only nodes 1,2,5,6 will be visible.
 

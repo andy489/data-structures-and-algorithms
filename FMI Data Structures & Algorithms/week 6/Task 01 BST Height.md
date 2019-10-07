@@ -41,5 +41,5 @@ The longest root-to-leaf path is shown below:
 
 ![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/BST%20Height%2003.png)
 
-There are 4 nodes in this path that are connected by  edges, meaning our binary tree's height = 3.
+There are <img src="https://latex.codecogs.com/svg.latex?\Large&space;4"> nodes in this path that are connected by  edges, meaning our binary tree's height = <img src="https://latex.codecogs.com/svg.latex?\Large&space;3">.
 

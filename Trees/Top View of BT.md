@@ -64,7 +64,7 @@
 
 struct Node
 {
-	Node* left, * right;
+	Node *left, *right;
 	int data;
 	Node(int data) : left(nullptr), right(nullptr), data(data) {};
 };

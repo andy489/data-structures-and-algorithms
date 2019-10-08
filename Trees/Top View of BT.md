@@ -81,7 +81,8 @@ std::map<int, std::vector<Node*>> getLevelOrderMap(Node* root)
 			level++;
 			Q.pop();
 			Q.push(nullptr);
-			if (Q.front() == nullptr) return levelOrderMap; // две последователни нули в опашката			
+			// ако срещнем две последователни нули в опашката ще означава че сме принтирали всичко
+			if (Q.front() == nullptr) return levelOrderMap; а			
 		}
 	}
 	return levelOrderMap; // не би трябвало никога да се изпълни този код, но го слагаме за пълнота

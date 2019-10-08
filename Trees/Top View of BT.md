@@ -87,7 +87,8 @@ std::map<int, std::vector<Node*>> getLevelOrderMap(Node* root)
 	return levelOrderMap; // не би трябвало никога да се изпълни този код, но го слагаме за пълнота
 }
 
-void fillVerticalOrderMap(Node* root, int horizontDistance, int level, std::map<int, std::vector<std::pair<Node*, int>>>& map)
+void fillVerticalOrderMap(Node* root, int horizontDistance, int level, 
+			  std::map<int, std::vector<std::pair<Node*, int>>>& map)
 {
 	if (root == nullptr) return;
 

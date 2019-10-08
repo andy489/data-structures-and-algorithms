@@ -32,8 +32,7 @@ void verticalOrderTraversal(Node* root, int hd, std::map<int, std::vector<int>>&
 {	// Algorithm - (Level Order Traversal + Hash Table (Map))
 	if (root == nullptr) return; // Base case
 	M[hd].push_back(root->data); // for every hd there is a vector of int (type of data for Node) 
-
-								 //Filling the Map:
+	//Filling the Map:
 	verticalOrderTraversal(root->left, hd - 1, M);
 	verticalOrderTraversal(root->right, hd + 1, M);
 }

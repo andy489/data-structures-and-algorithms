@@ -47,13 +47,25 @@ void displayVerticalOrder(Node* root)
 	for (auto i : M)
 	{
 		// if we want to sort vectors with node datas before printing
-		// sort(i.second.begin(),i.second.end()); 
+		sort(i.second.begin(),i.second.end()); 
 		for (auto j : i.second)
 		{
 			std::cout << j << ' ';
 		}
 		std::cout << '\n';
 	}
+
+	/*//second way of printing using iterators:
+	std::map< int, std::vector<int> > ::iterator it;
+	for (it = M.begin(); it != M.end(); it++)
+	{
+		sort(it->second.begin(), it->second.end());
+		for (int i = 0; i < it->second.size(); ++i)
+		{
+			std::cout << it->second[i] << " ";
+		}
+		std::cout << '\n';
+	}*/
 }
 
 int main()

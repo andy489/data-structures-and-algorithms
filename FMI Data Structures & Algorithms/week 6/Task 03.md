@@ -19,8 +19,7 @@
 
 Примерен вход|Очакван изход|Обяснения
 -|-|-
-7<br>1 2<br>1 7<br>2 5<br>2 6<br>4 6<br>3 6<br>3<br>6 2<br>4 2<br>7 1|1<br>2<br>1|<img src="https://latex.codecogs.com/svg.latex?\Large&space;pred(6,2)=parent(parent(6))=parent(2)=1"><br><img src="https://latex.codecogs.com/svg.latex?\Large&space;pred(4,2)=parent(parent(4))=parent(6)=2"><br>
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;pred(7,1)=parent(7)=1">
+7<br>1 2<br>1 7<br>2 5<br>2 6<br>4 6<br>3 6<br>3<br>6 2<br>4 2<br>7 1|1<br>2<br>1|<img src="https://latex.codecogs.com/svg.latex?\Large&space;pred(6,2)=parent(parent(6))=parent(2)=1"><br><img src="https://latex.codecogs.com/svg.latex?\Large&space;pred(4,2)=parent(parent(4))=parent(6)=2"><br><img src="https://latex.codecogs.com/svg.latex?\Large&space;pred(7,1)=parent(7)=1">
 
 ![image](assets/1542735573-c76d881c19-tree.png)
 

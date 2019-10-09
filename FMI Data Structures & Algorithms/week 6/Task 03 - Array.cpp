@@ -1,6 +1,6 @@
 #define CAP 500001 // because vector count starts from 0 and we do not need it
 #include <iostream> 
-#include <vector> // for add function and results (fast selection O(1))
+#include <vector> // for results (fast selection O(1))
 #include <queue> // for display function
 
 struct Node

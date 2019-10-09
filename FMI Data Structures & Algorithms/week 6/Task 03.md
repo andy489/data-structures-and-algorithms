@@ -11,7 +11,7 @@
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{N}\le{500000}"><br>
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{Q}\le{500000}"><br>
 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;pred(i,k)"> винаги ще съществува (тоест <img src="https://latex.codecogs.com/svg.latex?\Large&space;k\le{depth(i)}">
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;pred(i,k)"> винаги ще съществува <img src="https://latex.codecogs.com/svg.latex?\Large&space;\big(">тоест <img src="https://latex.codecogs.com/svg.latex?\Large&space;k\le{depth(i)}\big)">
 
 #### Изходен формат
 

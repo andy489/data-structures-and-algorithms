@@ -10,9 +10,8 @@ struct Node
 	Node(int data, Node* parent = nullptr) :left(nullptr), right(nullptr), data(data), parent(parent) {};
 };
 
-class BinaryTree
+struct BinaryTree
 {
-public:
 	Node* root;
 	Node** nodes;
 	BinaryTree()

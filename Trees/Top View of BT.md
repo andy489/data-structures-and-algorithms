@@ -103,7 +103,7 @@ std::map<int, std::vector<Node*>> getLevelOrderMap(Node* root)
 			Q.push(nullptr);
 			/* ако срещнем две последователни нули в опашката 
 			ще означава че сме принтирали всичко */
-			if (Q.front() == nullptr) return levelOrderMap; а			
+			if (Q.front() == nullptr) return levelOrderMap; 			
 		}
 	}
 	return levelOrderMap; // не би трябвало никога да се изпълни този код, но го слагаме за пълнота

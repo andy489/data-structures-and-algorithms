@@ -123,6 +123,69 @@ int main()
 	return 0;
 }
 ```
+
+Let us add an additional condition.<br>
+There are 3 types of brackets – {}, [] and (). {} can contain {}, [] and () brackets. Square brackets [] can contain [] and () brackets. Curved () brackets can contain only () brackets. Said simply, each type of brackets can contain the same type of brackets inside, or a “lower” type of brackets (() is lower than [] which is lower than {}).
+<br>If we also want to match the priority of the brackets, we can add the following checks:
+```cpp
+#include<iostream>
+#include<stack>
+#include<string>
+
+bool arePair(char opening, char closing)
+{
+	if (opening == '(' && closing == ')') return true;
+	else if (opening == '{' && closing == '}') return true;
+	else if (opening == '[' && closing == ']') return true;
+	return false;
+}
+bool areParanthesesBalanced(std::string exp) //   [()]{}{[()()]()}
+{
+	std::stack<char> S;
+	unsigned len = exp.length();
+
+	int squareBracket(0), curlyBracket(0), ordinaryBracket(0);
+
+	for (unsigned i = 0; i < len; i++)
+	{
+		if (exp[i] == '(' || exp[i] == '{' || exp[i] == '[')
+		{
+			if (exp[i] == '{')
+			{
+				if (ordinaryBracket>0||curlyBracket>0) return false;
+				squareBracket ++;
+			}
+			else if (exp[i] == '[')
+			{
+				if (ordinaryBracket > 0) return false;				
+				curlyBracket ++;
+			}
+			else ordinaryBracket ++;
+			
+			S.push(exp[i]);
+		}
+		else if (exp[i] == ')' || exp[i] == '}' || exp[i] == ']')
+		{
+			if (S.empty() || !arePair(S.top(), exp[i]))	return false;
+			
+			if (exp[i]==')') ordinaryBracket--;
+			else if (exp[i] == ']')	curlyBracket--;
+			else squareBracket--;
+			
+			S.pop();
+		}
+	}
+	return S.empty() ? true : false;
+}
+
+int main()
+{
+	std::string exp; std::cin >> exp;
+	areParanthesesBalanced(exp) ? std::cout << "valid\n" : std::cout << "invalid\n";
+	return 0;
+}
+```
+
 #### Example:
 For example if we know that the parantheses int he input string are balanced, we can extract all expressions from that given string which are within parantheses:
 

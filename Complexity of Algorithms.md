@@ -216,7 +216,7 @@ int[] Union(int[] firstArr, int[] secondArr)
 - Runs in quadratic time <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(m.n)">
 - The number of elementary steps is <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sim{m.n}">
 
-#### Example 12
+#### Example 13
 ```cs
 while (n>2)
 {

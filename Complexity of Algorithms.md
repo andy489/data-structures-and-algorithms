@@ -223,4 +223,5 @@ while (n>2)
    n=sqrt(n);
 }
 ```
-- Runs in <img src="https://latex.codecogs.com/svg.latex?\Large&space;log(log(n))"> time 
+- Runs in logarithmic time 
+- The number of elementary steps is <img src="https://latex.codecogs.com/svg.latex?\Large&space;log(log(n))">

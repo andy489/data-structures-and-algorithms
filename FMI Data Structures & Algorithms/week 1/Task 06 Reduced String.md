@@ -24,7 +24,7 @@ A single string, **s**.
 
 If the final string is empty, print **Empty String**; otherwise, print the final non-reducible string.
 
-Wxample input|Expected output/\Explanation
+Wxample input|Expected output|Explanation
 -|-|-
 aaabccddd|abd|Steve performs the following sequence of operations to get the final string:<br>aaabccddd → abccddd → abddd → abd
 aa|Empty String|aa → Empty String

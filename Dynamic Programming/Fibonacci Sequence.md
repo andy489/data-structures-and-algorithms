@@ -4,8 +4,8 @@
   - The *first two* numbers are *0* and *1*
   - Each subsequent number is the sum of the previous two numbers
 - Recursive mathematical formula:
-  - <img src="https://latex.codecogs.com/svg.latex?\Large&space;F_0=0,{\;}F_1=1">
-  - <img src="https://latex.codecogs.com/svg.latex?\Large&space;F_n=F_{n-1}+F_{n-2}">
+  - <img src="https://latex.codecogs.com/svg.latex?\Large&space;f_0=0,{\;}f_1=1">
+  - <img src="https://latex.codecogs.com/svg.latex?\Large&space;f_n=f_{n-1}+f_{n-2}">
   
 ### Memorization
 - DP -> sub-problems *overlap*
@@ -80,13 +80,59 @@ int main()
 	return 0;
 }
 ```
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;\blacksquare"> **Smart approach*
+```cpp
+#define MAX 100
+#include <iostream> 
+
+// Create an array for memoization 
+unsigned long long f[MAX] = { 0 };
+
+// Returns n'th fuibonacci number using table f[] 
+unsigned long long fib(unsigned long long n) //O(log n) arithmatic operations 
+{
+	// Base cases 
+	if (n == 0) return 0;
+	if (n == 1 || n == 2) return (f[n] = 1);
+
+	// If fib(n) is already computed 
+	if (f[n]) return f[n];
+
+	size_t k = (n & 1) ? (n + 1) / 2 : n / 2;
+
+	// Applyting above formula [Note value n&1 is 1 if n is odd, else 0] .
+	f[n] = (n & 1) ? (fib(k) * fib(k) + fib(k - 1) * fib(k - 1))
+		: (2 * fib(k - 1) + fib(k)) * fib(k);
+
+	return f[n];
+}
+
+int main()
+{
+	size_t n; std::cin >> n;
+	std::cout << fib(n) << '\n';
+	return 0;
+}
+```
+Here in the *smart approach* we used that Karatsuba's method for finding <img src="https://latex.codecogs.com/svg.latex?\Large&space;k-th"> power of an object with complexity <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(log(n))"> works for matrices (**matrix multiplication is associative**).<br>
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;\bigg(\begin{matrix}1&1\\1&0\end{matrix}\bigg)=\bigg(\begin{matrix}f_2&f_1\\f_1&f_0\end{matrix}\bigg)">. We can show usign *induction* that <img src="https://latex.codecogs.com/svg.latex?\Large&space;f_n=\bigg(\begin{matrix}1&1\\1&0\end{matrix}\bigg)^{(n-1)}">
+
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;f_3=\bigg(\begin{matrix}1&1\\1&0\end{matrix}\bigg)^{(2)}=\bigg(\begin{matrix}1&1\\1&0\end{matrix}\bigg)\bigg(\begin{matrix}1&1\\1&0\end{matrix}\bigg)=\bigg(\begin{matrix}1+1&1+0\\1+0&1+0\end{matrix}\bigg)=\bigg(\begin{matrix}2&1\\1&1\end{matrix}\bigg)=\bigg(\begin{matrix}f_3&f_2\\f_2&f_1\end{matrix}\bigg)">
+
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;f_4=\bigg(\begin{matrix}1&1\\1&0\end{matrix}\bigg)^{(3)}=\bigg(\begin{matrix}1&1\\1&0\end{matrix}\bigg)^{(2)}\bigg(\begin{matrix}1&1\\1&0\end{matrix}\bigg)=\bigg(\begin{matrix}2&1\\1&1\end{matrix}\bigg)\bigg(\begin{matrix}1&1\\1&0\end{matrix}\bigg)=\bigg(\begin{matrix}2+1&2+0\\1+1&1+0\end{matrix}\bigg)=\bigg(\begin{matrix}3&2\\2&1\end{matrix}\bigg)=\bigg(\begin{matrix}f_4&f_3\\f_3&f_2\end{matrix}\bigg)">
+
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;f_{n+1}=\bigg(\begin{matrix}f_{n+1}&f_n\\f_n&f_{n-1}\end{matrix}\bigg)\bigg(\begin{matrix}1&1\\1&0\end{matrix}\bigg)=\bigg(\begin{matrix}f_{n+1}+f_n&f_{n+1}\\f_n+f_{n-1}&f_n\end{matrix}\bigg)=\bigg(\begin{matrix}f_{n+2}&f_{n+1}\\f_{n+1}&f_n\end{matrix}\bigg)">
+
 #### Compare Fibonacci solutions
 - Recursive Fibonacci (divide-and-conquer, no memorization)
-  - Complexity : <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sim{O(1.6^n)}"> - *exponential*
+  - Complexity : <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sim{O(\varphi^n)}\sim{O(1.6^n)}"> - *exponential*
 - *Top-down* dynamic programming (recursive with memorization)
   - Complexity : <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sim{O(n)}"> - *linear*
 - *Bottom-up* dynamic programming (iterative)
   - Complexity : <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sim{O(n)}"> - *linear*
+- *Smart approach*
+  - Complexity : <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sim{O(log(n))}"> - *logarithmic*
+  
 #### If we want to find the <img src="https://latex.codecogs.com/svg.latex?\Large&space;36^{th}"> Fibonacci number:
 - Recursive solution takes <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sim{48{\:}315{\:}633}"> steps
 - Dynamic programming solution takes <img src="https://latex.codecogs.com/svg.latex?\Large&space;\sim{36}"> steps

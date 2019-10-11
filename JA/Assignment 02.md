@@ -70,7 +70,7 @@ int main()
 ## Task 2 – Similarity
 
 We will consider two words – **W1** and **W2** – “similar” if:<br>
-- they have the same length<>
+- they have the same length
 - they start with the same letter
 - a minimum percentage – P – of their letters match (a letter in **W1** matches a letter in **W2** if the two letters are the same symbol and are at the same position in both words).<br>
 For example, if **W1 = “kittens”** and **W2 = “kidding”**, the matching letters would be **k, i,** and **n**. That gives us **3** matching letters out of **7** letters, which is about **42.8%** of the letters. If **P = 40**, then we would say the words match. If **P = 43**, we would say the words don’t match.

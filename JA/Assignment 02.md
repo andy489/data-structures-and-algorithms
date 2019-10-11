@@ -66,3 +66,83 @@ int main()
 	return 0;
 }
 ```
+
+## Task 2 – Similarity
+
+We will consider two words – **W1** and **W2** – “similar” if:<br>
+- they have the same length<>
+- they start with the same letter
+- a minimum percentage – P – of their letters match (a letter in **W1** matches a letter in **W2** if the two letters are the same symbol and are at the same position in both words).<br>
+For example, if **W1 = “kittens”** and **W2 = “kidding”**, the matching letters would be **k, i,** and **n**. That gives us **3** matching letters out of **7** letters, which is about **42.8%** of the letters. If **P = 40**, then we would say the words match. If **P = 43**, we would say the words don’t match.
+
+A word is any uninterrupted sequence of lowercase English letters (**a-z**). So, punctuation or spaces surround a word from both “sides” (unless the word is at the start and/or end of the text).
+
+Write a program, which reads a line of lowercase text **T** (letters and punctuation, but no numbers), a lowercase word W (letters only) and an integer number **P** and prints out how many words similar to **W** there are in the text.
+#### Input
+The first line will contain the text **T**, containing lowercase English letters (a-z) and punctuation (**.,;!?** and space).<br>
+The second line of input will contain a single word **W**, containing only lowercase English letters (**a-z**), followed by a single space and the integer **P**.
+#### Output
+A single line containing an integer number – the number of words similar to **W** in the text **T**.
+#### Restrictions
+The text **T** will be no longer than **500** symbols and no shorter than **1** symbol. The word **W** will be no longer than **30** symbols and no shorter than **1** symbol. **P** will be between **1** and **100**, inclusive.<br>
+The total running time of your program should be no more than **0.1s** <br>
+The total memory allowed for use by your program is **16MB** <br>
+
+
+Example Input|Expected Output
+kittens,kidding.<br>kittenz 40|2
+abcd<br>dcba 1|0
+aaaa aabb abbb baaa<br>aaaa 50|2
+aaaa<br>aa 1|0
+
+#### Solution
+
+```cpp
+#include <iostream>
+#include <string.h>
+#include <string>
+
+bool match(const std::string& word1, const std::string& word2, int percent)
+{
+	if (word1.length() != word2.length() || word1[0] != word2[0]) return false;
+
+	int count = 0;
+
+	for (size_t i = 0; i < word1.length(); i++)
+		if (word1[i] == word2[i])
+			count++;
+
+	float percent_match = 100.0f * count / word1.length();
+
+	return percent_match >= percent;
+}
+
+int parse(const std::string& text, const std::string& word, int percent)
+{
+	int count = 0;
+
+	std::string delimiters(".,;!? ");
+	char* next_token = nullptr;
+	char* token = strtok_s(const_cast<char*>(text.c_str()), delimiters.c_str(), &next_token);
+
+	while (token != nullptr)
+	{
+		if (match(token, word, percent)) count++;
+
+		token = strtok_s(nullptr, delimiters.c_str(), &next_token);
+	}
+	return count;
+}
+
+int main()
+{
+	std::string text; getline(std::cin, text);
+	std::string word;
+	int P;
+	std::cin >> word >> P;
+
+	std::cout << parse(text, word, P) << std::endl;
+
+	return 0;
+}
+```

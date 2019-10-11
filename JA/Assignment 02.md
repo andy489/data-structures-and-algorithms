@@ -289,6 +289,6 @@ Example Input|Expected Output
 5 3<br>a a a<br>a a a<br>a b a<br>a b a<br>a b a<br>x<br>2 1|aaa<br>aaa<br>axa<br>axa<br>axa
 5 6<br>o o 1 1 o o<br>o 1 o o 1 o<br>1 o o o o 1<br>o 1 o o 1 o<br>o o 1 1 o o<br>3<br>2 1|oo11oo<br>o1331o<br>133331<br>o1331o<br>oo11oo
 5 6<br>o o o o o o<br>o o o 1 o o<br>o o 1 o 1 1<br>o 1 1 w 1 o<br>1 o o o o o<br>z<br>4 1|oooooo<br>ooo1oo<br>oo1o11<br>o11w1z<br>1zzzzz
-5 6|o 1 o o 1 o<br>o 1 o o 1 o<br>o 1 1 1 1 o<br>o 1 o w 1 o<br>o o o o o o<br>z<br>4 0|z1oo1z<br>z1oo1z<br>z1111z<br>z1zw1z<br>zzzzzz
+5 6<br>o 1 o o 1 o<br>o 1 o o 1 o<br>o 1 1 1 1 o<br>o 1 o w 1 o<br>o o o o o o<br>z<br>4 0|z1oo1z<br>z1oo1z<br>z1111z<br>z1zw1z<br>zzzzzz
 
 

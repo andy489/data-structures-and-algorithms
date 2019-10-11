@@ -147,3 +147,114 @@ int main()
 	return 0;
 }
 ```
+## Task 3 – Machine
+You are tasked with implementing software for a computational machine, which does basic operations with integer numbers. The machine has memory in the form of a sequence of numbers. When it does an operation, it takes (removes) numbers from the end of the sequence, calculates the result using those numbers and puts it back at the end of the sequence. There are also some operations which only add at the end or only remove from the end of the sequence. Here’s a list:
+- Inserting a number. Syntax: an integer number, (can be positive, negative or **0**). Inserts a number at the end of the sequence (i.e. appends to the end of the sequence).
+- Summing last two numbers. Syntax: **sum**. Removes the last two numbers in the sequence, calculates their sum and adds it to the end of the sequence.
+- Subtracting last two numbers. Syntax: **subtract**. Removes the last element from the sequence and calls it **a**. Removes the next last element (again) and calls it **b**. Subtracts the two, i.e. **a - b** and adds the result to the end of the sequence. 
+E.g. if the sequence is **(1, 4, 7)**, then **subtract** will remove **7** and **4**, calculate **7 - 4** and add it to the sequence – the resulting sequence will be **(1, 3)**
+- Concatenation of last two numbers. Syntax: **concat**. Concatenates the last two elements in the sequence (as if they were strings), in the order they were added to it, evaluates the result to an integer and adds it to the end of the sequence.
+E.g. if the sequence is **(1, 4, 7)**, then **concat** will remove **7** and **4**, concatenate **4** and **7**, resulting in **47**, and add it to the sequence – the resulting sequence will be **(1, 47)**
+- Discarding the last number. Syntax: **discard**. Removes the last element from the sequence.
+- Ending the computations. Syntax: **end**. Stops the machine (ends the program)<br>
+Write a program which does the operations described above and prints out the final sequence of numbers, from first to last (i.e. in the order in which they were added).
+#### Input
+Two or more lines, each indicating an operation to be done with the machine (note that a line containing a single integer is the “Inserting a number” operation). The final line will not contain numbers and will only contain the string **"end"**
+#### Output
+One or more lines, each containing a single integer, representing the numbers in the final sequence.
+#### Restrictions
+There will be no more than **50** lines of operations in the input. The concat operation will never be done when the last element in the sequence is negative. All operations will be valid – i.e. the input data is such that there will always be enough numbers in the sequence for an operation to be executed correctly. The input will be such that there will be at least 1 number in the final sequence<br>
+The total running time of your program should be no more than **0.1s** <br>
+The total memory allowed for use by your program is **16MB** <br>
+
+Example Input|Expected Output
+1<br>4<br>sum<br>end|5
+1<br>4<br>subtract<br>7<br>end|3<br>7
+3<br>10<br>1<br>-1<br>sum<br>concat<br>sum<br>end|103
+
+#### Solution
+
+```cpp
+#include <iostream>
+#include <stack>
+#include <string>
+#include <cmath>
+
+bool isInteger(const std::string& s)
+{
+	if (s.empty() ||
+		((!isdigit(s[0]))
+			&& (s[0] != '-')
+			&& (s[0] != '+'))) return false;
+
+	char* p;
+	strtol(s.c_str(), &p, 10);
+	return (*p == 0);
+}
+
+size_t digits(int num)
+{
+	if (num == 0) return 1;
+	else return (size_t)log10(num) + 1;
+}
+
+int main()
+{
+	std::stack<int> CALC;
+	std::string command;
+
+	do
+	{
+		std::cin >> command;
+		if (isInteger(command))
+		{
+			CALC.push(stoi(command));
+		}
+		else if (command == "sum")
+		{
+			int sum(0);
+			sum += CALC.top();CALC.pop();
+			sum += CALC.top();CALC.pop();
+			CALC.push(sum);
+		}
+		else if (command == "sum")
+		{
+			int sum(0);
+			sum += CALC.top();CALC.pop();
+			sum += CALC.top();CALC.pop();
+			CALC.push(sum);
+		}
+		else if (command == "subtract")
+		{
+			int a = CALC.top();CALC.pop();
+			int b = CALC.top();CALC.pop();
+			CALC.push(a - b);
+		}
+		else if (command == "concat")
+		{
+			int a = CALC.top();CALC.pop();
+			int b = CALC.top();CALC.pop();
+			int digitsOfa = digits(a);
+			int expand = b * pow(10, digits(a));
+			CALC.push(expand + a);
+		}
+		else if (command == "discard")
+		{
+			CALC.pop();
+		}
+	} while (command != "end");
+
+	std::stack<int>RESULT;
+	while (!CALC.empty())
+	{
+		RESULT.push(CALC.top());
+		CALC.pop();
+	}
+	while (!RESULT.empty())
+	{
+		std::cout << RESULT.top() << '\n';
+		RESULT.pop();
+	}
+	return 0;
+}
+```

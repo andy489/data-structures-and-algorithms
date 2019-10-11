@@ -90,6 +90,7 @@ The total memory allowed for use by your program is **16MB** <br>
 
 
 Example Input|Expected Output
+-|-
 kittens,kidding.<br>kittenz 40|2
 abcd<br>dcba 1|0
 aaaa aabb abbb baaa<br>aaaa 50|2

@@ -168,6 +168,7 @@ The total running time of your program should be no more than **0.1s** <br>
 The total memory allowed for use by your program is **16MB** <br>
 
 Example Input|Expected Output
+-|-
 1<br>4<br>sum<br>end|5
 1<br>4<br>subtract<br>7<br>end|3<br>7
 3<br>10<br>1<br>-1<br>sum<br>concat<br>sum<br>end|103

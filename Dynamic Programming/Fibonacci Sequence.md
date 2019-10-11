@@ -80,7 +80,7 @@ int main()
 	return 0;
 }
 ```
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;\blacksquare"> **Smart approach*
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;\blacksquare"> **Smart approach**
 ```cpp
 #define MAX 100
 #include <iostream> 

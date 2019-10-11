@@ -293,7 +293,8 @@ Example Input|Expected Output
 
 #### Solution
 
-```cpp#include <iostream>
+```cpp
+#include <iostream>
 
 // Global variables (just to be visible in all functions)
 int R, C; char fillChar, startChar; 
@@ -386,4 +387,3 @@ void display()
 	}
 }
 ```
-

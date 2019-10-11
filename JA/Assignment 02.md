@@ -25,7 +25,7 @@ Example Input|Expected Output
 #### Solution
 
 ```cpp
-include<iostream> 
+#include<iostream> 
 #include<string> 
 #include <iomanip>
 #include <cmath>

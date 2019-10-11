@@ -291,4 +291,99 @@ Example Input|Expected Output
 5 6<br>o o o o o o<br>o o o 1 o o<br>o o 1 o 1 1<br>o 1 1 w 1 o<br>1 o o o o o<br>z<br>4 1|oooooo<br>ooo1oo<br>oo1o11<br>o11w1z<br>1zzzzz
 5 6<br>o 1 o o 1 o<br>o 1 o o 1 o<br>o 1 1 1 1 o<br>o 1 o w 1 o<br>o o o o o o<br>z<br>4 0|z1oo1z<br>z1oo1z<br>z1111z<br>z1zw1z<br>zzzzzz
 
+#### Solution
+
+```cpp#include <iostream>
+
+// Global variables (just to be visible in all functions)
+int R, C; char fillChar, startChar; 
+char** matrix;
+
+char** input();
+void release();
+bool isInRange(int x, int y);
+
+
+void BFS(int x, int y) // Classic Breath First Search
+{
+	if (isInRange(x, y) && matrix[x][y] == startChar)
+	{
+		matrix[x][y] = fillChar;
+	}
+	else return;	
+
+	BFS(x - 1, y); // Up
+	BFS(x, y + 1); // Right
+	BFS(x + 1, y); // Down
+	BFS(x, y - 1); // Left
+}
+
+void display();
+
+int main()
+{
+	std::cin >> R >> C;
+	matrix = input();
+
+	std::cin >> fillChar;
+
+	int x, y; std::cin >> x >> y;
+
+	if (isInRange(x, y)) startChar = matrix[x][y];
+
+	BFS(x, y);
+
+	display();
+
+	release();
+	return 0;
+}
+
+bool isInRange(int x, int y)
+{
+	if (x < 0 || x >= R || y < 0 || y >= C)
+	{
+		return false;
+	}
+	return true;
+}
+
+void release()
+{
+	for (int i = 0; i < R; i++)
+	{
+		delete[] matrix[i];
+	}
+	delete[] matrix;
+}
+
+char** input()
+{
+	matrix = new char* [R];
+	for (int i = 0; i < R; i++)
+	{
+		matrix[i] = new char[C];
+	}
+	for (int i = 0; i < R; i++)
+	{
+		for (int j = 0; j < C; j++)
+		{
+			std::cin >> matrix[i][j];
+		}
+	}
+	return matrix;
+}
+
+void display()
+{
+	for (int i = 0; i < R; i++)
+	{
+		for (int j = 0; j < C; j++)
+		{
+			std::cout << matrix[i][j];
+		}
+		std::cout << '\n';
+	}
+}
+```
 

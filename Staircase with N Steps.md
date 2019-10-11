@@ -14,10 +14,10 @@ What if, instead of being able to climb **1** or **2** steps at a time, you coul
 
 It's always good to start off with some test cases. Let's start with small cases and see if we can find some sort of pattern.
 
-- **N = 1: [1]
-- **N = 2: [1, 1], [2]
-- **N = 3: [1, 2], [1, 1, 1], [2, 1]
-- **N = 4: [1, 1, 2], [2, 2], [1, 2, 1], [1, 1, 1, 1], [2, 1, 1]
+- **N = 1: [1]**
+- **N = 2: [1, 1], [2]**
+- **N = 3: [1, 2], [1, 1, 1], [2, 1]**
+- **N = 4: [1, 1, 2], [2, 2], [1, 2, 1], [1, 1, 1, 1], [2, 1, 1]**
 
 What's the relationship?
 

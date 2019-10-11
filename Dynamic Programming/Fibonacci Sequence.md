@@ -114,7 +114,7 @@ int main()
 	return 0;
 }
 ```
-Here in the *smart approach* we used that Karatsuba's method for finding <img src="https://latex.codecogs.com/svg.latex?\Large&space;k-th"> power of an object with complexity <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(log(n))"> works for matrices (**matrix multiplication is associative**).<br>
+*Smart approach*: we used that the *Karatsuba's* method for finding <img src="https://latex.codecogs.com/svg.latex?\Large&space;k-th"> power of an object with complexity <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(log(n))"> works for matrices (**matrix multiplication is associative**).<br>
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;\bigg(\begin{matrix}1&1\\1&0\end{matrix}\bigg)=\bigg(\begin{matrix}f_2&f_1\\f_1&f_0\end{matrix}\bigg)">. We can show usign *induction* that <img src="https://latex.codecogs.com/svg.latex?\Large&space;f_n=\bigg(\begin{matrix}1&1\\1&0\end{matrix}\bigg)^{(n-1)}">
 
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;f_3=\bigg(\begin{matrix}1&1\\1&0\end{matrix}\bigg)^{(2)}=\bigg(\begin{matrix}1&1\\1&0\end{matrix}\bigg)\bigg(\begin{matrix}1&1\\1&0\end{matrix}\bigg)=\bigg(\begin{matrix}1+1&1+0\\1+0&1+0\end{matrix}\bigg)=\bigg(\begin{matrix}2&1\\1&1\end{matrix}\bigg)=\bigg(\begin{matrix}f_3&f_2\\f_2&f_1\end{matrix}\bigg)">

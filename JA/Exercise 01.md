@@ -363,7 +363,8 @@ void detonateSignleMine(Point& p, std::vector<std::vector<int>>& matrix)
 	}
 }
 
-void detonateMines(std::queue<Point>& mines, std::vector<std::vector<int>>& output)
+void detonateMines(std::queue<Point>& mines, 
+		std::vector<std::vector<int>>& output)
 {
 	while (!mines.empty())
 	{
@@ -389,7 +390,8 @@ int main()
 {
 	std::vector<std::vector<char>> matrix = readInput();
 
-	std::vector<std::vector<int>> output(matrix.size(), std::vector<int>(matrix[0].size(), 0));
+	std::vector<std::vector<int>> output(matrix.size(), 
+			std::vector<int>(matrix[0].size(), 0));
 
 	std::queue<Point> mines = findAllMines(matrix);
 
@@ -417,3 +419,150 @@ Input|Output
 ..........<br>....!.....<br>..........<br>..........<br>..........<br>..........<br>..........<br>..........<br>..........<br>..........<br>4|.!!!!!!!..<br>!!!!!!!!!.<br>.!!!!!!!..<br>..!!!!!...<br>...!!!....<br>....!.....<br>..........<br>..........<br>..........<br>..........
 ..........<br>....!.....<br>...###....<br>..........<br>..........<br>..........<br>..........<br>..........<br>..........<br>..........<br>5|!!!!!!!!!.<br>!!!!!!!!!!<br>!!!###!!!.<br>.!!!.!!!..<br>..!...!...<br>..........<br>..........<br>..........<br>..........<br>..........
 !........!<br>..........<br>..........<br>..........<br>..........<br>..........<br>..........<br>..........<br>..........<br>!........!<br>5|!!!!!!!!!!<br>!!!!!!!!!!<br>!!!!..!!!!<br>!!!....!!!<br>!!......!!<br>!!......!!<br>!!!....!!!<br>!!!!..!!!!<br>!!!!!!!!!!<br>!!!!!!!!!!<br>
+
+#### Solution
+
+```cpp
+#include <iostream>
+#include <string>
+#include <queue>
+
+struct Point
+{
+	int x, y;
+	Point(int x, int y) :x(x), y(y) {};
+};
+
+bool isNumber(const std::string& s)
+{
+	std::string::const_iterator it = s.begin();
+	while (it != s.end() && std::isdigit(*it)) ++it;
+	return !s.empty() && it == s.end();
+}
+
+std::vector<std::string> readInput(int& rust)
+{
+	std::vector<std::string> matrix; matrix.reserve(10);
+	rust;
+	std::string line; getline(std::cin, line);
+
+	while (!isNumber(line))
+	{
+		matrix.push_back(line);
+		getline(std::cin, line);
+	}
+	rust = std::stoi(line);
+	return matrix;
+}
+
+std::queue<Point> findAllMines(const std::vector<std::string>& matrix)
+{
+	std::queue<Point> Q;
+
+	const int ROWS = (int)matrix.size();
+	for (int i = 0; i < ROWS; i++)
+	{
+		const int COLS = (int)matrix[i].size();
+		for (int j = 0; j < COLS; j++)
+		{
+			if (matrix[i][j] == '!') // rust found!
+			{
+				Point M(i, j);
+				Q.push(M);
+			}
+		}
+	}
+
+	return Q;
+}
+
+bool isInRange(const Point& p, const std::vector<std::string>& matrix)
+{
+	if (p.x >= 0 && p.x < (int)matrix.size() && p.y >= 0 && p.y < (int)matrix[p.x].size()
+		&& matrix[p.x][p.y] != '#')
+	{
+		return true;
+	}
+	return false;
+}
+
+void detonateSignleMine(Point& p, std::vector<std::string>& matrix)
+{
+	int a[] = { -1, 0, 0, 1,0 };
+	int b[] = { 0,-1, 1, 0,0 };
+	int SIZE = sizeof(a) / sizeof(a[0]);
+	for (size_t k = 0; k < SIZE; k++)
+	{
+		Point q(p.x + a[k], p.y + b[k]);
+		if (isInRange(q, matrix))
+		{
+			matrix[q.x][q.y] = '!';
+		}
+	}
+}
+
+void detonateMines(std::queue<Point>& mines, std::vector<std::string>& output)
+{
+	while (!mines.empty())
+	{
+		Point p(mines.front());
+		mines.pop();
+		detonateSignleMine(p, output);
+	}
+}
+
+void display(const std::vector<std::string> output)
+{
+	for (auto& i : output)
+	{
+		for (auto j : i)
+		{
+			std::cout << j;
+		}
+		std::cout << '\n';
+	}
+}
+
+std::vector<std::string> clone(const std::vector<std::string>& matrix)
+{
+	size_t SIZE = matrix.size();
+	std::vector<std::string> cloneMatrix(SIZE);
+	for (size_t i = 0; i < SIZE; i++)
+	{
+		cloneMatrix[i] = std::string(matrix[i].size(),'.');
+	}
+	for (size_t i = 0; i < SIZE; i++)
+	{
+		for (size_t j = 0; j < cloneMatrix[i].size(); j++)
+		{
+			cloneMatrix[i][j] = matrix[i][j];
+		}
+	}
+	return cloneMatrix;
+}
+
+int main()
+{
+	int rust;
+
+	std::vector<std::string> matrix = readInput(rust);
+
+	std::vector<std::string> output = clone(matrix);
+
+	std::queue<Point> mines;
+
+	mines = findAllMines(matrix);
+
+	detonateMines(mines, output);
+
+	for (size_t i = 0; i < rust - 1; i++)
+	{
+		mines = findAllMines(output);
+		detonateMines(mines, output);
+	}
+
+	display(output);
+
+	return 0;
+}
+```

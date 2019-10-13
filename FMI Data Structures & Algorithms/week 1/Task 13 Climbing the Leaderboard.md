@@ -1,237 +1,75 @@
 ## Task 13.
 
-Alice is playing an arcade game and wants to climb to the top of the leaderboard and wants to track her ranking. The game uses Dense Ranking, so its leaderboard works like this:
+Alice is playing an arcade game and wants to climb to the top of the leaderboard and wants to track her ranking. The game uses [Dense Ranking](https://en.wikipedia.org/wiki/Ranking#Dense_ranking_.28.221223.22_ranking.29), so its leaderboard works like this:
+- The player with the highest score is ranked number **1** on the leaderboard.
+- Players who have equal scores receive the same ranking number, and the next player(s) receive the immediately following ranking number.
 
-    The player with the highest score is ranked number 
+For example, the four players on the leaderboard have high scores of **100, 90, 90**, and **80**. Those players will have ranks **1, 2, 2** and **3**, respectively. If Alice's scores are **70, 80** and **105**, her rankings after each game are <img src="https://latex.codecogs.com/svg.latex?\Large&space;4^{th}">, <img src="https://latex.codecogs.com/svg.latex?\Large&space;3^{rd}"> and <img src="https://latex.codecogs.com/svg.latex?\Large&space;1^{st}">.
 
-    on the leaderboard.
-    Players who have equal scores receive the same ranking number, and the next player(s) receive the immediately following ranking number.
+#### Function Description
 
-For example, the four players on the leaderboard have high scores of
-, , , and . Those players will have ranks , , , and , respectively. If Alice's scores are , and , her rankings after each game are , and
-
-.
-
-Function Description
-
-Complete the climbingLeaderboard function in the editor below. It should return an integer array where each element
-represents Alice's rank after the
-
-game.
+Write a climbingLeaderboard function. It should return an integer array where each element <img src="https://latex.codecogs.com/svg.latex?\Large&space;res[j]"> represents Alice's rank after the <img src="https://latex.codecogs.com/svg.latex?\Large&space;j^{th}"> game.
 
 climbingLeaderboard has the following parameter(s):
+- scores: an array of integers that represent leaderboard scores
+- alice: an array of integers that represent Alice's scores
 
-    scores: an array of integers that represent leaderboard scores
-    alice: an array of integers that represent Alice's scores
+#### Input Format
 
-Input Format
+The first line contains an integer <img src="https://latex.codecogs.com/svg.latex?\Large&space;n">, the number of players on the leaderboard.<br>
+The next line contains <img src="https://latex.codecogs.com/svg.latex?\Large&space;n"> space-separated integers <img src="https://latex.codecogs.com/svg.latex?\Large&space;scores[i]">, the leaderboard scores in decreasing order.<br>
+The next line contains an integer, <img src="https://latex.codecogs.com/svg.latex?\Large&space;m">, denoting the number games Alice plays.
+The last line contains <img src="https://latex.codecogs.com/svg.latex?\Large&space;m"> space-separated integers <img src="https://latex.codecogs.com/svg.latex?\Large&space;alice[j]">, the game scores.
 
-The first line contains an integer
-, the number of players on the leaderboard.
-The next line contains space-separated integers , the leaderboard scores in decreasing order.
-The next line contains an integer, , denoting the number games Alice plays.
-The last line contains space-separated integers
+#### Constraints
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{n}\le{2\times}10^5"><br>
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{m}\le{2\times}10^5"><br>
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;0\le{scores[i]}\le{10^9}"> for <img src="https://latex.codecogs.com/svg.latex?\Large&space;0\le{i}\le{n}"><br>
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;0\le{alice[i]}\le{10^9}"> for <img src="https://latex.codecogs.com/svg.latex?\Large&space;0\le{j}\le{m}"><br>
+- The existing leaderboard, <img src="https://latex.codecogs.com/svg.latex?\Large&space;scores">, is in descending order.
+- Alice's scores, <img src="https://latex.codecogs.com/svg.latex?\Large&space;alice">, are in ascending order.
 
-, the game scores.
+#### Subtask
+For <img src="https://latex.codecogs.com/svg.latex?\Large&space;60%"> of the maximum score:
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{n}\le{200}">
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{m}\le{200}">
 
-Constraints
+#### Output Format
 
-for for The existing leaderboard,
-, is in descending order.
-Alice's scores,
+Print <img src="https://latex.codecogs.com/svg.latex?\Large&space;m"> integers. The <img src="https://latex.codecogs.com/svg.latex?\Large&space;j^{th}"> integer should indicate Alice's rank after playing the <img src="https://latex.codecogs.com/svg.latex?\Large&space;j^{th}"> game.
 
-    , are in ascending order.
+**Sample Input 1**
 
-Subtask
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Alice%2001.png)
 
-For
+Input|Output
+-|-
+7<br>100 100 50 40 40 20 10<br>4<br>5 25 50 120|6<br>4<br>2<br>1
 
-of the maximum score:
+**Explanation 1**<br> Alice starts playing with **7** players already on the leaderboard, which looks like this:
 
-Output Format
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Alice%2002.png)
 
-Print
-integers. The integer should indicate Alice's rank after playing the
+After Alice finishes game **0**, her score is **5** and her ranking is **6**:
 
-game.
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Alice%2003.png)
 
-Sample Input 1
-CopyDownload
+After Alice finishes game **1**, her score is **25** and her ranking is **4**:
 
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Alice%2004.png)
 
+After Alice finishes game **2**, her score is **50** and her ranking is tied with Caroline at **2**:
 
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Alice%2005.png)
 
-Array: scores
+After Alice finishes game **3**, her score is **120** and her ranking is **1**:
 
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Alice%2006.png)
 
+**Sample Input 2**
 
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Alice%2007.png)
 
-100
-
-
-100
-
-
-50
-
-
-40
-
-
-40
-
-
-20
-
-
-10
-
-
-
- 
-
-
-
-
-
-
-Array: alice
-
-
-
-
-5
-
-
-25
-
-
-50
-
-
-120
-
-
-
- 
-
-7
-100 100 50 40 40 20 10
-4
-5 25 50 120
-
-Sample Output 1
-
-6
-4
-2
-1
-
-Explanation 1
-
-Alice starts playing with
-
-players already on the leaderboard, which looks like this:
-
-image
-
-After Alice finishes game
-, her score is and her ranking is
-
-:
-
-image
-
-After Alice finishes game
-, her score is and her ranking is
-
-:
-
-image
-
-After Alice finishes game
-, her score is and her ranking is tied with Caroline at
-
-:
-
-image
-
-After Alice finishes game
-, her score is and her ranking is
-
-:
-
-image
-
-Sample Input 2
-CopyDownload
-
-
-
-
-Array: scores
-
-
-
-
-100
-
-
-90
-
-
-90
-
-
-80
-
-
-75
-
-
-60
-
-
-
- 
-
-
-
-
-
-
-Array: alice
-
-
-
-
-50
-
-
-65
-
-
-77
-
-
-90
-
-
-102
-
-
-
- 
-
-6
-100 90 90 80 75 60
-5
-50 65 77 90 102
-
-Sample Output 2
-
-6
-5
-4
-2
-1
+Input|Output
+-|-
+6<br>100 90 90 80 75 60<br>5<br>50 65 77 90 102|6<br>5<br>4<br>2<br>1

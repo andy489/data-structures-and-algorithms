@@ -274,7 +274,7 @@ Example Input|Expected Output
 abab1bca98abab1.|bca98
 44444111112222244444222224444444444.|11111
 01aefabcdeabcde01aef01aefb00b501aef.|b00b5
-#### Solution
+#### Solution 1
 
 ```cpp
 #define DNA_LENGTH 6
@@ -293,7 +293,58 @@ int main()
 	return 0;
 }
 ```
-## Task 5 - Divisible by 45
+#### Solution 2
+
+```cpp
+#include<iostream>
+#include<iomanip>
+
+int hexSymbolToDecimal(char hex) 
+{
+	if (hex >= 'a') 
+	{
+		return 10 + (hex - 'a');
+	}
+	else 
+	{
+		return hex - '0';
+	}
+}
+
+int main() 
+{
+	std::cin.sync_with_stdio(false);
+	std::cout.sync_with_stdio(false);
+
+	const unsigned int NumHexDigitsPerNumber = 5;
+
+	char input[NumHexDigitsPerNumber] = {};
+
+	size_t xorred = 0;
+
+	while (std::cin >> input[0])
+	{
+		if (input[0] == '.') 
+		{
+			break;
+		}
+
+		std::cin >> input[1] >> input[2] >> input[3] >> input[4];
+
+		int value = 0;
+		for (int i = 0; i < NumHexDigitsPerNumber; i++) 
+		{
+			value = value << 4; // this is equivalent to value *= 16;, but works faster than multiplication
+			value += hexSymbolToDecimal(input[i]);
+		}
+
+		xorred ^= value;
+	}
+
+	std::cout << std::hex << std::setfill('0') << std::setw(5) << xorred << std::endl;
+}
+```
+### Task 5 - Divisible by 45
 Your task is to write a program which finds all the numbers, which are divisible by 45, inside a specified range. 
 #### Input 
 Exactly **2** lines, each containing a single integer number – with an arbitrary length, but no more than **100** digits.<br>   

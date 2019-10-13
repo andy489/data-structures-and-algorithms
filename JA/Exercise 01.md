@@ -341,7 +341,8 @@ std::queue<Point> findAllMines(const std::vector<std::vector<char>>& matrix)
 bool isInRange(const Point& p, const std::vector<std::vector<int>>& matrix)
 {
 
-	if (p.x >= 0 && p.x < (int)matrix.size() && p.y >= 0 && p.y < (int)matrix[p.x].size())
+	if (p.x >= 0 && p.x < (int)matrix.size() && p.y >= 0 && 
+					p.y < (int)matrix[p.x].size())
 	{
 		return true;
 	}
@@ -478,7 +479,8 @@ std::queue<Point> findAllMines(const std::vector<std::string>& matrix)
 
 bool isInRange(const Point& p, const std::vector<std::string>& matrix)
 {
-	if (p.x >= 0 && p.x < (int)matrix.size() && p.y >= 0 && p.y < (int)matrix[p.x].size()
+	if (p.x >= 0 && p.x < (int)matrix.size() && p.y >= 0 &&
+				p.y < (int)matrix[p.x].size()
 		&& matrix[p.x][p.y] != '#')
 	{
 		return true;

@@ -304,7 +304,6 @@ char** input();
 void release();
 bool isInRange(int x, int y);
 
-
 void BFS(int x, int y) // Classic Breath First Search
 {
 	if (isInRange(x, y) && matrix[x][y] == startChar)

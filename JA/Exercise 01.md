@@ -120,7 +120,8 @@ int main()
 #include <vector>
 #include <string>
 
-void readInput(std::vector<int>& digits, std::string& input, std::string& fir, std::string& sec)
+void readInput(std::vector<int>& digits, std::string& input, 
+			std::string& fir, std::string& sec)
 {
 	std::cin >> input >> fir >> sec;
 

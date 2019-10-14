@@ -14,7 +14,7 @@ int binarySearchIterative(const std::vector<int>& vec, int X)
 			return mid;
 		}
 		else if (X < vec[mid]) /* discard anything which is on or after mid
-								because X is less than the middle element and A is sorted */
+					because X is less than the middle element and A is sorted */
 		{
 			high = mid - 1;
 		}

@@ -2,61 +2,121 @@
 #include <vector>
 
 // Iterative
-int binarySearchIterative(const std::vector<int>& vec, int X)
+int binarySearchIterativeFirst(const std::vector<int>& sorted, int X)
 {
-	int SIZE = (int)vec.size();
-	int low(0), high(SIZE - 1);
+	int firstFind = -1;
+	int SIZE = (int)sorted.size();
+	int low(0), high(SIZE);
 	while (low <= high)
 	{
-		int mid = low + (high - low) / 2; // better practice
-		if (X == vec[mid])
+		int mid = (low + high) / 2;
+		if (X == sorted[mid])
 		{
-			return mid;
+			firstFind = mid;
+			high = mid; // first
 		}
-		else if (X < vec[mid]) /* discard anything which is on or after mid
+		else if (X < sorted[mid]) /* discard anything which is on or after mid
 					because X is less than the middle element and A is sorted */
 		{
-			high = mid - 1;
+			high = mid;
 		}
 		else
 		{
-			low = mid + 1;
+			low = mid;
+		}
+		if (mid != (low + high) / 2) mid = (low + high) / 2;
+		else break;
+	}
+	return firstFind;
+}
+
+// Iterative
+int binarySearchIterativeLast(const std::vector<int>& sorted, int X)
+{
+	int lastFind = -1;
+	int SIZE = (int)sorted.size();
+	int low(0), high(SIZE);
+	while (low <= high)
+	{
+		int mid = (low + high) / 2; // better practice
+		if (X == sorted[mid])
+		{
+			lastFind = mid;
+			low = mid; // last
+		}
+		else if (X < sorted[mid]) /* discard anything which is on or after mid
+					because X is less than the middle element and A is sorted */
+		{
+			high = mid;
+		}
+		else
+		{
+			low = mid;
+		}
+		if (mid != (low + high) / 2) mid = (low + high) / 2;
+		else break;
+	}
+	return lastFind;
+}
+
+// Recursive
+int binarySearchRecursiveFirst(const std::vector<int>& sorted,int low,int high, int X)
+{
+	if (high>=low)
+	{
+		int mid = low + (high - low) / 2;
+		if ((mid==0||X>sorted[mid-1])&&sorted[mid]==X)
+		{
+			return mid;
+		}
+		else if (X>sorted[mid])
+		{
+			return binarySearchRecursiveFirst(sorted, mid + 1, high, X);
+		}
+		else
+		{
+			return binarySearchRecursiveFirst(sorted, low, mid-1, X);
 		}
 	}
 	return -1;
 }
 
 // Recursive
-int binarySearchRecursive(const std::vector<int>& vec, int low, int high, int X)
+int binarySearchRecursiveLast(const std::vector<int>& sorted, int low, int high, int X)
 {
-	if (low > high)
+	if (high >= low)
 	{
-		return -1;
+		int mid = low + (high - low) / 2;
+		if ((mid == sorted.size()-1 || X < sorted[mid + 1]) && sorted[mid] == X)
+		{
+			return mid;
+		}
+		else if (X < sorted[mid])
+		{
+			return binarySearchRecursiveLast(sorted, low, mid-1, X);
+		}
+		else
+		{
+			return binarySearchRecursiveLast(sorted, mid+1, high, X);
+		}
 	}
-	int mid = low + (high - low) / 2;
-	if (X == vec[mid])
-	{
-		return mid;
-	}
-	else if (X < vec[mid])
-	{
-		return binarySearchRecursive(vec, low, mid - 1, X);
-	}
-	else
-	{
-		return binarySearchRecursive(vec, mid + 1, high, X);
-	}
+	return -1;
 }
 
 int main()
 {
 	std::vector<int>vec; vec.reserve(1000);
 
-	vec = { 0,1,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987,1597 };
+	vec = { 0,0,1,2,4,4,4,8,8,8,8,8,8,8,8,8,8,9,9,9,14 };
 
-	std::cout << binarySearchIterative(vec, 8);
+	std::cout << "First encounter iterative: " << binarySearchIterativeFirst(vec, 8);
 	std::cout << '\n';
-	std::cout << binarySearchRecursive(vec, 0, (int)vec.size()-1, 8);
+	std::cout << "Last encounter iterative: " << binarySearchIterativeLast(vec, 8);
+	std::cout << '\n';
+	std::cout << "First encounter recursive: " << binarySearchRecursiveFirst(vec,0,vec.size()-1, 8);
+	std::cout << '\n';
+	std::cout << "Last encounter recursive: " << binarySearchRecursiveLast(vec, 0, vec.size() - 1, 8);
+	std::cout << '\n';
 
 	return 0;
 }

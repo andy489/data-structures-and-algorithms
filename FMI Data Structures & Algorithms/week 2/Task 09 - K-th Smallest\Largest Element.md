@@ -29,7 +29,8 @@ int KthSmallest(std::vector<int>& seq, int left, int right, int K)
 		int pos = partition(seq, left, right);
 
 		if (pos - left == K - 1) return seq[pos]; // SUCCESS! (position == K)
-		else if (pos - left > K - 1) return KthSmallest(seq, left, pos - 1, K); // Position is further 
+		// Position is further
+		else if (pos - left > K - 1) return KthSmallest(seq, left, pos - 1, K);  
 		else return KthSmallest(seq, pos + 1, right, K - pos + left - 1);
 	}
 	// If k is more than number of elements in array 

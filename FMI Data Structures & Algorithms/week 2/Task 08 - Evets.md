@@ -12,7 +12,7 @@
 
 ## Ограничения
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{N}\le{1000000}"><br>
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{B_i+T_i}\le{INT_MAX}">
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{B_i+T_i}\le{\infty}">
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{min\{B_i,T_i\}}">
 
 ## Изходен формат

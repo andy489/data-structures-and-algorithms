@@ -1,23 +1,24 @@
 #include <iostream>
 #include <vector>
-
+//#include <ctime>
 size_t partition(std::vector<int>& collection, int start, int end)
 {
-	size_t midIndex = start + (end - start) / 2;
-	std::swap(collection[midIndex], collection[end]);
+	size_t pivIndex = start + (end - start) / 2;
+	//size_t pivIndex = start + rand() % ((end - start) + 1);
+	std::swap(collection[pivIndex], collection[end]);
 
 	int pivot = collection[end];
-	size_t pIndex = start;
+	pivIndex = start;
 
 	for (int i = start; i < end; i++)
 	{
 		if (collection[i] <= pivot)
 		{
-			std::swap(collection[i], collection[pIndex++]);
+			std::swap(collection[i], collection[pivIndex++]);
 		}
 	}
-	std::swap(collection[pIndex], collection[end]);
-	return pIndex;
+	std::swap(collection[pivIndex], collection[end]);
+	return pivIndex;
 }
 
 void quickSort(std::vector<int>& collection, int start, int end)
@@ -29,13 +30,14 @@ void quickSort(std::vector<int>& collection, int start, int end)
 }
 
 int main()
-{	
-	std::vector<int> collection = {5, -3, 1, 9, 0, 22, 3, 8, 4, -2, 9};
+{
+	// srand((size_t)time(0));
+	std::vector<int> collection = { 5, -3, 1, 9, 0, 22, 3, 8, 4, -2, 9 };
 	int SIZE = (int)collection.size();
 
 	quickSort(collection, 0, SIZE - 1);
 
 	for (auto element : collection)	std::cout << element << ' ';
-	
+
 	return 0;
 }

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-size_t partition(std::vector<size_t>& stones, int start, int end)
+size_t partition(const std::vector<size_t>& stones, int start, int end)
 {
 	size_t midIndex = start + (end - start) / 2;
 	std::swap(stones[midIndex], stones[end]);
@@ -20,7 +20,7 @@ size_t partition(std::vector<size_t>& stones, int start, int end)
 	return pIndex;
 }
 
-void quickSort(std::vector<size_t>& stones, int start, int end)
+void quickSort(const std::vector<size_t>& stones, int start, int end)
 {
 	if (start >= end) return;
 	size_t pivot = partition(stones, start, end);
@@ -28,7 +28,7 @@ void quickSort(std::vector<size_t>& stones, int start, int end)
 	quickSort(stones, pivot + 1, end);
 }
 
-bool isPairPresent(std::vector<size_t>& stones, size_t SUM)
+bool isPairPresent(const std::vector<size_t>& stones, size_t SUM)
 {
 	int left(0), right(stones.size() - 1);
 

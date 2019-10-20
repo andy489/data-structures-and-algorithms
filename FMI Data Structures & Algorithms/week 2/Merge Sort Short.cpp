@@ -33,6 +33,6 @@ int main()
 	vi col(N);
 	F(i, 0, N) cin >> col[i];
 	mS(col);
-	for (auto& el : col) cout << el << ' ';
+	for (const auto& el : col) cout << el << ' ';
 	return 0;
 }

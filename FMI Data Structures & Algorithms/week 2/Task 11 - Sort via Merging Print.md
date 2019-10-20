@@ -26,18 +26,14 @@
 #include <vector>
 using namespace std;
 
-void merge(vector<int>& col, vector<int>& L, vector<int>& R, int& inv)
+void merge(vector<int>& col, vector<int>& L, vector<int>& R)
 {
 	int leftCount((int)L.size()), rightCount((int)R.size()), i(0), j(0), k(0);
 
 	while (i < leftCount && j < rightCount)
 	{
 		if (L[i] < R[j]) col[k++] = L[i++];
-		else
-		{
-			col[k++] = R[j++];
-			inv += leftCount - i;
-		}
+		else col[k++] = R[j++];
 	}
 	while (i < leftCount) col[k++] = L[i++];
 	while (j < rightCount) col[k++] = R[j++];
@@ -47,7 +43,7 @@ void merge(vector<int>& col, vector<int>& L, vector<int>& R, int& inv)
 	}
 }
 
-void mergeSort(vector<int>& col, int& inv)
+void mergeSort(vector<int>& col)
 {
 	int n((int)col.size()), mid, i;
 	if (n < 2)
@@ -57,6 +53,7 @@ void mergeSort(vector<int>& col, int& inv)
 	}
 
 	mid = (n + 1) / 2;
+	//mid = n/2;
 
 	vector<int>L(mid);
 	vector<int>R(n - mid);
@@ -64,19 +61,18 @@ void mergeSort(vector<int>& col, int& inv)
 	for (i = 0;i < mid;i++) L[i] = col[i];
 	for (i = mid;i < n;i++) R[i - mid] = col[i];
 
-	mergeSort(L, inv);
-	mergeSort(R, inv);
-	merge(col, L, R, inv);
+	mergeSort(L);
+	mergeSort(R);
+	merge(col, L, R);
 }
 
 int main()
 {
-	int N, inv(0); cin >> N;
+	int N; cin >> N;
 	vector<int> col(N);
 	for (int i = 0; i < N; i++) cin >> col[i];
-	mergeSort(col, inv);
-	// std::cout << "Inv: " << inv << '\n';
-	//	for (auto el : col)cout << el << ' ';
+	mergeSort(col);
+	//for (auto el : col)cout << el << ' ';
 	return 0;
 }
 

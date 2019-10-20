@@ -58,7 +58,6 @@ int main()
 	int N;cin >> N;
 	vi col(N);
 	for (int i = 0; i < N; i++) cin >> col[i];
-	for (auto el : col) cout << el << ' ';
 	cout << '\n';
 	quickSort(col, 0, N - 1);
 }

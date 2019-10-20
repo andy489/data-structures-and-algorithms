@@ -36,11 +36,8 @@ void merge(vector<int>& col, vector<int>& L, vector<int>& R)
 		else col[k++] = R[j++];
 	}
 	while (i < leftCount) col[k++] = L[i++];
-	while (j < rightCount) col[k++] = R[j++];
-	for (auto el : col)
-	{
-		cout << el << ' ';
-	}
+	while (j < rightCount) col[k++] = R[j++];	
+	for (auto el : col) cout << el << ' ';	
 }
 
 void mergeSort(vector<int>& col)

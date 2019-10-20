@@ -37,7 +37,7 @@ int main()
 
 	quickSort(collection, 0, SIZE - 1);
 
-	for (auto element : collection)	std::cout << element << ' ';
+	for (const auto& element : collection)	std::cout << element << ' ';
 
 	return 0;
 }

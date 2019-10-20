@@ -17,7 +17,7 @@
 
 Примерен вход|Очакван изход
 -|-
-5<br>4 3 1 5 2|<img src="https://latex.codecogs.com/svg.latex?\Large&space;\square{1}"> 3 2 5 4<br>1 3 ***2*** 4 5<br>1 2 4 ***3*** 5<br>1 2 3 ***4*** 5
+5<br>4 3 1 5 2|<img src="https://latex.codecogs.com/svg.latex?\Large&space;\boxed{1}"> 3 2 5 4<br>1 3 ***2*** 4 5<br>1 2 4 ***3*** 5<br>1 2 3 ***4*** 5
 
 ```cpp
 #include <iostream>

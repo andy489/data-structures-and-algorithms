@@ -28,21 +28,21 @@ using namespace std;
 
 void merge(vector<int>& col, vector<int>& L, vector<int>& R)
 {
-	int leftCount((int)L.size()), rightCount((int)R.size()), i(0), j(0), k(0);
+	size_t lCount(L.size()), rCount(R.size()), i(0), j(0), k(0);
 
-	while (i < leftCount && j < rightCount)
+	while (i < lCount && j < rCount)
 	{
 		if (L[i] < R[j]) col[k++] = L[i++];
 		else col[k++] = R[j++];
 	}
-	while (i < leftCount) col[k++] = L[i++];
-	while (j < rightCount) col[k++] = R[j++];	
-	for (auto el : col) cout << el << ' ';	
+	while (i < lCount) col[k++] = L[i++];
+	while (j < rCount) col[k++] = R[j++];
+	for (auto el : col) cout << el << ' ';
 }
 
 void mergeSort(vector<int>& col)
 {
-	int n((int)col.size()), mid, i;
+	size_t n(col.size()), mid, i;
 	if (n < 2)
 	{
 		cout << col[0] << ' ';
@@ -72,5 +72,4 @@ int main()
 	//for (auto el : col)cout << el << ' ';
 	return 0;
 }
-
 ```

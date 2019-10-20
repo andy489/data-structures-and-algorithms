@@ -44,6 +44,6 @@ int main()
 	vector<int> col = { 4,-2,8,9,3,4,-1,0,5,1 };
 	int inv = mergeSort(col);
 	cout << "Count of inversions: " << inv << '\n';
-	for (auto& el : col)cout << el << ' ';
+	for (const auto& el : col)cout << el << ' ';
 	return 0;
 }

@@ -82,48 +82,36 @@ int main()
 using namespace std;
 #define FOR(k, n) for (int k = 0; k < n; k++)
 typedef vector<int> vi;
-
 void merge(vi& col, vi& L, vi& R)
 {
 	size_t lCount(L.size()), rCount(R.size()), i(0), j(0), k(0);
-
 	while (i < lCount && j < rCount)
 	{
 		if (L[i] < R[j]) col[k++] = L[i++];
 		else col[k++] = R[j++];
 	}
-	while (i < lCount) col[k++] = L[i++];
-	while (j < rCount) col[k++] = R[j++];
+	while (i < lCount) col[k++] = L[i++];	while (j < rCount) col[k++] = R[j++];
 	for (auto el : col) cout << el << ' ';
 }
-
 void mergeSort(vi& col)
 {
 	size_t n(col.size()), mid, i;
 	if (n < 2)
 	{
-		cout << col[0] << ' ';
-		return;
+		cout << col[0] << ' ';		return;
 	}
 
-	mid = (n + 1) / 2;
-	//mid = n/2;
+	mid = (n + 1) / 2;	//mid = n/2;
 
-	vi L(mid);
-	vi R(n - mid);
+	vi L(mid);	vi R(n - mid);
 
-	FOR(i,mid) L[i] = col[i];
-	FOR(mid,n) R[i - mid] = col[i];
+	FOR(i,mid) L[i] = col[i];	FOR(mid,n) R[i - mid] = col[i];
 
-	mergeSort(L);
-	mergeSort(R);
-	merge(col, L, R);
+	mergeSort(L);	mergeSort(R);	merge(col, L, R);
 }
-
 int main()
 {
-	int N; cin >> N;
-	vi col(N);
+	int N; cin >> N;	vi col(N);
 	for (int i = 0; i < N; i++) cin >> col[i];
 	mergeSort(col);
 	//for (auto el : col)cout << el << ' ';

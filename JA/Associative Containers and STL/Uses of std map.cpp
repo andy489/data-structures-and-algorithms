@@ -19,7 +19,7 @@ int main()
     cityPopulations.insert(pair<string, int>("Pliska", 0));
 
     for (map<string, int>::iterator i = cityPopulations.begin(); i != cityPopulations.end(); i++) 
-	{
+    {
         cout << i->first << " " << i->second << endl;
     }
 
@@ -29,7 +29,7 @@ int main()
     cityPopulations.erase("Pliska");
 
     for (pair<string, int> element : cityPopulations) 
-	{
+    {
         cout << element.first << " " << element.second << endl;
     }
 
@@ -41,10 +41,10 @@ int main()
 
     map<string, int>::iterator foundCity = cityPopulations.find(searchCityName);
     if (foundCity != cityPopulations.end()) 
-	{
+    {
         cout << foundCity->first << " " << foundCity->second << endl;
     } else 
-	{
+    {
         cout << "No information about " << searchCityName << endl;
     }
 

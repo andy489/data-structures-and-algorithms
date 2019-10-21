@@ -22,7 +22,7 @@ int main()
     istringstream sentenceIn(sentence);
     char letter;
     while (sentenceIn >> letter) 
-	{
+    {
         letters.insert(letter);
     }
 

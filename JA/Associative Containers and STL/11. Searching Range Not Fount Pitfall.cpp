@@ -2,7 +2,8 @@
 #include<iostream>
 #include<vector>
 
-int main() {
+int main() 
+{
     using namespace std;
 
     vector<int> nums { 61, 41, 231, 764, 45 };

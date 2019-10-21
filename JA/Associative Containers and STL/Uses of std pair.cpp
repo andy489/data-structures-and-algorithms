@@ -22,7 +22,7 @@ int main()
 	  {
         "Great Pyramid of Gyza",
         pair<double,double>{29.9792345, 31.1342019} 
-		// NOTE: pair<double,double> here is redundant - C++11 can infer that, you can leave just the numbers in the {} brackets
+	// NOTE: pair<double,double> here is redundant - C++11 can infer that, you can leave just the numbers in the {} brackets
     };
 
     cout << location.first

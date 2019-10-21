@@ -13,7 +13,7 @@ int main()
 
     return 0;
 }
-
+// What will the above code print?
 // a) zero, onem two,
 // b) ,,two,
 // c) two,

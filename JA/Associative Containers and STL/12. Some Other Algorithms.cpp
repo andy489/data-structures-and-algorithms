@@ -2,7 +2,8 @@
 #include<iostream>
 #include<vector>
 
-int main() {
+int main() 
+{
     using namespace std;
 
     // NOTE: These are sorted
@@ -11,14 +12,20 @@ int main() {
     int searchNum = 62;
     auto it = lower_bound(nums.begin(), nums.end(), searchNum);
 
-    if (it != nums.end()) {
-        if (searchNum == *it) {
+    if (it != nums.end()) 
+    {
+        if (searchNum == *it) 
+        {
             cout << "found " << *it << " at " << it - nums.begin() << endl;
-        } else {
+        } 
+        else 
+        {
             cout << searchNum << " can be inserted at " << it - nums.begin()
                 << " and the numbers will remain sorted"<< endl;
         }
-    } else {
+    }
+    else 
+    {
         cout << "not in range" << endl;
     }
 
@@ -27,7 +34,8 @@ int main() {
     vector<int> copiedNums;
     copy(nums.begin(), nums.end(), copiedNums.begin());
 
-    for (int num : copiedNums) {
+    for (int num : copiedNums) 
+    {
         cout << num << " ";
     }
 

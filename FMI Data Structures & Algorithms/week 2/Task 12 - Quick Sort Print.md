@@ -40,7 +40,7 @@ int partition(vi& col, int start, int end)
 		}
 	}
 	swap(col[pivIndx], col[end]);
-	for (auto el : col) cout << el << ' ';
+	for (const auto& el : col) cout << el << ' ';
 	std::cout << '\n';
 	return pivIndx;
 }

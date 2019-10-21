@@ -10,11 +10,20 @@ int main() {
 
     // This should be the same as the iterator in the search, i.e. nums.begin() + 3,
     // because that's what find will return when it doesn't locate our element
-    if (it != nums.end()) {
+    if (it != nums.end()) 
+    {
         cout << "found " << *it << " at " << it - nums.begin() << endl;
-    } else {
+    } 
+    else 
+    {
         cout << "not found" << endl;
     }
 
     return 0;
 }
+
+// What will the following code print?
+// a) 764 at 3
+// b) 45 at 4
+// c) not found
+// d) There will be a runtime erroe

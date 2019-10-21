@@ -8,7 +8,7 @@ int main()
     using namespace std;
 
     map<string, int> cityPopulations = 
-	{
+    {
         pair<string, int>{"Gabrovo", 58950},
         pair<string, int>{"Sofia", 1307376},
         pair<string, int>{"Melnik", 385},
@@ -43,7 +43,8 @@ int main()
     if (foundCity != cityPopulations.end()) 
     {
         cout << foundCity->first << " " << foundCity->second << endl;
-    } else 
+    } 
+    else 
     {
         cout << "No information about " << searchCityName << endl;
     }

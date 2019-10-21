@@ -19,7 +19,7 @@ int main()
 
     // Remember that () and {} can both be used to initialize objects (since C++11):
     pair<string, pair<double, double> > location
-	  {
+    {
         "Great Pyramid of Gyza",
         pair<double,double>{29.9792345, 31.1342019} 
 	// NOTE: pair<double,double> here is redundant - C++11 can infer that, you can leave just the numbers in the {} brackets

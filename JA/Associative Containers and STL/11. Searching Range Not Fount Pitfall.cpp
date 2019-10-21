@@ -23,7 +23,7 @@ int main()
     return 0;
 }
 
-// What will the following code print?
+// What will the above code print?
 // a) 764 at 3
 // b) 45 at 4
 // c) not found

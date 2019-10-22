@@ -34,7 +34,7 @@ int KthSmallest(std::vector<int>& seq, int left, int right, int K)
 		else return KthSmallest(seq, pos + 1, right, K - pos + left - 1);
 	}
 	// If k is more than number of elements in array 
-	return INT_MAX;
+	else return INT_MAX;
 }
 
 /* Partition function from QuickSort(), which takes the last 

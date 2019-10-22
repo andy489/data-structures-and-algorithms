@@ -1,5 +1,5 @@
 ## Counting Sort
-Напишете алгоритъм, който сортира реални числа от интервала <img src="https://latex.codecogs.com/svg.latex?\Large&space;[2.00,4.00]"> с максимум две числа след десетичната запетая. Алгоритъма да е с времева сложност <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(N)">
+Напишете алгоритъм, който сортира реални числа от интервала <img src="https://latex.codecogs.com/svg.latex?\Large&space;[2.00,4.00]"> с максимум две числа след десетичната запетая. Алгоритъма да е с времева сложност <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(N)">.
 
 ```cpp
 #include <iostream>

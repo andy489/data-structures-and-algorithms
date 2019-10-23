@@ -4,7 +4,7 @@
 
 #### Входен формат
 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> - брой на елементите на масива <img src="https://latex.codecogs.com/svg.latex?\Large&space;X_1,x_2,...,X_N"> - елементите на масива разделени с интервал
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> - брой на елементите на масива <img src="https://latex.codecogs.com/svg.latex?\Large&space;X_1,X_2,...,X_N"> - елементите на масива разделени с интервал
 #### Ограничения
 
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> - ще нараства във всеки тест, като ще стигне до <img src="https://latex.codecogs.com/svg.latex?\Large&space;10,000,000">

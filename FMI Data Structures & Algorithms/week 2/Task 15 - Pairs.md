@@ -27,6 +27,7 @@ The second line contains space-separated integers of the array.
 An integer representing the number of pairs of integers whose difference is <img src="https://latex.codecogs.com/svg.latex?\Large&space;k">.
 
 Example input|Expected output|Explanation
+-|-|-
 5 2  <br>1 5 3 4 2 |3|There are 3 pairs of integers in the set with a difference of 2: [5,3], [4,2] and [3,1] .
 
 #### Solution

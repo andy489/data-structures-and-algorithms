@@ -23,7 +23,7 @@ The second line contains space-separated integers of the array.
 - <img src="https://latex.codecogs.com/svg.latex?\Large&space;2\le{n}\le{10^5}">
 - <img src="https://latex.codecogs.com/svg.latex?\Large&space;0<k<10^9">
 - <img src="https://latex.codecogs.com/svg.latex?\Large&space;0<arr[i]<2^{31}-1">
-- each integer <img src="https://latex.codecogs.com/svg.latex?\Large&space;arr[i]"> will be unique
+- each integer <img src="https://latex.codecogs.com/svg.latex?\Large&space;arr[i]"> will be unique ***(In our implementation this condition is not necessary)***
 
 #### Output Format
 
@@ -32,7 +32,8 @@ An integer representing the number of pairs of integers whose difference is <img
 Example input|Expected output|Explanation
 -|-|-
 5 2  <br>1 5 3 4 2 |3|There are 3 pairs of integers in the set with a difference of 2: [5,3], [4,2] and [3,1] .
-
+10 2 <br>1 1 2 2 3 3 3 4 4 5|13
+10 3<br1 1 2 2 3 3 3 4 4 5|6
 #### Solution
 ```cpp
 #include <iostream>
@@ -61,21 +62,26 @@ int bS(vi& vec, int x)
 			end = mid - 1;
 		}
 		else if (vec[mid] > x) end = mid - 1;		
-		else start = mid + 1;
-		
+		else start = mid + 1;		
 	}
+	//return firEnc;
 	if (firEnc == -1) return 0;	
 	else
 	{
-		while (firEnc++ + 1 < SIZE && vec[firEnc] == vec[firEnc + 1]) ans++;			
+		while (firEnc + 1 < SIZE && vec[firEnc] == vec[firEnc + 1])
+		{
+			ans++;
+			firEnc++;
+		}
 		return ans;
 	}
 }
 
+
 int main()
 {
-	int N, X, result(0);
-	cin >> N >> X;
+	int N,X, result(0);
+	cin >> N>>X;
 	vi vec(N);
 	for (int i = 0; i < N; i++) cin >> vec[i];
 	sort(vec.begin(), vec.end(), less<int>());

@@ -1,5 +1,5 @@
 ## Task 17.
-Дадени са два масива <img src="https://latex.codecogs.com/svg.latex?\Large&space;a"> и <img src="https://latex.codecogs.com/svg.latex?\Large&space;b"> с дължини съответно <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> и <img src="https://latex.codecogs.com/svg.latex?\Large&space;M">. Да се намерят по колко начина може да се образува сумата <img src="https://latex.codecogs.com/svg.latex?\Large&space;S"> като сбор от два елемента по един от всеки масив: <img src="https://latex.codecogs.com/svg.latex?\Large&space;S=a_i+b_j">.
+Дадени са два масива <img src="https://latex.codecogs.com/svg.latex?\Large&space;a"> и <img src="https://latex.codecogs.com/svg.latex?\Large&space;b"> с дължини съответно <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> и <img src="https://latex.codecogs.com/svg.latex?\Large&space;M">. Да се намери по колко начина може да се образува сумата <img src="https://latex.codecogs.com/svg.latex?\Large&space;S"> като сбор от два елемента по един от всеки масив: <img src="https://latex.codecogs.com/svg.latex?\Large&space;S=a_i+b_j">.
 
 #### Ограничения
 - <img src="https://latex.codecogs.com/svg.latex?\Large&space;N,M\le{10^6}">

@@ -23,7 +23,7 @@ The second line contains space-separated integers of the array.
 - <img src="https://latex.codecogs.com/svg.latex?\Large&space;2\le{n}\le{10^5}">
 - <img src="https://latex.codecogs.com/svg.latex?\Large&space;0<k<10^9">
 - <img src="https://latex.codecogs.com/svg.latex?\Large&space;0<arr[i]<2^{31}-1">
-- each integer <img src="https://latex.codecogs.com/svg.latex?\Large&space;arr[i]"> will be unique <img src="https://latex.codecogs.com/svg.latex?\Large&space;(In{\;}{\;}our{\;}{\;}implementation{\;}{\;}this{\;}{\;}condition{\;}{\;}is{\;}{\;}not{\;}{\;}necessary)">
+- each integer <img src="https://latex.codecogs.com/svg.latex?\Large&space;arr[i]"> will be unique <img src="https://latex.codecogs.com/svg.latex?\Large&space;\underline{(our{\;}{\;}implementation{\;}{\;}works{\;}{\;}even{\;}{\;}without{\;}{\;}this{\;}{\;}condition{\;}{\;}is{\;}{\;}not{\;}{\;})}">
 
 #### Output Format
 

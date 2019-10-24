@@ -33,7 +33,7 @@ Example input|Expected output|Explanation
 -|-|-
 5 2  <br>1 5 3 4 2 |3|There are 3 pairs of integers in the set with a difference of 2: [5,3], [4,2] and [3,1] .
 10 2 <br>1 1 2 2 3 3 3 4 4 5|13
-10 3<br1 1 2 2 3 3 3 4 4 5|6
+10 3<br>1 1 2 2 3 3 3 4 4 5|6
 #### Solution
 ```cpp
 #include <iostream>

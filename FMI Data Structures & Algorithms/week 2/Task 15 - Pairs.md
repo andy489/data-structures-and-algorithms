@@ -1,4 +1,5 @@
 ## Pairs
+![judge system for the task](https://www.hackerrank.com/challenges/pairs/problem?h_r=internal-search)
 
 You will be given an array of integers and a target value. Determine the number of pairs of array elements that have a difference equal to a target value.
 
@@ -10,8 +11,8 @@ Complete the pairs function below. It must return an integer representing the nu
 
 pairs has the following parameter(s):
 
-- k: an integer, the target difference
-- arr: an array of integers
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;k">: an integer, the target difference
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;arr">: an array of integers
 
 Input Format
 

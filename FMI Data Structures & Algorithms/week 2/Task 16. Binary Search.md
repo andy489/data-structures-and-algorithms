@@ -71,7 +71,7 @@ int main()
 	return 0;
 }
 ```
-## Binary Search recursive boolean function
+## Binary Search recursive boolean function O(log(N))
 ```cpp
 #include <iostream>
 #include <vector>

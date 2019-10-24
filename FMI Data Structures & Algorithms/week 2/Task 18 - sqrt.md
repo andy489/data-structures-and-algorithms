@@ -1,0 +1,1 @@
+Напишете функция, която пресмята корен квадратен от дадено число <img src="https://latex.codecogs.com/svg.latex?\Large&space;x"> с точност <img src="https://latex.codecogs.com/svg.latex?\Large&space;\eps=0.0001">

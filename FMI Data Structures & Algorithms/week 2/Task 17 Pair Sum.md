@@ -3,7 +3,7 @@
 
 #### Ограничения
 - <img src="https://latex.codecogs.com/svg.latex?\Large&space;N,M\le{10^6}">
-- <img src="https://latex.codecogs.com/svg.latex?\Large&space;0\le{S}<10^6">
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;0\le{S}<10^5">
 - <img src="https://latex.codecogs.com/svg.latex?\Large&space;0\le{a_i,b_j}\le{10^6},i=\overline{0,N},j=\overline{0,M}">
 
 Примерен вход|Oчакван изход

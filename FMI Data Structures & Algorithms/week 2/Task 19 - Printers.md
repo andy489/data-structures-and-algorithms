@@ -1,9 +1,9 @@
 ## Задача 19. Принтери в офис
 
-Офис на строителна фирма разполага с два принтера <img src="https://latex.codecogs.com/svg.latex?\Large&space;p1"> и <img src="https://latex.codecogs.com/svg.latex?\Large&space;p2">. <img src="https://latex.codecogs.com/svg.latex?\Large&space;p1"> принтира една архитектурна скица за <img src="https://latex.codecogs.com/svg.latex?\Large&space;l_1"> минути, а <img src="https://latex.codecogs.com/svg.latex?\Large&space;p2"> за <img src="https://latex.codecogs.com/svg.latex?\Large&space;l_2"> минути. По дадени <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> на брой скици да се изведе минималното време необходимо за принтирането на скиците в офиса.
+Офис на строителна фирма разполага с два принтера <img src="https://latex.codecogs.com/svg.latex?\Large&space;p_1"> и <img src="https://latex.codecogs.com/svg.latex?\Large&space;p_2">. <img src="https://latex.codecogs.com/svg.latex?\Large&space;p_1"> принтира една архитектурна скица за <img src="https://latex.codecogs.com/svg.latex?\Large&space;l_1"> минути, а <img src="https://latex.codecogs.com/svg.latex?\Large&space;p_2"> за <img src="https://latex.codecogs.com/svg.latex?\Large&space;l_2"> минути. По дадени <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> на брой скици да се изведе минималното време необходимо за принтирането на скиците в офиса.
 
 #### Входни данни
-- <img src="https://latex.codecogs.com/svg.latex?\Large&space;l1,l2,N">
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;l_1,l_2,N">
 
 #### Ограничения
 - <img src="https://latex.codecogs.com/svg.latex?\Large&space;1<N\le{10^{18}}">

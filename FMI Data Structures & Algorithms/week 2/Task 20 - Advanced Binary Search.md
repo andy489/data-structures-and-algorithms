@@ -41,12 +41,12 @@ int main()
 	cout << '\n';
 
 	int K;
-	cout << "Enter element to search:\n";
+	cout << "Enter integer to search:\n";
 	cin >> K;
 
 	int indx = upper_bound(vec, 0, sz(vec)-1, K);
 
-	cout << "Smallest element bigger than or equal to searched:\n";
+	cout << "Smallest integer bigger than or equal to searched:\n";
 	if (indx == -1) cout << "no such element\n";
 	else cout << vec[indx] << '\n';
 

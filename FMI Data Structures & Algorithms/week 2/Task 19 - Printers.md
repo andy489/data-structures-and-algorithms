@@ -1,0 +1,1 @@
+Офис разполага с два принтера <img src="https://latex.codecogs.com/svg.latex?\Large&space;p1"> и <img src="https://latex.codecogs.com/svg.latex?\Large&space;p2">. <img src="https://latex.codecogs.com/svg.latex?\Large&space;p1">

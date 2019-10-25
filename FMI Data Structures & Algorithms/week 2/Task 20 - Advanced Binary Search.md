@@ -3,7 +3,8 @@ Write a program, which finds the smallest integer bigger than or equal to <img s
 
 #### Input
 - serached integer <img src="https://latex.codecogs.com/svg.latex?\Large&space;-10^{16}<X<=10^{16}">
-
+#### Output
+- upper bound (*if there exist such integer <img src="https://latex.codecogs.com/svg.latex?\Large&space;X"> - return it, if not return the smallest integer bigger than <img src="https://latex.codecogs.com/svg.latex?\Large&space;X"> in the array, or an appropriate message if there is no such element*)
 ```cpp
 #include <iostream>
 #include <vector>

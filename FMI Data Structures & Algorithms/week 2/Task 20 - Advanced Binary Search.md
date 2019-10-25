@@ -1,4 +1,8 @@
-Write a program, which finds the smallest element bigger than or equal to <img src="https://latex.codecogs.com/svg.latex?\Large&space;X"> in a sorted array of elements with time complexity <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(log(N))">. If there is no such element return an appropriate message.
+## Task 20. - Search Upper Bound
+Write a program, which finds the smallest integer bigger than or equal to <img src="https://latex.codecogs.com/svg.latex?\Large&space;X"> in a sorted array of integers with time complexity <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(log(N))">. If there is no such element return an appropriate message.
+
+#### Input
+- serached integer <img src="https://latex.codecogs.com/svg.latex?\Large&space;-10^{16}<X<=10^{16}">
 
 ```cpp
 #include <iostream>

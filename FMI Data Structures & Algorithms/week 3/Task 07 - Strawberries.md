@@ -2,49 +2,32 @@
 
 [Challenges](https://www.hackerrank.com/contests/practice-3-sda/challenges)
 
-Цвети е на СДА. Асистентите са донесли n купички с ягоди, като в купичка с номер i има ai ягоди. Всички ягоди са номерирани с последователни числа: в първата купичка ягодите били номерирани от 1 до а1, във втората - от a1 + 1 до a1 + a2 и така нататък.
+Цвети е на СДА. Асистентите са донесли n купички с ягоди, като в купичка с номер <img src="https://latex.codecogs.com/svg.latex?\Large&space;i"> има <img src="https://latex.codecogs.com/svg.latex?\Large&space;a_i"> ягоди. Всички ягоди са номерирани с последователни числа: в първата купичка ягодите били номерирани от <img src="https://latex.codecogs.com/svg.latex?\Large&space;1"> до <img src="https://latex.codecogs.com/svg.latex?\Large&space;a_1">, във втората - от <img src="https://latex.codecogs.com/svg.latex?\Large&space;a_1+1"> до <img src="https://latex.codecogs.com/svg.latex?\Large&space;a_1+a_2"> и така нататък.
 
 Асистентите са измислили състезание: те казват номер на някоя вкусна ягода, а който първи познае в коя купичка се намира ягодата, я получава.
 
-Цвети обожава ягоди и иска да изяде всички :). Помогнете й!
+Цвети обожава ягоди и иска да изяде всички. Помогнете й!
 
-Input Format
+## Входен формат
 
-Първият ред от стандартния изход съдържа числото n - броя на купичките.
+Първият ред от стандартния изход съдържа числото <img src="https://latex.codecogs.com/svg.latex?\Large&space;n"> - броя на купичките.
 
-На следващия ред следват n числа - a1, a2, ... , an, където ai e броят ягоди в i-тата купичка.
+На следващия ред следват <img src="https://latex.codecogs.com/svg.latex?\Large&space;n"> числа - <img src="https://latex.codecogs.com/svg.latex?\Large&space;a_1,a_2,...,a_n"> където <img src="https://latex.codecogs.com/svg.latex?\Large&space;a_i"> e броят ягоди в <img src="https://latex.codecogs.com/svg.latex?\Large&space;i">-тата купичка.
 
-Третият ред съдържа числото m - броя на вкусните ягоди, посочени от асистентите.
+Третият ред съдържа числото <img src="https://latex.codecogs.com/svg.latex?\Large&space;m"> - броя на вкусните ягоди, посочени от асистентите.
 
-На четвъртия ред имаме m числа - q1, q2, ..., qn - номерата на вкусните ягоди.
+На четвъртия ред имаме m числа - <img src="https://latex.codecogs.com/svg.latex?\Large&space;q_1,q_2,...,q_n"> - номерата на вкусните ягоди.
 
-Constraints
+# Ограничения
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{n}\le{100000}"><br>
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{m}\le{100000}"><br>
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{a_i}\le{10^9}"><br>
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{q_i}\le{a_1+a_2+...+a_n}"><br>
 
-1 ≤ n ≤ 100000
+## Изходен формат
 
-1 ≤ m ≤ 100000
+Изведете <img src="https://latex.codecogs.com/svg.latex?\Large&space;m"> реда на стандартния изход. Ред номер <img src="https://latex.codecogs.com/svg.latex?\Large&space;i"> съдържа номера на купичката в която се намира ягода номер <img src="https://latex.codecogs.com/svg.latex?\Large&space;q_i">.
 
-1 ≤ ai ≤ 10^9
-
-1 ≤ qi ≤ a1 + a2 + ... + an
-
-Output Format
-
-Изведете m реда на стандартния изход. Ред номер i съдържа номера на купичката в която се намира ягода номер qi.
-
-Sample Input 0
-
-5
-2 7 3 4 9
-3
-1 25 11
-
-Sample Output 0
-
-1
-5
-3
-
-Explanation 0
-
-Първата купичка съдържа ягодите с номера 1 и 2, втората - ягодите с номера 3,4,5,6,7,8,9 и така нататък. Така получаваме, че първата ягода е в първата купичка, 25-тата в петата, а 11-тата - в третата. 
+Примерен вход|Oчакван изход|Пояснение
+-|-|-
+5<br>2 7 3 4 9<br>3<br>1 25 11|1<br>5<br>3|Първата купичка съдържа ягодите с номера 1 и 2, втората - ягодите с номера 3,4,5,6,7,8,9 и така нататък. Така получаваме, че първата ягода е в първата купичка, 25-тата в петата, а 11-тата - в третата. 

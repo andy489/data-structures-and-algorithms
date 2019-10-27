@@ -8,7 +8,7 @@
 
 Цвети обожава ягоди и иска да изяде всички. Помогнете й!
 
-## Входен формат
+#### Входен формат
 
 Първият ред от стандартния изход съдържа числото <img src="https://latex.codecogs.com/svg.latex?\Large&space;n"> - броя на купичките.
 
@@ -18,13 +18,13 @@
 
 На четвъртия ред имаме m числа - <img src="https://latex.codecogs.com/svg.latex?\Large&space;q_1,q_2,...,q_n"> - номерата на вкусните ягоди.
 
-# Ограничения
+#### Ограничения
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{n}\le{100000}"><br>
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{m}\le{100000}"><br>
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{a_i}\le{10^9}"><br>
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{q_i}\le{a_1+a_2+...+a_n}"><br>
 
-## Изходен формат
+#### Изходен формат
 
 Изведете <img src="https://latex.codecogs.com/svg.latex?\Large&space;m"> реда на стандартния изход. Ред номер <img src="https://latex.codecogs.com/svg.latex?\Large&space;i"> съдържа номера на купичката в която се намира ягода номер <img src="https://latex.codecogs.com/svg.latex?\Large&space;q_i">.
 

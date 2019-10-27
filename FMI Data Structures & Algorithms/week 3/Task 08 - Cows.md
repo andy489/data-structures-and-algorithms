@@ -8,7 +8,7 @@
 #### Ограничения
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{N}\le{100000}"><br>
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;2\le{K}\le{N}"><br>
-Координатите на колибите са в интервала <img src="https://latex.codecogs.com/svg.latex?\Large&space;[1,2000000000">
+Координатите на колибите са в интервала <img src="https://latex.codecogs.com/svg.latex?\Large&space;[1,2000000000]">
 
 #### Изходен формат
 Търсеното максимално разстояние между двете най-близки крави

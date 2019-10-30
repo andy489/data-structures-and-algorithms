@@ -8,6 +8,7 @@ Each word is printed on a different line.
 #### Examples
 
 Input|Output
+-|-
 Welcome to my github and have fun learning programming<br>2|learning<br>programming<br>Welcome<br>to<br>my<br>github<br>and<br>have<br>fun
 
 ```cpp

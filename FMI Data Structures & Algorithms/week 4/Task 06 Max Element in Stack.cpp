@@ -47,7 +47,7 @@ struct MyStack
 		if (t > maxEl)
 		{
 			cout << maxEl << '\n';
-			maxEl = 3 * maxEl - t; // 2 * max - top
+			maxEl = 2 * maxEl - t; // 2 * max - top
 		}
 		else cout << t << '\n';
 	}
@@ -64,7 +64,7 @@ struct MyStack
 
 		if (x > maxEl)
 		{
-			S.push(3 * x - maxEl); // 2 * el - max
+			S.push(2 * x - maxEl); // 2 * el - max
 			maxEl = x;
 		}
 

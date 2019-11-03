@@ -57,3 +57,10 @@ int main()
 }
 
 ```
+## Problem 2 – In Range
+You are given a line of integer numbers, followed by another line containing exactly two numbers – the start (inclusive) and end (exclusive) of a range (start will always be less than end). Write a program that prints all numbers from the first line that fall into the range [start, end), in increasing order, without duplicates.
+
+Input|Output
+-|-
+1 42 13 1 13 10 9 7 4 105<br>7 12|7 9 10
+1 42 13 1 13 10 9 4 105<br>7 13|9 10

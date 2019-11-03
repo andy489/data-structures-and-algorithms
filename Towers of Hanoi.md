@@ -38,6 +38,10 @@
 
 *Тъй като кулите работят на принципа LIFO (last in first out), то ще е удобно да се представяк като [стекова структора от данни](https://bg.wikipedia.org/wiki/%D0%A1%D1%82%D0%B5%D0%BA_(%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0_%D0%BE%D1%82_%D0%B4%D0%B0%D0%BD%D0%BD%D0%B8)) (за всяка кула - отделен стек)*
 
+Примерен вход|Oчакван изход
+-|-
+3|Source: 3, 2, 1<br>Destination: empty rod<br>Spare: empty rod<br>____________________<br>Step #1: Moved disk 1<br>Source: 3, 2<br>Destination: 1<br>Spare: empty rod<br>____________________<br>Step #2: Moved disk 2<br>Source: 3<br>Destination: 1<br>Spare: 2<br>____________________<br>Step #3: Moved disk 1<br>Source: 3<br>Destination: empty rod<br>Spare: 2, 1<br>____________________<br>Step #4: Moved disk 3<br>Source: empty rod<br>Destination: 3<br>Spare: 2, 1<br>____________________<br>Step #5: Moved disk 1<br>Source: 1<br>Destination: 3<br>Spare: 2<br>____________________<br>Step #6: Moved disk 2<br>Source: 1<br>Destination: 3, 2<br>Spare: empty rod<br>____________________<br>Step #7: Moved disk 1<br>Source: empty rod<br>Destination: 3, 2, 1<br>Spare: empty rod<br>____________________<br>
+
 ```cpp
 #include <iostream>
 #include <stack>

@@ -38,5 +38,4 @@ Return a reference to the list head. Locked code prints the list for you.
 
 Sample Input|Expected Output|Explanation
 -|-|-
-3<br>16<br>13<br>7<br>1<br>2|16 13 1 7|The initial linked list is 16 13 7. We have to insert <img src="https://latex.codecogs.com/svg.latex?\Large&space;1">
-at the position <img src="https://latex.codecogs.com/svg.latex?\Large&space;2"> which currently has <img src="https://latex.codecogs.com/svg.latex?\Large&space;7"> in it. The updated linked list will be 16 13 1 7
+3<br>16<br>13<br>7<br>1<br>2|16 13 1 7|The initial linked list is 16 13 7. We have to insert <img src="https://latex.codecogs.com/svg.latex?\Large&space;1"> at the position <img src="https://latex.codecogs.com/svg.latex?\Large&space;2"> which currently has <img src="https://latex.codecogs.com/svg.latex?\Large&space;7"> in it. The updated linked list will be 16 13 1 7

@@ -62,3 +62,43 @@ Input|Output
 -|-
 1 42 13 1 13 10 9 7 4 105<br>7 12|7 9 10
 1 42 13 1 13 10 9 4 105<br>7 13|9 10
+
+#### Solution
+
+```cpp
+#include <iostream>
+#include <sstream>
+#include <set>
+using namespace std;
+
+int main()
+{
+	string line;
+	getline(cin, line);
+
+	istringstream istr(line);
+	set<int> numbers;
+	
+	int num;
+	while (istr>>num)
+	{
+		numbers.insert(num);
+	}
+
+	getline(cin, line);
+	int start, end;
+	istringstream interval(line);
+	interval >> start;
+	interval >> end;
+	   
+	for (const auto& num : numbers)
+	{
+		if (num>=start && num<end)
+		{
+			cout << num << ' ';
+		}
+	}
+
+	return 0;
+}
+```

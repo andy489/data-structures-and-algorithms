@@ -14,7 +14,7 @@ The format for each test case is as follows:
 The first line contains an integer <img src="https://latex.codecogs.com/svg.latex?\Large&space;n">, denoting the length of the first linked list.<>br
 The next lines contain an integer each, denoting the elements of the linked list.<br>
 The next line contains an integer , denoting the length of the second linked list.<br>
-The next <img src="https://latex.codecogs.com/svg.latex?\Large&space;m> lines contain an integer each, denoting the elements of the second linked list.
+The next <img src="https://latex.codecogs.com/svg.latex?\Large&space;m"> lines contain an integer each, denoting the elements of the second linked list.
 
 #### Constraints
 - <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{t}\le{10}">

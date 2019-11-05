@@ -4,7 +4,7 @@ You’re given the pointer to the head node of a linked list and the position of
 
 #### Input Format
 
-You have to complete the deleteNode(SinglyLinkedListNode* llist, int position) method which takes two arguments - the head of the linked list and the position of the node to delete. You should NOT read any input from stdin/console. position will always be at least 0 and less than the number of the elements in the list.
+You have to complete the *deleteNode(SinglyLinkedListNode* llist, int position)* method which takes two arguments - the head of the linked list and the position of the node to delete. You should NOT read any input from stdin/console. position will always be at least 0 and less than the number of the elements in the list.
 
 The first line of input contains an integer <img src="https://latex.codecogs.com/svg.latex?\Large&space;n">
 , denoting the number of elements in the linked list.<br>

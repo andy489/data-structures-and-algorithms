@@ -1,5 +1,6 @@
 
 ## Списък - специфично изтриване
+[Judge system for task](https://www.hackerrank.com/contests/sda-test2/challenges/--82/problem)
 
 Напишете функция за свързан списък, която изтрива всички елементи от списъка които се делят без остатък на подадено число.
 
@@ -24,3 +25,70 @@ void removeComplex(int devidedBy)
 Sample Input|Expected Output
 -|-
 10<br>1 2 3 4 5 5 4 6 7 3<br>2|3 7 5 5 3 1 
+
+## Given code
+```cpp
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+struct Node {
+    Node * next;
+    int data;
+    Node(Node* _next,int _data){
+        next = _next;
+        data = _data;
+    }
+};
+class LinkedList{
+    public:
+    LinkedList(){
+        head = NULL;
+    }
+    ~LinkedList(){
+        Node* tmp;
+        while(head!=NULL){
+            tmp = head;
+            head = head->next;
+            delete tmp;
+        }
+    }
+    void add(int number){
+        Node *tmp = new Node(head,number);
+        head = tmp;
+    }
+    void print(){
+        Node* curr = head;
+        while(curr!=NULL){
+            cout << curr->data << " ";
+            curr = curr->next;
+        }
+    }
+    void removeComplex(int devidedBy){
+        //  TODO: write your code here  
+      
+      
+    } // end removeComplex
+    private:
+    Node* head;
+};
+int main(){
+    LinkedList l;
+
+    int n;
+    cin >> n;
+    int number;
+    for(int i = 0 ; i < n ; i++){
+        cin >>number;
+        l.add(number);
+    }
+    int devidedBy;
+    cin >> devidedBy;
+    l.removeComplex(devidedBy);
+    l.print();
+}
+```

@@ -8,39 +8,26 @@
 
 Забележка: Зартан иска да гледа само надясно.
 
-image image
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Welcome%20to%20the%20Jungle%2001.png)
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Welcome%20to%20the%20Jungle%2002.png)
 
-Input Format
+#### Входен формат
 
-На пърия ред на стандартния вход получавате число N.
+На пърия ред на стандартния вход получавате число <img src="https://latex.codecogs.com/svg.latex?\Large&space;N">.
 
-На втория ред на стандартния вход получавате N числа ai.
+На втория ред на стандартния вход получавате <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> числа <img src="https://latex.codecogs.com/svg.latex?\Large&space;a_i">.
 
-Constraints
+#### Ограничения
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;2\le{N}\le{1000000}">
 
-2 <= N <= 1 000 000
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{a_i}\le{1000000}">
 
-1 <= ai <= 1 000 000
+#### Изходен формат
 
-Output Format
+На единствения ред на стандартния изход изведете позицията <img src="https://latex.codecogs.com/svg.latex?\Large&space;j">, преди която ако застане, Зартан ще вижда най-много дървета. Ако има няколко такива позиции <img src="https://latex.codecogs.com/svg.latex?\Large&space;j">, изведете най-лявата.
 
-На единствения ред на стандартния изход изведете позицията J, преди която ако застане, Зартан ще вижда най-много дървета. Ако има няколко такива позиции J, изведете най-лявата.
-
-Sample Input 0
-
-12
-6 1 2 3 7 4 5 8 11 10 9 20
-
-Sample Output 0
-
-1
-
-Sample Input 1
-
-10
-8 2 1 2 3 4 1 2 3 4
-
-Sample Output 1
-
-2
+Примерен вход|Очакван изход
+-|-
+12<br>6 1 2 3 7 4 5 8 11 10 9 20|1
+10<br>8 2 1 2 3 4 1 2 3 4|2
 

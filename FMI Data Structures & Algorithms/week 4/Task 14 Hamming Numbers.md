@@ -1,6 +1,6 @@
 ## Hamming Numbers
 
-Hamming numbers are numbers of the form <img src="https://latex.codecogs.com/svg.latex?\Large&space;H=2^i\times{3^j}\times{5^k}">H  =  2i × 3j × 5k 
+Hamming numbers are numbers of the form <img src="https://latex.codecogs.com/svg.latex?\Large&space;H=2^i\times{3^j}\times{5^k}">  
 
 where
 

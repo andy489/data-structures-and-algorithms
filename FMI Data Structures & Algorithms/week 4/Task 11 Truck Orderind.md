@@ -2,7 +2,14 @@
 
 Камионите са пристигнали, но в разбъркан ред и организаторите се чудят дали могат да ги подредят. До събитието почти няма време и за да ги подредят могат да използват само последната останала пресечна улица по пътят им до ФМИ. Въпросната улица позволява само на последния влязъл в нея камион да излезе, понеже е задънена и твърде тясна за разминаване, за сметка на това е достатъчно дълга да побере всички камиони ако се налага.
 
-Ако камионите са пристигнали в реда: 5 1 2 4 3, то тогава ще могат да бъдат подредени използвайки трясната уличка по следният начин: image image image image image image
+Ако камионите са пристигнали в реда: 5 1 2 4 3, то тогава ще могат да бъдат подредени използвайки трясната уличка по следният начин:
+
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Truck%20Ordering%2001.png)
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Truck%20Ordering%2002.png)
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Truck%20Ordering%2003.png)
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Truck%20Ordering%2004.png)
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Truck%20Ordering%2005.png)
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Truck%20Ordering%2006.png)
 
 Погмогнете на организаторите като им кажете дали ще могат да подредят камионите в необходимия за събитето ред.
 

@@ -13,40 +13,31 @@
 
 Погмогнете на организаторите като им кажете дали ще могат да подредят камионите в необходимия за събитето ред.
 
-Input Format
+#### Входен формат
 
-На първият ред се въвежда T - брой заявки.
+На първият ред се въвежда <img src="https://latex.codecogs.com/svg.latex?\Large&space;T"> - брой заявки.
 
-На първият ред от всяка заявка се въвежда числото N - броя камиони.
+На първият ред от всяка заявка се въвежда числото <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> - броя камиони.
 
-Следват N на брой числа - реда в който идват камионите.
+Следват <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> на брой числа - реда в който идват камионите.
 
-А0, А1, ..., АN-1 - Ai e номера на i-тия пристигнал камион.
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;A_0,A_1,...,A_{N-1}-A_i"> e номера на <img src="https://latex.codecogs.com/svg.latex?\Large&space;i">-тия пристигнал камион.
 
-Constraints
+#### Ограничения
 
-1 <= T <= 10
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{T}\le{10}">
 
-0 <= N <= 10^5
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;0\le{N}\le{10^5}">
 
-1 <= Ai <= N
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{A_i}\le{N}">
 
-Output Format
+#### Изходен формат
 
-Изведете Т на брой реда.
+Изведете <img src="https://latex.codecogs.com/svg.latex?\Large&space;T"> на брой реда.
 
 На всеки от редовете извдете отговора на поредната заявка - "yes" ако е възможно да се подредят камионите или "no" в противен случай.
 
-Sample Input 0
-
-2
-5
-5 1 2 4 3
-5
-3 2 4 5 1
-
-Sample Output 0
-
-yes
-no
+Примерен вход| Очакван изход
+-|-
+2<br>5<br>5 1 2 4 3<br>5<br>3 2 4 5 1|yes<br>no
 

@@ -104,10 +104,158 @@ int main()
 ```
 ## Problem 5 - Matching Locations
 Write a program that reads **names** of places and their geographical **coordinates** in the format **name,latitude,longitude** (where latitude and longitude are floating-point numbers). No two locations will have the same name. Some locations may have the same **coordinates**.
+
 After all locations are entered, a single line containing the '.' (dot) character will be entered.
+
 After that, queries will be entered – the queries will either contain a **name** of a location, or **latitude** and **longitude** coordinates (entered as two floating point numbers separated by a single space). Print all locations that match the query in the same format that they were entered.
 #### Examples
 Input|Output
 -|-
-Sofia, 42.70,23.33<br>New York, 40.6976701,-74.2598732<br>FMI,42.70,23.33<br>.<br>Sofia<br>40.6976701 -74.2598732<br>42.70 23.33|Sofia, 42.70,23.<br>New York, 40.6976701,-74.2598732<br>Sofia, 42.70,23.33<br>SoftUni,42.70,23.33
+Sofia, 42.70,23.33<br>Tokyo, 40.6976701,-74.2598732<br>FMI,42.70,23.33<br>.<br>Sofia<br>40.6976701 -74.2598732<br>42.70 23.33|Sofia, 42.70,23.<br>Tokyo, 40.6976701,-74.2598732<br>Sofia, 42.70,23.33<br>FMI,42.70,23.33
 
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+#include <sstream>
+
+/*
+Sofia,42.70,23.33
+Tokyo,40.6976701,-74.2598732
+FMI,42.70,23.33
+.
+Sofia
+40.6976701 -74.2598732
+42.70 23.33
+*/
+
+struct Point
+{
+	std::string latitude;
+	std::string longitude;
+};
+
+class Location
+{
+public:
+	void printInfo()
+	{
+		std::cout << name << ','
+			<< point.latitude << ','
+			<< point.longitude << std::endl;
+	}
+
+	bool isAtSamePoint(const Point& point)
+	{
+		return (this->point.latitude == point.latitude) &&
+			(this->point.longitude == point.longitude);
+	}
+
+	std::string name;
+	Point       point;
+};
+
+class Atlas
+{
+public:
+
+	void parseLocationData(const std::string& input)
+	{
+		std::istringstream istr(input);
+
+		Location currLocation;
+
+		getline(istr, currLocation.name, ',');
+		getline(istr, currLocation.point.latitude, ',');
+		getline(istr, currLocation.point.longitude, ',');
+
+		_locations.push_back(currLocation);
+	}
+
+	void printAllLocationsData()
+	{
+		for (Location& location : _locations)
+		{
+			location.printInfo();
+		}
+	}
+
+	void executeQuery(const std::string& query)
+	{
+		for (Location& location : _locations)
+		{
+			if (location.name == query)
+			{
+				location.printInfo();
+				break;
+			}
+		}
+	}
+
+	void executeQuery(const Point& point)
+	{
+		for (Location& location : _locations)
+		{
+			if (location.isAtSamePoint(point))
+			{
+				location.printInfo();
+			}
+		}
+	}
+
+private:
+	std::vector<Location> _locations;
+};
+
+int main()
+{
+	Atlas atlas;
+
+	std::string input;
+
+	while (true)
+	{
+		getline(std::cin, input);
+
+		if ("." == input)
+		{
+			break;
+		}
+
+		atlas.parseLocationData(input);
+	}
+
+	while (true)
+	{
+		getline(std::cin, input);
+
+		if (input.empty())
+		{
+			break;
+		}
+
+		std::istringstream istr(input);
+		std::string latitude;
+		std::string longitude;
+		istr >> latitude;
+
+		if (istr >> longitude) //we have coordinate query
+		{
+			Point point;
+			point.latitude = latitude;
+			point.longitude = longitude;
+
+			atlas.executeQuery(point);
+		}
+		else //name query
+		{
+			atlas.executeQuery(latitude);
+		}
+	}
+
+	//    atlas.printAllLocationsData();
+
+	return 0;
+}
+
+```

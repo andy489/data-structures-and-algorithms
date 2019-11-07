@@ -1,6 +1,6 @@
 ## Exercises on Associative Containers, Classes and Objects
 
-#### Problem 1 – What are the Odds
+## Problem 1 – What are the Odds
 Write a program that reads a line of words (sequences of lowercase English letters separated by single spaces) and prints two lines – the first containing all words appearing an odd number of times, sorted alphabetically, and the second containing all words appearing an even number of times, sorted alphabetically. 
 #### Examples
 Input|Output
@@ -102,3 +102,12 @@ int main()
 	return 0;
 }
 ```
+## Problem 5 - Matching Locations
+Write a program that reads **names** of places and their geographical **coordinates** in the format **name,latitude,longitude** (where latitude and longitude are floating-point numbers). No two locations will have the same name. Some locations may have the same **coordinates**.
+After all locations are entered, a single line containing the '.' (dot) character will be entered.
+After that, queries will be entered – the queries will either contain a **name** of a location, or **latitude** and **longitude** coordinates (entered as two floating point numbers separated by a single space). Print all locations that match the query in the same format that they were entered.
+#### Examples
+Input|Output
+-|-
+Sofia, 42.70,23.33<br>New York, 40.6976701,-74.2598732<br>FMI,42.70,23.33<br>.<br>Sofia<br>40.6976701 -74.2598732<br>42.70 23.33|Sofia, 42.70,23.<br>New York, 40.6976701,-74.2598732<br>Sofia, 42.70,23.33<br>SoftUni,42.70,23.33
+

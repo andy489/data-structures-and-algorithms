@@ -5,12 +5,6 @@
 #include <sstream>
 using namespace std;
 
-struct Point
-{
-	int x, y;
-	Point(int x = 0, int y = 0) :x(x), y(y) {};
-};
-
 struct Cell
 {
 	int x, y, level;

@@ -191,6 +191,7 @@ Input *(NOTE: the italic text is on a single line)*|Output
 #include <iostream>
 #include <sstream>
 #include <set>
+#include <vector>
 using namespace std;
 
 bool checkLower(char ch)
@@ -225,10 +226,16 @@ int main()
 
 	char symbol = getchar();
 	char lowerOrUpper;
+
+	vector<string> outputs;
+	outputs.reserve(10);
+
 	while (symbol != '.')
 	{
 		lowerOrUpper = symbol;
 		istringstream istr(text);
+		
+
 		set<string> wordsSet;
 		if (checkLower(symbol))
 		{
@@ -250,22 +257,29 @@ int main()
 				wordsSet.insert(word);
 			}
 		}
-		if (wordsSet.size == 0)
+		if (wordsSet.size() == 0)
 		{
 			cout << "---\n";
 		}
 		else
 		{
+			ostringstream ostr;
 			set<string> ::iterator it;
 			for (it = wordsSet.begin();it != wordsSet.end();++it)
 			{
-				cout << *it << ' ';
+				ostr << *it << ' ';
 			}
-			cout << '\n';
+			outputs.push_back(ostr.str());
 		}
 		cin.ignore();
 		symbol = getchar();
 	}
+
+	for (const auto& s:outputs)
+	{
+		cout << s << '\n';
+	}
+
 	return 0;
 }
 ```

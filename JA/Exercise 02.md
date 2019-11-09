@@ -178,6 +178,97 @@ int main()
 	return 0;
 }
 ```
+## Problem 4 – Letters
+You are given a text in English. Let’s define a word as any sequence of alphabetical characters. Each of those characters we’ll call a letter, but we will consider the uppercase and lowercase variant of a character in a word as the **same** letter.
+
+Write a program which reads the text (a single line on the console) and then reads lines, each containing a single letter, until a line containing a **'.'** (dot) is entered. For each of those lines, print all words that contain the letter, ordered alphabetically (capitals letters before lowercase letters), without duplicates – if no words contain that letter, print **"---"** (three dashes)
+#### Examples
+Input *(NOTE: the italic text is on a single line)*|Output
+-|-
+*You are given a text in English. Let’s define a word as any sequence of alphabetical characters. Each of those characters we’ll call a letter, but we will consider the uppercase and lowercase variant of a character in a word as the **same** letter.*<br>a<br>Y<br>h<br>.|Each a alphabetical and any are as call character characters lowercase same uppercase variant<br>You any<br>Each English alphabetical character characters the those
+
+```cpp
+#include <iostream>
+#include <sstream>
+#include <set>
+using namespace std;
+
+bool checkLower(char ch)
+{
+	return ch >= 97 && ch <= 122;
+}
+
+bool checkUpper(char ch)
+{
+	return ch >= 65 && ch <= 90;
+}
+
+void removeLast(string& str)
+{
+	if (str.length() > 0 &&
+		(str[str.length() - 1] == '.'
+			|| str[str.length() - 1] == ','
+			|| str[str.length() - 1] == '!'
+			|| str[str.length() - 1] == '?'
+			|| str[str.length() - 1] == ':'
+			|| str[str.length() - 1] == ';'
+			|| str[str.length() - 1] == '-'))
+	{
+		str = str.substr(0, str.length() - 1);
+	}
+}
+
+int main()
+{
+	string text; string word;
+	getline(cin, text);
+
+	char symbol = getchar();
+	char lowerOrUpper;
+	while (symbol != '.')
+	{
+		lowerOrUpper = symbol;
+		istringstream istr(text);
+		set<string> wordsSet;
+		if (checkLower(symbol))
+		{
+			lowerOrUpper -= 32;
+		}
+		else
+		{
+			lowerOrUpper += 32;
+		}
+
+		while (istr >> word)
+		{
+			if (word[word.size() - 1] == '.')
+			{
+				removeLast(word);
+			}
+			if (word.find(symbol) != string::npos || word.find(lowerOrUpper) != string::npos)
+			{
+				wordsSet.insert(word);
+			}
+		}
+		if (wordsSet.size == 0)
+		{
+			cout << "---\n";
+		}
+		else
+		{
+			set<string> ::iterator it;
+			for (it = wordsSet.begin();it != wordsSet.end();++it)
+			{
+				cout << *it << ' ';
+			}
+			cout << '\n';
+		}
+		cin.ignore();
+		symbol = getchar();
+	}
+	return 0;
+}
+```
 
 ## Problem 5 - Matching Locations
 Write a program that reads **names** of places and their geographical **coordinates** in the format **name,latitude,longitude** (where latitude and longitude are floating-point numbers). No two locations will have the same name. Some locations may have the same **coordinates**.

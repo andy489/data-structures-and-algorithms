@@ -102,6 +102,82 @@ int main()
 	return 0;
 }
 ```
+## Problem 3 - Matches
+
+You are given two rows of integer numbers. Print a single line containing all the numbers that appear both in the first and the second row (without repetitions), sorted in increasing order. If there are no numbers that appear in both rows, print **no matches**.
+#### Examples
+
+Input|Output
+-|-
+1 42 13 1 13 10 9 7 4 105<br>7 7 19 1 106 42 -9 1 1 1 1 1 1|1 7 42	
+1<br>2|no matches
+42<br>42 42|42
+
+```cpp
+#include <iostream>
+#include <sstream>
+#include <set>
+using namespace std;
+
+int main()
+{
+	string firstLine, secondLine;
+	getline(cin, firstLine);
+	getline(cin, secondLine);
+	istringstream firstIstr(firstLine);
+	istringstream secondIstr(secondLine);
+
+	set<int> firstSet, secondSet;
+
+	int num;
+
+	while (firstIstr >> num)
+	{
+		firstSet.insert(num);
+	}
+
+	while (secondIstr >> num)
+	{
+		secondSet.insert(num);
+	}
+
+	set<int> thirdSet;
+
+	set<int>::iterator it;
+	if (firstSet.size() < secondSet.size())
+	{
+		for (it = firstSet.begin();it != firstSet.end();++it)
+		{
+			if (secondSet.count(*it))
+			{
+				thirdSet.insert(*it);
+			}
+		}
+	}
+	else
+	{
+		for (it = secondSet.begin();it != secondSet.end();++it)
+		{
+			if (firstSet.count(*it))
+			{
+				thirdSet.insert(*it);
+			}
+		}
+	}
+
+	if (thirdSet.size()==0)
+	{
+		cout << "no matches\n";
+		return 0;
+	}
+	for (it = thirdSet.begin();it != thirdSet.end();++it)
+	{
+		cout << *it << ' ';
+	}
+	return 0;
+}
+```
+
 ## Problem 5 - Matching Locations
 Write a program that reads **names** of places and their geographical **coordinates** in the format **name,latitude,longitude** (where latitude and longitude are floating-point numbers). No two locations will have the same name. Some locations may have the same **coordinates**.
 

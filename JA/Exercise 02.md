@@ -51,7 +51,8 @@ int main()
 		//	elements[EVEN_ELEMENTS] << el.first << ' ';
 		//}
 	}
-	cout << elements[ODD_ELEMENTS].str() << '\n' << elements[EVEN_ELEMENTS].str() << '\n';
+	cout << elements[ODD_ELEMENTS].str() << '\n' 
+	<< elements[EVEN_ELEMENTS].str() << '\n';
 	return 0;
 }
 ```

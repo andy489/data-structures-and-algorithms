@@ -60,7 +60,8 @@ int findLast(int num)
 			res = mid;
 			l = mid + 1;
 		}
-		else {
+		else 
+		{
 			r = mid - 1;
 		}
 	}
@@ -101,7 +102,8 @@ void solve()
 		prefixSum[i] = prefixSum[i - 1] + a[i];
 	}
 
-	for (int i = 0; i < q; i++) {
+	for (int i = 0; i < q; i++) 
+	{
 		int maxMoney;
 		cin >> money >> maxMoney;
 

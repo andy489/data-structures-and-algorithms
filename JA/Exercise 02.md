@@ -188,7 +188,7 @@ After that, queries will be entered – the queries will either contain a **name
 #### Examples
 Input|Output
 -|-
-Sofia, 42.70,23.33<br>Tokyo, 40.6976701,-74.2598732<br>FMI,42.70,23.33<br>.<br>Sofia<br>40.6976701 -74.2598732<br>42.70 23.33|Sofia, 42.70,23.<br>Tokyo, 40.6976701,-74.2598732<br>Sofia, 42.70,23.33<br>FMI,42.70,23.33
+Sofia,42.70,23.33<br>Tokyo,40.6976701,-74.2598732<br>FMI,42.70,23.33<br>.<br>Sofia<br>40.6976701 -74.2598732<br>42.70 23.33|Sofia,42.70,23.<br>Tokyo,40.6976701,-74.2598732<br>Sofia,42.70,23.33<br>FMI,42.70,23.33
 
 ```cpp
 #include <iostream>

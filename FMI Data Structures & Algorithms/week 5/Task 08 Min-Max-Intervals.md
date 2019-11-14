@@ -4,43 +4,26 @@
 
 Даден ви е масив с N цели положителни числа: A[0], A[1], ..., A[N - 1] и цялото число K. Min-Max интервал ще наричаме последователност от елементи на масива, такава че разликата между минималния и максималния измежду тях е най-много K. По-формално казано:
 
-Min-Max-Intervals = { s = A[i], A[i + 1], ..., A[j] | 0 <= i <= j < N & max(s) - min(s) <= K }
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;Min-Max-Intervals=\{s=A[i],A[i+1],...,A[j]|0\le{i\le{j}<N{\;}\&{\;}max(s)-min(s)\le{K}\}">
 
 Намерете броят на Min-Max интервалите в масива А (броя на елементите на множеството Min-Max-Intervals).
 
-Input Format
+#### Входен формат
 
 На първият ред се въвеждат числата N и К.
 
 Следват N числа - елементите на масива A[0], A[1], ..., A[N - 1];
 
-Constraints
+#### Ограничения
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;0\le{N}\le{2{\;}000{\;}000}"><br>
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;0\le{K}\le{2{\;}000{\;}000}"><br>
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;0\le{A[i]}\le{2{\;}000{\;}000}">
 
-0 ≤ N ≤ 2 000 000
-
-0 ≤ K ≤ 2 000 000
-
-0 ≤ A[i] ≤ 2 000 000
-
-Output Format
+#### Изходен формат
 
 Изведете едно число - броя на Min-Max интервалите в масива А.
 
-Sample Input 0
-
-10 5
-8 4 9 5 7 1 2 10 6 3 
-
-Sample Output 0
-
-23
-
-Sample Input 1
-
-8 4
-4 1 8 7 2 6 5 3 
-
-Sample Output 1
-
-16
-
+Примерен вход|Очакван изход
+-|-
+10 5<br>8 4 9 5 7 1 2 10 6 3|23
+8 4<br>4 1 8 7 2 6 5 3|16

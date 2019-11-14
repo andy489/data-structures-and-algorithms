@@ -18,11 +18,11 @@ For the above tree, the level order traversal is 1 -> 2 -> 5 -> 3 -> 6 -> 4.
 Input Format
 
 You are given a function,
-
+```cpp
 void levelOrder(Node * root) {
 
 }
-
+```
 Constraints
 
 1

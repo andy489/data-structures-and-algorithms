@@ -16,6 +16,7 @@ You are not responsible for reading any input from stdin. Hidden code stubs will
 
 #### Constraints
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;0\le{data}\le{10^4}">
+
 #### Output Format
 
 You are not responsible for printing any output to stdout. Your function must return true if the tree is a binary search tree; otherwise, it must return false. Hidden code stubs will print this result as a Yes or No answer on a new line.

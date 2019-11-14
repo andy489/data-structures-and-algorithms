@@ -25,10 +25,7 @@ void levelOrder(Node * root) {
 ```
 Constraints
 
-1
-Nodes in the tree
-
-500
+1≤Nodes in the tree≤500
 
 Output Format
 

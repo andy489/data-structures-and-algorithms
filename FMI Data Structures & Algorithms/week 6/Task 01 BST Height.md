@@ -1,7 +1,7 @@
 
 ## Task 1.
 
-[Tree: Height of a Binary Tree](https://www.hackerrank.com/challenges/tree-height-of-a-binary-tree/problem)
+[Tree: Height of a Binary Tree Judge](https://www.hackerrank.com/challenges/tree-height-of-a-binary-tree/problem)
 
 The height of a binary tree is the number of edges between the tree's root and its furthest leaf. For example, the following binary tree is of height <img src="https://latex.codecogs.com/svg.latex?\Large&space;2">:
 

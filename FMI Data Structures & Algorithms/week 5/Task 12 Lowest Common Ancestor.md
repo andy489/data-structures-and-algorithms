@@ -35,11 +35,11 @@ The tree will contain nodes with data equal to <img src="https://latex.codecogs.
 Return the a pointer to the node that is the lowest common ancestor of <img src="https://latex.codecogs.com/svg.latex?\Large&space;v1"> and <img src="https://latex.codecogs.com/svg.latex?\Large&space;v2">.
 
 #### Sample Input
-
+```
 6
 4 2 3 1 7 6
 1 7
-
+```
 ![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Lowest%20Common%20Ancestor%20in%20BST%2002.png)
 
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;v1=1"> and <img src="https://latex.codecogs.com/svg.latex?\Large&space;v2=7">.

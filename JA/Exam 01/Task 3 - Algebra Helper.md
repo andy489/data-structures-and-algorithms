@@ -18,7 +18,8 @@ Next read (N) lines of equations. Each equation contains a number, after that an
 Time limit: 250ms (0.25s)<br>
 Memory limit: 16 MB 
 #### Examples 
-Input|Output 
+Input|Output
+-|-
 3<br>1 / 2<br>1 * 2<br>1 + 2|1 + 2<br>1 * 2<br>1 / 2 
 4<br>2 * 0<br>6 % 4<br>5 + 3<br>2 – 6|5 + 3<br>6 % 4<br>2 * 0<br>2 – 6
 4<br>2 * 13<br>6 % 3<br>20 + 6<br>2 – 2|2 * 13<br>20 + 6<br>6 % 3<br>2 – 2 

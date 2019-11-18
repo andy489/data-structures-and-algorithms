@@ -10,7 +10,7 @@ balanceFactor = height(left subtree) - height(right subtree)
 ```
 The balance factor of any node of an AVL tree is in the integer range [-1,+1]. If after any modification in the tree, the balance factor becomes less than −1 or greater than +1, the subtree rooted at this node is unbalanced, and a rotation is needed.
 
-[AVL_Tree_Rebalancing.svg.png]
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/AVL%20Tree%20Rebalancing%2001.png)
 
 ([wikipedia info](https://en.wikipedia.org/wiki/AVL_tree))
 

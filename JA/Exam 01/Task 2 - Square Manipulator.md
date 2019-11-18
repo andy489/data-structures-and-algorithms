@@ -20,8 +20,8 @@ Example input:
 Example output: 
 3 3 
 Explanation: 
-Both squares 0 2 and 6  4  fulfill the requirements(their sum is bigger than target sum 7) and should be processed. 
-             6 4     5 -1 
+Both squares 0 2 and 6  4  fulfill the requirements(their sum is bigger than target sum 7) 
+             6 4     5 -1                                         and should be processed.             
 0 + 2 + 6 + 4 = 12 / 4 = 3 
 6 + 4 + 5 – 1 = 14 / 4 = 3 
 They are sorted in ascending order and the output is “3 3”

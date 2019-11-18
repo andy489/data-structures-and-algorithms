@@ -31,6 +31,7 @@ The total running time of your program should be no more than **0.1s**
 
 The total memory allowed for use by your program is **16MB**
 ## Example I/O 
-Example Input|Expected Output|Explanation 
+Example Input|Expected Output|Explanation
+-|-|-
 name age height<br>Joro 25 182<br>Oroj 25 182<br>youngerJoro 18 182<br>end<br>age|25 2|We are asked about the age column. We have the value 25 twice and the value 18 once. The most-common value is 25 and it appears 2 times 
 name age place weight<br>Joro 25 unknown 87<br>Ina 25 Sofia 53<br>Dog 4 dogland 13<br>Cat 25 catland 5<br>Canary 25 Sofia 1<br>end<br>place|Sofia 2|We are asked about the place column. We have unknown 1 time, Sofia 2 times, dogland 1 time and catland 1 time. Sofia has the maximum number of occurrences, so the answer is Sofia with a count of 2

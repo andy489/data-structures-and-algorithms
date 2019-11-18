@@ -12,7 +12,7 @@ The balance factor of any node of an AVL tree is in the integer range [-1,+1]. I
 
 ![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/AVL%20Tree%20Rebalancing%2001.png)
 
-([wikipedia info](https://en.wikipedia.org/wiki/AVL_tree))
+([https://en.wikipedia.org/wiki/AVL_tree](https://en.wikipedia.org/wiki/AVL_tree))
 
 You are given a pointer to the root of an AVL tree. You need to insert a value into this tree and perform the necessary rotations to ensure that it remains balanced.
 
@@ -84,4 +84,21 @@ After performing the rotation, the tree becomes :
       (Balance Factor = 0) 2     5 (Balance Factor = 0)
                                 / \
            (Balance Factor = 0)4   6 (Balance Factor = 0)
+```
+```cpp
+/* Node is defined as :
+typedef struct node
+{
+    int val;
+    struct node* left;
+    struct node* right;
+    int ht;
+} node; */
+
+
+node * insert(node * root,int val)
+{
+	
+  
+}
 ```

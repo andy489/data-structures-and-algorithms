@@ -1,4 +1,5 @@
-##Task 4 – Mayan Calculator 
+## Task 4 – Mayan Calculator 
+
 Since ancient times the Mayan people had special flow of describing numbers.<br>
 Your job is to understand their technique of describing numbers and start re-using it.<br>
 You will be provided with exact description for the digits “0123456789” (exactly in that order).<br>
@@ -33,8 +34,7 @@ Input|Output
 -|-
 1<br>0123456789<br>20024|20024 
 2<br>aabbccddeeffgghhiijj<br>aabbccddeeffgghhiijj<br>8330|iiddddaa<br>iiddddaa 
-4<br>-- //\/\ /----------<br>||/| / //_|_|_ |\/||<br>|| |/  \ | ||| //\-|<br>------\/ -----/ ----<br>1370425869|* //\---- //\-------- 
-/| / |||/_ /|_\/|_||*|*| \ /|| |/  |/\||-| 
+4<br>*-- //\/\ /----------*<br>*||/| / //_|_|_ |\/||*<br>*|| |/  \ | ||| //\-|*<br>*------\/ -----/ ----*<br>1370425869|
+* //\---- //\--------* | *
+/| / |||/_ /|_\/|_||  | \ /|| |/  |/\||-| 
 --\// -- ----------- 
- 
- 

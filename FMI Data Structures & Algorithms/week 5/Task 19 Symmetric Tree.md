@@ -1,7 +1,7 @@
 ## 101 Symmetric Tree
 *Easy*
 
-[Symetric Tree Judge](https://leetcode.com/problems/symmetric-tree/)
+[Symmetric Tree Judge](https://leetcode.com/problems/symmetric-tree/)
 
 Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).
 

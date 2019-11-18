@@ -5,11 +5,11 @@ Ibrahim remembers the equations in his head by memorizing their **result**. He h
 If two or more equations have the same result he keeps their order from the input. The first one remains first, second one – second, etc … <br>
 An equation will only be constructed from a 2 integers and an operating between the 2 integers. <br>
 NOTE: only the following 5 operations should be supported:<br> 
-- + (sum) 
-- - (subtraction)  
-- * (multiplication) 
-- / (integer division) 
-- % (integer modulo) 
+- *+* (sum) 
+- *-* (subtraction)  
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;*"> (multiplication) 
+- */* (integer division) 
+- *%* (integer modulo)<br>
 NOTE 2: there will be no brackets. Nothing fancy – just 2 integers and an operation between them. 
 #### Input 
 First a single integers (N) indicating how many equations will follow (each on a different line).<br> 

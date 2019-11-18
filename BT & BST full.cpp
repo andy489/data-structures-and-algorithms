@@ -50,8 +50,7 @@ bool search(BstNode* root, int data)
 
 BstNode* minValueAddressNode(BstNode* root)
 {	// recursive
-	if (root == nullptr) return root;
-	if (root->left == nullptr) return root;
+	if (root == nullptr||root->left == nullptr) return root;
 	return minValueAddressNode(root->left);
 }
 
@@ -67,8 +66,7 @@ BstNode* minValAddNode(BstNode* root)
 
 BstNode* maxValueAddressNode(BstNode* root)
 {	// recursive
-	if (root == nullptr) return root;
-	if (root->right == nullptr) return root;
+	if (root == nullptr||root->right == nullptr) return root;
 	return maxValueAddressNode(root->right);
 }
 
@@ -94,8 +92,7 @@ BstNode* remove(BstNode* root, int data)
 		{	//case 2.2: left child
 			BstNode* temp = root;
 			root = root->left;
-			delete temp;
-			return root;
+			delete temp;			
 		}
 		else//case 3: two children
 		{

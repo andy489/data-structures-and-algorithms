@@ -1,6 +1,6 @@
 ## Penultimate Descendants
 
-[Penultimate Descendants](https://www.hackerrank.com/contests/sda-2019-2020-test3/challenges/penultimate-descendants)
+[Penultimate Descendants Judge](https://www.hackerrank.com/contests/sda-2019-2020-test3/challenges/penultimate-descendants)
 
 Напишете функция, която изтрива тези върхове на Двоично дърво за търсене, чиито 2 деца са:
 

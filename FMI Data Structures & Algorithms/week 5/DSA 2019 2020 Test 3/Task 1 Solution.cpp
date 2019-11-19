@@ -35,7 +35,7 @@ public:
     }
     
 	void printSpecific(int dividedBy){
-        display(root,dividedBy);
+        DLR(root,dividedBy);
     }
 
 private:

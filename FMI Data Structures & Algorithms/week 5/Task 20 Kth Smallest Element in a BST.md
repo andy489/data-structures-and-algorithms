@@ -1,4 +1,4 @@
-##230. Kth Smallest Element in a BST
+## 230. Kth Smallest Element in a BST
 Medium
 
 [Kth smallest element in a BST Judge](https://leetcode.com/problems/kth-smallest-element-in-a-bst/)

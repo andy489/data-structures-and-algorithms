@@ -44,6 +44,7 @@ For each test case, print "YES" if there's exist a BST whose preorder is equal t
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{N}\le{100}">
 
 Sample Input|Sample Output
+-|-
 5<br>3<br>1 2 3<br>3<br>2 1 3<br>6<br>3 2 1 5 4 6<br>4<br>1 3 4 2<br>5<br>3 4 5 1 2|YES<br>YES<br>YES<br>NO<br>NO
 
 #### Explanation

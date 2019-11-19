@@ -21,9 +21,9 @@ printKDistant(2) -> 9 3 1
 Функцията приема като аргумент числото k - разстоянието от корена до търсените върхове.
 
 #### Ограничения
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le">Броят на върховете в дървото<img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{1000000}">
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le">Броят на върховете в дървото<img src="https://latex.codecogs.com/svg.latex?\Large&space;\le{1000000}">
 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le">Стойността на елементите на дървото<img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{1000000}">
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le">Стойността на елементите на дървото<img src="https://latex.codecogs.com/svg.latex?\Large&space;\le{1000000}">
 
 Възможно е да няма нито един връх на разстояние <img src="https://latex.codecogs.com/svg.latex?\Large&space;k"> от корена.
 

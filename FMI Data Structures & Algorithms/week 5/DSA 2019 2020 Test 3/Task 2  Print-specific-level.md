@@ -1,6 +1,6 @@
 ## Print-specific-level
 
-[Print-specific-level](https://www.hackerrank.com/contests/sda-2019-2020-test3/challenges/print-specific-level)
+[Print-specific-level Judge](https://www.hackerrank.com/contests/sda-2019-2020-test3/challenges/print-specific-level)
 
 Дадена ви е имплементация на двоично наредено дърво. Напишете метод, който принтира всички възли на разстояние k от корена на дървото. Изкарайте ги от дясно на ляво.
 

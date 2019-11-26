@@ -1,3 +1,7 @@
+## Attacking Vigorously the Leaderboard 
+
+[Attacking Vigorously the Leaderboard Judge System](https://www.hackerrank.com/contests/practice-6-sda/challenges/attacking-vigorously-the-leaderboard)
+
 Довършете балансираното AVL дърво като имплементирате следните операции
 
 - 1.добавяне на елемент

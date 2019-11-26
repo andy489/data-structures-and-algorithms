@@ -31,7 +31,7 @@ Difficulty: Medium to Hard. Author: Petko Mitkov<br>
 -|-
 4 3<br>1<br>3<br>5<br>6<br>2 1<br>4 3<br>7 2|3
 
-Обяснение
+*Обяснение*
 
 ![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Bonus%2094%2001.png)
 

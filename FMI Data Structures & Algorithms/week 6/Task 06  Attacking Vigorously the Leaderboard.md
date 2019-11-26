@@ -15,7 +15,7 @@
 
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{N}\le{100000}">
 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;int.MIN_VALUE\le{number}\le{int.MAX_VALUE}">
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;int.MinVALUE\le{number}\le{int.MaxVALUE}">
 
 #### Изходен формат
 

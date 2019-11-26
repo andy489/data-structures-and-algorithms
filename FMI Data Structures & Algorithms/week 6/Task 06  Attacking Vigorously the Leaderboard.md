@@ -28,8 +28,5 @@ Note! cout << fixed; винаги връща до 6 символа след де
 Примерен вход|Очакван изход
 -|-
 7<br>add 58<br>add 98<br>contains 58<br>add 52<br>contains 23<br>add 23<br>print|yes<br>no<br>23.000000 52.000000 58.000000 98.000000 
-
-Примерен вход|Очакван изход
--|-
 16<br>add 8.43<br>add 5.83<br>add 7.66<br>add 1.92<br>remove 7.66<br>add 4.47<br>add -2.76<br>contains 7.23<br>add -1.64<br>remove 5.49<br>add 4.66<br>add 3.04<br>add 4.47<br>contains 8.43<br>add 7.34<br>print|no<br>5.490000 not found to remove<br>4.470000 already added<br>yes<br>-2.760000 -1.640000 1.920000 3.040000 4.470000 4.660000 5.830000 7.340000 8.430000 
 

@@ -51,7 +51,7 @@ public:
 		arr.reserve(100);
 	}
 
-	//Floyd algorithm for building a Heap from array in linear time
+	//Floyd algorithm for building heap from array in linear time
 	MinHeap(vector<int>& input)
 	{
 		int SIZE((int)input.size()), i;

@@ -141,6 +141,4 @@ int main()
 	kd.search({ 8,9 }) ? printf("%s","~found\n") : printf("%s", "~not found\n");
 	return 0;
 }
-
-
 ```

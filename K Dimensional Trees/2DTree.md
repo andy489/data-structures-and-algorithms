@@ -1,5 +1,5 @@
 ![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/KDtree%2001.png)
-
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/KDtree%2002.png)
 ```cpp
 #include <stdio.h>
 #include <vector>

@@ -1,5 +1,7 @@
-871. Minimum Number of Refueling Stops
-Hard
+## Minimum Number of Refueling Stops
+*Hard*
+
+[Judge System](https://leetcode.com/problems/minimum-number-of-refueling-stops/)
 
 A car travels from a starting position to a destination which is target miles east of the starting position.
 

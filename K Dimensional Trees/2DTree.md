@@ -66,26 +66,16 @@ class KDtree
 			}
 		}
 	}
-
-	bool arePointsSame(vector<int>& p1, vector<int>& p2)
-	{
-		int SIZE = (int)p1.size(), i;
-		for (i = 0; i < SIZE; ++i)
-			if (p1[i] != p2[i]) {
-				return false;
-			}
-		return true;
-	}
-
-	bool searchRec(Node* root, vector<int> point, int level) {
+	
+	bool searchRec(Node* root, vector<int>& point, int level) {
 		if (root == nullptr) {
 			return false;
 		}
-		if (arePointsSame(root->point, point)) {
+		if (root->point==point) {
 			return true;
 		}
 		int cd = level % 2; // Current dimension
-		if (point[cd]<root->point[cd]){
+		if (point[cd] < root->point[cd]) {
 			return searchRec(root->left, point, level + 1);
 		}
 		return searchRec(root->right, point, level + 1);
@@ -98,7 +88,7 @@ class KDtree
 		printKD(node->left);
 		printf("%d %d\n", node->point[0], node->point[1]);
 		printKD(node->right);
-	}
+	}	
 
 public:
 
@@ -113,7 +103,7 @@ public:
 	}
 	bool search(vector<int> point) {
 		return searchRec(root, point, 0);
-	}
+	}	
 };
 
 int main()
@@ -133,12 +123,14 @@ int main()
 	kd.insert({ -1,-1 });
 	kd.insert({ 3,-2 });
 	kd.insert({ 8,-3 });
-	printf("%s","All points in KD tree, LDR printed:\n");
+
+	printf("%s", "All points in KD tree, LDR printed:\n");
 	kd.print();
-	printf("%s","\nFind all points in square ABCD defined by:\nupper left point D(0,8) and lower right point B(3,5)\n");
+	printf("%s", "\nFind all points in square ABCD defined by:\nupper left point D(0,8) and lower right point B(3,5)\n");
 	kd.inSquare({ 0,8 }, { 3,5 });
-	printf("%s","\nIs there point with coordinates (8,9)?\n");
-	kd.search({ 8,9 }) ? printf("%s","~found\n") : printf("%s", "~not found\n");
+	printf("%s", "\nIs there point with coordinates (8,9)?\n");
+	kd.search({ 8,9 }) ? printf("%s", "~found\n") : printf("%s", "~not found\n");
+
 	return 0;
 }
 ```

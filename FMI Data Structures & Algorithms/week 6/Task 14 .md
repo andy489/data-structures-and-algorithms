@@ -17,20 +17,20 @@ Note that if the car reaches a gas station with 0 fuel left, the car can still r
 
  
 
-Example 1:
-
+**Example 1:**
+```
 Input: target = 1, startFuel = 1, stations = []
 Output: 0
 Explanation: We can reach the target without refueling.
-
-Example 2:
-
+```
+**Example 2:**
+```
 Input: target = 100, startFuel = 1, stations = [[10,100]]
 Output: -1
 Explanation: We can't reach the target (or even the first gas station).
-
-Example 3:
-
+```
+**Example 3:**
+```
 Input: target = 100, startFuel = 10, stations = [[10,60],[20,30],[30,30],[60,40]]
 Output: 2
 Explanation: 
@@ -39,12 +39,10 @@ We drive to position 10, expending 10 liters of fuel.  We refuel from 0 liters t
 Then, we drive from position 10 to position 60 (expending 50 liters of fuel),
 and refuel from 10 liters to 50 liters of gas.  We then drive to and reach the target.
 We made 2 refueling stops along the way, so we return 2.
-
- 
-
-Note:
-
-    1 <= target, startFuel, stations[i][1] <= 10^9
-    0 <= stations.length <= 500
-    0 < stations[0][0] < stations[1][0] < ... < stations[stations.length-1][0] < target
-
+```
+**Note:**
+```
+   1. 1 <= target, startFuel, stations[i][1] <= 10^9
+   2. 0 <= stations.length <= 500
+   3. 0 < stations[0][0] < stations[1][0] < ... < stations[stations.length-1][0] < target
+```

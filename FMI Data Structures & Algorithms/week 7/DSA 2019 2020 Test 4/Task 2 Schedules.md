@@ -16,10 +16,10 @@
 
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;q_j"> - <img src="https://latex.codecogs.com/svg.latex?\Large&space;q"> на брой милисекунди за които да се провери колко интервала имат тази милисекунда
 
-#### ограничения
+#### Ограничения
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;1<n<100,000"><br>
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;1<q<100,000"><br>
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;0\le{start_i}\le{start_i}\le{100,000,000}">
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;0\le{start_i}\le{start_i}\le{100,000,000}"><br>
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;0<q_j<100,000,000">
 
 #### Изходен формат

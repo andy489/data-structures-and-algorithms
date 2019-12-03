@@ -1,6 +1,6 @@
 ## Графици
 
-[](https://www.hackerrank.com/contests/sda-2019-2020-test4/challenges/challenge-2274)
+[Judge System](https://www.hackerrank.com/contests/sda-2019-2020-test4/challenges/challenge-2274)
 
 Помогнете за валидиране на графици за командосите от Командоленд.
 

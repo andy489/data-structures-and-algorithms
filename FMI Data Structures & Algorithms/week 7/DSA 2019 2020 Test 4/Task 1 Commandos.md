@@ -12,7 +12,7 @@
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;1<n<100,000,000"><br>
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;0<x_i<100,000,000">
 
-#### Иходен форматгг
+#### Иходен формат
 
 последователност от ранк-ове на командосите изпратени на мисия, като всеки път като е било подадено <img src="https://latex.codecogs.com/svg.latex?\Large&space;-1"> следва да се вземе командоса с най-нисък ранк и да се изпрати на мисия.
 

@@ -66,7 +66,7 @@ int main()
 {
 	Trie autoComplete;
 
-	autoComplete.insert("unicorn");
+	autoComplete.insert("unicorn velociraptor");
 	autoComplete.insert("upgrade");
 	autoComplete.insert("triathlon");
 	autoComplete.insert("upload");

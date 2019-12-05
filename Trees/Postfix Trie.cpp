@@ -1,4 +1,4 @@
-// Auto Correct Trie
+// Auto Complete Trie
 #include <iostream>
 #include <map>
 #include <string>

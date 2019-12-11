@@ -33,5 +33,4 @@ Print two space separated integers, the number of vertices in the smallest and t
 
 Sample Input|Sample Output|Explanation
 -|-|-
-5<br>1 6<br>2 7<br>3 8<br>4 9<br>2 6|2 4|The number of vertices in the smallest connected component in the graph is <img src="https://latex.codecogs.com/svg.latex?\Large&space;2"> i.e. either <img src="https://latex.codecogs.com/svg.latex?\Large&space;(3,8)"> or <img src="https://latex.codecogs.com/svg.latex?\Large&space;(4,9)">.
-The number of vertices in the largest connected component in the graph is <img src="https://latex.codecogs.com/svg.latex?\Large&space;4"> i.e. <img src="https://latex.codecogs.com/svg.latex?\Large&space;1-2-6-7"> . 
+5<br>1 6<br>2 7<br>3 8<br>4 9<br>2 6|2 4|The number of vertices in the smallest connected component in the graph is <img src="https://latex.codecogs.com/svg.latex?\Large&space;2"> i.e. either <img src="https://latex.codecogs.com/svg.latex?\Large&space;(3,8)"> or <img src="https://latex.codecogs.com/svg.latex?\Large&space;(4,9)">. The number of vertices in the largest connected component in the graph is <img src="https://latex.codecogs.com/svg.latex?\Large&space;4"> i.e. <img src="https://latex.codecogs.com/svg.latex?\Large&space;1-2-6-7"> . 

@@ -1,4 +1,8 @@
-There are values to represent nodes in a graph. They are divided into two sets and . Each set has exactly values. Set is represent by . can contain any value between to (inclusive). Set is represented by . can contain any value between to
+## Components in a Graph
+
+[Judge System](https://www.hackerrank.com/contests/sda-hw-10/challenges/components-in-graph/problem)
+
+There are <img src="https://latex.codecogs.com/svg.latex?\Large&space;2N"> values to represent nodes in a graph. They are divided into two sets <img src="https://latex.codecogs.com/svg.latex?\Large&space;G"> and <img src="https://latex.codecogs.com/svg.latex?\Large&space;B">. Each set has exactly <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> values. Set <img src="https://latex.codecogs.com/svg.latex?\Large&space;G"> is represent by <img src="https://latex.codecogs.com/svg.latex?\Large&space;\{B_1,B_2,...,B_N\}">.<img src="https://latex.codecogs.com/svg.latex?\Large&space;B"> can contain any value between <img src="https://latex.codecogs.com/svg.latex?\Large&space;N+1"> to <img src="https://latex.codecogs.com/svg.latex?\Large&space;2N">(inclusive). Set is represented by . can contain any value between to
 
 (inclusive). Same value can be chosen any number of times.
 

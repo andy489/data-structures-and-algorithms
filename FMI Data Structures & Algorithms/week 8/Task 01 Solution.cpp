@@ -5,18 +5,19 @@
 #include <algorithm>
 using namespace std;
 
-int visitComponent(int e, 
+int visitComponent(int e,
 	const unordered_map<int, unordered_set<int>>& adj,
 	unordered_set<int>& visited)
 {
 	visited.insert(e);
 	int to = 0;
-	for (auto it = adj.find(e)->second.begin();it != adj.find(e)->second.end();++it)
+
+	for (const auto& x : adj.find(e)->second)
 	{
-		if (visited.find(*it) == visited.end())
-			to += visitComponent(*it, adj, visited);
+		if (visited.find(x) == visited.end())
+			to += visitComponent(x, adj, visited);
 	}
-	return to+1;
+	return to + 1;
 }
 
 int main()
@@ -34,11 +35,11 @@ int main()
 		adj[b].insert(a);
 	}
 
-	for (auto it = adj.begin();it != adj.end();++it)
+	for (const auto& kvp : adj)
 	{
-		if (visited.find(it->first)==visited.end())
+		if (visited.find(kvp.first) == visited.end())
 		{
-			int v = visitComponent(it->first, adj, visited);
+			int v = visitComponent(kvp.first, adj, visited);
 			mini = min(mini, v);
 			maxi = max(maxi, v);
 		}

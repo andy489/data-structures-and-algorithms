@@ -29,7 +29,7 @@ The first line contains an integer <img src="https://latex.codecogs.com/svg.late
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;3">
 
 - The first line contains two space-separated integers <img src="https://latex.codecogs.com/svg.latex?\Large&space;n"> and <img src="https://latex.codecogs.com/svg.latex?\Large&space;m"> the number of nodes and edges in the graph.
-- Each line <img src="https://latex.codecogs.com/svg.latex?\Large&space;i"> of the <img src="https://latex.codecogs.com/svg.latex?\Large&space;qm"> subsequent lines contains two space-separated integers,<img src="https://latex.codecogs.com/svg.latex?\Large&space;u"> and <img src="https://latex.codecogs.com/svg.latex?\Large&space;v">, describing an edge connecting node <img src="https://latex.codecogs.com/svg.latex?\Large&space;u"> to node <img src="https://latex.codecogs.com/svg.latex?\Large&space;v">.
+- Each line <img src="https://latex.codecogs.com/svg.latex?\Large&space;i"> of the <img src="https://latex.codecogs.com/svg.latex?\Large&space;m"> subsequent lines contains two space-separated integers,<img src="https://latex.codecogs.com/svg.latex?\Large&space;u"> and <img src="https://latex.codecogs.com/svg.latex?\Large&space;v">, describing an edge connecting node <img src="https://latex.codecogs.com/svg.latex?\Large&space;u"> to node <img src="https://latex.codecogs.com/svg.latex?\Large&space;v">.
 - The last line contains a single integer, <img src="https://latex.codecogs.com/svg.latex?\Large&space;s">, denoting the index of the starting node.
 
 #### Constraints

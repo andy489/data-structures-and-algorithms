@@ -28,8 +28,7 @@ int main()
 		prerequisites.push_back({ end,start });
 	}
 
-	vector<list<int>> going(n);
-	vector<list<int>> coming(n);
+	vector<list<int>> going(n), coming(n);
 
 	for (const auto& x : prerequisites)
 	{

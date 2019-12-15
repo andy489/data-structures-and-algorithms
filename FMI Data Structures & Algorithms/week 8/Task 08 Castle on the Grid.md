@@ -32,7 +32,7 @@ The last line contains four space-separated integers, <img src="https://latex.co
 #### Constraints
 
 - <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{n}\le{100}"><br>
-- <img src="https://latex.codecogs.com/svg.latex?\Large&space;0\le{startX,startY.goalX,goalY}<n">
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;0\le{startX,startY,goalX,goalY}<n">
 
 #### Output Format
 
@@ -42,7 +42,11 @@ Sample Input|Sample Output
 -|-
 3<br>.X.<br>.X.<br>...<br>0 0 0 2|3
 
-Explanation
+*Explanation*
 
 Here is a path that one could follow in order to reach the destination in <img src="https://latex.codecogs.com/svg.latex?\Large&space;3"> steps:
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;(0,0)\rightarrow{(2,0)}\rightarrow{(2,2)}\rightarrow{(0,2)}">.
+
+Sample Input|Sample Output
+-|-
+X.........<br>XX.......X<br>..........<br>........X.<br>.X...XXX..<br>.....X..XX<br>.....X.X..<br>..........<br>.....X..XX<br>9 1 9 6|3

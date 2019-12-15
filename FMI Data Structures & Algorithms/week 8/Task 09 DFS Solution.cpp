@@ -49,7 +49,7 @@ int main()
 
     int res = 0;
 
-    dfs(V%2019, res);
+    dfs(V%10, res);
 
     cout << res;
 

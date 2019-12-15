@@ -4,37 +4,19 @@
 
 Даден е насочен граф с тегла по ребрата. Да се напише функция, която проверява дали има цикъл в графа.
 
-Input Format
+#### Входен формат
 
-N - брой тестове следват N на брой тестове всеки от който има: V E - брой върхове и брой ребра xi yi wi - ребро между връх xi и връх yi с тегло wi
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> - брой тестове следват <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> на брой тестове всеки от който има: <img src="https://latex.codecogs.com/svg.latex?\Large&space;V"> и <img src="https://latex.codecogs.com/svg.latex?\Large&space;E"> - брой върхове и брой ребра. След което се въвеждат начало, край и тегло на всяко ребро: <img src="https://latex.codecogs.com/svg.latex?\Large&space;xi,yi,wi"> - ребро между връх <img src="https://latex.codecogs.com/svg.latex?\Large&space;xi"> и връх <img src="https://latex.codecogs.com/svg.latex?\Large&space;yi"> с тегло <img src="https://latex.codecogs.com/svg.latex?\Large&space;wi">.
 
-Constraints
+#### Ограничения
 
-1 < N < 20
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;1<N<20"><br>
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;1<V<1000">
 
-1< V < 1000
+#### Изходен формат
 
-Output Format
+За всеки граф ако има цикъл се принтира **true**, иначе **falsе**, резултатите се разделят с интервал.
 
-за всеки граф ако има цикъл се принтира true иначе falsе, резултатите се разделят с интервал.
-
-Sample Input 0
-
-2
-3 5
-3 1 4
-2 3 4
-3 2 2
-1 3 2
-2 1 1
-3 5
-1 3 1
-1 2 4
-2 3 3
-3 1 3
-3 2 4
-
-Sample Output 0
-
-true true 
-
+Примерен вход|Очакван изход
+-|-
+2<br>3 5<br>3 1 4<br>2 3 4<br>3 2 2<br>1 3 2<br>2 1 1<br>3 5<br>1 3 1<br>1 2 4<br>2 3 3<br>3 1 3<br>3 2 4|true true 

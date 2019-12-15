@@ -38,7 +38,7 @@ The last line contains four space-separated integers, <img src="https://latex.co
 
 Print an integer denoting the minimum number of steps required to move the castle to the goal position.
 
-Sample Input|Sample Output
+Sample Input 1|Sample Output 1
 -|-
 3<br>.X.<br>.X.<br>...<br>0 0 0 2|3
 
@@ -47,6 +47,6 @@ Sample Input|Sample Output
 Here is a path that one could follow in order to reach the destination in <img src="https://latex.codecogs.com/svg.latex?\Large&space;3"> steps:
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;(0,0)\rightarrow{(2,0)}\rightarrow{(2,2)}\rightarrow{(0,2)}">.
 
-Sample Input|Sample Output
+Sample Input 2|Sample Output 2
 -|-
 X.........<br>XX.......X<br>..........<br>........X.<br>.X...XXX..<br>.....X..XX<br>.....X.X..<br>..........<br>.....X..XX<br>9 1 9 6|3

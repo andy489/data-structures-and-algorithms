@@ -6,36 +6,26 @@
 
 Примери за премахване на ребра с изпълняване на условието:
 
-Пример 1: image
+*Пример 1:* 
 
-Пример 2: image
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Edge%20Removal%2001.png)
 
-Input Format
+*Пример 2:* 
 
-V, E - брой на възли и ребра Следващите Е реда съдържат по две числа v1 и v2 които показват че има ребро между двата възела.
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Edge%20Removal%2002.png)
 
-Constraints
+#### Входен формат
 
-Входа ще е коректен т.е. ще има свързан граф с четен брой възли. V < 100
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;V,E"> - брой на възли и ребра. Следващите <img src="https://latex.codecogs.com/svg.latex?\Large&space;E"> реда съдържат по две числа <img src="https://latex.codecogs.com/svg.latex?\Large&space;v1"> и <img src="https://latex.codecogs.com/svg.latex?\Large&space;v2">, които показват че има ребро между двата възела.
 
-Output Format
+#### Ограничения
+
+Входа ще е коректен т.е. ще има свързан граф с четен брой възли. <img src="https://latex.codecogs.com/svg.latex?\Large&space;V<100">
+
+#### Изходен формат
 
 Максималният брой ребра които може да премахнем със запазване на исканото свойство.
 
-Sample Input 0
-
-10 9
-2 1
-3 1
-4 3
-5 2
-6 1
-7 2
-8 6
-9 8
-10 8
-
-Sample Output 0
-
-2
-
+Примерен вход|Oчакван изход
+-|-
+10 9<br>2 1<br>3 1<br>4 3<br>5 2<br>6 1<br>7 2<br>8 6<br>9 8<br>10 8|2

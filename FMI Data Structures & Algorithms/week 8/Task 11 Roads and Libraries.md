@@ -15,7 +15,7 @@ The following figure is a sample map of HackerLand where the dotted lines denote
 
 The cost of repairing any road is <img src="https://latex.codecogs.com/svg.latex?\Large&space;c_{road}"> dollars, and the cost to build a library in any city is <img src="https://latex.codecogs.com/svg.latex?\Large&space;c_{lib}"> dollars. If in the above example <img src="https://latex.codecogs.com/svg.latex?\Large&space;c_{road}=2"> and <img src="https://latex.codecogs.com/svg.latex?\Large&space;c_{lib}=3">, we would build <img src="https://latex.codecogs.com/svg.latex?\Large&space;5"> roads at a cost of <img src="https://latex.codecogs.com/svg.latex?\Large&space;5\times{2}"> and <img src="https://latex.codecogs.com/svg.latex?\Large&space;2"> libraries for a cost of <img src="https://latex.codecogs.com/svg.latex?\Large&space;6">. We don't need to rebuild one of the roads in the cycle <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\rightarrow{2}\rightarrow{3}\rightarrow{1}">.
 
-You are given <img src="https://latex.codecogs.com/svg.latex?\Large&space;q"> queries, where each query consists of a map of HackerLand and value of <img src="https://latex.codecogs.com/svg.latex?\Large&space;c_{lib}"> and <img src="https://latex.codecogs.com/svg.latex?\Large&space;c_road">. For each query, find the minimum cost of making libraries accessible to all the citizens and print it on a new line.
+You are given <img src="https://latex.codecogs.com/svg.latex?\Large&space;q"> queries, where each query consists of a map of HackerLand and value of <img src="https://latex.codecogs.com/svg.latex?\Large&space;c_{lib}"> and <img src="https://latex.codecogs.com/svg.latex?\Large&space;c_{road}">. For each query, find the minimum cost of making libraries accessible to all the citizens and print it on a new line.
 
 #### Function Description
 
@@ -23,9 +23,9 @@ Complete the function roadsAndLibraries in the editor below. It must return the 
 
 roadsAndLibraries has the following parameters:
 
-- n: integer, the number of cities
-- c_lib: integer, the cost to build a library
-- c_road: integer, the cost to repair a road
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;n">: integer, the number of cities
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;c_{lib}">: integer, the cost to build a library
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;c_{road}">: integer, the cost to repair a road
 - cities: 2D array of integers where each <img src="https://latex.codecogs.com/svg.latex?\Large&space;cities[i]"> contains two integers that represent cities connected by an obstructed road.
 
 #### Input Format

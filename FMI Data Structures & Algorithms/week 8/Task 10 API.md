@@ -12,19 +12,19 @@
 
 #### Входен формат
 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;V,E"> - брой върхове, брой ребра в граф
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;V,E"> - брой върхове, брой ребра в граф
 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;v_i,u_i,w_i"> - <img src="https://latex.codecogs.com/svg.latex?\Large&space;E"> на брой тройки за ребра - начален връх, краен връх, дължина на път.
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;v_i,u_i,w_i"> - <img src="https://latex.codecogs.com/svg.latex?\Large&space;E"> на брой тройки за ребра - начален връх, краен връх, дължина на път.
 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;K"> - броя на ребра на търсения път.
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;K"> - броя на ребра на търсения път.
 
 #### Ограничения
 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;V<100">
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;V<100">
 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;1<w_i<1000">
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;1<w_i<1000">
 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;1<K<15">
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;1<K<15">
 
 #### Изходен формат
 

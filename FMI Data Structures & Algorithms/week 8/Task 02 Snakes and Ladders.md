@@ -1,6 +1,6 @@
 ## Snakes and Ladders: The Quickest Way Up
 
-![Judge System](https://www.hackerrank.com/challenges/the-quickest-way-up)
+![Judge System](https://www.hackerrank.com/challenges/the-quickest-way-up/problem?h_r=internal-search)
 
 Markov takes out his [Snakes and Ladders](https://en.wikipedia.org/wiki/Snakes_and_Ladders) game, stares at the board and wonders: "If I can always roll the die to whatever number I want, what would be the least number of rolls to reach the destination?"
 

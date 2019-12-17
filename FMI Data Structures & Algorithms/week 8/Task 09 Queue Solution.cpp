@@ -4,6 +4,19 @@
 #include <set>
 using namespace std;
 
+/*
+10 9
+2 1
+3 1
+4 3
+5 2
+6 1
+7 2
+8 6
+9 8
+10 8
+*/
+
 vector<set<int>> adj;
 queue<int> Q;
 vector<int> mark;

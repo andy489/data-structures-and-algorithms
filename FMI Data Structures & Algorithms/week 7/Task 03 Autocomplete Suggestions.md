@@ -2,7 +2,7 @@
 
 [Judge System](https://www.hackerrank.com/contests/practice-7-sda/challenges/autocomplete-19-1)
 
-Трябва да имплементирате една от най-важните функции на търсачките - Autocomplete. Например когато пишете думи в <img src="https://latex.codecogs.com/svg.latex?\Large&space;Goodle">, техният <img src="https://latex.codecogs.com/svg.latex?\Large&space;Autocomplete"> ви предлага някакви възможности, базирани на написаното до момента.
+Трябва да имплементирате една от най-важните функции на търсачките - <img src="https://latex.codecogs.com/svg.latex?\Large&space;\boxed{Autocomplete}">. Например когато пишете думи в <img src="https://latex.codecogs.com/svg.latex?\Large&space;Goodle">, техният <img src="https://latex.codecogs.com/svg.latex?\Large&space;\boxed{Autocomplete}"> ви предлага някакви възможности, базирани на написаното до момента.
 
 За целта ви е даден речник с <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> на брой популярни думи - знаете, че тези думи са често търсени от потребителите и съответно трябва да ги предлагате, когато е възможно. Напишете програма, която да може бързо да намира по дадено начало на дума колко от думите от речника я autocomplete-ват (т.е на колко думи от речника е префикс).
 
@@ -30,7 +30,7 @@
 
 #### Изходен формат
 
-Изведете Q реда с по едно число за всеки префикс - съответно броят думи от речника, които го autocomplete-ват.
+Изведете <img src="https://latex.codecogs.com/svg.latex?\Large&space;Q"> реда с по едно число за всеки префикс - съответно броят думи от речника, които го autocomplete-ват.
 
 Примерен вход|Очакван изход
 -|-

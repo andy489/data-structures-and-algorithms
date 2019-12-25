@@ -6,7 +6,7 @@ Given an undirected graph and a starting node, determine the lengths of the shor
 
 For example, consider the following graph of 5 nodes:
 ```
-Begin	End	    Weight
+Begin	     End	    Weight
 1	    2	    5
 2	    3	    6
 3	    4	    2

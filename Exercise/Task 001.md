@@ -1,5 +1,7 @@
 ## Non-Divisible Subset
 
+[Judge System](https://www.hackerrank.com/challenges/non-divisible-subset/problem)
+
 Given a set of distinct integers, print the size of a maximal subset of <img src="https://latex.codecogs.com/svg.latex?\Large&space;S"> where the sum of any <img src="https://latex.codecogs.com/svg.latex?\Large&space;2"> numbers in <img src="https://latex.codecogs.com/svg.latex?\Large&space;S'"> is not evenly divisible by <img src="https://latex.codecogs.com/svg.latex?\Large&space;k">.
 
 For example, the array <img src="https://latex.codecogs.com/svg.latex?\Large&space;S=[19,10,12,10,24,25,22]"> and <img src="https://latex.codecogs.com/svg.latex?\Large&space;k=4">. One of the arrays that can be created is <img src="https://latex.codecogs.com/svg.latex?\Large&space;S'[0]=[10,12,25]">. Another is <img src="https://latex.codecogs.com/svg.latex?\Large&space;S'[1]=[19,22,24]"> . After testing all permutations, the maximum length solution array has <img src="https://latex.codecogs.com/svg.latex?\Large&space;3"> elements.

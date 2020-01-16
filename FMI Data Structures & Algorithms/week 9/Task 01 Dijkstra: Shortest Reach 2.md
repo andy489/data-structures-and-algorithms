@@ -13,7 +13,7 @@ Begin	    End	    Weight
 1	    3	    15
 ```
 
-![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Dijkstra%2001.png)
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Djk%2001.png)
 
 Starting at node <img src="https://latex.codecogs.com/svg.latex?\Large&space;1">, the shortest path to <img src="https://latex.codecogs.com/svg.latex?\Large&space;2"> is direct and distance <img src="https://latex.codecogs.com/svg.latex?\Large&space;5">. Going from <img src="https://latex.codecogs.com/svg.latex?\Large&space;1"> to <img src="https://latex.codecogs.com/svg.latex?\Large&space;3">, there are two paths:<img src="https://latex.codecogs.com/svg.latex?\Large&space;1\rightarrow{2}\rightarrow{3}"> at a distance of <img src="https://latex.codecogs.com/svg.latex?\Large&space;5+6=11"> or <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\rightarrow{3}"> at a distance of <img src="https://latex.codecogs.com/svg.latex?\Large&space;15">. Choose the shortest path, <img src="https://latex.codecogs.com/svg.latex?\Large&space;11"> . From <img src="https://latex.codecogs.com/svg.latex?\Large&space;1"> to <img src="https://latex.codecogs.com/svg.latex?\Large&space;4">, choose the shortest path through <img src="https://latex.codecogs.com/svg.latex?\Large&space;3"> and extend it: <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\rightarrow{2}\rightarrow{3}\rightarrow{4}"> for a distance of <img src="https://latex.codecogs.com/svg.latex?\Large&space;11+2=13"> There is no route to node <img src="https://latex.codecogs.com/svg.latex?\Large&space;5">, so the distance is <img src="https://latex.codecogs.com/svg.latex?\Large&space;-1">.
 

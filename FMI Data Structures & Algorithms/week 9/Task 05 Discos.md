@@ -4,70 +4,43 @@
 
 Иванчо е кореняк софиянец. Като такъв, на него често му се налага да отговаря на приятелите си от провинцията на следния въпрос - “На какво разстояние е най-близката дискотека до общежитието ми в студентски град?”. Тъй като на него му писна да отговаря на този въпрос, той реши да напише програма, която изчислява това.
 
-Общежитията на приятелите на Иванчо, както и дискотеките, са общо N на брой и са номерирани с числата от 0 до N - 1. Можем да представим върховете като две множества - на общежитията и на дискотеките, като броят на дискотеките е K. Иванчо има M на брой сведения за двупосочни пътища между двойка обекти и техните дължини.
+Общежитията на приятелите на Иванчо, както и дискотеките, са общо <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> на брой и са номерирани с числата от <img src="https://latex.codecogs.com/svg.latex?\Large&space;0"> до <img src="https://latex.codecogs.com/svg.latex?\Large&space;N-1">. Можем да представим върховете като две множества - на общежитията и на дискотеките, като броят на дискотеките е <img src="https://latex.codecogs.com/svg.latex?\Large&space;K">. Иванчо има <img src="https://latex.codecogs.com/svg.latex?\Large&space;M"> на брой сведения за **двупосочни** пътища между двойка обекти и техните дължини.
 
-Напишете програма, която отговаря на Q заявки. За всяка заявка получавате връх от множеството на общежитията. Вие трябва да отговорите колко е разстоянието до най-близката дискотека(връх от множеството на дискотеките).
+Напишете програма, която отговаря на <img src="https://latex.codecogs.com/svg.latex?\Large&space;Q"> заявки. За всяка заявка получавате връх от множеството на общежитията. Вие трябва да отговорите колко е разстоянието до най-близката дискотека(връх от множеството на дискотеките).
 
-Input Format
+#### Входен формат
 
-На първият ред на входа се въвеждат N и М - броят обекти и броят на известните на Иванчо пътища между тях. Следват M реда с по 3 числа на ред - двойка обекти и разстоянието между тях.
+На първият ред на входа се въвеждат <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> и <img src="https://latex.codecogs.com/svg.latex?\Large&space;M"> - броят обекти и броят на известните на Иванчо пътища между тях. Следват <img src="https://latex.codecogs.com/svg.latex?\Large&space;M"> реда с по <img src="https://latex.codecogs.com/svg.latex?\Large&space;3"> числа на ред - двойка обекти и разстоянието между тях.
 
-От следващия ред се въвежда К. Следват K на брой числа - номерата на дискотеките.
+От следващия ред се въвежда <img src="https://latex.codecogs.com/svg.latex?\Large&space;K">. Следват <img src="https://latex.codecogs.com/svg.latex?\Large&space;K"> на брой числа - номерата на дискотеките.
 
-От следващия ред се въвежда Q. Следват Q реда с po 1 число на ред - текущото местоположение на обадилия се човек(номера на общежитието му).
+От следващия ред се въвежда <img src="https://latex.codecogs.com/svg.latex?\Large&space;Q">. Следват <img src="https://latex.codecogs.com/svg.latex?\Large&space;Q"> реда с po <img src="https://latex.codecogs.com/svg.latex?\Large&space;1"> число на ред - текущото местоположение на обадилия се човек (номера на общежитието му).
 
-Constraints
+#### Ограничения
 
-1 ≤ N ≤ 100 000
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{N}\le{10^5}">
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{M}\le{3.10^5}">
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{K}<{N}">
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{Q}\le{10^5}">
+- В <img src="https://latex.codecogs.com/svg.latex?\Large&space;20%"> от тестовете <img src="https://latex.codecogs.com/svg.latex?\Large&space;Q=1">
+- В други <img src="https://latex.codecogs.com/svg.latex?\Large&space;20%"> от тестовете <img src="https://latex.codecogs.com/svg.latex?\Large&space;K=1">
 
-1 ≤ M ≤ 300 000
+#### Изходен формат
 
-1 ≤ K < N
+Изведете <img src="https://latex.codecogs.com/svg.latex?\Large&space;Q"> реда с по <img src="https://latex.codecogs.com/svg.latex?\Large&space;q"> число на ред - разстоянието до най-близката дискотека от обадилия се човек.
 
-1 ≤ Q ≤ 100 000
+Примерен вход|Очакван изход
+-|-
+6 8<br>0 1 1<br>1 2 2<br>1 3 6<br>0 4 5<br>1 4 7<br>1 5 8<br>3 5 2<br>4 5 2<br>2<br>4 5<br>4<br>0<br>1<br>2<br>3|5<br>6<br>8<br>2
 
-В 20% от тестовете Q = 1.
+**Пояснение**
 
-В други 20% от тестовете K = 1
+Отговаряме на <img src="https://latex.codecogs.com/svg.latex?\Large&space;4"> заявки - за върховете <img src="https://latex.codecogs.com/svg.latex?\Large&space;0,1,2,3">.
 
-Output Format
+Най-късият път от върха <img src="https://latex.codecogs.com/svg.latex?\Large&space;0"> до дискотека е <img src="https://latex.codecogs.com/svg.latex?\Large&space;0\rightarrow{4}"> с дължина <img src="https://latex.codecogs.com/svg.latex?\Large&space;5">.
 
-Изведете Q реда с по 1 число на ред - разстоянието до най-близката дискотека от обадилия се човек.
+Най-късият път от върха <img src="https://latex.codecogs.com/svg.latex?\Large&space;1"> до дискотека е <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\rightarrow{0}\rightarrow{4}"> с дължина <img src="https://latex.codecogs.com/svg.latex?\Large&space;6">.
 
-Sample Input 0
+Най-късият път от върха <img src="https://latex.codecogs.com/svg.latex?\Large&space;2"> до дискотека е <img src="https://latex.codecogs.com/svg.latex?\Large&space;2\rightarrow{1}\rightarrow{0}\rightarrow{4}"> с дължина <img src="https://latex.codecogs.com/svg.latex?\Large&space;8">.
 
-6 8
-0 1 1
-1 2 2
-1 3 6
-0 4 5
-1 4 7
-1 5 8
-3 5 2
-4 5 2
-2
-4 5
-4
-0
-1
-2
-3
-
-Sample Output 0
-
-5
-6
-8
-2
-
-Explanation 0
-
-Отговаряме на 4 заявки - за върховете 0, 1, 2, 3.
-
-Най-късият път от върха 0 до дискотека е 0->4 с дължина 5.
-
-Най-късият път от върха 1 до дискотека е 1->0->4 с дължина 6.
-
-Най-късият път от върха 2 до дискотека е 2->1->0->4 с дължина 8.
-
-Най-късият път от върха 3 до дискотека е 3->5 с дължина 2.
+Най-късият път от върха <img src="https://latex.codecogs.com/svg.latex?\Large&space;3"> до дискотека е <img src="https://latex.codecogs.com/svg.latex?\Large&space;3\rightarrow{5}"> с дължина <img src="https://latex.codecogs.com/svg.latex?\Large&space;2">.

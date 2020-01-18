@@ -2,7 +2,7 @@
 
 [Judge System](https://www.hackerrank.com/contests/practice-8-sda/challenges/maze-9)
 
-Вие се намирате в лабиринт, от който трябва да се измъкнете възможно най-бързо. Лабиринтът е разделен на клетки (може да си го представим като матрица с <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> реда и <img src="https://latex.codecogs.com/svg.latex?\Large&space;M"> колони), всяка от които е или празна (‘<img src="https://latex.codecogs.com/svg.latex?\Large&space;.">’) или е стена (‘<img src="https://latex.codecogs.com/svg.latex?\Large&space;#">’). Все още не можете да минавате през стени и се налага да се придвижвате само през празните клетки, като преминаването от една клетка в друга отнема, точно 1 секунда.
+Вие се намирате в лабиринт, от който трябва да се измъкнете възможно най-бързо. Лабиринтът е разделен на клетки (може да си го представим като матрица с <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> реда и <img src="https://latex.codecogs.com/svg.latex?\Large&space;M"> колони), всяка от които е или празна (‘<img src="https://latex.codecogs.com/svg.latex?\Large&space;.">’) или е стена (‘#’). Все още не можете да минавате през стени и се налага да се придвижвате само през празните клетки, като преминаването от една клетка в друга отнема, точно 1 секунда.
 
 Тъй като, това да излезете най-бързо от въпросният лабиринт, не би било твърде голямо предизвикателство, вие разполагате с отварачка на портали. Въпросната отварачка ви позволява да отворите портал, от клетката в която се намирате, до някоя от стените на лабиринта, до която имате пряка видимост. Тъй като това е все още ранен прототип, отварачката може да отваря портали само по права линия от текущото ви местоположение и самите портали стоят отворени само 1 секунда (т.е ако не минете през портала, а отидете в друга празна клетка, порталът се затваря).
 
@@ -10,7 +10,7 @@
 
 #### Входен формат
 
-На първият ред на входа се въвеждат <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> и <img src="https://latex.codecogs.com/svg.latex?\Large&space;M"> - броят редове и броят колони на матрицата. Следват <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> реда с по <img src="https://latex.codecogs.com/svg.latex?\Large&space;M"> символа от азбуката {‘<img src="https://latex.codecogs.com/svg.latex?\Large&space;.">’, ‘<img src="https://latex.codecogs.com/svg.latex?\Large&space;#">’, ‘<img src="https://latex.codecogs.com/svg.latex?\Large&space;S">’, ‘<img src="https://latex.codecogs.com/svg.latex?\Large&space;F">’}, където ‘<img src="https://latex.codecogs.com/svg.latex?\Large&space;S">’ е началната клетка, а ‘<img src="https://latex.codecogs.com/svg.latex?\Large&space;F">’ - изхода от лабиринта.
+На първият ред на входа се въвеждат <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> и <img src="https://latex.codecogs.com/svg.latex?\Large&space;M"> - броят редове и броят колони на матрицата. Следват <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> реда с по <img src="https://latex.codecogs.com/svg.latex?\Large&space;M"> символа от азбуката {‘<img src="https://latex.codecogs.com/svg.latex?\Large&space;.">’, ‘#’, ‘<img src="https://latex.codecogs.com/svg.latex?\Large&space;S">’, ‘<img src="https://latex.codecogs.com/svg.latex?\Large&space;F">’}, където ‘<img src="https://latex.codecogs.com/svg.latex?\Large&space;S">’ е началната клетка, а ‘<img src="https://latex.codecogs.com/svg.latex?\Large&space;F">’ - изхода от лабиринта.
 
 #### Ограничения
 

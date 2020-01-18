@@ -6,13 +6,13 @@ David has several containers, each with a number of balls in it. He has just eno
 
 As an example, David has <img src="https://latex.codecogs.com/svg.latex?\Large&space;n=2"> containers and different types of balls, both of which are numbered from <img src="https://latex.codecogs.com/svg.latex?\Large&space;0"> to <img src="https://latex.codecogs.com/svg.latex?\Large&space;n-1=1">. The distribution of ball types per container are described by an <img src="https://latex.codecogs.com/svg.latex?\Large&space;n\times{n}"> matrix of integers, <img src="https://latex.codecogs.com/svg.latex?\Large&space;M[container][type]">. For example, consider the following diagram for <img src="https://latex.codecogs.com/svg.latex?\Large&space;M=[[1,4],[2,3]]">:
 
-![]()
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Organizing%20Containers%20of%20Balls%2001.png)
 
 In a single operation, David can swap two balls located in different containers.
 
 The diagram below depicts a single swap operation:
 
-![]()
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Organizing%20Containers%20of%20Balls%2002.png)
 
 David wants to perform some number of swap operations such that:
 
@@ -54,12 +54,13 @@ We perform the following <img src="https://latex.codecogs.com/svg.latex?\Large&s
 
 1. The diagram below depicts one possible way to satisfy David's requirements for the first query: 
 
-![]()
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Organizing%20Containers%20of%20Balls%2003.png)
+
 Thus, we print Possible on a new line.
 
 2. The diagram below depicts the matrix for the second query: 
 
-![]() 
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Organizing%20Containers%20of%20Balls%2004.png) 
 
 No matter how many times we swap balls of type <img src="https://latex.codecogs.com/svg.latex?\Large&space;t_0"> and <img src="https://latex.codecogs.com/svg.latex?\Large&space;t_1"> between the two containers, we'll never end up with one container only containing type <img src="https://latex.codecogs.com/svg.latex?\Large&space;t_0"> and the other container only containing type <img src="https://latex.codecogs.com/svg.latex?\Large&space;t_1">. Thus, we print *Impossible* on a new line.
 

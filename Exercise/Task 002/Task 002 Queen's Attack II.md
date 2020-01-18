@@ -8,11 +8,11 @@ A [queen](https://en.wikipedia.org/wiki/Queen_%28chess%29) is standing on an <im
 
 The queen is standing at position <img src="https://latex.codecogs.com/svg.latex?\Large&space;r_q,c_q">. In a single move, she can attack any square in any of the eight directions (left, right, up, down, and the four diagonals). In the diagram below, the green circles denote all the cells the queen can attack from <img src="https://latex.codecogs.com/svg.latex?\Large&space;(4,4)">:
 
-![]()
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Queen's%20Attack%20II%2001.png)
 
 There are obstacles on the chessboard, each preventing the queen from attacking any square beyond it on that path. For example, an obstacle at location <img src="https://latex.codecogs.com/svg.latex?\Large&space;(3,5)"> in the diagram above prevents the queen from attacking cells <img src="https://latex.codecogs.com/svg.latex?\Large&space;(3,5)">, <img src="https://latex.codecogs.com/svg.latex?\Large&space;(2,6)">, and <img src="https://latex.codecogs.com/svg.latex?\Large&space;(1,7)">:
 
-![]()
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Queen's%20Attack%20II%2002.png)
 
 Given the queen's position and the locations of all the obstacles, find and print the number of squares the queen can attack from her position at <img src="https://latex.codecogs.com/svg.latex?\Large&space;(r_q,r_c)">. In the board above, there are <img src="https://latex.codecogs.com/svg.latex?\Large&space;24"> such squares.
 
@@ -53,7 +53,7 @@ Sample Input 0|Sample Output 0
 
 The queen is standing at position <img src="https://latex.codecogs.com/svg.latex?\Large&space;(4,4)"> on a <img src="https://latex.codecogs.com/svg.latex?\Large&space;4\times{4}"> chessboard with no obstacles:
 
-![]()
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Queen's%20Attack%20II%2003.png)
 
 Sample Input 1|Sample Output 1
 -|-
@@ -63,7 +63,7 @@ Sample Input 1|Sample Output 1
 
 The queen is standing at position <img src="https://latex.codecogs.com/svg.latex?\Large&space;(4,3)"> on a <img src="https://latex.codecogs.com/svg.latex?\Large&space;5\times{5}"> chessboard with <img src="https://latex.codecogs.com/svg.latex?\Large&space;k=3"> obstacles:
 
-![]()
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Queen's%20Attack%20II%2004.png)
 
 The number of squares she can attack from that position is <img src="https://latex.codecogs.com/svg.latex?\Large&space;10">.
 

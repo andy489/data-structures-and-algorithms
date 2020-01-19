@@ -1,0 +1,43 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+vector<int> memo;
+vector<vector<int>> graph;
+int e;
+const int module = 1000000007;
+
+int counter(int s){
+    if(memo[s] != -1){
+        return memo[s];
+    }
+    int sum = 0;
+    for(int n: graph[s]){
+        sum += counter(n);
+        sum %= module; 
+    }
+    
+    memo[s] = sum % module;
+    return memo[s];
+}
+
+int main() {
+    int n,m;
+    cin>>n>>m;
+    graph.resize(n+1);
+    memo.resize(n+1);
+    fill(memo.begin(), memo.end(), -1);
+    int u,v;
+    for(int i=0;i<m;i++){
+        cin>>u>>v;
+        graph[u].push_back(v);
+    }
+    int s;
+    cin>>s>>e;
+    memo[e] = 1;
+    cout<<counter(s)<<endl;
+    return 0;
+}

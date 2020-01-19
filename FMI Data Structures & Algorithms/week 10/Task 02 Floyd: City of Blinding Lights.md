@@ -32,7 +32,7 @@ Each of the next <img src="https://latex.codecogs.com/svg.latex?\Large&space;q">
 #### Constraints
 
 - <img src="https://latex.codecogs.com/svg.latex?\Large&space;2\le{n}\le{400}">
-- <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{m\le{\frac{n\times{n-1}}{2}}}">
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{m\le{\frac{n\times{(n-1)}}{2}}}">
 - <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{q}\le{10^5}">
 - <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{x,y}\le{N}">
 - <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{r}\le{350}">

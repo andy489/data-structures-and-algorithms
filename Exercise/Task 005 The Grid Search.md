@@ -8,7 +8,7 @@ Given a 2D array of digits or grid, try to find the occurrence of a given 2D pat
 
 Assume we need to look for the following 2D pattern array:
 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;876543\\111111\\111111"> 
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;\\876543\\111111\\111111"> 
 
 The 2D pattern begins at the second row and the third column of the grid. The pattern is said to be present in the grid.
 

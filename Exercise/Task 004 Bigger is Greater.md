@@ -32,16 +32,15 @@ Sample Input 0|Sample Output 0
 
 **Explanation 0**
 
-- Test case <img src="https://latex.codecogs.com/svg.latex?\Large&space;1">:<br>
-    <img src="https://latex.codecogs.com/svg.latex?\Large&space;ba"> is the only string which can be made by rearranging <img src="https://latex.codecogs.com/svg.latex?\Large&space;ab">. It is greater.
-- Test case <img src="https://latex.codecogs.com/svg.latex?\Large&space;2">:">:<
-    It is not possible to rearrange bb and get a greater string.
-- Test case <img src="https://latex.codecogs.com/svg.latex?\Large&space;3">:<br>
-    hegf is the next string greater than hefg.
-- Test case <img src="https://latex.codecogs.com/svg.latex?\Large&space;4">:<br>
-    <img src="https://latex.codecogs.com/svg.latex?\Large&space;dhkc"> is the next string greater than <img src="https://latex.codecogs.com/svg.latex?\Large&space;dhck">.
-- Test case <img src="https://latex.codecogs.com/svg.latex?\Large&space;5">:<br>
-    <img src="https://latex.codecogs.com/svg.latex?\Large&space;hcdk"> is the next string greater than <img src="https://latex.codecogs.com/svg.latex?\Large&space;dkhc">.
+- Test case <img src="https://latex.codecogs.com/svg.latex?\Large&space;1">:<br><img src="https://latex.codecogs.com/svg.latex?\Large&space;ba"> is the only string which can be made by rearranging <img src="https://latex.codecogs.com/svg.latex?\Large&space;ab">. It is greater.
+
+- Test case <img src="https://latex.codecogs.com/svg.latex?\Large&space;2">:<br>It is not possible to rearrange bb and get a greater string.
+
+- Test case <img src="https://latex.codecogs.com/svg.latex?\Large&space;3">:<br><img src="https://latex.codecogs.com/svg.latex?\Large&space;hegf"> is the next string greater than hefg.
+
+- Test case <img src="https://latex.codecogs.com/svg.latex?\Large&space;4">:<br><img src="https://latex.codecogs.com/svg.latex?\Large&space;dhkc"> is the next string greater than <img src="https://latex.codecogs.com/svg.latex?\Large&space;dhck">.
+
+- Test case <img src="https://latex.codecogs.com/svg.latex?\Large&space;5">:<br><img src="https://latex.codecogs.com/svg.latex?\Large&space;hcdk"> is the next string greater than <img src="https://latex.codecogs.com/svg.latex?\Large&space;dkhc">.
 
 Sample Input 1|Sample Output 1
 -|-

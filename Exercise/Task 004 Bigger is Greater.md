@@ -36,11 +36,11 @@ Sample Input 0|Sample Output 0
     <img src="https://latex.codecogs.com/svg.latex?\Large&space;ba"> is the only string which can be made by rearranging <img src="https://latex.codecogs.com/svg.latex?\Large&space;ab">. It is greater.
 - Test case <img src="https://latex.codecogs.com/svg.latex?\Large&space;2">:">:<
     It is not possible to rearrange bb and get a greater string.
-    Test case <img src="https://latex.codecogs.com/svg.latex?\Large&space;3">:<br>
+- Test case <img src="https://latex.codecogs.com/svg.latex?\Large&space;3">:<br>
     hegf is the next string greater than hefg.
-    Test case <img src="https://latex.codecogs.com/svg.latex?\Large&space;4">:<br>
+- Test case <img src="https://latex.codecogs.com/svg.latex?\Large&space;4">:<br>
     <img src="https://latex.codecogs.com/svg.latex?\Large&space;dhkc"> is the next string greater than <img src="https://latex.codecogs.com/svg.latex?\Large&space;dhck">.
-    Test case <img src="https://latex.codecogs.com/svg.latex?\Large&space;5">:<br>
+- Test case <img src="https://latex.codecogs.com/svg.latex?\Large&space;5">:<br>
     <img src="https://latex.codecogs.com/svg.latex?\Large&space;hcdk"> is the next string greater than <img src="https://latex.codecogs.com/svg.latex?\Large&space;dkhc">.
 
 Sample Input 1|Sample Output 1

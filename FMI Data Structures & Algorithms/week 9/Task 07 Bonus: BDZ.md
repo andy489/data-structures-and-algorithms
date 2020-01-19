@@ -2,49 +2,35 @@
 
 [Judge System](https://www.hackerrank.com/contests/practice-8-sda/challenges/bdz)
 
-Дойде време за празници и всички започнаха да си тръгват от София чрез любимото БДЖ. За да са по-ефективни, БДЖ решили да направят всички влакове да са еднопосочни и да няма циклични линии - така ще могат влаковете да са съсредоточени върху изкарването на хората от София. Градовете, които имат спирки, са N на брой и са номерирани с числата от 1 до N, а БДЖ има M на брой линии между тях. В един такъв момент човек си задава логичния въпрос - "По колко начина мога да стигна от град A до град B?" Напишете програма, която по дадени начален и краен град, намира броят на възможните пътища, започвайки от началния и завършвайки в крайния град.
+Дойде време за празници и всички започнаха да си тръгват от София чрез любимото БДЖ. За да са по-ефективни, БДЖ решили да направят всички влакове да са еднопосочни и да няма циклични линии - така ще могат влаковете да са съсредоточени върху изкарването на хората от София. Градовете, които имат спирки, са <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> на брой и са номерирани с числата от <img src="https://latex.codecogs.com/svg.latex?\Large&space;1"> до <img src="https://latex.codecogs.com/svg.latex?\Large&space;N">, а БДЖ има <img src="https://latex.codecogs.com/svg.latex?\Large&space;M"> на брой линии между тях. В един такъв момент човек си задава логичния въпрос - "По колко начина мога да стигна от град <img src="https://latex.codecogs.com/svg.latex?\Large&space;A"> до град <img src="https://latex.codecogs.com/svg.latex?\Large&space;B">?" Напишете програма, която по дадени начален и краен град, намира броят на възможните пътища, започвайки от началния и завършвайки в крайния град.
 
-Input Format
+#### Входен формат
 
-На първия ред на входа се въвеждат N и M - броят градове и броят линии. Следват M реда с по две числа - еднопосочна линия на БДЖ между два града. На последния ред има две числа - началния и крайния град.
+На първия ред на входа се въвеждат <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> и <img src="https://latex.codecogs.com/svg.latex?\Large&space;M"> - броят градове и броят линии. Следват <img src="https://latex.codecogs.com/svg.latex?\Large&space;M"> реда с по две числа - еднопосочна линия на БДЖ между два града. На последния ред има две числа - началния и крайния град.
 
-Constraints
+#### Ограничения
 
-1 ≤ N ≤ 100 000
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{N}\le{10^5}">
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{M}\le{2.10^5}">
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{start,end}\le{N}">
+- Гарантирано е, че няма цикъл.
 
-1 ≤ M ≤ 200 000
+#### Изходен формат
 
-1 ≤ start, end ≤ N
+Изведете едно число - броят различни пътища от началния до крайния град. Тъй като това число може да е прекалено голямо, изведете остатъка му по модул <img src="https://latex.codecogs.com/svg.latex?\Large&space;1000000007">.
 
-Гарантирано е, че няма цикъл.
+Примерен вход 0|Очакван изход 0
+-|-
+4 6<br>2 1<br>4 3<br>1 3<br>4 1<br>2 3<br>2 4<br>2 3|4
 
-Output Format
+**Пояснение 0**
 
-Изведете едно число - броят различни пътища от началния до крайния град. Тъй като това число може да е прекалено голямо, изведете остатъка му по модул 1000000007.
+Различните пътища от <img src="https://latex.codecogs.com/svg.latex?\Large&space;2"> до <img src="https://latex.codecogs.com/svg.latex?\Large&space;3"> са:
 
-Sample Input 0
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;2\rightarrow{3}">
 
-4 6
-2 1
-4 3
-1 3
-4 1
-2 3
-2 4
-2 3
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;2\rightarrow{4}\rightarrow{3}">
 
-Sample Output 0
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;2\rightarrow{4}\rightarrow{1}\rightarrow{3}">
 
-4
-
-Explanation 0
-
-Различните пътища от 2 до 3 са:
-
-2->3
-
-2->4->3
-
-2->4->1->3
-
-2->1->3
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;2\rightarrow{1}\rightarrow{3}">

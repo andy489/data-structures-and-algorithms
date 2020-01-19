@@ -2,56 +2,40 @@
 
 [Judge System](https://www.hackerrank.com/contests/practice-9-sda/challenges/forest-1)
 
-На входа ще получите несвързан претеглен мултиграф. Трябва да намерите тежестта на минималната покриваща гора. За всяка компонента на графа с 1 връх тази тежест е 0. За всяка компонента с повече от 1 върха тази тежест е тежестта на някое минимално покриващо дърво на компонентата.
+На входа ще получите несвързан претеглен мултиграф. Трябва да намерите тежестта на минималната покриваща гора. За всяка компонента на графа с <img src="https://latex.codecogs.com/svg.latex?\Large&space;1"> връх тази тежест е <img src="https://latex.codecogs.com/svg.latex?\Large&space;0">. За всяка компонента с повече от <img src="https://latex.codecogs.com/svg.latex?\Large&space;1"> връх тази тежест е тежестта на някое минимално покриващо дърво на компонентата.
 
-Input Format
+#### Входен формат
 
-На първият ред ще получите
-е броят на върховете в графа. Върховете са номерирани с числа от до
+На първият ред ще получите <img src="https://latex.codecogs.com/svg.latex?\Large&space;N,M"><br>
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;N">е броят на върховете в графа. Върховете са номерирани с числа от <img src="https://latex.codecogs.com/svg.latex?\Large&space;0"> до <img src="https://latex.codecogs.com/svg.latex?\Large&space;N-1">.<br>
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;M"> е броят на ребрата.
 
-.
+На следващите <img src="https://latex.codecogs.com/svg.latex?\Large&space;M"> реда ще получите <img src="https://latex.codecogs.com/svg.latex?\Large&space;M"> ребра , <img src="https://latex.codecogs.com/svg.latex?\Large&space;A,B,W">, където <img src="https://latex.codecogs.com/svg.latex?\Large&space;A"> и <img src="https://latex.codecogs.com/svg.latex?\Large&space;B"> са краищата на ребро, а <img src="https://latex.codecogs.com/svg.latex?\Large&space;W"> е тежестта му.
 
-е броят на ребрата.
+#### Ограничения
 
-На следващите
-реда ще получите ребра , където и са краищата на ребро, а
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;N\le{20000}">
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;M\le{20000}">
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;W\le{1000}">
 
-е тежестта му.
-
-Constraints
-
-Output Format
+#### Изходен формат
 
 На изхода изведете едно число - тежестта на минималната покриваща гора.
 
-Sample Input 0
+Примерен вход 0|Очакван изход 0
+-|-
+3 4<br>0 1 1<br>1 0 4<br>0 2 7<br>1 2 2|3
 
-3 4
-0 1 1
-1 0 4
-0 2 7
-1 2 2
+**Пояснение 0**
 
-Sample Output 0
+Всички върхове са свързани помежду си, т.е имаме <img src="https://latex.codecogs.com/svg.latex?\Large&space;1"> компонента на свързаност. За да свържем <img src="https://latex.codecogs.com/svg.latex?\Large&space;3"> върха са ни необходими <img src="https://latex.codecogs.com/svg.latex?\Large&space;2"> ребра. Най-леките ребра, които ни вършат работа са с тежест <img src="https://latex.codecogs.com/svg.latex?\Large&space;1"> и <img src="https://latex.codecogs.com/svg.latex?\Large&space;2">. <img src="https://latex.codecogs.com/svg.latex?\Large&space;1+2=3">.
 
-3
+Примерен вход 1|Очакван изход 1
+-|-
+5 4<br>0 1 5<br>2 3 1<br>2 4 1<br>4 3 10|7
 
-Explanation 0
+**Пояснение 1**
 
-Всички върхове са свързани помежду си, т.е имаме 1 компонента на свързаност. За да свържем 3 върха са ни необходими 2 ребра. Най-леките ребра, които ни вършат работа са с тежест 1 и 2. 1 + 2 = 3
+Графът има <img src="https://latex.codecogs.com/svg.latex?\Large&space;2"> компоненти на свързаност: <img src="https://latex.codecogs.com/svg.latex?\Large&space;0-1,2-3-4">. Минималната тежест на покриващо дърво за <img src="https://latex.codecogs.com/svg.latex?\Large&space;0-1"> е <img src="https://latex.codecogs.com/svg.latex?\Large&space;5">, а за <img src="https://latex.codecogs.com/svg.latex?\Large&space;2-3-4"> е <img src="https://latex.codecogs.com/svg.latex?\Large&space;2">.
 
-Sample Input 1
-
-5 4
-0 1 5
-2 3 1
-2 4 1
-4 3 10
-
-Sample Output 1
-
-7
-
-Explanation 1
-
-Графът има 2 компоненти на свързаност: 0-1, 2-3-4. Минималната тежест на покриващо дърво за 0-1 е 5, а за 2-3-4 е 2. 5 + 2 = 7
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;5+2=7">.

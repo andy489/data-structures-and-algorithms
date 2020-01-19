@@ -6,7 +6,7 @@ Given a directed weighted graph where weight indicates distance, for each query,
 
 For example, your graph consists of <img src="https://latex.codecogs.com/svg.latex?\Large&space;5"> nodes as in the following:
 
-![]()
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Floyd%20-%20City%20of%20Blinding%20Lights%2001.png)
 
 A few queries are from node <img src="https://latex.codecogs.com/svg.latex?\Large&space;4"> to node <img src="https://latex.codecogs.com/svg.latex?\Large&space;3">, node <img src="https://latex.codecogs.com/svg.latex?\Large&space;2"> to node <img src="https://latex.codecogs.com/svg.latex?\Large&space;5">, and node <img src="https://latex.codecogs.com/svg.latex?\Large&space;5"> to node <img src="https://latex.codecogs.com/svg.latex?\Large&space;3">.
 
@@ -55,7 +55,7 @@ Sample Input|Sample Output
 
 The graph given in the test case is shown as :
 
-![]()
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Floyd%20-%20City%20of%20Blinding%20Lights%2002.png)
 
 The shortest paths for the <img src="https://latex.codecogs.com/svg.latex?\Large&space;3"> queries are :
 

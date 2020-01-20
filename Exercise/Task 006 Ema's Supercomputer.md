@@ -10,7 +10,7 @@ A valid plus is defined here as the crossing of two segments (horizontal and ver
 
 In the diagram below, the blue pluses are valid and the orange ones are not valid. 
 
-![]()
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Two%20Pluses%2001.png)
 
 Find the two largest valid pluses that can be drawn on <img src="https://latex.codecogs.com/svg.latex?\Large&space;good"> cells in the grid, and return an integer denoting the maximum product of their areas. In the above diagrams, our largest pluses have areas of <img src="https://latex.codecogs.com/svg.latex?\Large&space;5"> and <img src="https://latex.codecogs.com/svg.latex?\Large&space;9">. The product of their areas is <img src="https://latex.codecogs.com/svg.latex?\Large&space;5\times{9}=45">.
 
@@ -42,7 +42,7 @@ Sample Input 1|Sample Output 1
 
 Here are two possible solutions for **Sample 0** (left) and **Sample 1** (right): 
 
-![]()
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Two%20Pluses%2002.png)
 
 Explanation Key:
 

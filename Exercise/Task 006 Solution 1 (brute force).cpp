@@ -5,8 +5,7 @@ using namespace std;
 
 int n, m, i, j, x, y, X, Y, r, R, ans;
 
-bool isValid(int a, int b, bool rb, bool Rb)
-{
+bool isValid(int a, int b, bool rb, bool Rb){
 	return a - (r * rb + R * Rb) >= 0 && b - (r * rb + R * Rb) >= 0 &&
 		a + (r * rb + R * Rb) < n && b + (r * rb + R * Rb) < m;
 }

@@ -1,5 +1,4 @@
 //https://www.hackerrank.com/contests/sda-exam-27-01-19-/challenges/challenge-1796/
-
 #include <bits/stdc++.h>
 using namespace std;
 

@@ -37,8 +37,8 @@ Given:<br>
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;mealCost=12,tioOercent=20,taxPercent=8">
 
 Calculations:
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;tip=12\times{frac{20}{100}}=2.4"><br>
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;tax=12\times{frac{8}{100}}=0.96"><br>
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;tip=12\times{\frac{20}{100}}=2.4"><br>
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;tax=12\times{\frac{8}{100}}=0.96"><br>
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;totalCost=mealCost+tip+tax=12+2.4+0.96=15.36"><br>
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;round(totalCost)=15"><br>
 

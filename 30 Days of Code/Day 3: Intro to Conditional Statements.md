@@ -1,63 +1,46 @@
-Objective
-In this challenge, we're getting started with conditional statements. Check out the Tutorial tab for learning materials and an instructional video!
+https://www.hackerrank.com/challenges/30-conditional-statements/problem
 
-Task
-Given an integer,
+## Day 3: Introduction to Conditional Statements
 
-, perform the following conditional actions:
+#### Objective
+In this challenge, we're getting started with conditional statements. Check out the [Tutorial](https://www.hackerrank.com/challenges/30-conditional-statements/tutorial) tab for learning materials and an instructional video!
 
-    If 
+#### Task
+Given an integer, <img src="https://latex.codecogs.com/svg.latex?\Large&space;n">, perform the following conditional actions:
 
-is odd, print Weird
-If
-is even and in the inclusive range of to
-, print Not Weird
-If
-is even and in the inclusive range of to
-, print Weird
-If
-is even and greater than
+- If <img src="https://latex.codecogs.com/svg.latex?\Large&space;n"> is odd, print *Wierd*
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;n"> is even and in the inclusive range of <img src="https://latex.codecogs.com/svg.latex?\Large&space;2"> to <img src="https://latex.codecogs.com/svg.latex?\Large&space;5">, print *Not Weird*
+- If <img src="https://latex.codecogs.com/svg.latex?\Large&space;n"> is even and in the inclusive range of <img src="https://latex.codecogs.com/svg.latex?\Large&space;6"> to <img src="https://latex.codecogs.com/svg.latex?\Large&space;20">, print *Weird*
+- If <img src="https://latex.codecogs.com/svg.latex?\Large&space;n"> is even and greater than <img src="https://latex.codecogs.com/svg.latex?\Large&space;20">, print *Not Weird*
 
-    , print Not Weird
+Complete the stub code provided in your editor to print whether or not <img src="https://latex.codecogs.com/svg.latex?\Large&space;n"> is weird.
 
-Complete the stub code provided in your editor to print whether or not
+#### Input Format
 
-is weird.
+A single line containing a positive integer, <img src="https://latex.codecogs.com/svg.latex?\Large&space;n">.
 
-Input Format
+#### Constraints
 
-A single line containing a positive integer,
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{n}\le{100}">
 
-.
+#### Output Format
 
-Constraints
+Print *Weird* if the number is weird; otherwise, print *Not Weird*.
 
-Output Format
+Sample Input 0|Sample Output 0
+-|-
+3|Weird
 
-Print Weird if the number is weird; otherwise, print Not Weird.
+Sample Input 1|Sample Output 1
+-|-
+24|Not Weird
 
-Sample Input 0
+#### Explanation
 
-3
+Sample Case 0: <img src="https://latex.codecogs.com/svg.latex?\Large&space;n=3">
 
-Sample Output 0
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;n"> is odd and odd numbers are weird, so we print *Weird*.
 
-Weird
+Sample Case 1: <img src="https://latex.codecogs.com/svg.latex?\Large&space;n=24">
 
-Sample Input 1
-
-24
-
-Sample Output 1
-
-Not Weird
-
-Explanation
-
-Sample Case 0:
-
-is odd and odd numbers are weird, so we print Weird.
-
-Sample Case 1:
-
-and is even, so it isn't weird. Thus, we print Not Weird.
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;n>20"> and is even, so it isn't weird. Thus, we print *Not Weird*.

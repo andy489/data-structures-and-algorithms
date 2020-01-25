@@ -39,6 +39,6 @@
 
 - <img src="https://latex.codecogs.com/svg.latex?\Large&space;5"> се среща в масива, първото и последното срещане са му съответно на позиции <img src="https://latex.codecogs.com/svg.latex?\Large&space;3"> и <img src="https://latex.codecogs.com/svg.latex?\Large&space;4">
 
-- <img src="https://latex.codecogs.com/svg.latex?\Large&space;6"> не се среща и ако се добави ще застане точно след втората петица - на позиция 5<img src="https://latex.codecogs.com/svg.latex?\Large&space;5">
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;6"> не се среща и ако се добави ще застане точно след втората петица - на позиция <img src="https://latex.codecogs.com/svg.latex?\Large&space;5">
 
 - <img src="https://latex.codecogs.com/svg.latex?\Large&space;10"> не се среща и при добавяне ще застане накрая на масива - позиция <img src="https://latex.codecogs.com/svg.latex?\Large&space;6">.

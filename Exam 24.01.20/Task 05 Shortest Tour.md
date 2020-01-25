@@ -26,6 +26,6 @@
 -|-
 5 7<br>0 1<br>1 4<br>0 2<br>2 3<br>3 4<br>4 1<br>3 2<br>3<br>0 4 1|4
 
-*Пояснение*
+*Пояснение:*
 
 Пътят, който търсим е <img src="https://latex.codecogs.com/svg.latex?\Large&space;0->2->3->4->1"> и е с дължина <img src="https://latex.codecogs.com/svg.latex?\Large&space;4">. Забележете, че има път <img src="https://latex.codecogs.com/svg.latex?\Large&space;0->1->4->1">, който е с дължина <img src="https://latex.codecogs.com/svg.latex?\Large&space;3">, но той не минава по атракциите в зададения ред, а минава през <img src="https://latex.codecogs.com/svg.latex?\Large&space;1"> преди през <img src="https://latex.codecogs.com/svg.latex?\Large&space;4">.

@@ -12,7 +12,7 @@
 
 #### Ограничения
 
-Възлите на дървото ще са по-малко от <img src="https://latex.codecogs.com/svg.latex?\Large&space;100000">
+Възлите на дървото ще са по-малко от <img src="https://latex.codecogs.com/svg.latex?\Large&space;10^5">
 
 #### Изходен формат
 

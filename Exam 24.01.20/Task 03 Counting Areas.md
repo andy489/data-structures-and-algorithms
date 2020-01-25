@@ -6,7 +6,7 @@
 
 #### Входен формат
 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;Т"> - брой тестове. <img src="https://latex.codecogs.com/svg.latex?\Large&space;X,Y"> - брой градове и брой пътища. <img src="https://latex.codecogs.com/svg.latex?\Large&space;x_i,x_j"> - указва, че има връзка между два града (всички пътища са двупосочни, като може да има по-повече от един път между два града).
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;T"> - брой тестове. <img src="https://latex.codecogs.com/svg.latex?\Large&space;X,Y"> - брой градове и брой пътища. <img src="https://latex.codecogs.com/svg.latex?\Large&space;x_i,x_j"> - указва, че има връзка между два града (всички пътища са двупосочни, като може да има по-повече от един път между два града).
 
 #### Ограничения
 

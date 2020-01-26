@@ -12,7 +12,7 @@
 
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> - брой операции които ще бъдат подадени
 
-Следват <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> операции всяка от която на нов ред (операцията се дава с името си и ако има входен параметър например: **add число, print**)
+Следват <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> операции всяка от която на нов ред (операцията се дава с името си и ако има входен параметър например: ***add число, print***)
 
 #### Ограничения
 

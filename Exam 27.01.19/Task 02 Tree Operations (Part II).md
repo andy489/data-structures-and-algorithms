@@ -2,50 +2,28 @@
 
 [Judge System](https://www.hackerrank.com/contests/sda-exam-27-01-19-/challenges/challenge-1796)
 
-Използвайте вече написаните функции add и print и добавете следните нови функции:
+Използвайте вече написаните функции <img src="https://latex.codecogs.com/svg.latex?\Large&space;add"> и <img src="https://latex.codecogs.com/svg.latex?\Large&space;print"> и добавете следните нови функции:
 
-void remove(int X)- ако в дървото имаме елемент X го изтрива (запазвайки структурата наредено двоично дърво,hint: ако възела няма наследник просто се премахва, ако има само един наследник то той отива на негово място, а ако има два наследника тогава се търси най-малкият по-голям от него). Не принтира нищо на стандартният изход.
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;void{\;}remove(int{\;}X)"> - ако в дървото имаме елемент <img src="https://latex.codecogs.com/svg.latex?\Large&space;X"> го изтрива (запазвайки структурата наредено двоично дърво. Упътване: ако възела няма наследник просто се премахва, ако има само един наследник то той отива на негово място, а ако има два наследника тогава се търси най-малкият по-голям от него). Не принтира нищо на стандартният изход.
 
-void print_odd_layers() - принтира елементите на дървото от нечетните му нива започвайки от корена и продължавайки с 3 ниво, 5 ниво и т.н. (елементите от четните нива се прескачат)
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;void{\;}print_odd_layers()"> - принтира елементите на дървото от нечетните му нива започвайки от корена и продължавайки с ниво <img src="https://latex.codecogs.com/svg.latex?\Large&space;3">, ниво <img src="https://latex.codecogs.com/svg.latex?\Large&space;5"> и т.н. (елементите от четните нива се прескачат)
 
-Input Format
+#### Входен формат
 
-N - брой на операциите Следват имената на операциите като аргументите са разделени с интервал
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> - брой на операциите. Следват имената на операциите като аргументите са разделени с интервал
 
-Constraints
+#### Ограничения
 
-1 < N < 200,000
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;1<N<2.10^5">
 
-Output Format
+#### Иходен формат
 
 Изход спрямо изпълнените операции
 
-Sample Input 0
+Примерен вход 0|Очакван изход 0
+-|-
+5<br>add 2<br>add 2<br>add 1<br>remove 2<br>print|1 
 
-5
-add 2
-add 2
-add 1
-remove 2
-print
-
-Sample Output 0
-
-1 
-
-Sample Input 1
-
-8
-add 1
-add 2
-add 4
-add 6
-add 7
-add 5
-print_odd_layers
-print
-
-Sample Output 1
-
-1 4 5 7 1 2 4 6 5 7 
-
+Примерен вход 0|Очакван изход 0
+-|-
+8<br>add 1<br>add 2<br>add 4<br>add 6<br>add 7<br>add 5<br>print_odd_layers<br>print|1 4 5 7 1 2 4 6 5 7

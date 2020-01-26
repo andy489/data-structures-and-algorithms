@@ -6,35 +6,18 @@
 
 #### Входен формат
 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> - брой тестове следват <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> на брой тестове всеки от който има: V E - брой върхове и брой ребра xi yi wi - ребро между връх xi и връх yi с тегло wi
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> - брой тестове следват <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> на брой тестове всеки от който има: <img src="https://latex.codecogs.com/svg.latex?\Large&space;V,E"> - брой върхове и брой ребра <img src="https://latex.codecogs.com/svg.latex?\Large&space;x_i,y_i,w_i"> - ребро между връх <img src="https://latex.codecogs.com/svg.latex?\Large&space;x_i"> и връх <img src="https://latex.codecogs.com/svg.latex?\Large&space;y_i"> с тегло <img src="https://latex.codecogs.com/svg.latex?\Large&space;w_i">.
 
-Constraints
+#### Ограничения
 
-1 < N < 20
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;1<N<20">
 
-1< V < 1000
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;1<V<1000">
 
-Output Format
+#### Изходен формат
 
-за всеки граф ако има цикъл се принтира true иначе falsе, резултатите се разделят с интервал.
+За всеки граф ако има цикъл се принтира *true*, иначе *falsе*, резултатите се разделят с интервал.
 
-Sample Input 0
-
-2
-3 5
-3 1 4
-2 3 4
-3 2 2
-1 3 2
-2 1 1
-3 5
-1 3 1
-1 2 4
-2 3 3
-3 1 3
-3 2 4
-
-Sample Output 0
-
-true true 
-
+Примерен вход|Очакван изход
+-|-
+2<br>3 5<br>3 1 4<br>2 3 4<br>3 2 2<br>1 3 2<br>2 1 1<br>3 5<br>1 3 1<br>1 2 4<br>2 3 3<br>3 1 3<br>3 2 4|true true

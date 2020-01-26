@@ -6,7 +6,7 @@
 
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;void{\;}remove(int{\;}X)"> - ако в дървото имаме елемент <img src="https://latex.codecogs.com/svg.latex?\Large&space;X"> го изтрива (запазвайки структурата наредено двоично дърво. Упътване: ако възела няма наследник просто се премахва, ако има само един наследник то той отива на негово място, а ако има два наследника тогава се търси най-малкият по-голям от него). Не принтира нищо на стандартният изход.
 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;void{\;}print_odd_layers()"> - принтира елементите на дървото от нечетните му нива започвайки от корена и продължавайки с ниво <img src="https://latex.codecogs.com/svg.latex?\Large&space;3">, ниво <img src="https://latex.codecogs.com/svg.latex?\Large&space;5"> и т.н. (елементите от четните нива се прескачат)
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;void{\;}print{\char`_}odd{\char`_}layers()"> - принтира елементите на дървото от нечетните му нива започвайки от корена и продължавайки с ниво <img src="https://latex.codecogs.com/svg.latex?\Large&space;3">, ниво <img src="https://latex.codecogs.com/svg.latex?\Large&space;5"> и т.н. (елементите от четните нива се прескачат)
 
 #### Входен формат
 

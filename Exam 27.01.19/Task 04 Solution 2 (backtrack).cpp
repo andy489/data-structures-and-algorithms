@@ -4,12 +4,10 @@ using namespace std;
 vector<list<int>> adj;
 vector<bool>visited;
 
-void dfs(int s, bool& cycle){
-    if (cycle){
-        return;
-    }
+void dfs(int s, bool& cycle){    
     if (visited[s]){
         cycle=true; // back edge
+        return;
     }
     visited[s] = true;
     for (const auto& x : adj[s]){

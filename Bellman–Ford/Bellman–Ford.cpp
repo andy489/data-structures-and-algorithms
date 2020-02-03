@@ -4,51 +4,39 @@
 using namespace std;
 #define INF 100000
 
-struct Edge
-{
+struct Edge{
 	int u, v, w;
 };
 
-void bel(const vector<Edge>& adj, int n, int s)
-{
+void bel(const vector<Edge>& adj, int n, int s){
 	vector<int> paths(adj.size(), INF);
 	paths[s] = 0;
 	bool updated = false;;
 
 	int i, j;
 
-	for (i = 0; i < n; ++i)
-	{
+	for (i = 0; i < n; ++i)	{
 		updated = false;
-		for (j = 0; j < (int)adj.size(); ++j)
-		{
-			if (paths[adj[j].u] != INF && paths[adj[j].u] + adj[j].w < paths[adj[j].v])
-			{
+		for (j = 0; j < (int)adj.size(); ++j) {
+			if (paths[adj[j].u] != INF && paths[adj[j].u] + adj[j].w < paths[adj[j].v]) {
 				paths[adj[j].v] = paths[adj[j].u] + adj[j].w;
 				updated = true;
 			}
 		}
-		if (!updated)
-		{
+		if (!updated) {
 			break;
 		}
 	}
-	if (updated && i == n)
-	{
+	if (updated && i == n) {
 		cout << "no min path\n";
 	}
-	else
-	{
-		for (i = 1; i < (int)paths.size(); ++i)
-		{
-			if (i != s)
-			{
-				if (paths[i] == INF)
-				{
+	else {
+		for (i = 1; i < (int)paths.size(); ++i) {
+			if (i != s) {
+				if (paths[i] == INF) {
 					cout << i << " cannot reach\n";
 				}
-				else
-				{
+				else {
 					cout << i << " " <<" path: "<< paths[i] << "\n";
 				}
 			}
@@ -56,15 +44,13 @@ void bel(const vector<Edge>& adj, int n, int s)
 	}
 }
 
-int main()
-{
+int main() {
 	int n, m, u, v, w, i, s;
 	cin >> n >> m;
 
 	vector<Edge> edges(m);
 
-	for (i = 0; i < m; ++i)
-	{
+	for (i = 0; i < m; ++i) {
 		cin >> u >> v >> w;
 		edges[i] = { u,v,w };
 	}

@@ -36,7 +36,7 @@ Rn ak
 ```
 #### Explanation
 
-Test Case 0:**S="Hacker"<br>
+Test Case 0:**S="Hacker"**<br>
 **S[0]="H"**<br>
 **S[1]="a"**<br>
 **S[2]="c"**<br>

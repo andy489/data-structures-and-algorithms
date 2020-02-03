@@ -16,7 +16,7 @@ The first line contains an integer, <img src="https://latex.codecogs.com/svg.lat
 Each line <img src="https://latex.codecogs.com/svg.latex?\Large&space;i"> of the <img src="https://latex.codecogs.com/svg.latex?\Large&space;T"> subsequent lines contain a String, <img src="https://latex.codecogs.com/svg.latex?\Large&space;S">.
 
 #### Constraints
-- <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le[T}\le{10}">
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{T}\le{10}">
 - <img src="https://latex.codecogs.com/svg.latex?\Large&space;2\le{length{\;}of{\;}S\le{10000}}">
 
 #### Output Format

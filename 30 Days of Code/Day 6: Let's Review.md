@@ -3,64 +3,53 @@ https://www.hackerrank.com/challenges/30-review-loop/problem
 ## Day 6: Let's Review
 
 #### Objective
-Today we're expanding our knowledge of Strings and combining it with what we've already learned about loops. Check out the Tutorial tab for learning materials and an instructional video!
+Today we're expanding our knowledge of Strings and combining it with what we've already learned about loops. Check out the [Tutorial](https://www.hackerrank.com/challenges/30-review-loop/tutorial) tab for learning materials and an instructional video!
 
-Task
-Given a string,
-, of length that is indexed from to , print its even-indexed and odd-indexed characters as
+#### Task
+Given a string, <img src="https://latex.codecogs.com/svg.latex?\Large&space;S">, of length <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> that is indexed from <img src="https://latex.codecogs.com/svg.latex?\Large&space;0"> to <img src="https://latex.codecogs.com/svg.latex?\Large&space;N-1">, print its even-indexed and odd-indexed characters as <img src="https://latex.codecogs.com/svg.latex?\Large&space;2"> space-separated strings on a single line (see the Sample below for more detail).
 
-space-separated strings on a single line (see the Sample below for more detail).
+**Note:** <img src="https://latex.codecogs.com/svg.latex?\Large&space;0"> is considered to be an even index.
 
-Note:
+#### Input Format
 
-is considered to be an even index.
+The first line contains an integer, <img src="https://latex.codecogs.com/svg.latex?\Large&space;T">(the number of test cases).<br>
+Each line <img src="https://latex.codecogs.com/svg.latex?\Large&space;i"> of the <img src="https://latex.codecogs.com/svg.latex?\Large&space;T"> subsequent lines contain a String, <img src="https://latex.codecogs.com/svg.latex?\Large&space;S">.
 
-Input Format
+#### Constraints
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le[T}\le{10}">
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;2\le{length{\;}of{\;}S\le{10000}}">
 
-The first line contains an integer,
-(the number of test cases).
-Each line of the subsequent lines contain a String,
+#### Output Format
 
-.
+For each String <img src="https://latex.codecogs.com/svg.latex?\Large&space;S_j">(where <img src="https://latex.codecogs.com/svg.latex?\Large&space;0\le{j}\le{T-1}">), print <img src="https://latex.codecogs.com/svg.latex?\Large&space;S_j">'s even-indexed characters, followed by a space, followed by <img src="https://latex.codecogs.com/svg.latex?\Large&space;S_j">'s odd-indexed characters.
 
-Constraints
-
-Output Format
-
-For each String
-(where ), print 's even-indexed characters, followed by a space, followed by
-
-'s odd-indexed characters.
-
-Sample Input
-
+#### Sample Input
+```
 2
 Hacker
 Rank
-
-Sample Output
-
+```
+#### Sample Output
+```
 Hce akr
 Rn ak
+```
+#### Explanation
 
-Explanation
+Test Case 0:**S="Hacker"<br>
+**S[0]="H"<br>
+**S[1]="a"<br>
+**S[2]="c"<br>
+**S[3]="k"<br>
+**S[4]="e"<br>
+**S[5]="r"<br>
 
-Test Case 0:
+The even indices are **0,2**,and **4**, and the odd indices are **1,3** and **5**. We then print a single line of space-separated strings; the first string contains the ordered characters from **S**'s even indices (**Hce**), and the second string contains the ordered characters from **S**'s odd indices (**ark**).
 
+Test Case 1:**S="Rank"**
+**S[0]="R"<br>
+**S[1]="a"<br>
+**S[2]="n"<br>
+**S[3]="k"<br>
 
-
-
-
-
-
-The even indices are , , and , and the odd indices are , , and . We then print a single line of space-separated strings; the first string contains the ordered characters from 's even indices (), and the second string contains the ordered characters from 's odd indices (
-
-).
-
-Test Case 1:
-
-
-
-
-
-The even indices are and , and the odd indices are and . We then print a single line of space-separated strings; the first string contains the ordered characters from 's even indices (), and the second string contains the ordered characters from 's odd indices ().
+The even indices are **0** and **2** , and the odd indices are **1** and **3**. We then print a single line of **2** space-separated strings; the first string contains the ordered characters from **S**'s even indices (**Rn**), and the second string contains the ordered characters from **S**'s odd indices (**ak**).

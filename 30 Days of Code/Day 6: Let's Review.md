@@ -37,19 +37,19 @@ Rn ak
 #### Explanation
 
 Test Case 0:**S="Hacker"<br>
-**S[0]="H"<br>
-**S[1]="a"<br>
-**S[2]="c"<br>
-**S[3]="k"<br>
-**S[4]="e"<br>
-**S[5]="r"<br>
+**S[0]="H"**<br>
+**S[1]="a"**<br>
+**S[2]="c"**<br>
+**S[3]="k"**<br>
+**S[4]="e"**<br>
+**S[5]="r"**<br>
 
 The even indices are **0,2**,and **4**, and the odd indices are **1,3** and **5**. We then print a single line of space-separated strings; the first string contains the ordered characters from **S**'s even indices (**Hce**), and the second string contains the ordered characters from **S**'s odd indices (**ark**).
 
 Test Case 1:**S="Rank"**<br>
-**S[0]="R"<br>
-**S[1]="a"<br>
-**S[2]="n"<br>
-**S[3]="k"<br>
+**S[0]="R"**<br>
+**S[1]="a"**<br>
+**S[2]="n"**<br>
+**S[3]="k"**<br>
 
 The even indices are **0** and **2** , and the odd indices are **1** and **3**. We then print a single line of **2** space-separated strings; the first string contains the ordered characters from **S**'s even indices (**Rn**), and the second string contains the ordered characters from **S**'s odd indices (**ak**).

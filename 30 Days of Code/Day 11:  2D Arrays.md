@@ -3,72 +3,57 @@ https://www.hackerrank.com/challenges/30-2d-arrays/problem
 ## Day 11: 2D Arrays
 
 #### Objective
-Today, we're building on our knowledge of Arrays by adding another dimension. Check out the Tutorial tab for learning materials and an instructional video!
+Today, we're building on our knowledge of Arrays by adding another dimension. Check out the [Tutorial](https://www.hackerrank.com/challenges/30-2d-arrays/tutorial) tab for learning materials and an instructional video!
 
-Context
-Given a
-2D Array,
-
-:
-
+#### Context
+Given a <img src="https://latex.codecogs.com/svg.latex?\Large&space;6\times{6}"> 2D Array, <img src="https://latex.codecogs.com/svg.latex?\Large&space;A">:
+```
 1 1 1 0 0 0
 0 1 0 0 0 0
 1 1 1 0 0 0
 0 0 0 0 0 0
 0 0 0 0 0 0
 0 0 0 0 0 0
-
-We define an hourglass in
-to be a subset of values with indices falling in this pattern in
-
-'s graphical representation:
-
+```
+We define an hourglass in <img src="https://latex.codecogs.com/svg.latex?\Large&space;A"> to be a subset of values with indices falling in this pattern in <img src="https://latex.codecogs.com/svg.latex?\Large&space;A">'s graphical representation:
+```
 a b c
   d
 e f g
+```
+There are <img src="https://latex.codecogs.com/svg.latex?\Large&space;16"> hourglasses in <img src="https://latex.codecogs.com/svg.latex?\Large&space;A">, and an hourglass sum is the sum of an hourglass' values.
 
-There are
-hourglasses in
+#### Task
+Calculate the hourglass sum for every hourglass in <img src="https://latex.codecogs.com/svg.latex?\Large&space;A">, then print the maximum hourglass sum.
 
-, and an hourglass sum is the sum of an hourglass' values.
+#### Input Format
 
-Task
-Calculate the hourglass sum for every hourglass in
+There are <img src="https://latex.codecogs.com/svg.latex?\Large&space;6"> lines of input, where each line contains <img src="https://latex.codecogs.com/svg.latex?\Large&space;inputStrin6g"> space-separated integers describing 2D Array <img src="https://latex.codecogs.com/svg.latex?\Large&space;A">; every value in <img src="https://latex.codecogs.com/svg.latex?\Large&space;A"> will be in the inclusive range of <img src="https://latex.codecogs.com/svg.latex?\Large&space;-9"> to <img src="https://latex.codecogs.com/svg.latex?\Large&space;9">.
 
-, then print the maximum hourglass sum.
+#### Constraints
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;-9\le{A[i][j]}\le{9}">
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;0\le{i,j}\le{5}">
+#### Output Format
 
-Input Format
+Print the largest (maximum) hourglass sum found in <img src="https://latex.codecogs.com/svg.latex?\Large&space;A">.
 
-There are
-lines of input, where each line contains space-separated integers describing 2D Array ; every value in will be in the inclusive range of to
-
-.
-
-Constraints
-
-Output Format
-
-Print the largest (maximum) hourglass sum found in
-
-.
-
-Sample Input
-
+#### Sample Input
+```
 1 1 1 0 0 0
 0 1 0 0 0 0
 1 1 1 0 0 0
 0 0 2 4 4 0
 0 0 0 2 0 0
 0 0 1 2 4 0
-
-Sample Output
-
+```
+#### Sample Output
+```
 19
+```
+#### Explanation
 
-Explanation
-
-contains the following hourglasses:
-
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;A"> contains the following hourglasses:
+```
 1 1 1   1 1 0   1 0 0   0 0 0
   1       0       0       0
 1 1 1   1 1 0   1 0 0   0 0 0
@@ -84,11 +69,10 @@ contains the following hourglasses:
 0 0 2   0 2 4   2 4 4   4 4 0
   0       0       2       0
 0 0 1   0 1 2   1 2 4   2 4 0
-
-The hourglass with the maximum sum (
-
-) is:
-
+```
+The hourglass with the maximum sum (<img src="https://latex.codecogs.com/svg.latex?\Large&space;19">) is:
+```
 2 4 4
   2
 1 2 4
+```

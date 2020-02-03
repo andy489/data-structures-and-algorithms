@@ -1,4 +1,4 @@
-[https://www.hackerrank.com/challenges/30-class-vs-instance/problem)
+[https://www.hackerrank.com/challenges/30-class-vs-instance/problem]
 ## Day 4: Class vs. Instance.
 
 #### Objective

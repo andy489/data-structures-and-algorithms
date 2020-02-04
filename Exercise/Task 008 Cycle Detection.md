@@ -25,8 +25,6 @@ The following linked lists are passed as arguments to your function:
 
 ![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Cycle%20Detection%2001.png)
 
-#### Sample Inputs
-
 #### Sample Output
 ```
 0

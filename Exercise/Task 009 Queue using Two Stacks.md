@@ -52,12 +52,12 @@ For each query of type <img src="https://latex.codecogs.com/svg.latex?\Large&spa
 #### Explanation
 
 We perform the following sequence of actions:<br>
-1.Enqueue <img src="https://latex.codecogs.com/svg.latex?\Large&space;42;queue=\{42\}">.<br>
-3.Enqueue <img src="https://latex.codecogs.com/svg.latex?\Large&space;14;queue=\{14\}">.<br>
-4.Print the value at the head of the queue,<img src="https://latex.codecogs.com/svg.latex?\Large&space;14;queue=\{\14}"><br>
-5.Enqueue <img src="https://latex.codecogs.com/svg.latex?\Large&space;28;queue=\{14,28\}">.<br>
-6.Print the value at the head of the queue,<img src="https://latex.codecogs.com/svg.latex?\Large&space;14;queue=\{14,28\}">.<br>
-7.Enqueue <img src="https://latex.codecogs.com/svg.latex?\Large&space;60;queue=\{14,28,60\}">.<br>
-8.Enqueue <img src="https://latex.codecogs.com/svg.latex?\Large&space;78;queue=\{14,28,60,78\}">.<br>
-9.Dequeue the value at the head of the queue, <img src="https://latex.codecogs.com/svg.latex?\Large&space;14;queue=\{28,60,78">.<br>
-10.Dequeue the value at the head of the queue,<img src="https://latex.codecogs.com/svg.latex?\Large&space;28;queue=\{60,78\}">.
+1. Enqueue <img src="https://latex.codecogs.com/svg.latex?\Large&space;42;queue=\{42\}">.<br>
+3. Enqueue <img src="https://latex.codecogs.com/svg.latex?\Large&space;14;queue=\{14\}">.<br>
+4. Print the value at the head of the queue,<img src="https://latex.codecogs.com/svg.latex?\Large&space;14;queue=\{\14}"><br>
+5. Enqueue <img src="https://latex.codecogs.com/svg.latex?\Large&space;28;queue=\{14,28\}">.<br>
+6. Print the value at the head of the queue,<img src="https://latex.codecogs.com/svg.latex?\Large&space;14;queue=\{14,28\}">.<br>
+7. Enqueue <img src="https://latex.codecogs.com/svg.latex?\Large&space;60;queue=\{14,28,60\}">.<br>
+8. Enqueue <img src="https://latex.codecogs.com/svg.latex?\Large&space;78;queue=\{14,28,60,78\}">.<br>
+9. Dequeue the value at the head of the queue, <img src="https://latex.codecogs.com/svg.latex?\Large&space;14;queue=\{28,60,78">.<br>
+10. Dequeue the value at the head of the queue,<img src="https://latex.codecogs.com/svg.latex?\Large&space;28;queue=\{60,78\}">.

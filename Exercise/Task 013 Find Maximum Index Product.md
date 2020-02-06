@@ -2,49 +2,40 @@
 
 [Judge System](https://www.hackerrank.com/challenges/find-maximum-index-product/problem)
 
-You are given a list of <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> numbers <img src="https://latex.codecogs.com/svg.latex?\Large&space;a_1,a_2,...,a_n">. For each element at position (), we define and as:
-= closest index j such that j < i and . If no such j exists then = 0.
-= closest index k such that k > i and . If no such k exists then
+You are given a list of <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> numbers <img src="https://latex.codecogs.com/svg.latex?\Large&space;a_1,a_2,...,a_n">. For each element at position <img src="https://latex.codecogs.com/svg.latex?\Large&space;i(1\le{i}\le{N})">, we define <img src="https://latex.codecogs.com/svg.latex?\Large&space;Left(i)"> and <img src="https://latex.codecogs.com/svg.latex?\Large&space;Right(i)"> as:<br>
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;Left(i)">= closest index j such that j < i and <img src="https://latex.codecogs.com/svg.latex?\Large&space;a_j>a_k">. If no such j exists then <img src="https://latex.codecogs.com/svg.latex?\Large&space;Left(i)=0">.<br>
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;Right(i)">= closest index k such that k > i and <img src="https://latex.codecogs.com/svg.latex?\Large&space;a_k>a_i">. If no such k exists then <img src="https://latex.codecogs.com/svg.latex?\Large&space;Right(i)=0">.
 
-= 0.
+We define <img src="https://latex.codecogs.com/svg.latex?\Large&space;IndexProduct(i)=Left(i)*Right(i)">. You need to find out the maximum <img src="https://latex.codecogs.com/svg.latex?\Large&space;IndexProduct(i)"> among all i.
 
-We define
-= * . You need to find out the maximum
+#### Input Format
 
-among all i.
+The first line contains an integer <img src="https://latex.codecogs.com/svg.latex?\Large&space;N">, the number of integers. The next line contains the <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> integers describing the list <img src="https://latex.codecogs.com/svg.latex?\Large&space;a[1..N]">.
 
-Input Format
+#### Constraints
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{N}\le{10^5}">
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{a_i}\le{10^9}">
 
-The first line contains an integer
-, the number of integers. The next line contains the
+#### Output Format
 
-integers describing the list a[1..N].
+Output the maximum <img src="https://latex.codecogs.com/svg.latex?\Large&space;IndexProduct"> among all indices from <img src="https://latex.codecogs.com/svg.latex?\Large&space;1"> to <img src="https://latex.codecogs.com/svg.latex?\Large&space;N">.
 
-Constraints
-
-
-Output Format
-
-Output the maximum
-among all indices from to
-
-.
-
-Sample Input
-
+#### Sample Input
+```
 5
 5 4 3 4 5
-
-Sample Output
-
+```
+#### Sample Output
+```
 8
+```
+#### Explanation
 
-Explanation
+We can compute the following:<br>
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;IndexProduct(1)=0"><br>
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;IndexProduct(2)=1\times{5}=5"><br>
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;IndexProduct(3)=2\times{4}=8"><br>
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;IndexProduct(4)=1\times{5}=5"><br>
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;IndexProduct(5)=0"><br>
 
-We can compute the following:
-
-
-
-
-
-The largest of these is 8, so it is the answer.
+The largest of these is <img src="https://latex.codecogs.com/svg.latex?\Large&space;8">, so it is the answer.

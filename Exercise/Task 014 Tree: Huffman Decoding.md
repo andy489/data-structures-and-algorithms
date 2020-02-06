@@ -6,7 +6,7 @@
 
 For instance, consider the string ABRACADABRA. There are a total of <img src="https://latex.codecogs.com/svg.latex?\Large&space;11"> characters in the string. This number should match the count in the ultimately determined root of the tree. Our frequencies are <img src="https://latex.codecogs.com/svg.latex?\Large&space;A=5,B=2,R=2,C=1"> and <img src="https://latex.codecogs.com/svg.latex?\Large&space;D=1">. The two smallest frequencies are for <img src="https://latex.codecogs.com/svg.latex?\Large&space;C"> and <img src="https://latex.codecogs.com/svg.latex?\Large&space;D">, both equal to <img src="https://latex.codecogs.com/svg.latex?\Large&space;1">, so we'll create a tree with them. The root node will contain the sum of the counts of its descendants, in this case <img src="https://latex.codecogs.com/svg.latex?\Large&space;1+1=2">. The left node will be the first character encountered, <img src="https://latex.codecogs.com/svg.latex?\Large&space;C">, and the right will contain <img src="https://latex.codecogs.com/svg.latex?\Large&space;D">. Next we have <img src="https://latex.codecogs.com/svg.latex?\Large&space;3"> items with a character count of <img src="https://latex.codecogs.com/svg.latex?\Large&space;2">: the tree we just created, the character <img src="https://latex.codecogs.com/svg.latex?\Large&space;B"> and the character <img src="https://latex.codecogs.com/svg.latex?\Large&space;R">. The tree came first, so it will go on the left of our new root node.<img src="https://latex.codecogs.com/svg.latex?\Large&space;B"> will go on the right. Repeat until the tree is complete, then fill in the <img src="https://latex.codecogs.com/svg.latex?\Large&space;1">'s and <img src="https://latex.codecogs.com/svg.latex?\Large&space;0">'s for the edges. The finished graph looks like:
 
-![]()
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Tree.%20Huffman%20Decoding%2001.png)
 
 Input characters are only present in the leaves. Internal nodes have a character value of ϕ (NULL). We can determine that our values for characters are:
 ```
@@ -51,7 +51,7 @@ Output the decoded string on a single line.
 
 #### Sample Input
 
-![]()
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Tree.%20Huffman%20Decoding%2002.png)
 ```
 s="1001011"
 ```

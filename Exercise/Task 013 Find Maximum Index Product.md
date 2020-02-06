@@ -6,7 +6,7 @@ You are given a list of <img src="https://latex.codecogs.com/svg.latex?\Large&sp
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;Left(i)">= closest index j such that j < i and <img src="https://latex.codecogs.com/svg.latex?\Large&space;a_j>a_k">. If no such j exists then <img src="https://latex.codecogs.com/svg.latex?\Large&space;Left(i)=0">.<br>
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;Right(i)">= closest index k such that k > i and <img src="https://latex.codecogs.com/svg.latex?\Large&space;a_k>a_i">. If no such k exists then <img src="https://latex.codecogs.com/svg.latex?\Large&space;Right(i)=0">.
 
-We define <img src="https://latex.codecogs.com/svg.latex?\Large&space;IndexProduct(i)=Left(i)*Right(i)">. You need to find out the maximum <img src="https://latex.codecogs.com/svg.latex?\Large&space;IndexProduct(i)"> among all i.
+We define <img src="https://latex.codecogs.com/svg.latex?\Large&space;IndexProduct(i)=Left(i)*Right(i)">. You need to find out the maximum <img src="https://latex.codecogs.com/svg.latex?\Large&space;IndexProduct(i)"> among all <img src="https://latex.codecogs.com/svg.latex?\Large&space;i">.
 
 #### Input Format
 

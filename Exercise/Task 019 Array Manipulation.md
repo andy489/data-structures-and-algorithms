@@ -58,7 +58,7 @@ Return the integer maximum value in the finished array.
 ```
 #### Explanation
 
-After the first update list will be *100 100 0 0 0*.
-After the second update list will be *100 200 100 100 100*.
-After the third update list will be *100 200 200 200 100*.
+After the first update list will be *100 100 0 0 0*.<br>
+After the second update list will be *100 200 100 100 100*.<br>
+After the third update list will be *100 200 200 200 100*.<br>
 The required answer will be <img src="https://latex.codecogs.com/svg.latex?\Large&space;200">. 

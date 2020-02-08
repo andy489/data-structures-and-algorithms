@@ -24,7 +24,7 @@ The findMergeNode(SinglyLinkedListNode,SinglyLinkedListNode) method has two para
 
 #### Constraints
 
-The lists will merge.
+The lists will merge.<br>
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;head1,head2\neq{null}">.<br>
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;head1\neq{head2}">.
 

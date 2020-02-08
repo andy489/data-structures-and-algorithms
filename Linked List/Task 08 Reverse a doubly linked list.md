@@ -2,7 +2,7 @@
 
 [Judge System](https://www.hackerrank.com/challenges/reverse-a-doubly-linked-list/problem)
 
-This challenge is part of a tutorial track by [MyCodeSchool](This challenge is part of a tutorial track by MyCodeSchool
+This challenge is part of a tutorial track by [MyCodeSchool](https://www.youtube.com/user/mycodeschool)
 
 You’re given the pointer to the head node of a doubly linked list. Reverse the order of the nodes in the list. The head node might be NULL to indicate that the list is empty. Change the *next* and *prev* pointers of all the nodes so that the direction of the list is reversed. Return a reference to the head node of the reversed list.
 
@@ -47,6 +47,6 @@ Return a reference to the head of your reversed list. The provided code will pri
 ```
 #### Explanation
 
-The initial doubly linked list is: <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\leftrightarrow{2}\leftrightarrow{3}\leftrightarrow{4}\rightarrow{NULL}">
+The initial doubly linked list is: <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\leftrightarrow{2}\leftrightarrow{3}\leftrightarrow{4}\rightarrow{NULL}"><br>
 The reversed doubly linked list is: <img src="https://latex.codecogs.com/svg.latex?\Large&space;4\leftrightarrow{3}\leftrightarrow{2}\leftrightarrow{1}\rightarrow{NULL}">
 

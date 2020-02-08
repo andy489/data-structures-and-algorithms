@@ -1,8 +1,8 @@
 int getNode(SinglyLinkedListNode* head, int positionFromTail) {
-    int index = 0;
+    int index(0);
     SinglyLinkedListNode* current = head;
     SinglyLinkedListNode* result = head;
-    while(current!=NULL)
+    while(current!=nullptr)
     {
         current=current->next;
         if (index++>positionFromTail)

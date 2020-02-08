@@ -20,7 +20,7 @@ The next <img src="https://latex.codecogs.com/svg.latex?\Large&space;n"> lines c
 #### Constraints
 - <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{t}\le{10}">
 - <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{n}\le{1000}">
-- <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\list_i\le{1000}">
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{list_i}\le{1000}">
 
 #### Output Format
 

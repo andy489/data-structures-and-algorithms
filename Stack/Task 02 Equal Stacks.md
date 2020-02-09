@@ -18,7 +18,7 @@ The first line contains three space-separated integers, <img src="https://latex.
 
 #### Constraints
 - <img src="https://latex.codecogs.com/svg.latex?\Large&space;0<n_1,n_2,n_3\le{10^5}">
-- <img src="https://latex.codecogs.com/svg.latex?\Large&space;0<height_of_any_cylinder\le{100}">
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;0<height{\;}of{\;}any{\;}cylinder\le{100}">
 
 #### Output Format
 
@@ -39,11 +39,11 @@ Print a single integer denoting the maximum height at which all stacks will be o
 
 Initially, the stacks look like this:
 
-![]()
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Equal%20Stacks%2001.png)
 
 Observe that the three stacks are not all the same height. To make all stacks of equal height, we remove the first cylinder from stacks <img src="https://latex.codecogs.com/svg.latex?\Large&space;1"> and <img src="https://latex.codecogs.com/svg.latex?\Large&space;2">, and then remove the top two cylinders from stack <img src="https://latex.codecogs.com/svg.latex?\Large&space;3">(shown below).
 
-![]()
+![](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Equal%20Stacks%2002.png)
 
 As a result, the stacks undergo the following change in height:
 

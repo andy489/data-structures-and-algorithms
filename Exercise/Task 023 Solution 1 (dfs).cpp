@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<list<int>>adj;
+vector<vector<int>>adj;
 vector<int>visited;
 
 void dfs(int s,int&c){
@@ -14,9 +14,7 @@ void dfs(int s,int&c){
     }
 }
 
-int main(){
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
+int main(){    
     int n,m,a,b,i;
     cin>>n>>m;
     adj.resize(n);
@@ -34,7 +32,7 @@ int main(){
             sets.push_back(c);
         }
     }
-    size_t sum(0),res(0);
+    long long sum(0),res(0);
     for(const int& x:sets){
         res+=sum*x;
         sum+=x;

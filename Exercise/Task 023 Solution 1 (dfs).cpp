@@ -17,7 +17,7 @@ void dfs(int s,int&c){
 int main(){
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
-    int n,m,a,b,i,j;
+    int n,m,a,b,i;
     cin>>n>>m;
     adj.resize(n);
     visited.resize(n);    

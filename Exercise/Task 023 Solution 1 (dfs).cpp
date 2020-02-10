@@ -26,20 +26,19 @@ int main(){
         adj[a].push_back(b);
         adj[b].push_back(a);
     }
-    vector<int>res;    
+    vector<int>sets;    
     for(i=0;i<n;++i){
         int c(0);
         if(!visited[i]){
             dfs(i,c);
-            res.push_back(c);
+            sets.push_back(c);
         }
     }
-    int s=(int)res.size(),ans(0);
-    for(i=0;i<s;++i){
-        for(j=i+1;j<s;++j){
-            ans+=res[i]*res[j];
-        }
+    size_t sum(0),res(0);
+    for(const int& x:sets){
+        res+=sum*x;
+        sum+=x;
     }
-    cout<<ans;
+    cout<<res;
     return 0;
 }

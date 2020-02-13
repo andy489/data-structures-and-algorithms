@@ -3,7 +3,7 @@ https://www.hackerrank.com/challenges/30-generics/problem
 ## Day 21: Generics
 
 #### Objective
-Today we're discussing Generics; be aware that not all languages support this construct, so fewer languages are enabled for this challenge. Check out the Tutorial tab for learning materials and an instructional video!
+Today we're discussing Generics; be aware that not all languages support this construct, so fewer languages are enabled for this challenge. Check out the [Tutoria](https://www.hackerrank.com/challenges/30-generics/tutorial) tab for learning materials and an instructional video!
 
 #### Task
 Write a single generic function named printArray; this function must take an array of generic elements as a parameter (the exception to this is C++, which takes a vector). The locked Solution class in your editor tests your function.
@@ -16,9 +16,7 @@ The locked Solution class in your editor will pass different types of arrays to 
 
 #### Constraints
 
-- You must have exactly 
-
-    function named printArray.
+- You must have exactly <img src="https://latex.codecogs.com/svg.latex?\Large&space;1"> function named printArray.
 
 #### Output Format
 

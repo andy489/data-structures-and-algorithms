@@ -1,35 +1,32 @@
-Objective
-Today, we're learning about Interfaces. Check out the Tutorial tab for learning materials and an instructional video!
+https://www.hackerrank.com/challenges/30-interfaces/problem
 
-Task
-The AdvancedArithmetic interface and the method declaration for the abstract divisorSum(n) method are provided for you in the editor below.
+#### Objective
+Today, we're learning about Interfaces. Check out the [Tutorial](https://www.hackerrank.com/challenges/30-interfaces/tutorial) tab for learning materials and an instructional video!
 
-Complete the implementation of Calculator class, which implements the AdvancedArithmetic interface. The implementation for the divisorSum(n) method must return the sum of all divisors of
+#### Task
+The *AdvancedArithmetic* interface and the method declaration for the abstract *divisorSum(n)* method are provided for you in the editor below.
 
-.
+Complete the implementation of *Calculator* class, which implements the AdvancedArithmetic interface. The implementation for the *divisorSum(n)* method must return the sum of all divisors of <img src="https://latex.codecogs.com/svg.latex?\Large&space;n">.
 
-Input Format
+#### Input Format
 
-A single line containing an integer,
+A single line containing an integer, <img src="https://latex.codecogs.com/svg.latex?\Large&space;n">.
 
-.
-
-Constraints
-
-Output Format
+#### Constraints
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{n}\le{1000}">
+#### Output Format
 
 You are not responsible for printing anything to stdout. The locked template code in the editor below will call your code and print the necessary output.
 
-Sample Input
-
+#### Sample Input
+```
 6
-
-Sample Output
-
+```
+#### Sample Output
+```
 I implemented: AdvancedArithmetic
 12
+```
+#### Explanation
 
-Explanation
-
-The integer
-is evenly divisible by , , , and . Our divisorSum method should return the sum of these numbers, which is . The Solution class then prints on the first line, followed by the sum returned by divisorSum (which is ) on the second line.
+The integer <img src="https://latex.codecogs.com/svg.latex?\Large&space;6"> is evenly divisible by <img src="https://latex.codecogs.com/svg.latex?\Large&space;1,2,3">, and <img src="https://latex.codecogs.com/svg.latex?\Large&space;6">. Our divisorSum method should return the sum of these numbers, which is <img src="https://latex.codecogs.com/svg.latex?\Large&space;1+2+3+6=12">. The Solution class then prints *I implemented: AdvancedArithmetic* on the first line, followed by the sum returned by divisorSum (which is <img src="https://latex.codecogs.com/svg.latex?\Large&space;12">) on the second line.

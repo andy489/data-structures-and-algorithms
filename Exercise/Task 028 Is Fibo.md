@@ -8,7 +8,7 @@ The first few elements of the Fibonacci sequence are <img src="https://latex.cod
 
 Formally:
 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;fib_0=0\\fib_1=1\\...\\fib_n=fin_{n-1}+fib_{n-2}{\;}\forall{n}>1">
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;\\fib_0=0\\fib_1=1\\...\\fib_n=fin_{n-1}+fib_{n-2}{\;}\forall{n}>1">
 
 #### Format
 The first line contains <img src="https://latex.codecogs.com/svg.latex?\Large&space;T">, number of test cases.<br>

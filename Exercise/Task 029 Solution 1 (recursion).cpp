@@ -16,7 +16,7 @@ bool checkBSTUtil(Node* root,Node* l=nullptr,Node* r=nullptr){
     if(r!=nullptr&&root->data>=r->data){
         return false;
     }
-    return                   checkBSTUtil(root->left,l,root)&&checkBSTUtil(root->right,root,r);
+    return checkBSTUtil(root->left,l,root)&&checkBSTUtil(root->right,root,r);
 }    
 
 bool checkBST(Node* root) {	

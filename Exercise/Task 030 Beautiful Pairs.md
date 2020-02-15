@@ -2,81 +2,54 @@
 
 [Judge System](https://www.hackerrank.com/contests/101hack34/challenges/beautiful-pairs)
 
-ou are given two arrays, and , both containing
+You are given two arrays, <img src="https://latex.codecogs.com/svg.latex?\Large&space;A"> and <img src="https://latex.codecogs.com/svg.latex?\Large&space;B">, both containing <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> integers.
 
-integers.
+A pair of indices <img src="https://latex.codecogs.com/svg.latex?\Large&space;(i,j)"> is beautiful if <img src="https://latex.codecogs.com/svg.latex?\Large&space;i^{th}"> element of array <img src="https://latex.codecogs.com/svg.latex?\Large&space;A"> is equal to the <img src="https://latex.codecogs.com/svg.latex?\Large&space;j^{th}"> element of array <img src="https://latex.codecogs.com/svg.latex?\Large&space;B">. In other words, pair <img src="https://latex.codecogs.com/svg.latex?\Large&space;(i,j)"> is beautiful if and only if <img src="https://latex.codecogs.com/svg.latex?\Large&space;A[i]=B[j]">. A set containing beautiful pairs is called a *beautiful set*.
 
-A pair of indices
-is beautiful if the element of array is equal to the element of array . In other words, pair is beautiful if and only if
+A beautiful set is called *pairwise disjoint* if for every pair <img src="https://latex.codecogs.com/svg.latex?\Large&space;(l[i],r[i])"> belonging to the set there is no repetition of either <img src="https://latex.codecogs.com/svg.latex?\Large&space;l[i]"> or <img src="https://latex.codecogs.com/svg.latex?\Large&space;r[i]"> values. For instance, if <img src="https://latex.codecogs.com/svg.latex?\Large&space;A=[10,11,12,5,14]"> and <img src="https://latex.codecogs.com/svg.latex?\Large&space;B=[8,9,11,11,5]"> the beautiful set <img src="https://latex.codecogs.com/svg.latex?\Large&space;[(1,2),(1,3),(3,4)]"> is not pairwise disjoint as there is a repetition of <img src="https://latex.codecogs.com/svg.latex?\Large&space;1">, that is <img src="https://latex.codecogs.com/svg.latex?\Large&space;l[0][0]=l[1][0]">.
 
-. A set containing beautiful pairs is called a beautiful set.
+Your task is to change exactly **exactly 1** element in <img src="https://latex.codecogs.com/svg.latex?\Large&space;B"> so that the size of the pairwise disjoint beautiful set is maximum.
 
-A beautiful set is called pairwise disjoint if for every pair
-belonging to the set there is no repetition of either or values. For instance, if and the beautiful set is not pairwise disjoint as there is a repetition of , that is
+#### Input Format
 
-.
+The first line contains a single integer <img src="https://latex.codecogs.com/svg.latex?\Large&space;n">, the number of elements in <img src="https://latex.codecogs.com/svg.latex?\Large&space;A"> and .<img src="https://latex.codecogs.com/svg.latex?\Large&space;B">.
+The second line contains space-separated integers <img src="https://latex.codecogs.com/svg.latex?\Large&space;A[i]">.<br>
+The third line contains space-separated integers <img src="https://latex.codecogs.com/svg.latex?\Large&space;B[i]">.<br>
 
-Your task is to change exactly
-element in
+#### Constraints
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{n}\le{10^3}">
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{A[i],B[i]}\le{10^3}">
 
-so that the size of the pairwise disjoint beautiful set is maximum.
-
-Function Description
-
-Complete the beautifulPairs function in the editor below. It should return an integer that represents the maximum number of pairwise disjoint beautiful pairs that can be formed.
-
-beautifulPairs has the following parameters:
-
-    A: an array of integers
-    B: an array of integers
-
-Input Format
-
-The first line contains a single integer
-, the number of elements in and .
-The second line contains space-separated integers .
-The third line contains space-separated integers
-
-.
-
-Constraints
-
-Output Format
+#### Output Format
 
 Determine and print the maximum possible number of pairwise disjoint beautiful pairs.
 
-Note: You must first change
-element in
+**Note:** You must first change <img src="https://latex.codecogs.com/svg.latex?\Large&space;1"> element in <img src="https://latex.codecogs.com/svg.latex?\Large&space;B">, and your choice of element must be optimal.
 
-, and your choice of element must be optimal.
-
-Sample Input 0
-
+#### Sample Input 0
+```
 4
 1 2 3 4
 1 2 3 3
-
-Sample Output 0
-
+```
+#### Sample Output 0
+```
 4
+```
+#### Explanation 0
 
-Explanation 0
-
-You are given
-and .
-The beautiful set is and maximum sized pairwise disjoint beautiful set is either or .
-We can do better. We change the element of array from to . Now new B array is: and the pairwise disjoint beautiful set is
-
-. So, the answer is 4.
+You are given <img src="https://latex.codecogs.com/svg.latex?\Large&space;A=[1,2,3,4]"> and <img src="https://latex.codecogs.com/svg.latex?\Large&space;B=[1,2,3,3]">.<br>
+The beautiful set is <img src="https://latex.codecogs.com/svg.latex?\Large&space;[(0,0),(1,1),(2,2),(3,3)]"> and maximum sized pairwise disjoint beautiful set is either <img src="https://latex.codecogs.com/svg.latex?\Large&space;[(0,0),(1,1),(2,2)]"> or <img src="https://latex.codecogs.com/svg.latex?\Large&space;[(0,0),(1,1),(2,3)]">.<br>
+We can do better. We change the <img src="https://latex.codecogs.com/svg.latex?\Large&space;3^{rd}"> element of array <img src="https://latex.codecogs.com/svg.latex?\Large&space;B"> from <img src="https://latex.codecogs.com/svg.latex?\Large&space;3"> to <img src="https://latex.codecogs.com/svg.latex?\Large&space;4">. Now new B array is: <img src="https://latex.codecogs.com/svg.latex?\Large&space;B=[1,2,3,4]"> and the pairwise disjoint beautiful set is <img src="https://latex.codecogs.com/svg.latex?\Large&space;[(0,0),(1,1),(2,3),(3,2)]">. So, the answer is 4.<br>
 Note that we could have also selected index 3 instead of index 2 but it would have yeilded the same result. Any other choice of index is not optimal.
 
-Sample Input 1
-
+#### Sample Input 1
+```
 6
 3 5 7 11 5 8
 5 7 11 10 5 8
-
-Sample Output 1
-
+```
+#### Sample Output 1
+```
 6
-
+```

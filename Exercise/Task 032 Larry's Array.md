@@ -8,7 +8,7 @@ Larry has been given a permutation of a sequence of natural numbers incrementing
 
 For example, if <img src="https://latex.codecogs.com/svg.latex?\Large&space;A=\{1,6,5,2,4,3\}">:
 ```
-A		        rotate 
+A		rotate 
 [1,6,5,2,4,3]	[6,5,2]
 [1,5,2,6,4,3]	[5,2,6]
 [1,2,6,5,4,3]	[5,4,3]

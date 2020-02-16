@@ -3,7 +3,7 @@ https://www.hackerrank.com/challenges/30-running-time-and-complexity/copy-from/1
 ## Day 25: Running Time and Complexity
 
 #### Objective
-Today we're learning about running time! Check out the [Tutorial]() tab for learning materials and an instructional video!
+Today we're learning about running time! Check out the [Tutorial](https://www.hackerrank.com/challenges/30-running-time-and-complexity/tutorial) tab for learning materials and an instructional video!
 
 #### Task
 A prime is a natural number greater than <img src="https://latex.codecogs.com/svg.latex?\Large&space;1"> that has no positive divisors other than <img src="https://latex.codecogs.com/svg.latex?\Large&space;1"> and itself. Given a number, <img src="https://latex.codecogs.com/svg.latex?\Large&space;n"> , determine and print whether it's <img src="https://latex.codecogs.com/svg.latex?\Large&space;Prime"> or <img src="https://latex.codecogs.com/svg.latex?\Large&space;Not{\;}prime">.
@@ -39,7 +39,7 @@ Prime
 #### Explanation
 
 Test Case 0: <img src="https://latex.codecogs.com/svg.latex?\Large&space;n=12">.<br>
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;12"> is divisible by numbers other than <img src="https://latex.codecogs.com/svg.latex?\Large&space;1"> and itself (i.e.: <img src="https://latex.codecogs.com/svg.latex?\Large&space;2,3,6">), so we print <img src="https://latex.codecogs.com/svg.latex?\Large&space;Not prime"> on a new line.
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;12"> is divisible by numbers other than <img src="https://latex.codecogs.com/svg.latex?\Large&space;1"> and itself (i.e.: <img src="https://latex.codecogs.com/svg.latex?\Large&space;2,3,6">), so we print <img src="https://latex.codecogs.com/svg.latex?\Large&space;Not{\;}prime"> on a new line.
 
 Test Case 1: <img src="https://latex.codecogs.com/svg.latex?\Large&space;n=5">.<br>
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;5"> is only divisible <img src="https://latex.codecogs.com/svg.latex?\Large&space;1"> and itself, so we print <img src="https://latex.codecogs.com/svg.latex?\Large&space;Prime"> on a new line.

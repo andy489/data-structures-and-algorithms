@@ -6,7 +6,7 @@ https://www.hackerrank.com/challenges/30-running-time-and-complexity/copy-from/1
 Today we're learning about running time! Check out the [Tutorial]() tab for learning materials and an instructional video!
 
 #### Task
-A prime is a natural number greater than <img src="https://latex.codecogs.com/svg.latex?\Large&space;1"> that has no positive divisors other than <img src="https://latex.codecogs.com/svg.latex?\Large&space;1"> and itself. Given a number, <img src="https://latex.codecogs.com/svg.latex?\Large&space;n"> , determine and print whether it's <img src="https://latex.codecogs.com/svg.latex?\Large&space;Prime"> or <img src="https://latex.codecogs.com/svg.latex?\Large&space;Not prime">.
+A prime is a natural number greater than <img src="https://latex.codecogs.com/svg.latex?\Large&space;1"> that has no positive divisors other than <img src="https://latex.codecogs.com/svg.latex?\Large&space;1"> and itself. Given a number, <img src="https://latex.codecogs.com/svg.latex?\Large&space;n"> , determine and print whether it's <img src="https://latex.codecogs.com/svg.latex?\Large&space;Prime"> or <img src="https://latex.codecogs.com/svg.latex?\Large&space;Not{\;}prime">.
 
 **Note:** If possible, try to come up with a <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(\sqrt{n})"> primality algorithm, or see what sort of optimizations you come up with for an <img src="https://latex.codecogs.com/svg.latex?\Large&space;O(n)"> algorithm. Be sure to check out the Editorial after submitting your code!
 

@@ -46,4 +46,4 @@ Because <img src="https://latex.codecogs.com/svg.latex?\Large&space;Y_e\equiv{Y_
 Because <img src="https://latex.codecogs.com/svg.latex?\Large&space;M_e\equiv{M_a}">, we know it's less than a month late.<br>
 Because <img src="https://latex.codecogs.com/svg.latex?\Large&space;D_e<D_a">, we know that it was returned late (but still within the same month and year).
 
-Per the library's fee structure, we know that our fine will be <img src="https://latex.codecogs.com/svg.latex?\Large&space;15{\;}Hackos\times{(#days{\;}late)}">. We then print the result of <img src="https://latex.codecogs.com/svg.latex?\Large&space;15\times{(D_a-D_e)}=15\times{(9-6)}=45"> as our output.
+Per the library's fee structure, we know that our fine will be <img src="https://latex.codecogs.com/svg.latex?\Large&space;15{\;}Hackos\times{(days{\;}late)}">. We then print the result of <img src="https://latex.codecogs.com/svg.latex?\Large&space;15\times{(D_a-D_e)}=15\times{(9-6)}=45"> as our output.

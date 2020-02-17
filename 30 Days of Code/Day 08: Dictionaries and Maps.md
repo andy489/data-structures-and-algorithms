@@ -1,4 +1,4 @@
-https://www.hackerrank.com/challenges/30-dictionaries-and-maps/problem
+[Link](https://www.hackerrank.com/challenges/30-dictionaries-and-maps/problem)
 
 ## Day 8: Dictionaries and Maps
 

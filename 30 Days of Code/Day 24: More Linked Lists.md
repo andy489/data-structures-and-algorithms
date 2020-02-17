@@ -1,4 +1,4 @@
-https://www.hackerrank.com/challenges/30-linked-list-deletion/problem
+[Link](https://www.hackerrank.com/challenges/30-linked-list-deletion/problem)
 
 ## Day 24: More Linked Lists
 

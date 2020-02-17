@@ -1,4 +1,4 @@
-https://www.hackerrank.com/challenges/30-review-loop/problem
+[Link](https://www.hackerrank.com/challenges/30-review-loop/problem)
 
 ## Day 6: Let's Review
 

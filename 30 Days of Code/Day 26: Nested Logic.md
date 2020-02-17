@@ -1,4 +1,4 @@
-https://www.hackerrank.com/challenges/30-nested-logic/problem
+[Link](https://www.hackerrank.com/challenges/30-nested-logic/problem)
 
 ## Day 26: Nested Logic
 

@@ -1,4 +1,4 @@
-https://www.hackerrank.com/challenges/30-generics/problem
+[Link](https://www.hackerrank.com/challenges/30-generics/problem)
 
 ## Day 21: Generics
 

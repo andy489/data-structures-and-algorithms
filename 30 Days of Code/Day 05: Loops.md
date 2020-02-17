@@ -1,4 +1,4 @@
-https://www.hackerrank.com/challenges/30-loops/problem
+[Link](https://www.hackerrank.com/challenges/30-loops/problem)
 
 ## Day 5: Loops
 

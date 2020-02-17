@@ -1,4 +1,4 @@
-https://www.hackerrank.com/challenges/30-linked-list/problem
+[Link](https://www.hackerrank.com/challenges/30-linked-list/problem)
 
 ## Day 15: Linked List
 

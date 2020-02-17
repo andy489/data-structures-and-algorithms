@@ -1,4 +1,4 @@
-https://www.hackerrank.com/challenges/30-exceptions-string-to-integer/problem
+[Link](https://www.hackerrank.com/challenges/30-exceptions-string-to-integer/problem)
 
 ## Day 16: Exceptions - String to Integer
 

@@ -1,4 +1,4 @@
-https://www.hackerrank.com/challenges/30-2d-arrays/problem
+[Link](https://www.hackerrank.com/challenges/30-2d-arrays/problem)
 
 ## Day 11: 2D Arrays
 

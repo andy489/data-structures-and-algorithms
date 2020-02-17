@@ -1,4 +1,4 @@
-https://www.hackerrank.com/challenges/30-inheritance/editorial
+[Link](https://www.hackerrank.com/challenges/30-inheritance/editorial)
 
 ## Day 12: Inheritance
 

@@ -1,4 +1,4 @@
-https://www.hackerrank.com/challenges/30-scope/problem
+[Link](https://www.hackerrank.com/challenges/30-scope/problem)
 
 ## Day 14: Scope
 

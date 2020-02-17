@@ -1,4 +1,4 @@
-https://www.hackerrank.com/challenges/30-binary-trees/problem
+[Link](https://www.hackerrank.com/challenges/30-binary-trees/problem)
 
 ## Day 23: BST Level-Order Traversal
 

@@ -13,12 +13,14 @@ int main() {
     cin>>q;
     while(q--){
         cin>>x;
-        if(*lower_bound(a,a+n,x)==x){
-            cout<<"Yes "<<lower_bound(a,a+n,x)-a+1<<'\n';
+        int el=*lower_bound(a,a+n,x);
+        if(el==x){
+            cout<<"Yes ";
         }
         else{
-            cout<<"No "<<lower_bound(a,a+n,x)-a+1<<'\n';
+            cout<<"No ";
         }
+        cout<<lower_bound(a,a+n,x)-a+1<<'\n';
     }
     return 0;
 }

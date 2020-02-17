@@ -1,4 +1,4 @@
-https://www.hackerrank.com/challenges/30-running-time-and-complexity/copy-from/143047512
+[Link](https://www.hackerrank.com/challenges/30-running-time-and-complexity/copy-from/143047512)
 
 ## Day 25: Running Time and Complexity
 

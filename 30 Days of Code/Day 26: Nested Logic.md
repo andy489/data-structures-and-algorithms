@@ -3,7 +3,7 @@ https://www.hackerrank.com/challenges/30-nested-logic/problem
 ## Day 26: Nested Logic
 
 #### Objective
-Today's challenge puts your understanding of nested conditional statements to the test. You already have the knowledge to complete this challenge, but check out the [Tutorial]() tab for a video on testing!
+Today's challenge puts your understanding of nested conditional statements to the test. You already have the knowledge to complete this challenge, but check out the [Tutorial](https://www.hackerrank.com/challenges/30-nested-logic/tutorial) tab for a video on testing!
 
 #### Task
 Your local library needs your help! Given the expected and actual return dates for a library book, create a program that calculates the fine (if any). The fee structure is as follows:

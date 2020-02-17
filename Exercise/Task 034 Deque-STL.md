@@ -4,71 +4,64 @@
 
 Double ended queue or Deque(part of C++ STL) are sequence containers with dynamic sizes that can be expanded or contracted on both ends (either its front or its back). The member functions of deque that are mainly used are:
 
-    Deque Template:
-
+- Deque Template:
+```
     std::deque<value_type>
-
-    Declaration:
-
+```
+- Declaration:
+```
     deque<int> mydeque; //Creates a double ended queue of deque of int type
-
-    Size
-
+```
+- Size
+```
     int length = mydeque.size(); //Gives the size of the deque
-
-    Push
-
+```
+- Push
+```
     mydeque.push_back(1); //Pushes element at the end
     mydeque.push_front(2); //Pushes element at the beginning
-
-    Pop
-
+```
+- Pop
+```
     mydeque.pop_back(); //Pops element from the end
     mydeque.pop_front(); //Pops element from the beginning
-
-    Empty
-
+```
+- Empty
+```
     mydeque.empty() //Returns a boolean value which tells whether the deque is empty or not
+```
+To know more about deque, [click here](http://www.cplusplus.com/reference/deque/deque/)
 
-To know more about deque, click here
+Given a set of arrays of size <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> and an integer <img src="https://latex.codecogs.com/svg.latex?\Large&space;K">, you have to find the maximum integer for each and every contiguous subarray of size <img src="https://latex.codecogs.com/svg.latex?\Large&space;K"> for each of the given arrays.
 
-Given a set of arrays of size
-and an integer , you have to find the maximum integer for each and every contiguous subarray of size
+#### Input Format
 
-for each of the given arrays.
+First line of input will contain the number of test cases <img src="https://latex.codecogs.com/svg.latex?\Large&space;T">. For each test case, you will be given the size of array <img src="https://latex.codecogs.com/svg.latex?\Large&space;N"> and the size of subarray to be used <img src="https://latex.codecogs.com/svg.latex?\Large&space;K">. This will be followed by the elements of the array <img src="https://latex.codecogs.com/svg.latex?\Large&space;A_i">.
 
-Input Format
+#### Constraints
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{T}\le{10^3}">
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{N}\le{10^4}">
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{K}\le{N}">
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{A_i}\le{10^4}">, where <img src="https://latex.codecogs.com/svg.latex?\Large&space;A_i"> is the <img src="https://latex.codecogs.com/svg.latex?\Large&space;i^{th}"> element in the array <img src="https://latex.codecogs.com/svg.latex?\Large&space;A">.
 
-First line of input will contain the number of test cases T. For each test case, you will be given the size of array N and the size of subarray to be used K. This will be followed by the elements of the array Ai.
+#### Output Format
 
-Constraints
+For each of the contiguous subarrays of size <img src="https://latex.codecogs.com/svg.latex?\Large&space;K"> of each array, you have to print the maximum integer.
 
-
-
-, where is the element in the array
-
-.
-
-Output Format
-
-For each of the contiguous subarrays of size
-
-of each array, you have to print the maximum integer.
-
-Sample Input
-
+#### Sample Input
+```
 2
 5 2
 3 4 6 3 4
 7 4
 3 4 5 8 1 4 10
-
-Sample Output
-
+```
+#### Sample Output
+```
 4 6 6 4
 8 8 8 10
-
-Explanation
+```
+#### Explanation
 
 For the first case, the contiguous subarrays of size 2 are {3,4},{4,6},{6,3} and {3,4}. The 4 maximum elements of subarray of size 2 are: 4 6 6 4.
 

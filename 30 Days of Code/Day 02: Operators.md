@@ -1,4 +1,4 @@
-https://www.hackerrank.com/challenges/30-operators/problem
+[Link](https://www.hackerrank.com/challenges/30-operators/problem)
 
 ## Day 2: Operators
 

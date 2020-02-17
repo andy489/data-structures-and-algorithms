@@ -1,4 +1,4 @@
-https://www.hackerrank.com/challenges/30-data-types/problem
+[Link](https://www.hackerrank.com/challenges/30-data-types/problem)
 
 ## Day 1: Data Types
 

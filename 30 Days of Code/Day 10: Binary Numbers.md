@@ -1,4 +1,4 @@
-https://www.hackerrank.com/challenges/30-binary-numbers/problem
+[Link](https://www.hackerrank.com/challenges/30-binary-numbers/problem)
 
 ## Day 10: Binary Numbers
 

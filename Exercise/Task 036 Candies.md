@@ -6,46 +6,36 @@ Alice is a kindergarten teacher. She wants to give some candies to the children 
 
 For example, assume her students' ratings are [4, 6, 4, 5, 6, 2]. She gives the students candy in the following minimal amounts: [1, 2, 1, 2, 3, 1]. She must buy a minimum of 10 candies.
 
-Function Description
+#### Input Format
 
-Complete the candies function in the editor below. It must return the minimum number of candies Alice must buy.
+The first line contains an integer, <img src="https://latex.codecogs.com/svg.latex?\Large&space;n">, the size of <img src="https://latex.codecogs.com/svg.latex?\Large&space;arr">.<br>
+Each of the next <img src="https://latex.codecogs.com/svg.latex?\Large&space;n"> lines contains an integer <img src="https://latex.codecogs.com/svg.latex?\Large&space;arr[i]"> indicating the rating of the student at position <img src="https://latex.codecogs.com/svg.latex?\Large&space;i">.
 
-candies has the following parameter(s):
+#### Constraints
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{n}\le{10^5}">
+- <img src="https://latex.codecogs.com/svg.latex?\Large&space;1\le{arr[i]\le{10^5}}">
 
-    n: an integer, the number of children in the class
-    arr: an array of integers representing the ratings of each student
-
-Input Format
-
-The first line contains an integer,
-, the size of .
-Each of the next lines contains an integer indicating the rating of the student at position
-
-.
-
-Constraints
-
-Output Format
+#### Output Format
 
 Output a single line containing the minimum number of candies Alice must buy.
 
-Sample Input 0
-
+#### Sample Input 0
+```
 3
 1
 2
 2
-
-Sample Output 0
-
+```
+#### Sample Output 0
+```
 4
-
-Explanation 0
+```
+#### Explanation 0
 
 Here 1, 2, 2 is the rating. Note that when two children have equal rating, they are allowed to have different number of candies. Hence optimal distribution will be 1, 2, 1.
 
-Sample Input 1
-
+#### Sample Input 1
+```
 10
 2
 4
@@ -57,14 +47,14 @@ Sample Input 1
 9
 2
 1
-
-Sample Output 1
-
+```
+#### Sample Output 1
+```
 19
+```
+#### Explanation 1
 
-Explanation 1
-
-Optimal distribution will be
+Optimal distribution will be <img src="https://latex.codecogs.com/svg.latex?\Large&space;1,2,1,2,1,2,3,4,2,1">
 
 #### Sample Input 2
 ```
@@ -84,5 +74,4 @@ Optimal distribution will be
 ```
 #### Explanation 2
 
-Optimal distribution will be
-.
+Optimal distribution will be <img src="https://latex.codecogs.com/svg.latex?\Large&space;1,2,1,2,1,2,1,2">.

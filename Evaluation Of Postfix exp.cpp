@@ -1,4 +1,6 @@
 ```cpp
+// github.com/andy489
+
 /*
   Evaluation Of postfix Expression in C++
   Input Postfix expression must be in a desired format.
@@ -22,8 +24,7 @@ bool IsOperator(char C);
 // Function to verify whether a character is numeric digit. 
 bool IsNumericDigit(char C);
 
-int main()
-{
+int main() {
 	std::string expression;
 	std::cout << "Enter Postfix Expression \n";
 	std::getline(std::cin, expression);
@@ -33,21 +34,18 @@ int main()
 }
 
 // Function to evaluate Postfix expression and return output
-int EvaluatePostfix(std::string expression)
-{
+int EvaluatePostfix(std::string expression) {
 	// Declaring a Stack from Standard template library in C++. 
 	std::stack<int> S;
 
-	for (unsigned i = 0; i < expression.length(); i++) 
-	{
+	for (unsigned i = 0; i < expression.length(); i++) {
 
 		// Scanning each character from left. 
 		// If character is a delimitter, move on. 
 		if (expression[i] == ' ' || expression[i] == ',') continue;
 
 		// If character is operator, pop two elements from stack, perform operation and push the result back. 
-		else if (IsOperator(expression[i])) 
-		{
+		else if (IsOperator(expression[i])) {
 			// Pop two operands. 
 			int operand2 = S.top(); S.pop();
 			int operand1 = S.top(); S.pop();
@@ -56,13 +54,11 @@ int EvaluatePostfix(std::string expression)
 			//Push back result of operation on stack. 
 			S.push(result);
 		}
-		else if (IsNumericDigit(expression[i])) 
-		{
+		else if (IsNumericDigit(expression[i])) {
 			// Extract the numeric operand from the string
 			// Keep incrementing i as long as you are getting a numeric digit. 
 			int operand = 0;
-			while (i < expression.length() && IsNumericDigit(expression[i])) 
-			{
+			while (i < expression.length() && IsNumericDigit(expression[i])) {
 				// For a number with more than one digits, as we are scanning from left to right. 
 				// Everytime , we get a digit towards right, we can multiply current total in operand by 10 
 				// and add the new digit. 
@@ -83,22 +79,19 @@ int EvaluatePostfix(std::string expression)
 }
 
 // Function to verify whether a character is numeric digit. 
-bool IsNumericDigit(char C)
-{
+bool IsNumericDigit(char C) {
 	if (C >= '0' && C <= '9') return true;
 	return false;
 }
 
 // Function to verify whether a character is operator symbol or not. 
-bool IsOperator(char C)
-{
+bool IsOperator(char C) {
 	if (C == '+' || C == '-' || C == '*' || C == '/') return true;
 	return false;
 }
 
 // Function to perform an operation and return output. 
-int PerformOperation(char operation, int operand1, int operand2)
-{
+int PerformOperation(char operation, int operand1, int operand2) {
 	if (operation == '+') return operand1 + operand2;
 	else if (operation == '-') return operand1 - operand2;
 	else if (operation == '*') return operand1 * operand2;

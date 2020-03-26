@@ -1,6 +1,5 @@
 // github.com/andy489
 
-
 //First Solution (brute force)
 #include <iostream>
 #include <vector>

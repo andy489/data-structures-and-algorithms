@@ -1,11 +1,9 @@
-```cpp
+
 // github.com/andy489
 
-/*
-  Input Postfix expression must be in a desired format.
-  Operands must be integers and there should be space in between two operands.
-  Only '+'  ,  '-'  , '*' and '/'  operators are expected.
-*/
+// Input Postfix expression must be in a desired format.
+// Operands must be integers and there should be space in between two operands.
+// Only '+'  ,  '-'  , '*' and '/'  operators are expected.
 
 #include<iostream>
 #include<stack>

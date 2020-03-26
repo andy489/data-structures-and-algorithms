@@ -2,7 +2,8 @@
 
 Subdomain|Challenge|Points|Solution
 :-:|:-:|:-:|:-:
-Combinatorics algorithms|[Combinatorics algorithms](https://en.wikipedia.org/wiki/Combinatorics)|-|[Implementation.cpp](https://raw.githubusercontent.com/andy489/Data_Structures_and_Algorithms_CPP/master/Algorithms/Combinatorics%20algorithms/Combinatoric%20algorithms.md)
+Binary Search | [Binary Search: Iterative & Recursive]()|-|[Implementation.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Algorithms/Biinary%20Search/Binary%20Search:%20Iterative%20and%20Recursive.cpp)
+BST|[Binary Search Tree](https://en.wikipedia.org/wiki/Binary_search_tree)|-|[Implementation.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Trees/Binary%20Search%20Tree/BST.cpp)
 Trie|[Prefix Trie](https://en.wikipedia.org/wiki/Trie)|-|[Implementation.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Trees/Trie%20(prefix%20trie).cpp)
 Binary Heap|[Binary Heap](https://en.wikipedia.org/wiki/Binary_heap)|-|[Implementation.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Trees/Binary%20Heap/MinHeap.cpp)
 2D Tree|[2D Tree](https://en.wikipedia.org/wiki/K-d_tree)|-|[Implementation.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/K%20Dimensional%20Trees/2DTree.md)

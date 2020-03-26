@@ -4,6 +4,7 @@ Subdomain|Challenge|Points|Solution
 :-:|:-:|:-:|:-:
 Combinatorics algorithms|[Combinatorics algorithms](https://en.wikipedia.org/wiki/Combinatorics)|-|[Implementation.cpp](https://raw.githubusercontent.com/andy489/Data_Structures_and_Algorithms_CPP/master/Algorithms/Combinatorics%20algorithms/Combinatoric%20algorithms.md)
 Trie|[Prefix Trie](https://en.wikipedia.org/wiki/Trie)|-|[Implementation.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Trees/Trie%20(prefix%20trie).cpp)
+Trie| [Autocomplete Trie]()|-|[Implementation.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Trees/Autocomplete%20Trie.cpp)
 Binary Heap|[Binary Heap](https://en.wikipedia.org/wiki/Binary_heap)|-|[Implementation.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Trees/Binary%20Heap/MinHeap.cpp)
 2D Tree|[2D Tree](https://en.wikipedia.org/wiki/K-d_tree)|-|[Implementation.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/K%20Dimensional%20Trees/2DTree.md)
 KD-Tree|[KD Tree](https://en.wikipedia.org/wiki/K-d_tree)|-|[Implementation.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/K%20Dimensional%20Trees/KD-Tree.cpp)

@@ -1,3 +1,5 @@
+// github.com/andy489
+
 #include <algorithm>
 #include <vector>
 #include <list>

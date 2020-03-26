@@ -25,8 +25,7 @@ Capacity: 10<br>Items: 1<br>25 -> 5|Take 100% of item with price 25 and weight 5
 #include <vector>
 #include <algorithm>
 
-struct Item
-{
+struct Item {
 	double price;
 	double weight;
 	double density;
@@ -34,20 +33,16 @@ struct Item
 	friend std::ostream& operator<<(std::ostream& os, const Item* item); // operator <<
 };
 
-struct byDensity
-{
-	bool operator()(Item *a, Item *b) const
-	{
+struct byDensity {
+	bool operator()(Item *a, Item *b) const {
 		return a->density > b->density;
 	}
 };
 
-std::vector<Item*> inputData(size_t items)
-{
+std::vector<Item*> inputData(size_t items) {
 	std::vector<Item*>allItems(items);
 
-	for (size_t i = 0; i < items; i++)
-	{
+	for (size_t i = 0; i < items; i++) {
 		double price, weight; std::cin >> price >> weight;
 		Item* newItem = new Item(price, weight);
 		allItems[i] = newItem;
@@ -55,31 +50,25 @@ std::vector<Item*> inputData(size_t items)
 	return allItems;
 }
 
-void releaseVectorOfPointers(std::vector<Item*> &allItems)
-{
+void releaseVectorOfPointers(std::vector<Item*> &allItems) {
 	size_t SIZE = allItems.size();
-	for (size_t i = 0; i < SIZE; i++)
-	{
+	for (size_t i = 0; i < SIZE; i++) {
 		delete allItems[i];
 	}
 	allItems.clear();
 }
 
-void printItems(std::vector<Item*> allItems, size_t items)
-{
-	for (size_t i = 0; i < items; i++)
-	{
+void printItems(std::vector<Item*> allItems, size_t items) {
+	for (size_t i = 0; i < items; i++) {
 		std::cout << allItems[i];
 	}
 }
 
-double getMin(double a, double b)
-{
+double getMin(double a, double b) {
 	return a > b ? b : a;
 }
 
-int main()
-{
+int main() {
 	std::cout << "Capacity: ";
 	double capacity; std::cin >> capacity;
 	std::cout << "Items: ";
@@ -90,8 +79,7 @@ int main()
 	sort(allItems.begin(), allItems.end(), byDensity());
 	// printItems(allItems, items);
 	size_t indx(0); double totalPrice(0.0);
-	while (capacity > 0 && indx < items)
-	{
+	while (capacity > 0 && indx < items) {
 		double currItemWeight = allItems[indx]->weight;
 		double currItemPrice = allItems[indx]->price;
 		double takenQuantity = getMin(capacity, currItemWeight);
@@ -116,14 +104,12 @@ int main()
 	return 0;
 }
 
-std::ostream & operator<<(std::ostream & os, const Item* item)
-{
+std::ostream & operator<<(std::ostream & os, const Item* item) {
 	os << item->price << " -> " << item->weight << " quality/density " << item->density << '\n';
 	return os;
 }
 
-Item::Item(double price, double weight)
-{
+Item::Item(double price, double weight) {
 	this->price = price;
 	this->weight = weight;
 	this->density = price / weight;

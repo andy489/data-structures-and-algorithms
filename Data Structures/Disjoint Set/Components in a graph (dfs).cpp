@@ -1,6 +1,6 @@
 // github.com/andy489
 
-// DFS
+// dfs
 #include <bits/stdc++.h>
 using namespace std;
 

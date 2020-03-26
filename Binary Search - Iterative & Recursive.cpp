@@ -1,27 +1,24 @@
+// github.com/andy489
+
 #include <iostream>
 #include <vector>
 
 // Iterative
-int binarySearchIterativeFirst(const std::vector<int>& sorted, int X)
-{
+int binarySearchIterativeFirst(const std::vector<int>& sorted, int X) {
 	int firstFind = -1;
 	int SIZE = (int)sorted.size();
 	int low(0), high(SIZE-1);
-	while (low <= high)
-	{
+	while (low <= high) {
 		int mid = low + (high - low) / 2;
-		if (X == sorted[mid])
-		{
+		if (X == sorted[mid]){
 			firstFind = mid;
 			high = mid; // first
 		}
-		else if (X < sorted[mid]) /* discard anything which is on or after mid
+		else if (X < sorted[mid]){ /* discard anything which is on or after mid
 					because X is less than the middle element and A is sorted */
-		{
 			high = mid;
 		}
-		else if (X > sorted[mid])
-		{
+		else if (X > sorted[mid]){
 			low = mid;
 		}
 		if (mid != low + (high - low) / 2) mid = low + (high - low) / 2;
@@ -31,26 +28,19 @@ int binarySearchIterativeFirst(const std::vector<int>& sorted, int X)
 }
 
 // Iterative
-int binarySearchIterativeLast(const std::vector<int>& sorted, int X)
-{
+int binarySearchIterativeLast(const std::vector<int>& sorted, int X) {
 	int lastFind = -1;
 	int SIZE = (int)sorted.size();
 	int low(0), high(SIZE);
-	while (low <= high)
-	{
+	while (low <= high) {
 		int mid = low + (high - low) / 2; // better practice
-		if (X == sorted[mid])
-		{
+		if (X == sorted[mid]) {
 			lastFind = mid;
 			low = mid; // last
-		}
-		else if (X < sorted[mid]) /* discard anything which is on or after mid
-					because X is less than the middle element and A is sorted */
-		{
+		} else if (X < sorted[mid]){ /* discard anything which is on or after mid
+						because X is less than the middle element and A is sorted */
 			high = mid;
-		}
-		else if (X > sorted[mid])
-		{
+		} else if (X > sorted[mid]) {
 			low = mid;
 		}
 		if (mid != low + (high - low) / 2) mid = low + (high - low) / 2;
@@ -60,21 +50,14 @@ int binarySearchIterativeLast(const std::vector<int>& sorted, int X)
 }
 
 // Recursive
-int binarySearchRecursiveFirst(const std::vector<int>& sorted, int low, int high, int X)
-{
-	if (high >= low)
-	{
+int binarySearchRecursiveFirst(const std::vector<int>& sorted, int low, int high, int X) {
+	if (high >= low) {
 		int mid = low + (high - low) / 2;
-		if ((mid == 0 || X > sorted[mid - 1]) && sorted[mid] == X)
-		{
+		if ((mid == 0 || X > sorted[mid - 1]) && sorted[mid] == X) {
 			return mid;
-		}
-		else if (X > sorted[mid])
-		{
+		} else if (X > sorted[mid]) {
 			return binarySearchRecursiveFirst(sorted, mid + 1, high, X);
-		}
-		else
-		{
+		} else {
 			return binarySearchRecursiveFirst(sorted, low, mid - 1, X);
 		}
 	}
@@ -82,29 +65,21 @@ int binarySearchRecursiveFirst(const std::vector<int>& sorted, int low, int high
 }
 
 // Recursive
-int binarySearchRecursiveLast(const std::vector<int>& sorted, int low, int high, int X)
-{
-	if (high >= low)
-	{
+int binarySearchRecursiveLast(const std::vector<int>& sorted, int low, int high, int X) {
+	if (high >= low) {
 		int mid = low + (high - low) / 2;
-		if ((mid == sorted.size() - 1 || X < sorted[mid + 1]) && sorted[mid] == X)
-		{
+		if ((mid == sorted.size() - 1 || X < sorted[mid + 1]) && sorted[mid] == X) {
 			return mid;
-		}
-		else if (X < sorted[mid])
-		{
+		} else if (X < sorted[mid]) {
 			return binarySearchRecursiveLast(sorted, low, mid - 1, X);
-		}
-		else
-		{
+		} else {
 			return binarySearchRecursiveLast(sorted, mid + 1, high, X);
 		}
 	}
 	return -1;
 }
 
-int main()
-{
+int main() {
 	std::vector<int>vec; vec.reserve(1000);
 
 	vec = { 0,0,1,2,4,4,4,8,8,8,8,8,8,8,8,8,8,9 };

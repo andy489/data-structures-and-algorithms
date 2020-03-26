@@ -11,30 +11,25 @@ bool* used = new bool[n]();
 int* permutations = new int[n]();
 unsigned countPerm(0);
 
-void displayPerm()
-{
+void displayPerm() {
 	std::cout << '(';
-	for (unsigned i = 0; i < n; i++)
-	{
+	unsigned i;
+	for (i = 0; i < n; ++i) {
 		std::cout << permutations[i];
 		if (i != n - 1)	std::cout << ',';
 	}
 	std::cout << ")\n";
 }
 
-void genPerm(unsigned indx)
-{	// indx е съответната клетка която искаме да запълним
-	if (indx > n - 1)
-	{
-		countPerm++;
+void genPerm(unsigned indx) { // indx е съответната клетка която искаме да запълним
+	if (indx > n - 1) {
+		++countPerm;
 		displayPerm();
 	}
-	else
-	{
-		for (unsigned i = 0; i < n; i++)
-		{
-			if (!used[i])
-			{
+	else {
+		unsigned i;
+		for (i = 0; i < n; ++i) {
+			if (!used[i]) {
 				used[i] = true;
 				permutations[indx] = elements[i];
 				genPerm(indx + 1);
@@ -44,8 +39,7 @@ void genPerm(unsigned indx)
 	}
 }
 
-int main()
-{
+int main() {
 	genPerm(0);
 	std::cout << "Total: " << n << "! = " << countPerm << " permutations.\n";
 	delete[] used;
@@ -64,29 +58,25 @@ int elements[] = { 1,2,3 };
 unsigned n = sizeof(elements) / sizeof(elements[0]);
 unsigned countPerm(0);
 
-void displayList()
-{
+void displayList() {
 	std::cout << '(';
-	for (unsigned i = 0; i < n; i++)
-	{
+	unsigned i;
+	for (i = 0; i < n; ++i) {
 		std::cout << elements[i];
-		if (i != n - 1)	std::cout << ',';
+		if(i != n - 1)	std::cout << ',';
 	}
 	std::cout << ")\n";
 }
 
-void genPerm(unsigned indx)
-{	
-	if (indx > n - 1)
-	{
+void genPerm(unsigned indx) {	
+	if (indx > n - 1) {
 		countPerm++;
 		displayList();
 	}
-	else
-	{
+	else {
 		genPerm(indx + 1);
-		for (unsigned i = indx + 1; i < n; i++)
-		{
+		unsigned i;
+		for (i = indx + 1; i < n; ++i) {
 			std::swap(elements[indx], elements[i]);
 			genPerm(indx + 1);
 			std::swap(elements[indx], elements[i]);
@@ -94,8 +84,7 @@ void genPerm(unsigned indx)
 	}
 }
 
-int main()
-{
+int main() {
 	genPerm(0);
 	std::cout << "Total: " << n << "! = " << countPerm << " permutations.\n";
 	return 0;
@@ -116,31 +105,26 @@ unsigned n = sizeof(elements) / sizeof(elements[0]);
 unsigned countPermRep(0);
 
 
-void displayList()
-{
+void displayList() {
 	std::cout << '(';
-	for (unsigned i = 0; i < n; i++)
-	{
+	unsigned i;
+	for (i = 0; i < n; ++i) {
 		std::cout << elements[i];
 		if (i != n - 1)	std::cout << ',';
 	}
 	std::cout << ")\n";
 }
 
-void genPermRep(unsigned indx)
-{
-	if (indx > n - 1)
-	{
-		countPermRep++;
+void genPermRep(unsigned indx) {
+	if (indx > n - 1) {
+		++countPermRep;
 		displayList();
 	}
-	else
-	{
+	else {
 		std::set<int> swapped;
-		for (unsigned i = indx; i < n; i++)
-		{
-			if (!swapped.count(elements[i]))
-			{
+		unsigned i;
+		for (i = indx; i < n; ++i) {
+			if (!swapped.count(elements[i])) {
 				std::swap(elements[indx], elements[i]);
 				genPermRep(indx + 1);
 				std::swap(elements[indx], elements[i]);
@@ -150,8 +134,7 @@ void genPermRep(unsigned indx)
 	}
 }
 
-int main()
-{
+int main() {
 	genPermRep(0);
 	std::cout << "Total: " << countPermRep << " permutations.\n";
 	return 0;
@@ -171,25 +154,21 @@ unsigned n = sizeof(elements) / sizeof(elements[0]);
 unsigned countPermRep(0);
 
 
-void displayList()
-{
+void displayList() {
 	std::cout << '(';
-	for (unsigned i = 0; i < n; i++)
-	{
+	unsigned i;
+	for (i = 0; i < n; ++i) {
 		std::cout << elements[i];
 		if (i != n - 1)	std::cout << ',';
 	}
 	std::cout << ")\n";
 }
 
-void genPermRep(int startIndx, int endIndx)
-{
+void genPermRep(int startIndx, int endIndx) {
 	displayList();
 	countPermRep++;
-	for (int left = endIndx - 1; left >= startIndx; left--)
-	{
-		for (int right = left + 1; right <= endIndx; right++)
-		{
+	for (int left = endIndx - 1; left >= startIndx; left--) {
+		for (int right = left + 1; right <= endIndx; right++) {
 			if (elements[left] != elements[right])
 			{
 				std::swap(elements[left], elements[right]);
@@ -197,16 +176,14 @@ void genPermRep(int startIndx, int endIndx)
 			}
 		}
 		int firstElement = elements[left];
-		for (int i = left; i <= endIndx - 1; i++)
-		{
+		for (int i = left; i <= endIndx - 1; i++) {
 			elements[i] = elements[i + 1];
 		}
 		elements[endIndx] = firstElement;
 	}
 }
 
-int main()
-{
+int main() {
 	genPermRep(0, n - 1);
 	std::cout << "Total: " << countPermRep << " permutations.\n";
 	return 0;
@@ -225,31 +202,25 @@ int main()
 std::vector<int> elements = {3,3,3,1,3,3,3,3};
 unsigned countPermRep(0);
 
-void displayList()
-{
+void displayList() {
 	std::cout << '(';
-	for (unsigned i = 0; i < elements.size(); i++)
-	{
+	unsigned i;
+	for (i = 0; i < elements.size(); ++i) {
 		std::cout << elements[i];
 		if (i != elements.size() - 1)	std::cout << ',';
 	}
 	std::cout << ")\n";
 }
 
-void genPermRep(unsigned indx)
-{
-	if (indx > elements.size() - 1)
-	{
+void genPermRep(unsigned indx) {
+	if (indx > elements.size() - 1) {
 		countPermRep++;
 		displayList();
 	}
-	else
-	{
+	else {
 		std::set<int> swapped;
-		for (unsigned i = indx; i < elements.size(); i++)
-		{
-			if (!swapped.count(elements[i]))
-			{
+		for (unsigned i = indx; i < elements.size(); i++) {
+			if (!swapped.count(elements[i])) {
 				std::swap(elements[indx], elements[i]);
 				genPermRep(indx + 1);
 				std::swap(elements[indx], elements[i]);
@@ -259,8 +230,7 @@ void genPermRep(unsigned indx)
 	}
 }
 
-int main()
-{
+int main() {
 	sort(elements.begin(),elements.end());
 	genPermRep(0);
 	std::cout << "Total: " << countPermRep << " permutations.\n";
@@ -283,30 +253,24 @@ int* variations = new int[k]();
 bool* used = new bool[n]();
 unsigned countVar(0);
 
-void displayVar()
-{
+void displayVar() {
 	std::cout << '(';
-	for (unsigned i = 0; i < k; i++)
-	{
+	unsigned;
+	for (i = 0; i < k; ++i) {
 		std::cout << variations[i];
 		if (i !=k - 1)	std::cout << ',';
 	}
 	std::cout << ")\n";
 }
 
-void genVar(unsigned indx)
-{
-	if (indx > k - 1)
-	{
-		countVar++;
+void genVar(unsigned indx) {
+	if (indx > k - 1) {
+		++countVar;
 		displayVar();
 	}
-	else
-	{
-		for (unsigned i = 0; i < n; i++)
-		{
-			if (!used[i])
-			{
+	else {
+		for (unsigned i = 0; i < n; i++) {
+			if (!used[i]) {
 				used[i] = true;
 				variations[indx] = elements[i];
 				genVar(indx + 1);
@@ -316,8 +280,7 @@ void genVar(unsigned indx)
 	}
 }
 
-int main()
-{
+int main() {
 	genVar(0);
 	std::cout << "Total: " << countVar << " variations.\n";
 	return 0;
@@ -339,36 +302,31 @@ int* variations = new int[k]();
 bool* used = new bool[n]();
 unsigned countVarRep(0);
 
-void displayVar()
-{
+void displayVar() {
 	std::cout << '(';
-	for (unsigned i = 0; i < k; i++)
-	{
+	unsigned i;
+	for (i = 0; i < k; ++i) {
 		std::cout << variations[i];
 		if (i != k - 1)	std::cout << ',';
 	}
 	std::cout << ")\n";
 }
 
-void genVarRep(unsigned indx)
-{
-	if (indx > k - 1)
-	{
-		countVarRep++;
+void genVarRep(unsigned indx) {
+	if (indx > k - 1) {
+		+countVarRep;
 		displayVar();
 	}
-	else
-	{
-		for (unsigned i = 0; i < n; i++)
-		{
+	else {
+		unsigned i;
+		for (i = 0; i < n; i++) {
 			variations[indx] = elements[i];
 			genVarRep(indx + 1);
 		}
 	}
 }
 
-int main()
-{
+int main() {
 	genVarRep(0);
 	std::cout << "Total: " << n << '.' << n<<" = " << countVarRep << " variations.\n";
 	return 0;
@@ -386,42 +344,36 @@ int main()
 int* variations = new int[k]();
 unsigned countVarRep(0);
 
-void displayVar()
-{
+void displayVar() {
 	std::cout << '(';
-	for (unsigned i = 0; i < k; i++)
-	{
+	unsigned i;
+	for (i = 0; i < k; ++i) {
 		std::cout << variations[i];
 		if (i != k - 1)	std::cout << ',';
 	}
 	std::cout << ")\n";
 }
 
-void genVarRepIterative()
-{
-	while (true)
-	{
-		countVarRep++;
+void genVarRepIterative() {
+	while (true) {
+		++countVarRep;
 		displayVar();
 		int indx = k - 1;
-		while (indx >= 0 && variations[indx] == n - 1)
-		{
+		while (indx >= 0 && variations[indx] == n - 1) {
 			indx--;
 		}
-		if (indx < 0)
-		{
+		if (indx < 0) {
 			break;
 		}
 		variations[indx]++;
-		for (int i = indx + 1; i < k; i++)
-		{
+		int i;
+		for (i = indx + 1; i < k; ++i) {
 			variations[i] = 0;
 		}
 	}
 }
 
-int main()
-{
+int main() {
 	genVarRepIterative();
 	std::cout << "Total: " << n << '^' << k << " = " << countVarRep << " variations.\n";
 	delete[] variations;
@@ -444,22 +396,20 @@ int* comb = new int[k]();
 
 unsigned combCount(0);
 
-void displayComb()
-{
-	for (unsigned i = 0; i < k; i++)
-	{
+void displayComb() {
+	unsigned i;
+	for (i = 0; i < k; i++) {
 		std::cout << comb[i] << ' ';
 	}
 	std::cout << '\n';
 }
 
-void genComb(int indx, int start)
-{
-	if (indx >= k) { displayComb(); combCount++; }
-	else
-	{
-		for (int i = start; i <= n - 1; i++)
-		{
+void genComb(int indx, int start) {
+	if (indx >= k) {
+		displayComb(); 
+		++combCount; }
+	else {
+		for (int i = start; i <= n - 1; ++i) {
 			comb[indx] = elements[i];
 			genComb(indx + 1, i + 1);
 		}
@@ -468,8 +418,8 @@ void genComb(int indx, int start)
 
 int main()
 {
-	for (unsigned i = 0; i < n; i++)
-	{
+	unsigned i;
+	for (i = 0; i < n; ++i) {
 		elements[i] = 2 * (i + 1); // {2,4,6,8,10}
 	}
 	genComb(0, 0);
@@ -495,15 +445,13 @@ int main()
 
 #include <iostream>
 
-long long binom(int n, int k)
-{
+long long binom(int n, int k) {
 	if (k > n) return 0;
 	if (k == 0 || k == n) return 1;
 	return binom(n - 1, k - 1) + binom(n - 1, k);
 }
 
-int main()
-{
+int main() {
 	long long choose_k_n = binom(N, K);
 	std::cout << choose_k_n << '\n';
 	return 0;

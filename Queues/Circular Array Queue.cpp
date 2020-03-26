@@ -1,77 +1,64 @@
-/* Queue - Circular Array implementation in C++*/
+// github.com/andy489
+// Queue - Circular Array implementation
 #include<iostream>
 #define MAX_SIZE 101  //maximum size of the array that will store Queue. 
 
 // Creating a class named Queue.
-class Queue
-{
+class Queue{
 private:
 	int A[MAX_SIZE];
 	int front, rear;
 public:
 	// Constructor - set front and rear as -1. 
 	// We are assuming that for an empty Queue, both front and rear will be -1.
-	Queue()
-	{
+	Queue(){
 		front = -1;
 		rear = -1;
 	}
 
 	// To check wheter Queue is empty or not
-	bool IsEmpty()
-	{
+	bool IsEmpty(){
 		return (front == -1 && rear == -1);
 	}
 
 	// To check whether Queue is full or not
-	bool IsFull()
-	{
+	bool IsFull(){
 		return (rear + 1) % MAX_SIZE == front ? true : false;
 	}
 
 	// Inserts an element in queue at rear end
-	void Enqueue(int x)
-	{
+	void Enqueue(int x){
 		std::cout << "Enqueuing " << x << " \n";
-		if (IsFull())
-		{
+		if (IsFull()){
 			std::cout << "Error: Queue is Full\n";
 			return;
 		}
-		if (IsEmpty())
-		{
+		if (IsEmpty()){
 			front = rear = 0;
 		}
-		else
-		{
+		else{
 			rear = (rear + 1) % MAX_SIZE;
 		}
 		A[rear] = x;
 	}
 
 	// Removes an element in Queue from front end. 
-	void Dequeue()
-	{
+	void Dequeue(){
 		std::cout << "Dequeuing \n";
-		if (IsEmpty())
-		{
+		if (IsEmpty()){
 			std::cout << "Error: Queue is Empty\n";
 			return;
 		}
-		else if (front == rear)
-		{
+		else if (front == rear){
 			rear = front = -1;
 		}
-		else
-		{
+		else{
 			front = (front + 1) % MAX_SIZE;
 		}
 	}
 	// Returns element at front of queue. 
-	int Front()
-	{
-		if (front == -1)
-		{
+	int Front(){
+		if (front == -1){
 			std::cout << "Error: cannot return front from empty queue\n";
 			return -1;
 		}
@@ -82,21 +69,18 @@ public:
 	   This function is only to test the code.
 	   This is not a standard function for Queue implementation.
 	*/
-	void Print()
-	{
+	void Print(){
 		// Finding number of elements in queue  
 		int count = (rear + MAX_SIZE - front) % MAX_SIZE + 1;
 		std::cout << "Queue       : ";
-		for (int i = 0; i < count; i++)
-		{
+		for (int i = 0; i < count; i++){
 			int index = (front + i) % MAX_SIZE; // Index of element while travesing circularly from front
 			std::cout << A[index] << " ";
 		}
 		std::cout << "\n\n";
 	}
 };
-int main()
-{
+int main(){
 	/*Driver Code to test the implementation
 	  Printing the elements in Queue after each Enqueue or Dequeue
 	*/

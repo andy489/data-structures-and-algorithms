@@ -24,29 +24,23 @@ You can complete the expression by starting with the biggest fraction with numer
 #include <stack>
 #include <vector>
 
-void getRational(long &nom, long &denom)
-{
+void getRational(long &nom, long &denom) {
 	std::string s; std::cin >> s;
 	size_t len = s.length();
 	s += '\0';
 	std::stack<long> S; S.push(0);
-
-	for (size_t i = 0; i <= len; i++)
-	{
-		if (s[i] >= '0' && s[i] <= '9')
-		{
+	size_t i;
+	for (i = 0; i <= len; ++i) {
+		if (s[i] >= '0' && s[i] <= '9') {
 			long num = S.top() * 10 + s[i] - '0'; S.pop();
 			S.push(num);
 		}
-		else
-		{
-			if (i != len)
-			{
+		else {
+			if (i != len) {
 				nom = S.top();
 				S.pop(); S.push(0);
 			}
-			else
-			{
+			else {
 				denom = S.top();
 				S.pop();
 			}
@@ -54,14 +48,12 @@ void getRational(long &nom, long &denom)
 	}
 }
 
-int main()
-{
+int main() {
 	long num, denom;
 	getRational(num, denom);
 	std::cout << num << '/' << denom << " = ";
 
-	if (denom<num)
-	{
+	if (denom<num) {
 		std::cout << "Error (fraction is equal to or greater tha 1)\n";
 		return 0;
 	}
@@ -69,12 +61,10 @@ int main()
 	std::vector<long> res;
 
 	size_t indxDenom(2); // 3/7 - 1/2
-	while (num != 0)
-	{
+	while (num != 0) {
 		long diff = num * indxDenom - denom; // 3*2 - 1*7 < 0 ?
-		if (diff < 0)
-		{
-			indxDenom++;
+		if (diff < 0) {
+			++indxDenom;
 			continue;
 		}
 		res.push_back(indxDenom);
@@ -84,8 +74,8 @@ int main()
 		indxDenom++;
 	}
 	size_t resLen = res.size();
-	for (size_t i = 0; i < resLen-1; i++)
-	{
+	size_t i;
+	for (i = 0; i < resLen-1; ++i) {
 		std::cout << "1/" << res[i] << " + ";
 	}
 	std::cout << "1/"<<res[resLen - 1];

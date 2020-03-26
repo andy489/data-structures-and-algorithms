@@ -1,4 +1,3 @@
-
 // github.com/andy489
 
 // Input Postfix expression must be in a desired format.

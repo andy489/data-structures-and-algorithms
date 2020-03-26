@@ -1,12 +1,9 @@
 #### Example 1
 ```cs
-int findMaxElement(int[] array)
-{
+int findMaxElement(int[] array) {
 	int max = array[0];
-	for (int i = 0; i < array.Length; i++)
-	{
-		if (array[i]>max)
-		{
+	for (int i = 0; i < array.Length; i++) {
+		if (array[i]>max) {
 			max = array[i];
 		}
 	}
@@ -18,15 +15,11 @@ int findMaxElement(int[] array)
 
 #### Example 2
 ```cs
-int findInversions(int[] array)
-{
+int findInversions(int[] array) {
 	long inversions = 0;
-	for (int i = 0; i < array.Length; i++)
-	{
-		for (int j = i+1; j < array.Length; j++)
-		{
-			if (array[i]>array[j])
-			{
+	for (int i = 0; i < array.Length; i++) {
+		for (int j = i+1; j < array.Length; j++) {
+			if (array[i]>array[j]) {
 				inversions++;
 			}
 		}
@@ -39,15 +32,11 @@ int findInversions(int[] array)
 
 #### Example 3
 ```cs
-decimal sum3(int n)
-{
+decimal sum3(int n) {
 	decimal sum = 0;
-	for (int  a = 0; a < n; a++)
-	{
-		for (int b = 0; b < n; b++)
-		{
-			for (int c = 0; c < n; c++)
-			{
+	for (int  a = 0; a < n; a++) {
+		for (int b = 0; b < n; b++) {
+			for (int c = 0; c < n; c++) {
 				sum += a * b*c;
 			}
 		}
@@ -60,13 +49,10 @@ decimal sum3(int n)
 
 #### Example 4
 ```cs
-long sumMN(int n, int m)
-{
+long sumMN(int n, int m) {
 	long sum = 0;
-	for (int x = 0; x < n; x++)
-	{
-		for (int y = 0; y < m; y++)
-		{
+	for (int x = 0; x < n; x++) {
+		for (int y = 0; y < m; y++) {
 			sum += x * y;
 		}
 	}
@@ -78,17 +64,12 @@ long sumMN(int n, int m)
 
 #### Example 5
 ```cs
-long sumMN(int n, int m)
-{
+long sumMN(int n, int m) {
 	long sum = 0;
-	for (int x = 0; x < n; x++)
-	{
-		for (int y = 0; y < m; y++)
-		{
-			if (x==y)
-			{
-				for (int i = 0; i < n; i++)
-				{
+	for (int x = 0; x < n; x++) {
+		for (int y = 0; y < m; y++) {
+			if (x==y) {
+				for (int i = 0; i < n; i++) {
 					sum += i * x*y;
 				}
 			}
@@ -102,11 +83,9 @@ long sumMN(int n, int m)
 
 #### Example 6
 ```cs
-decimal calculation(int n)
-{
+decimal calculation(int n) {
 	decimal result = 0;
-	for (int i = 0; i < (1<<n); i++)
-	{
+	for (int i = 0; i < (1<<n); i++) {
 		result += i;
 	}
 	return result;
@@ -117,8 +96,7 @@ decimal calculation(int n)
 
 #### Example 7
 ```cs
-decimal factorial(int n)
-{
+decimal factorial(int n) {
 	if (n == 0) return 1;	
 	else return n * factorial(n - 1);
 }
@@ -128,8 +106,7 @@ decimal factorial(int n)
 
 #### Example 8
 ```cs
-decimal fibonacci(int n)
-{
+decimal fibonacci(int n) {
 	if (n == 0) return 1;
 	else if (n == 1) return 1;
 	else return fibonacci(n - 1) + fibonacci(n - 2);
@@ -140,8 +117,7 @@ decimal fibonacci(int n)
 
 #### Example 9
 ```cs
-long compute(int arr[], int n)
-{
+long compute(int arr[], int n) {
 	long count = 0; 
 	for (int i = 0; i < n; i++)
 	{
@@ -160,17 +136,12 @@ long compute(int arr[], int n)
 
 #### Example 10
 ```cs
- long calcCount(int[,] matrix)
-        {
+long calcCount(int[,] matrix) {
             long count = 0;
-            for (int row = 0; row < matrix.GetLength(0); row++)
-            {
-                if (matrix[row, 0] % 2 == 0)
-                {
-                    for (int col = 0; col < matrix.GetLength(1); col++)
-                    {
-                        if (matrix[row, col] > 0)
-                        {
+            for (int row = 0; row < matrix.GetLength(0); row++) {
+                if (matrix[row, 0] % 2 == 0) {
+                    for (int col = 0; col < matrix.GetLength(1); col++) {
+                        if (matrix[row, col] > 0) {
                             count++;
                         }
                     }
@@ -184,15 +155,12 @@ long compute(int arr[], int n)
 
 #### Example 11
 ```cs
-long calcSum(int[,] matrix, int row)
-{
+long calcSum(int[,] matrix, int row) {
     long sum = 0;
-    for (int col = 0; col < matrix.GetLength(0); col++)
-    {
+    for (int col = 0; col < matrix.GetLength(0); col++) {
         sum += matrix[row.col];
     }
-    if (row+1<matrix.GetLength(1))
-    {
+    if (row+1<matrix.GetLength(1)) {
         sum += calcSum(matrix, row + 1);
     }
     return sum;
@@ -203,8 +171,7 @@ long calcSum(int[,] matrix, int row)
 
 #### Example 12
 ```cs
-int[] Union(int[] firstArr, int[] secondArr)
-{
+int[] Union(int[] firstArr, int[] secondArr) {
     List<int> union = new List<int>();
     union.AddRange(firstArray);
     foreach (int item in secondArray)
@@ -218,8 +185,7 @@ int[] Union(int[] firstArr, int[] secondArr)
 
 #### Example 13
 ```cs
-while (n>2)
-{
+while (n>2) {
    n=sqrt(n);
 }
 ```

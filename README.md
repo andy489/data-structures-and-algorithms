@@ -5,7 +5,7 @@ Subdomain|Challenge|Points|Solution
 Trie|[Prefix Trie](https://en.wikipedia.org/wiki/Trie)|-|[Implementation.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Trees/Trie%20(prefix%20trie).cpp)
 Binary Heap|[Binary Heap](https://en.wikipedia.org/wiki/Binary_heap)|-|[Implementation.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Trees/Binary%20Heap/MinHeap.cpp)
 2D Tree|[2D Tree](https://en.wikipedia.org/wiki/K-d_tree)|-|[Implementation.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/K%20Dimensional%20Trees/2DTree.md)
-KD-Tree|[KD-Tree](https://en.wikipedia.org/wiki/K-d_tree)|-|[Implementation.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/K%20Dimensional%20Trees/KD-Tree.cpp)
+KD-Tree|[KD Tree](https://en.wikipedia.org/wiki/K-d_tree)|-|[Implementation.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/K%20Dimensional%20Trees/KD-Tree.cpp)
 Hash-Table|[Hash-Table using Lists](https://en.wikipedia.org/wiki/Hash_table)|-|[Implementation.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Hash%20Table/Hash%20Table%20using%20Lists.cpp)
 Dijkstra's algorithm| [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)|-|[Implementation.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Graphs/Dijkstra.cpp)<br>[Examples.md](https://github.com/andy489/Discrete_Structures/tree/master/DS1%20Dijkstra)
 Bellman-Ford algorithm| [Bellman–Ford algorithm](https://en.wikipedia.org/wiki/Bellman–Ford_algorithm)|-|[Implementation.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Graphs/Bellman-Ford%20algorithm.cpp)

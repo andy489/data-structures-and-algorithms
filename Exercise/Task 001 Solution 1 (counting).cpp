@@ -1,18 +1,18 @@
-#include <vector>
+// github.com/andy489
+
 #include <stdio.h>
-#include <algorithm>
-using namespace std;
-#define MAXREM 99
+#define MAXREM 100
 int main(){ int n,k,i,a,res(0);
-    vector<int>r(MAXREM);
+    int* r = new int[MAXREM];
     scanf("%d%d",&n,&k);
     for(i=0;i<n;++i){ scanf("%d",&a);
         ++r[a%k];
     }
-    for(i=1;i<(k+1)/2;++i){    
-        res+=max(r[i],r[k-i]);   
+    int end=(k+1)/2;
+    for(i=1;i<end;++i){    
+        res+=(r[i]>r[k-i]?r[i]:r[k-i]);   
     }
     if(r[0]) ++res;
-    if(k%2==0&&r[k/2]) ++res;
+    if(!(k&1)&&r[k/2]) ++res;
     printf("%d",res);    
 }

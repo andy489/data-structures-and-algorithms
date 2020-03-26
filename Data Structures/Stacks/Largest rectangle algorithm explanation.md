@@ -1,5 +1,5 @@
-```cpp
-// github.com/andy489
+```
+github.com/andy489
 ```
 *Пример:*
 

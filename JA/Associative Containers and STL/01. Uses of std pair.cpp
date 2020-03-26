@@ -1,9 +1,10 @@
+// github.com/andy489
+
 #include<iostream>
 #include<string>
 #include<utility>
 
-int main() 
-{
+int main() {
     using namespace std;
 
     pair<string, string> contact("George", "not-telling-you@gmail.com");
@@ -18,8 +19,7 @@ int main()
     cout << endl;
 
     // Remember that () and {} can both be used to initialize objects (since C++11):
-    pair<string, pair<double, double> > location
-    {
+    pair<string, pair<double, double> > location{
         "Great Pyramid of Gyza",
         pair<double,double>{29.9792345, 31.1342019} 
 	// NOTE: pair<double,double> here is redundant - C++11 can infer that, you can leave just the numbers in the {} brackets

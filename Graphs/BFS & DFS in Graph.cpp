@@ -3,43 +3,34 @@
 #include <queue>
 using namespace std;
 
-class Graph
-{
+class Graph{
 	vector<vector<int>> adj;
 	int v, e;
 
-	void dfsUtil(int u, vector<bool>& visited)
-	{
+	void dfsUtil(int u, vector<bool>& visited){
 		cout << u << ' ';
 		visited[u] = true;
 		size_t size(adj[u].size()), i;
-		for (i = 0; i < size; ++i)
-		{
-			if (!visited[adj[u][i]])
-			{
+		for (i = 0; i < size; ++i){
+			if (!visited[adj[u][i]]){
 				dfsUtil(adj[u][i], visited);
 			}
 		}
 	}
 
-	void bfsUtil(int start, vector<bool>& visited)
-	{
+	void bfsUtil(int start, vector<bool>& visited){
 		int curr, i, level(1);
 		queue<int> q;
 		q.push(start);
-		while (!q.empty())
-		{
+		while (!q.empty()){
 			int SIZE = (int)q.size();
-			while (SIZE--)
-			{
+			while (SIZE--){
 				curr = q.front(), q.pop();
 				visited[curr] = true;
 				//if (level == 2)
 				cout << curr << ' ';
-				for (i = 0; i < (int)adj[curr].size(); ++i)
-				{
-					if (!visited[adj[curr][i]])
-					{
+				for (i = 0; i < (int)adj[curr].size(); ++i){
+					if (!visited[adj[curr][i]]){
 						q.push(adj[curr][i]);
 						visited[adj[curr][i]] = true;
 					}
@@ -50,40 +41,34 @@ class Graph
 	}
 
 public:
-	Graph(int v = 0) :v(v), e(0)
-	{
+	Graph(int v = 0) :v(v), e(0){
 		adj.resize(v + 1);
 	}
 
-	void addEdge(int u, int w)
-	{
+	void addEdge(int u, int w){
 		adj[u].push_back(w);
 		adj[w].push_back(u);
 		e++;
 	}
 
-	void dfs(int start)
-	{
+	void dfs(int start){
 		vector<bool>visited(v + 1, 0);
 		dfsUtil(start, visited);
 	}
 
-	void bfs(int start)
-	{
+	void bfs(int start){
 		vector<bool>visited(v + 1, 0);
 		bfsUtil(start, visited);
 	}
 };
 
-int main()
-{
+int main(){
 	int v, e, i, u, w;
 	cin >> v >> e;
 
 	Graph G(v);
 
-	for (i = 0; i < e; ++i)
-	{
+	for (i = 0; i < e; ++i){
 		cin >> u >> w;
 		G.addEdge(u, w);
 	}

@@ -1,6 +1,6 @@
 // github.com/andy489
 
-// BFS
+// bfs
 #include <bits/stdc++.h>
 using namespace std;
 

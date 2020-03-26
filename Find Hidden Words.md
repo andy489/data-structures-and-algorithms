@@ -38,8 +38,7 @@ int y[] = { -1, 0, 1, -1, 1, -1, 0, 1 };
 
 // Function foe searching in all 8-direction from point 
 // (row, col) in grid[][] 
-bool searchWordInGrid(const char grid[R][C], int row, int col, string word, string& direction)
-{
+bool searchWordInGrid(const char grid[R][C], int row, int col, string word, string& direction) {
 	// If first character of word doesn't match with 
 	// given starting point in grid. 
 	if (grid[row][col] != word[0]) return false;
@@ -47,15 +46,13 @@ bool searchWordInGrid(const char grid[R][C], int row, int col, string word, stri
 	int len = word.length();
 
 	// Search word in all 8 directions starting from (row,col) 
-	for (int dir = 0; dir < 8; dir++)
-	{
+	for (int dir = 0; dir < 8; dir++) {
 		// Initialize starting point for current direction 
 		int k, rd = row + x[dir], cd = col + y[dir];
 
 		// First character is already checked, match remaining 
 		// characters 
-		for (k = 1; k < len; k++)
-		{
+		for (k = 1; k < len; k++) {
 			// If out of bound break 
 			if (rd >= R || rd < 0 || cd >= C || cd < 0)	break;
 
@@ -67,10 +64,8 @@ bool searchWordInGrid(const char grid[R][C], int row, int col, string word, stri
 		}
 		// If all character matched, then value of must 
 		// be equal to length of word 
-		if (k == len)
-		{
-			switch (dir)
-			{
+		if (k == len) {
+			switch (dir) {
 			case 0:
 			{
 				direction = "North-West";
@@ -119,30 +114,24 @@ bool searchWordInGrid(const char grid[R][C], int row, int col, string word, stri
 }
 
 // Searches given word in a given matrix in all 8 directions 
-void patternSearch(const char grid[R][C], string word, string& direction)
-{
+void patternSearch(const char grid[R][C], string word, string& direction) {
 	bool foundWord = false;
 	// Consider every point as starting point and search given word 
-	for (int row = 0; row < R; row++)
-	{
-		for (int col = 0; col < C; col++)
-		{
-			if (searchWordInGrid(grid, row, col, word, direction))
-			{
+	for (int row = 0; row < R; row++) {
+		for (int col = 0; col < C; col++) {
+			if (searchWordInGrid(grid, row, col, word, direction)) {
 				foundWord = true;
 				cout << "Pattern found at (" << row << ", "
 					<< col << ") at " << direction << " direction.\n";
 			}
 		}
 	}
-	if (!foundWord)
-	{
+	if (!foundWord) {
 		cout << "No such word found in the given grid.\n";
 	}
 }
 
-int main()
-{
+int main() {
 	string direction;
 	const char grid[R][C] = {
 		"DREAMING",

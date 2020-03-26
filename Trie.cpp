@@ -1,29 +1,26 @@
+// github.com/andy489
+
 // AutoComplete Trie
 #include <iostream>
 #include <vector>
 #include <map>
 using namespace std;
 
-struct Node
-{
+struct Node {
 	bool end;
 	map<char, Node*> children;
 	Node(bool end = false) :end(end) {}
 };
 
-struct Trie
-{
+struct Trie {
 	Node* root = new Node();
 
-	void insert(const string& word)
-	{
+	void insert(const string& word) {
 		Node* curr = root;
 		int len(word.length()), i;
 
-		for (i = 0; i < len; ++i)
-		{
-			if (curr->children.count(word[i]) == 0)
-			{
+		for (i = 0; i < len; ++i) {
+			if (curr->children.count(word[i]) == 0) {
 				curr->children[word[i]] = new Node();
 			}
 			curr = curr->children[word[i]];
@@ -31,29 +28,23 @@ struct Trie
 		curr->end = true;
 	}
 
-	void dfs(Node* curr, string& prefix)
-	{
-		if (curr->end)
-		{
+	void dfs(Node* curr, string& prefix) {
+		if (curr->end) {
 			cout << prefix << '\n';
 		}
-		for (pair<char, Node*>kvp : curr->children)
-		{
+		for (pair<char, Node*>kvp : curr->children) {
 			prefix.push_back(kvp.first);
 			dfs(kvp.second, prefix);
 			prefix.pop_back();
 		}
 	}
 
-	void search(string& prefix)
-	{
+	void search(string& prefix) {
 		Node* curr = root;
 		int len(prefix.length()), i;
 
-		for (i = 0;i < len;++i)
-		{
-			if (curr->children.count(prefix[i]) == 0)
-			{
+		for (i = 0;i < len;++i) {
+			if (curr->children.count(prefix[i]) == 0) {
 				return;
 			}
 			curr = curr->children[prefix[i]];
@@ -62,8 +53,7 @@ struct Trie
 	}
 };
 
-int main()
-{
+int main() {
 	Trie autoComplete;
 
 	string prefix;
@@ -78,8 +68,7 @@ int main()
 	autoComplete.insert("uphill");
 	autoComplete.insert("redo");
 
-	for (size_t i = 0; i < 3; i++)
-	{
+	for (size_t i = 0; i < 3; i++) {
 		cin >> prefix;
 		autoComplete.search(prefix);
 	}

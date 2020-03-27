@@ -1,16 +1,15 @@
-/* C++ program to find Inorder successor in a BST */
+// github.com/andy489
+
+// Inorder successor in BST 
 #include <iostream>
 
-struct Node
-{
-	Node *left;
+struct Nodev{
+	Node *left, *right;
 	int data;
-	Node *right;
 };
 
 //Function to find some data in the tree
-Node* find(Node*root, int data)
-{
+Node* find(Node*root, int data) {
 	if (root == nullptr) return nullptr;
 	else if (root->data == data) return root;
 	else if (root->data < data) return find(root->right, data);
@@ -18,8 +17,7 @@ Node* find(Node*root, int data)
 }
 
 //Function to find Node with minimum value in a BST
-Node* findMin(Node* root)
-{
+Node* findMin(Node* root) {
 	if (root == nullptr) return nullptr;
 	while (root->left != nullptr)
 		root = root->left;
@@ -27,23 +25,18 @@ Node* findMin(Node* root)
 }
 
 //Function to find Inorder Successor in a BST
-Node* getSuccessor(Node* root, int data)
-{
+Node* getSuccessor(Node* root, int data) {
 	// Search the Node - O(h)
 	Node* current = find(root, data);
 	if (current == nullptr) return current;
-	if (current->right != nullptr)
-	{  //Case 1: Node has right subtree
+	if (current->right != nullptr) { //Case 1: Node has right subtree
 		return findMin(current->right); // O(h)
 	}
-	else
-	{   //Case 2: No right subtree  - O(h)
+	else { //Case 2: No right subtree  - O(h)
 		Node* successor = nullptr;
 		Node* ancestor = root;
-		while (ancestor != current)
-		{
-			if (current->data < ancestor->data)
-			{
+		while (ancestor != current) {
+			if (current->data < ancestor->data) {
 				successor = ancestor;
 				// so far this is the deepest node for which current node is in left
 				ancestor = ancestor->left;
@@ -56,8 +49,7 @@ Node* getSuccessor(Node* root, int data)
 }
 
 //Function to visit nodes in Inorder
-void Inorder(Node *root)
-{
+void Inorder(Node *root) {
 	if (root == nullptr) return;
 
 	Inorder(root->left);       //Visit left subtree
@@ -66,10 +58,8 @@ void Inorder(Node *root)
 }
 
 // Function to Insert Node in a Binary Search Tree
-Node* Insert(Node *root, int data) 
-{
-	if (root == nullptr) 
-	{
+Node* Insert(Node *root, int data) {
+	if (root == nullptr) {
 		root = new Node();
 		root->data = data;
 		root->left = root->right = nullptr;
@@ -81,8 +71,7 @@ Node* Insert(Node *root, int data)
 	return root;
 }
 
-int main() 
-{
+int main() {
 	/*Code To Test the logic
 	  Creating an example tree
 			    5

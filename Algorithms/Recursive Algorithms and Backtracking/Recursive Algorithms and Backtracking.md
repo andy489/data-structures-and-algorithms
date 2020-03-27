@@ -423,7 +423,7 @@ int main()
 ```
 **Задача 5.** (*Класически пример*) Да се намерят всички възможни начини, по които може да се поставят 8 кралици на шахматна дъска, така че да не се „бият“ една-друга.
 
-*Решение:* [РЕШЕНИЕТО Е ИМПЛЕМЕНТИРАНО ТУК](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/8_Queens_Problem.cpp)
+*Решение:* [РЕШЕНИЕТО Е ИМПЛЕМЕНТИРАНО ТУК](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/tree/master/Algorithms/8%20Queens%20Problem)
 
 **Задача 6.** Даден е лабиринт, представен чрез матрица от клетки. Целта е да намерим всички пътища от стартовата позиция (клетка с координати (0,0)) до финалната позиция (клетка със символ 'e').
 - празните (проходими) клетки са маркирани с '-';
@@ -447,11 +447,11 @@ int main()
 -----
 *****
 ```
-*Решение:* [РЕШЕНИЕТО Е ИМПЛЕМЕНТИРАНО ТУК](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Finding%20All%20Paths%20in%20Labyrinth.cpp)
+*Решение:* [РЕШЕНИЕТО Е ИМПЛЕМЕНТИРАНО ТУК](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Algorithms/Find%20All%20Paths%20in%20Labyrinth/Find%20all%20Paths%20in%20labyrinth.cpp)
 
 **Задача 6.** Да се намерят всички решения на дадено частично запълнено судоку 9х9.
 
-*Решение:* [РЕШЕНИЕТО Е ИМПЛЕМЕНТИРАНО ТУК](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/SudokuSolver.cpp)
+*Решение:* [РЕШЕНИЕТО Е ИМПЛЕМЕНТИРАНО ТУК](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Algorithms/Sudoku/Sudoku%20solver.cpp)
 
 **Задача 7.** Напишете рекурсивен bubbleSort алгоритъм. Оптимизирайте го в рекурсивен cocktailSort алгоритъм.
  

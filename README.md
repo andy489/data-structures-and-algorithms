@@ -2,6 +2,7 @@
 
 Subdomain|Challenge|Points|Solution
 :-:|:-:|:-:|:-:
+Searching|[Searching](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Algorithms/Searching/Searching.md)|-|[Searching](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Algorithms/Searching/Searching.md)
 Recursion and backtracking| [Recursive algorithms and backtracking](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Algorithms/Recursive%20Algorithms%20and%20Backtracking/Recursive%20Algorithms%20and%20Backtracking.md)|-|[Implementation.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Algorithms/Recursive%20Algorithms%20and%20Backtracking/Recursive%20Algorithms%20and%20Backtracking.md)
 Combinatorics algorithms|[Combinatorics algorithms](https://en.wikipedia.org/wiki/Combinatorics)|-|[Implementation.cpp](https://raw.githubusercontent.com/andy489/Data_Structures_and_Algorithms_CPP/master/Algorithms/Combinatorics%20algorithms/Combinatoric%20algorithms.md)
 Trie|[Prefix Trie](https://en.wikipedia.org/wiki/Trie)|-|[Implementation.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Trees/Trie%20(prefix%20trie).cpp)

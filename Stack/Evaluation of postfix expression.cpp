@@ -6,7 +6,6 @@
 
 #include<iostream>
 #include<stack>
-#include<string>
 
 // Function to evaluate Postfix expression and return output
 int EvaluatePostfix(std::string expression);
@@ -96,4 +95,3 @@ int PerformOperation(char operation, int operand1, int operand2) {
 	else std::cout << "Unexpected Error \n";
 	return -1;
 }
-```

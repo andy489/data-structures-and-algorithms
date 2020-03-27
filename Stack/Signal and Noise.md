@@ -1,4 +1,4 @@
-## Task 1 The Signal and the Noise
+## Task 1 Signal and Noise
 Write a program which reads a sequence of non-negative integer numbers (in the decimal numeral system), separated by spaces, and finds the maximum number. The numbers in the input may have “noise” – symbols before, after, or between the digits of the number, which are not decimal digits (you need to ignore these when reading the numbers). All symbols in the input will be either letters, digits, punctuation, or signs from the standard ASCII table (no control symbols like newlines or tabs, delete, etc.)
 #### Examples
 

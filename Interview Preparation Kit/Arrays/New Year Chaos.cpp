@@ -9,12 +9,12 @@ using namespace std;
 // Complete the minimumBribes function below.
 void minimumBribes(const vector<int>& a,int n) {
     int i,j,ans(0);
-    for (i = n - 1; i >= 0; i--) {
+    for (i = n - 1; i >= 0; --i) {
         if (a[i] - (i + 1) > 2) {
             printf("%s\n","Too chaotic");
             return;
         }
-        for (j = max(0, a[i] - 2); j < i; j++)
+        for (j = max(0, a[i] - 2); j < i; ++j)
             if (a[j] > a[i]) ++ans; //count bribes
     }
     printf("%d\n",ans);

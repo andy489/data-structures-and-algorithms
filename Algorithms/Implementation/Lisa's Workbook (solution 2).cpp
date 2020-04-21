@@ -1,4 +1,4 @@
-// github.com/andy489\
+// github.com/andy489
 
 #include <stdio.h>
 

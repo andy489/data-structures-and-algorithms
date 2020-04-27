@@ -26,13 +26,13 @@
 
 #### Части на рекурсията:
 - Разгъване - когато се извикват вложените функции
-  - <img src="https://latex.codecogs.com/svg.latex?\Large&space;3!=3.2!">
-  - <img src="https://latex.codecogs.com/svg.latex?\Large&space;2!=2.1!">
+  - <img src="https://latex.codecogs.com/svg.latex?3!=3.2!">
+  - <img src="https://latex.codecogs.com/svg.latex?2!=2.1!">
 - Дъно - когато е достигнато условието за край
-  - <img src="https://latex.codecogs.com/svg.latex?\Large&space;1!=1">
+  - <img src="https://latex.codecogs.com/svg.latex?1!=1">
 - Свиване - когато вложените функции една по една връщат резултатите си
-  - <img src="https://latex.codecogs.com/svg.latex?\Large&space;2!=2.1!=2.1=2">
-  - <img src="https://latex.codecogs.com/svg.latex?\Large&space;3!=2.2!=3.2=6">
+  - <img src="https://latex.codecogs.com/svg.latex?2!=2.1!=2.1=2">
+  - <img src="https://latex.codecogs.com/svg.latex?3!=2.2!=3.2=6">
 - Дълбочина - броят на рекурсивните извиквания на функцията
 
 #### Решаванена задачи чрез рекурсия

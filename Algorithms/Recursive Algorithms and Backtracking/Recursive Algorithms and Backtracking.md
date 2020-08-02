@@ -255,17 +255,12 @@ int main(){
 *Псевдо код за* **backtracking** *алгоритъм:*
 
 ```cpp
-void Backtracking(Node node)
-{
+void Backtracking(Node node){
 	if (node is solution)
-	{
 		PrintSolution(node);
-	}
-	else
-	{
+	else {
 		for each child c of node
-			if (c is perspective candidate)
-			{
+			if (c is perspective candidate){
 				MarkPositionVisited(c);
 				BackTracking(c);
 				UnmarkPositionVisited(c);

@@ -31,7 +31,7 @@
 - Дъно - когато е достигнато условието за край
   - <img src="https://latex.codecogs.com/svg.latex?1!=1">
 - Свиване - когато вложените функции една по една връщат резултатите си
-  - <img src="https://latex.codecogs.com/svg.latex?2!=2.1!=2.1=2">
+  - <img src="https://latex.codecogs.com/svg.latex?{}2!=2.1!=2.1=2">
   - <img src="https://latex.codecogs.com/svg.latex?3!=2.2!=3.2=6">
 - Дълбочина - броят на рекурсивните извиквания на функцията
 
@@ -45,8 +45,7 @@
 - решение чрез рекурсия:
 
 ```cpp
-long long fact(unsigned n)
-{
+long long fact(unsigned n){
 	if (n < 2) return 1;
 	return n * fact(n - 1);
 }
@@ -54,8 +53,7 @@ long long fact(unsigned n)
 - решение чрез итерация:
 
 ```cpp
-long long fact(unsigned n)
-{
+long long fact(unsigned n){
 	unsigned result = 1;
 	for (unsigned i = 1; i <= n; i++) result *= i;
 	return result;

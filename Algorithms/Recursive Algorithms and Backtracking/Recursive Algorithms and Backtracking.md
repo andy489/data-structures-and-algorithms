@@ -89,20 +89,17 @@ long long fact(unsigned n)
  
  ```cpp
  #include <iostream>
-void helpFunctionPrint(unsigned n, char symbol)
-{
+void helpFunctionPrint(unsigned n, char symbol){
 	for (size_t i = 0; i < n; i++) std::cout << symbol;
 	std::cout << std::endl;
 }
-void recursionPrint(unsigned n)
-{
+void recursionPrint(unsigned n){
 	if (n == 0) return;
 	helpFunctionPrint(n, '*');
 	recursionPrint(n - 1);
 	helpFunctionPrint(n, '#');
 }
-int main()
-{
+int main(){
 	unsigned n;
 	std::cin >> n;
 	recursionPrint(n);
@@ -119,31 +116,24 @@ int main()
 #include <iostream>
 #include <vector>
 
-void printVector(std::vector<int> vector)
-{
+void printVector(std::vector<int> vector){
 	unsigned n = vector.size();
 	for (unsigned i = 0; i < n; i++)
-	{
 		std::cout << vector[i] << ' ';
-	}
 	std::cout << std::endl;
 }
 
-void generate01(unsigned indx, std::vector<int> vector)
-{
+void generate01(unsigned indx, std::vector<int> vector){
 	if (indx >= vector.size()) printVector(vector);
-	else
-	{
-		for (int i = 0; i <= 1; i++)
-		{
+	else{
+		for (int i = 0; i <= 1; i++){
 			vector[indx] = i;
 			generate01(indx + 1, vector);
 		}
 	}
 }
 
-int main()
-{
+int main(){
 	std::vector<int> vector = { 8,8,8,8 };
 	generate01(0, vector);
 	return 0;
@@ -156,31 +146,24 @@ int main()
 #include <iostream>
 #include <vector>
 
-void printVector(std::vector<int> vector)
-{
+void printVector(std::vector<int> vector){
 	unsigned n = vector.size();
 	for (unsigned i = 0; i < n; i++)
-	{
 		std::cout << vector[i] << ' ';
-	}
 	std::cout << std::endl;
 }
 
-void generate01(unsigned indx, std::vector<int> vector)
-{
+void generate01(unsigned indx, std::vector<int> vector){
 	if (indx >= vector.size()) printVector(vector);
-	else
-	{
-		for (int i = 1; i >= 0; i--)
-		{
+	else{
+		for (int i = 1; i >= 0; i--){
 			vector[indx] = i;
 			generate01(indx - 1, vector);
 		}
 	}
 }
 
-int main()
-{
+int main(){
 	std::vector<int> vector = { 8,8,8,8 };
 	generate01(vector.size()-1, vector);
 	return 0;
@@ -195,34 +178,26 @@ int main()
 #include <iostream>
 #include <vector>
 
-void printVector(std::vector<int> vector)
-{
+void printVector(std::vector<int> vector){
 	unsigned n = vector.size();
-	if (vector[0] != 0)
-	{
+	if (vector[0] != 0){
 		for (unsigned i = 0; i < n; i++)
-		{
 			std::cout << vector[i];
-		}
 		std::cout << std::endl;
 	}
 }
 
-void generate4digitNumbers(unsigned indx, std::vector<int> vector)
-{
+void generate4digitNumbers(unsigned indx, std::vector<int> vector){
 	if (indx == vector.size()) printVector(vector);
-	else
-	{
-		for (int i = 0; i <= 9; i++)
-		{
+	else{
+		for (int i = 0; i <= 9; i++){
 			vector[indx] = i;
 			generate4digitNumbers(indx + 1, vector);
 		}
 	}
 }
 
-int main()
-{
+int main(){
 	std::vector<int> vector = { 0,0,0,0 };
 	generate4digitNumbers(0, vector);
 	return 0;
@@ -237,45 +212,32 @@ int main()
 ```cpp
 #include <iostream>
 #include <vector>
-bool monotoneVector(std::vector<int> vector)
-{
+bool monotoneVector(std::vector<int> vector){
 	for (size_t i = 0; i < vector.size() - 1; i++)
-	{
 		if (vector[i] >= vector[i + 1]) return false;
-	}
 	return true;
 }
 
-void printVector(std::vector<int> vector)
-{
-	if (monotoneVector(vector))
-	{
+void printVector(std::vector<int> vector){
+	if (monotoneVector(vector)){
 		unsigned n = vector.size();
-		{
-			for (unsigned i = 0; i < n; i++)
-			{
-				std::cout << vector[i] << ' ';
-			}
-			std::cout << std::endl;
-		}
+		for (unsigned i = 0; i < n; i++)
+			std::cout << vector[i] << ' ';
+		std::cout << std::endl;
 	}
 }
 
-void generateComb(std::vector<int> set, std::vector<int>vector, unsigned indx)
-{
+void generateComb(std::vector<int> set, std::vector<int>vector, unsigned indx){
 	if (indx >= vector.size()) printVector(vector);
-	else
-	{
-		for (unsigned i = 0; i < set.size(); i++)
-		{
+	else{
+		for (unsigned i = 0; i < set.size(); i++){
 			vector[indx] = set[i];
 			generateComb(set, vector, indx + 1);
 		}
 	}
 }
 
-int main()
-{
+int main(){
 	std::vector<int>set = { 4,8,9,22 };
 	std::vector<int>vector = { 0,0 };
 
@@ -469,40 +431,31 @@ unsigned recurCalls(0);
 
 bool swapped = false;
 
-void displayList()
-{
+void displayList(){
 	for (unsigned i = 0; i < n; i++)
-	{
 		std::cout << list[i] << " ";
-	}
 	std::cout << std::endl;
 }
 
-void bubbleSortRecursive(unsigned n)
-{
+void bubbleSortRecursive(unsigned n){
 	if (n ==  1) return;
-	for (int i = 0; i < n; i++)
-	{
+	for (int i = 0; i < n; i++){
 		countChecks++;
-		if (list[i] > list[i + 1])
-		{
+		if (list[i] > list[i + 1]){
 			swapped = true;
 			countSwaps++;
 			std::swap(list[i], list[i + 1]);
 		}
 	}
 	if (!swapped)
-	{
 		return;
-	}
 	swapped = false;
 	recurCalls++;
 	bubbleSortRecursive(n - 1);
 
 }
 
-int main()
-{
+int main(){
 	bubbleSortRecursive(n);
 	displayList();
 	std::cout << "Total swaps: " << countSwaps << ".\n";
@@ -526,64 +479,50 @@ unsigned recurCalls(0);
 
 bool swapped = false;
 
-void displayList()
-{
+void displayList(){
 	for (unsigned i = 0; i < n; i++)
-	{
 		std::cout << list[i] << " ";
-	}
 	std::cout << std::endl;
 }
 
 void bubbleSortRecursiveBackward(int startIndx, int endIndx);
 
-void bubbleSortRecursiveForward(int startIndx, int endIndx)
-{
+void bubbleSortRecursiveForward(int startIndx, int endIndx){
 	if (endIndx == n / 2 - 1) return;
-	for (int i = startIndx; i < endIndx; i++)
-	{
+	for (int i = startIndx; i < endIndx; i++){
 		countChecks++;
-		if (list[i] > list[i + 1])
-		{
+		if (list[i] > list[i + 1]){
 			swapped = true;
 			countSwaps++;
 			std::swap(list[i], list[i + 1]);
 		}
 	}
 	if (!swapped)
-	{
 		return;
-	}
 	swapped = false;
 	recurCalls++;
 	bubbleSortRecursiveBackward(startIndx, endIndx - 1);
 
 }
 
-void bubbleSortRecursiveBackward(int startIndx, int endIndx)
-{
+void bubbleSortRecursiveBackward(int startIndx, int endIndx){
 	if (startIndx == n / 2 + 1) return;
-	for (int i = endIndx; i > startIndx; i--)
-	{
+	for (int i = endIndx; i > startIndx; i--){
 		countChecks++;
-		if (list[i] < list[i - 1])
-		{
+		if (list[i] < list[i - 1]){
 			swapped = true;
 			countSwaps++;
 			std::swap(list[i], list[i - 1]);
 		}
 	}
 	if (!swapped)
-	{
 		return;
-	}
 	swapped = false;
 	recurCalls++;
 	bubbleSortRecursiveForward(startIndx + 1, endIndx);
 }
 
-int main()
-{
+int main(){
 	bubbleSortRecursiveForward(0, n - 1);
 	displayList();
 	std::cout << "Total swaps: " << countSwaps << ".\n";

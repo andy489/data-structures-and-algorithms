@@ -1,6 +1,6 @@
 // github.com/andy489
 
-#include<iostream>
+#include <iostream>
 #include <vector>
 
 using namespace std;

@@ -1,6 +1,6 @@
 // github.com/andy489
 
-// https://www.hackerrank.com/challenges/tree-level-order-traversal/problem
+// https://www.hackerrank.com/challenges/binary-search-tree-insertion
 
 Node *insert(Node *root, int data) {
     if (root == nullptr)

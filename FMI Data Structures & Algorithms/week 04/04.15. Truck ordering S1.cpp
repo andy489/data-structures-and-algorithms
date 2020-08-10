@@ -1,6 +1,6 @@
 // github.com/andy489
 
-https://www.hackerrank.com/contests/practice-4-sda/challenges/truck-ordering/
+// https://www.hackerrank.com/contests/practice-4-sda/challenges/truck-ordering/
 
 #include <iostream>
 #include <vector>

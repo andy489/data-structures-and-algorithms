@@ -11,13 +11,13 @@ typedef long long ll;
 using namespace std;
 
 struct Day {
-    long long a, b;
+    ll a, b;
 
     auto operator()() const {
         return a * b;
     }
 
-    auto balloonsNeededIfMaxCandy(long long candies) const {
+    auto balloonsNeededIfMaxCandy(ll candies) const {
         return max(0ll, a - candies / b);
     }
 };

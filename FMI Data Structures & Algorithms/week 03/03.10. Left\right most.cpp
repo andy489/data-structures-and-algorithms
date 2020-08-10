@@ -1,6 +1,6 @@
 // github.com/andy489
 
-/// Find the first occurrence of x in sorted array with n elements.
+/// Find the first and last occurrence of x in sorted array with n elements.
 
 #include <iostream>
 #include <algorithm>

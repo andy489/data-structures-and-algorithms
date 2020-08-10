@@ -21,12 +21,26 @@ int leftMostOccurrence(int *arr, int n, int x) {
     return result;
 }
 
+int rightMostOccurrence(int *arr, int n, int x) {
+    int left = 0, right = n - 1, result = -1;
+    while (left <= right) {
+        int mid = (left + right) / 2;
+        if (x == arr[mid])
+            result = mid, left = mid + 1;
+        else if (x < arr[mid])
+            right = mid - 1;
+        else
+            left = mid + 1;
+    }
+    return result;
+}
+
 int main() {
-    int n, arr[1000], i(0),x;
+    int n, arr[1000], i(0), x;
     scanf("%d", &n);
     for (; i < n; ++i)
         scanf("%d", &arr[i]);
     cin >> x;
     sort(arr, arr + n);
-    return cout << leftMostOccurrence(arr, n, x), 0;
+    return cout << leftMostOccurrence(arr, n, x) <<' '<< rightMostOccurrence(arr, n, x), 0;
 }

@@ -2,10 +2,6 @@
 
 // https://www.hackerrank.com/challenges/bfsshortreach/problem
 
-// github.com/andy489
-
-// https://www.hackerrank.com/challenges/bfsshortreach/problem
-
 #include <iostream>
 #include <vector>
 #include <queue>

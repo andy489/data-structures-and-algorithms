@@ -8,7 +8,7 @@
 
 using namespace std;
 
-#define MOD size_t(1e9 + 7)
+#define MOD int(1e9 + 7)
 typedef unsigned long long ll;
 
 int n, m, i, j, src, dest;

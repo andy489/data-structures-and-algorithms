@@ -3,7 +3,7 @@
 // https://leetcode.com/problems/course-schedule-ii
 
 /*
-Algorithm:
+Kahn's (bfs) Algorithm:
 L <- Empty list that will contain the sorted elements
 S <- Set of all nodes with no incoming edge
 while S is non - empty do

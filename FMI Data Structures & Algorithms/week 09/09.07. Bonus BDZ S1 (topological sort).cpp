@@ -7,7 +7,8 @@
 #include <queue>
 
 using namespace std;
-#define MOD 1000000007
+
+#define MOD size_t(1e9 + 7)
 typedef unsigned long long ll;
 
 int n, m, i, j, src, dest;

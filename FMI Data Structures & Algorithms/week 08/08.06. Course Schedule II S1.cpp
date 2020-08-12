@@ -26,8 +26,8 @@ public:
         vector<list<int>> going(n), coming(n);
         
         for (const auto &x : prerequisites) {
-            coming[x[0]].push_back(x[1]);
-            going[x[1]].push_back(x[0]);
+            coming[x[0]].push_back(x[1]); // incoming edges
+            going[x[1]].push_back(x[0]); // outgoing edges
         }
         
         list<int> noIncomingEdgeNodes;

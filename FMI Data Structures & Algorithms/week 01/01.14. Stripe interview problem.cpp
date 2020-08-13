@@ -36,7 +36,7 @@ we input.
 int getAnswer(int arrLen, int *arr) {
     for (i = 0; i < arrLen; ++i) {
         if (arr[i] > 0 && arr[i] <= arrLen && arr[i] != i + 1) {
-            std::swap(arr[i], arr[arr[i] - 1]);
+            swap(arr[i], arr[arr[i] - 1]);
             /// here the decrementation if i is needed because the value we swap arr[i] with 
             /// may also need to change position. An example of this is the array [3, 4, -1, 1]
             --i;

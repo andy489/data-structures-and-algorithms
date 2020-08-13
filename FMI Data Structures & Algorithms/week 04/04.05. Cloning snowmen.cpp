@@ -15,7 +15,7 @@ int main() {
     Snowman *arr = new Snowman[N + 1]; //the first one is the zero snowman
 
     for (; i < N + 1; ++i) {
-        std::cin >> dupTarget >> add;
+        cin >> dupTarget >> add;
         if (add == 0) {
             if (arr[dupTarget].prev)
                 arr[i] = *arr[dupTarget].prev;

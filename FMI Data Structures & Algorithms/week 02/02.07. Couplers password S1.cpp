@@ -1,12 +1,13 @@
 // github.com/andy489
 
 /*
-Idea: we will the data in lexicographical descending order
+Idea: we will sort the data in lexicographical descending order
 and then print the data without intervals, easy as that.
 */
 
 #include <iostream>
 #include <cmath>
+
 using namespace std;
 
 int getLength(int a) { // statically casting log10(a) to get length a
@@ -24,11 +25,10 @@ bool unsignedCmp(int a, int b) {
     for (; i < minLength; ++i) {
         int digit_a = (int) (a / pow(10, len_a - 1)),
         digit_b = (int) (b / pow(10, len_b - 1));
-        if (digit_a > digit_b) {
+        if (digit_a > digit_b)
             return true;
-        } else if (digit_a < digit_b) {
+        else if (digit_a < digit_b)
             return false;
-        }
         a = a % int(pow(10, len_a - 1));
         b = b % int(pow(10, len_b - 1));
         len_a--;
@@ -42,7 +42,7 @@ void bubbleSortLexicographical(int *arr, int arrLen) {
         bool swapped = false;
         for (int index = 0; index < arrLen - 1; ++index) {
             if (!unsignedCmp(arr[index], arr[index + 1])) {
-                std::swap(arr[index], arr[index + 1]);
+                swap(arr[index], arr[index + 1]);
                 swapped = true;
             }
         }

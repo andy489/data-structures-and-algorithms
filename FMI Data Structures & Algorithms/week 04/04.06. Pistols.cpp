@@ -22,11 +22,11 @@ struct DoublyLinkedList {
 
     void milen();
 
-    friend std::ostream &operator<<(std::ostream &os, const DoublyLinkedList &dll);
+    friend ostream &operator<<(ostream &os, const DoublyLinkedList &dll);
 };
 
 void help() {
-    std::cout << "Functionality:\nA - add\nG - gun\nM - milen\nEnter number of operations: ";
+    cout << "Functionality:\nA - add\nG - gun\nM - milen\nEnter number of operations: ";
 }
 
 int main() {

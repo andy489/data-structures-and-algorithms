@@ -9,7 +9,7 @@ using namespace std;
 int main() {
     int n, i(0);
     cin >> n;
-    vector<std::string> data(n);
+    vector<string> data(n);
     for (; i < n; ++i) cin >> data[i];
     sort(data.begin(), data.end(), greater<string>());
     for (i = 0; i < n; ++i)

@@ -19,7 +19,8 @@ N|loc N|Topics|Problem statement|Solution
 013|13|recursion|[Palindrome word check](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/FMI%20Data%20Structures%20%26%20Algorithms/week%2001/01.13.%20Palindrome%20word%20check.cpp)|[Solution.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/FMI%20Data%20Structures%20%26%20Algorithms/week%2001/01.13.%20Palindrome%20word%20check.cpp)
 014|14|counting|[Stripe interview problem](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/FMI%20Data%20Structures%20%26%20Algorithms/week%2001/01.14.%20Stripe%20interview%20problem.cpp)|[Solution.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/FMI%20Data%20Structures%20%26%20Algorithms/week%2001/01.14.%20Stripe%20interview%20problem.cpp)
 015|15|counting|[Game of thrones - I](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/FMI%20Data%20Structures%20%26%20Algorithms/week%2001/01.15.%20Game%20of%20thrones%20-%20I.cpp)|[Solution.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/FMI%20Data%20Structures%20%26%20Algorithms/week%2001/01.15.%20Game%20of%20thrones%20-%20I.cpp)
-
+**WEEK 02**|-|-|-|-|
+[lecture 02](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/FMI%20Data%20Structures%20%26%20Algorithms/week%2002/02.00.%20SDA%202019-2020%20lecture%2002.pdf)|-|searching algorithms|-
 
 
 

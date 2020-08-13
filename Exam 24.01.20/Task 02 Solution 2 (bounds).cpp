@@ -1,27 +1,36 @@
+// github.com/andy489
+
+// https://www.hackerrank.com/contests/sda-2019-2020-exam-2e3nr4rr/challenges/find-element-sda
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
+
 using namespace std;
-#define all(x) x.begin(),x.end() 
+
+#define all(x) x.begin(), x.end()
 
 int main() {
-    int n, m, e, i;
+    int n, q, e, i(0);
     cin >> n;
-    vector<int>arr(n);
-    for (i = 0;i < n;++i) {
+
+    vector<int> arr(n);
+
+    for (; i < n; ++i)
         cin >> arr[i];
-    }
-    cin >> m;
-    while (m--) {
+
+    cin >> q;
+
+    while (q--) {
         cin >> e;
-        if (upper_bound(all(arr), e - 1) == arr.end() ||
-            *upper_bound(all(arr), e - 1) != e) {
-            cout << lower_bound(all(arr), e + 1) - arr.begin();
-        }
-        else {
-            cout << (upper_bound(all(arr), e-1) - arr.begin()) << ' ' <<
-                (lower_bound(all(arr), e + 1) - arr.begin()) - 1;
-        }
+
+        auto l = lower_bound(all(arr), e),
+                u = upper_bound(all(arr), e);
+
+        if (l == arr.end() || *l != e)
+            cout << l - arr.begin();
+        else
+            cout << (l - arr.begin()) << ' ' << u - arr.begin() - 1;
         cout << '\n';
     }
     return 0;

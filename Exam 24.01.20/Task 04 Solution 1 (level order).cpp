@@ -1,10 +1,18 @@
-#include <bits/stdc++.h>
+// github.com/andy489
+
+// https://www.hackerrank.com/contests/sda-2019-2020-exam-2e3nr4rr/challenges/challenge-2352
+
+#include <iostream>
+#include <map>
+#include <queue>
+
 using namespace std;
 
 struct Node {
     Node *left;
     Node *right;
     int value;
+
     Node(int value) {
         this->value = value;
         this->left = NULL;
@@ -24,36 +32,32 @@ public:
     }
 
     void printLeftProfile() {
-      queue<Node*>q;
-      q.push(root);
-      int r(0);
-      while(!q.empty()){
-          int s=(int)q.size();
-          while(s--){
-              Node* cur=q.front();
-              q.pop();
-              if(cur->left){
-                  q.push(cur->left);
-              }
-              if(cur->right){
-                  q.push(cur->right);
-              }
-              if(!m.count(r)){
-                  m[r]=cur->value;
-              }
-          }
-          ++r;
-      }
-        for(const auto& kvp:m){
-            cout<<kvp.second<<' ';
+        queue<Node *> q;
+        q.push(root);
+        int r(0);
+        while (!q.empty()) {
+            int s = (int) q.size();
+            while (s--) {
+                Node *cur = q.front();
+                q.pop();
+                if (cur->left) 
+                    q.push(cur->left);
+                if (cur->right) 
+                    q.push(cur->right);
+                if (!m.count(r)) 
+                    m[r] = cur->value;
+            }
+            ++r;
         }
+        for (const auto &kvp:m)
+            cout << kvp.second << ' ';
     }
 
 private:
-  	map<int,int>m;
-    Node* root;
+    map<int, int> m;
+    Node *root;
 
-    Node* insert(Node *curNode, int value) {
+    Node *insert(Node *curNode, int value) {
         if (curNode == NULL) {
             curNode = new Node(value);
         } else if (curNode->value < value) {
@@ -68,14 +72,13 @@ private:
 };
 
 int main() {
-    int n;
+    int n, i(0);
     cin >> n;
     int value;
     BST tree;
-    for(int i = 0 ; i < n; i++) {
+    for (; i < n; ++i) {
         cin >> value;
         tree.insert(value);
     }
-    tree.printLeftProfile();
-    return 0;
+    return tree.printLeftProfile(), 0;
 }

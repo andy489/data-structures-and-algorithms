@@ -12,7 +12,9 @@ using namespace std;
 vector<list<int>> adj;
 vector<bool> vis;
 
-vector<int> tin, low;
+vector<int> tin, low; //tin = time of entry into node
+// low -> none of the vertices child and its descendants in the DFS traversal tree
+// has a back-edge to vertex v or any of its ancestors (v, child)
 int timer;
 
 set<pair<int, int>> ans;

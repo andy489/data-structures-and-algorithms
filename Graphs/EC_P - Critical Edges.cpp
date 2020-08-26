@@ -2,6 +2,8 @@
 
 // https://www.spoj.com/problems/EC_P/
 
+// Additional: https://codeforces.com/blog/entry/68138
+
 #include <iostream>
 #include <vector>
 #include <list>

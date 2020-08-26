@@ -1,3 +1,8 @@
+### Additional Algorithms
+Algorithm|About|Time complexity|Statement|Solution
+:-:|:-:|:-:|:-:|:-:
+Finding bridges in a graph|graphs, dfs trees, back edges|O(N+M)|[Critical edges](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Graphs/EC_P%20-%20Critical%20Edges.pdf)|[Solution.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Graphs/EC_P%20-%20Critical%20Edges.cpp)
+
 ## FMI Data Structures and Algorithms (DSA)
 
 N|loc N|Topics|Problem statement|Solution
@@ -172,10 +177,6 @@ N|loc N|Topics|Problem statement|Solution
 145|03|graphs|[Counting areas](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Exam%2024.01.20/3.%20Counting%20areas.pdf)|[Solution 1 (bfs).cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Exam%2024.01.20/3.%20Solution%201%20(bfs).cpp)<br>[Solution 2 (dfs).cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Exam%2024.01.20/3.%20Solution%202%20(dfs).cpp)
 146|04|trees|[Profil of a tree](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Exam%2024.01.20/4.%20Profile%20of%20a%20tree.pdf)|[Solution (lvl order traversal).cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Exam%2024.01.20/4.%20Solution%20(level%20order%20traversal).cpp)
 147|05|graphs|[Shortest tour](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Exam%2024.01.20/5.%20Shortest%20tour.pdf)|[Solution (bfs).cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Exam%2024.01.20/5.%20Solution%20(bfs).cpp)
-
-
-
-
 
 Subdomain|Challenge|Points|Solution
 :-:|:-:|:-:|:-:

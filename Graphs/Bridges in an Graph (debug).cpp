@@ -5,6 +5,7 @@
 #include <iostream>
 #include <vector>
 #include <list>
+#include <set>
 
 using namespace std;
 
@@ -16,20 +17,48 @@ vector<bool> vis;
 vector<int> tin, low;
 int timer;
 
-vector<pair<int, int>> ans;
+struct Edge {
+    int u, v;
+
+    Edge(int u, int v) {
+        if (u > v)
+            swap(u, v);
+        this->u = u;
+        this->v = v;
+    }
+
+    bool operator<(const Edge &rhs) const {
+        if (this->u > rhs.u)
+            return false;
+        else if (this->u == rhs.u)
+            return this->v < rhs.v;
+        else
+            return true;
+    }
+};
+
+set<Edge> dfs_spanning_edges, back_edges, bridges;;
 
 void dfs(int v, int par = -1) {
     vis[v] = true;
     tin[v] = low[v] = timer++;
+    if(par!=-1) {
+        Edge se(v, par);
+        dfs_spanning_edges.insert(se);
+    }
     for (const int &child : adj[v]) {
         if (child == par) continue;
         if (vis[child]) {
             low[v] = min(low[v], tin[child]);
+            Edge be(v, child);
+            back_edges.insert(be);
         } else {
             dfs(child, v);
             low[v] = min(low[v], low[child]);
-            if (low[child] > tin[v])
-                ans.pb({child, v});
+            if (low[child] > tin[v]){
+                Edge br(v, child);
+                bridges.insert(br);
+            }
         }
     }
 }
@@ -59,12 +88,14 @@ int main() {
 
     dfs(1); // dfs tree
 
-    if (ans.size()) {
-        cout << ans.size() << '\n';
-        for (const auto &edge:ans) {
-            cout << edge.first << ' ' << edge.second << '\n';
-        }
-    } else
-        cout << "0";
-    ans.clear();
+    cout << "bridges: " << bridges.size() << '\n';
+    for (const auto &e:bridges)
+        cout << e.u << ' ' << e.v << '\n';
+    cout << "dfs spanning edges: " << dfs_spanning_edges.size() << '\n';
+    for (const auto &e:dfs_spanning_edges)
+        cout << e.u << ' ' << e.v << '\n';
+    cout << "back edges: " << back_edges.size() << '\n';
+    for (const auto &e:back_edges)
+        cout << e.u << ' ' << e.v << '\n';
 }
+

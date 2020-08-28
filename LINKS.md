@@ -4,6 +4,12 @@
 - Core concepts illustrated (educational initiative): https://www.youtube.com/user/mycodeschool
 - Competitive programming algorithms: https://cp-algorithms.com
 - DFS tree and its applications: https://cp-algorithms.com
+- Problems:
+  - https://codeforces.com
+  - https://www.hackerrank.com
+  - https://leetcode.com/problemset/all/
+  - https://www.spoj.com
+  - https://www.codechef.com
 
 #### Homeworks:
 - https://www.hackerrank.com/practice-1-sda

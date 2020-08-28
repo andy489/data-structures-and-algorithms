@@ -1,4 +1,10 @@
 ### 2019-2020 links:<br>
+
+#### Algorithms:
+- Core concepts illustrated (educational initiative): https://www.youtube.com/user/mycodeschool
+- Competitive programming algorithms: https://cp-algorithms.com
+- DFS tree and its applications: https://cp-algorithms.com
+
 #### Homeworks:
 - https://www.hackerrank.com/practice-1-sda
 - https://www.hackerrank.com/practice-2-sda

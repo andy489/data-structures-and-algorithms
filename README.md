@@ -178,29 +178,6 @@ N|loc N|Topics|Problem statement|Solution
 146|04|trees|[Profil of a tree](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Exam%2024.01.20/4.%20Profile%20of%20a%20tree.pdf)|[Solution (lvl order traversal).cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Exam%2024.01.20/4.%20Solution%20(level%20order%20traversal).cpp)
 147|05|graphs|[Shortest tour](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Exam%2024.01.20/5.%20Shortest%20tour.pdf)|[Solution (bfs).cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Exam%2024.01.20/5.%20Solution%20(bfs).cpp)
 
-2019-2020 links
-Homeworks:
-- https://www.hackerrank.com/practice-1-sda
-- https://www.hackerrank.com/practice-2-sda
-- https://www.hackerrank.com/practice-3-sda
-- https://www.hackerrank.com/practice-4-sda
-- https://www.hackerrank.com/practice-5-sda
-- https://www.hackerrank.com/practice-6-sda
-- https://www.hackerrank.com/practice-7-sda
-- https://www.hackerrank.com/practice-8-sda
-- https://www.hackerrank.com/practice-9-sda
-
-Tests:
-- https://www.hackerrank.com/contests/sda-2019-2020-test1/challenges
-- https://www.hackerrank.com/contests/sda-test2/challenges
-- https://www.hackerrank.com/contests/sda-2019-2020-test3/challenges
-- https://www.hackerrank.com/contests/sda-2019-2020-test4/challenges
-- https://www.hackerrank.com/contests/sda-2019-2020-test5/challenges 
-- https://www.hackerrank.com/contests/test6sda-renfuvidbviw/challenges
-
-Exam:
-- https://www.hackerrank.com/contests/sda-2019-2020-exam-2e3nr4rr/challenges
-
 Subdomain|Challenge|Points|Solution
 :-:|:-:|:-:|:-:
 Sorting and Shuffling | [Sorting and shuffling](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Algorithms/Sorting%20and%20Shuffling/Sorting%20and%20Shuffling.md)|-|[Implementation.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Algorithms/Sorting%20and%20Shuffling/Sorting%20and%20Shuffling.md)

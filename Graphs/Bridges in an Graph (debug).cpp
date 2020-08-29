@@ -37,7 +37,7 @@ struct Edge {
     }
 };
 
-set<Edge> dfs_spanning_edges, back_edges, bridges;;
+set<Edge> dfs_spanning_edges, back_edges, bridges;
 
 void dfs(int v, int par = -1) {
     vis[v] = true;

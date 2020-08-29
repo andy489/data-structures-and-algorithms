@@ -21,7 +21,8 @@ vector<int> tin, low;
 int timer;
  
 vector<pii > de; // directed edges
- 
+
+// we will direct all span edges downwаrds and all back edges upwаrds
 void dfs(int u, int par = -1) {
     vis[u] = true;
     tin[u] = low[u] = timer++;
@@ -37,7 +38,7 @@ void dfs(int u, int par = -1) {
             dfs(child, u);
             low[u] = min(low[u], low[child]);
             if (low[child] > tin[u]) {
-                cout << 0;
+                cout << 0; // if the graph contains bridges this is impossible
                 exit(0);
             }
         }

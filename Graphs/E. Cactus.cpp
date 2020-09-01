@@ -1,5 +1,7 @@
 // github.com/andy489
 
+// https://codeforces.com/contest/231/problem/E
+
 #include <cstdio>
 #include <cmath>
 #include <vector>

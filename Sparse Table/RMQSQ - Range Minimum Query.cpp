@@ -12,7 +12,7 @@ using namespace std;
 #define K 17
 
 struct SparseTable {
-    int st[mxN + 1][K + 1];
+    int st[mxN][K + 1];
 
     SparseTable(int n, int *arr) {
         for (int i = 0; i < n; ++i)
@@ -34,7 +34,8 @@ int main() {
     for (; i < n; ++i)
         cin >> arr[i];
 
-    int log[mxN];
+    int log[mxN + 1];
+    log[1] = 0;
     for (i = 2; i <= n; ++i)
         log[i] = log[i / 2] + 1;
 
@@ -47,6 +48,6 @@ int main() {
     while (q--) {
         cin >> L >> R;
         int j = log[R - L + 1];
-        cout << min(st.st[L][j], st.st[R - (1 << j) + 1][j]);
+        cout << min(st.st[L][j], st.st[R - (1 << j) + 1][j]) << '\n';
     }
 }

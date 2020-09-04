@@ -6,6 +6,8 @@ Finding **articulation points** in a graph|graphs, dfs trees, back edges|O(N+M)|
 Directing edges to form a **strongly connected digraph**|dfs and similar, graphs|O(N+M)|[Bertown roads](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Graphs/E.%20Bertown%20roads.pdf)|[Solution.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Graphs/E.%20Bertown%20roads.cpp)
 Range Minimum Query (**RMQ**)|arrays, data structures|O(N.log(N)) building ST, O(1) per RMQ|[RMQSQ - Range Minimum Query](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Sparse%20Table/RMQSQ%20-%20Range%20Minimum%20Query.pdf)|[Solution.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Sparse%20Table/RMQSQ%20-%20Range%20Minimum%20Query.cpp)
 Range Maximum Query (**RMQ**)|arrays, data structures|O(N.log(N)) building ST, O(1) per RMQ|[THRBL - Catapult that ball](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Sparse%20Table/THRBL%20-%20Catapult%20that%20ball.pdf)|[Solution.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Sparse%20Table/THRBL%20-%20Catapult%20that%20ball.cpp)
+Range Min & Max Query|arrays, data structures|O(N.log(N)) building ST, O(1) per RQ|[Matchsticks](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Sparse%20Table/Matchsticks.pdf)|[Solution.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Sparse%20Table/Matchsticks.cpp)
+
 ## FMI Data Structures and Algorithms (DSA)
 
 N|loc N|Topics|Problem statement|Solution

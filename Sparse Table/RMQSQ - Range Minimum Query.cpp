@@ -12,7 +12,7 @@ using namespace std;
 #define K 17
 
 struct SparseTable {
-    int st[mxN][K + 1];
+    int st[mxN + 1][K + 1];
 
     SparseTable(int n, int *arr) {
         for (int i = 0; i < n; ++i)

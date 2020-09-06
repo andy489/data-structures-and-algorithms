@@ -11,7 +11,19 @@
   - https://www.spoj.com
   - https://www.codechef.com
 
-#### Homeworks:
+#### Homeworks 2018-2019:
+- https://www.hackerrank.com/practice-1-si
+- https://www.hackerrank.com/si-practice-2
+- https://www.hackerrank.com/practice-3-1
+- https://www.hackerrank.com/si-practice-4
+- https://www.hackerrank.com/si-practice-5
+- https://www.hackerrank.com/si-practice-7 
+- https://www.hackerrank.com/sda-hw-8 
+- https://www.hackerrank.com/sda-hw-9 
+- https://www.hackerrank.com/sda-hw-10 
+- https://www.hackerrank.com/sda-hw-11 
+
+#### Homeworks 2019-2020:
 - https://www.hackerrank.com/practice-1-sda
 - https://www.hackerrank.com/practice-2-sda
 - https://www.hackerrank.com/practice-3-sda

@@ -184,7 +184,7 @@ N|loc N|Topics|Problem statement|Solution
 147|05|graphs|[Shortest tour](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Exam%2024.01.20/5.%20Shortest%20tour.pdf)|[Solution (bfs).cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Exam%2024.01.20/5.%20Solution%20(bfs).cpp)
 
 Theme|Introduction|Implementation
-:-:|:-:|:-:|:-:
+:-:|:-:|:-:
 Sorting and Shuffling | [Sorting and shuffling](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Algorithms/Sorting%20and%20Shuffling/Sorting%20and%20Shuffling.md)|[Implementation.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Algorithms/Sorting%20and%20Shuffling/Sorting%20and%20Shuffling.md)
 Searching|[Searching](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Algorithms/Searching/Searching.md)|[Searching.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Algorithms/Searching/Searching.md)
 Recursion and backtracking| [Recursive algorithms and backtracking](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Algorithms/Recursive%20Algorithms%20and%20Backtracking/Recursive%20Algorithms%20and%20Backtracking.md)|[Implementation.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Algorithms/Recursive%20Algorithms%20and%20Backtracking/Recursive%20Algorithms%20and%20Backtracking.md)
@@ -197,7 +197,7 @@ KD-Tree|[KD Tree](https://en.wikipedia.org/wiki/K-d_tree)|[Implementation.cpp](h
 Hash-Table|[Hash-Table using Lists](https://en.wikipedia.org/wiki/Hash_table)|[Implementation.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Hash%20Table/Hash%20Table%20using%20Lists.cpp)
 Dijkstra's algorithm| [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)|[Implementation.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Graphs/Dijkstra.cpp)<br>[Examples.md](https://github.com/andy489/Discrete_Structures/tree/master/DS1%20Dijkstra)
 Bellman-Ford algorithm| [Bellman–Ford algorithm](https://en.wikipedia.org/wiki/Bellman–Ford_algorithm)|[Implementation.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Graphs/Bellman-Ford%20algorithm.cpp)
-Graham scan|[Graham scan](https://en.wikipedia.org/wiki/Graham_scan)|-|[Implementation.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/K%20Dimensional%20Trees/Convex-Hull%20(Graham-scan).cpp)
+Graham scan|[Graham scan](https://en.wikipedia.org/wiki/Graham_scan)|[Implementation.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/K%20Dimensional%20Trees/Convex-Hull%20(Graham-scan).cpp)
 
 Subdomain|Challenge|Points|Solution
 :-:|:-:|:-:|:-:

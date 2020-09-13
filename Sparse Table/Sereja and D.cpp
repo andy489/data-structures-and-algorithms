@@ -1,6 +1,7 @@
 // github.com/andy489
 
 // https://www.codechef.com/problems/SEAD/
+// https://discuss.codechef.com/t/sead-editorial/4626
 
 #include <iostream>
 

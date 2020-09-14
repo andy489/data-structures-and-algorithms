@@ -85,7 +85,7 @@ int main() {
     cin >> q;
     while (q--) {
         cin >> x;
-        cout << ans[x] << '\n';
+        cout << (ans.count(x) ? ans[x] : 0) << '\n';
     }
 
     return 0;

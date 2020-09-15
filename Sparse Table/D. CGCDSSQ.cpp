@@ -42,8 +42,8 @@ int query(int L, int R) {
     return GCD(st[L][j], st[R - (1 << j) + 1][j]);
 }
 
-int next(int val, int L, int prev) {
-    int l = prev, r = n - 1, mid, pos = prev;
+int next(int val, int L, int R) {
+    int l = R, r = n - 1, mid, pos = R;
     while (l <= r) {
         mid = (l + r) >> 1;
         if (query(L, mid) == val) {

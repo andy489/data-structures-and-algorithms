@@ -37,7 +37,7 @@ void build() {
             st[i][j] = GCD(st[i][j - 1], st[i + (1 << (j - 1))][j - 1]);
 }
 
-ll query(int L, int R) {
+int query(int L, int R) {
     int j = logarithm[R - L + 1];
     return GCD(st[L][j], st[R - (1 << j) + 1][j]);
 }

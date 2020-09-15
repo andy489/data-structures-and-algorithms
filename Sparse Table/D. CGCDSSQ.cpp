@@ -43,7 +43,7 @@ int query(int L, int R) {
 }
 
 int next(int val, int L, int R) {
-    int l = R, r = n - 1, mid, pos = R;
+    int l = R, r = n - 1, mid, pos;
     while (l <= r) {
         mid = (l + r) >> 1;
         if (query(L, mid) == val) {

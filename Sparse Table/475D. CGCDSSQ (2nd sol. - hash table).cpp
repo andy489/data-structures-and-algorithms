@@ -10,14 +10,14 @@ typedef long long ll;
 #define f first
 #define s second
 
-unordered_map<int, ll> temp, perm, ans;
-
 int gcd(int a, int b) {
     return b == 0 ? a : gcd(b, a % b);
 }
 
 int main() {
-    int n, i(0), x;
+    unordered_map<int, ll> temp, perm, ans;
+
+    int n, i(0), x, q;
     scanf("%d", &n);
     for (; i < n; ++i) {
         scanf("%d", &x), temp.clear(), ++temp[x];
@@ -27,8 +27,7 @@ int main() {
         for (const auto &j: perm)
             ans[j.f] += j.s;
     }
-    int q;
     scanf("%d", &q);
     while (q--)
-        scanf("%d", &x), printf("%lld\n", ans[x]);
+        scanf("%d", &x), ans.count(x) ? printf("%lld\n", ans[x]) : printf("0\n");
 }

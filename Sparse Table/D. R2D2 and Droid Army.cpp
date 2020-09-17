@@ -2,6 +2,10 @@
 
 // http://codeforces.com/problemset/problem/514/D
 
+// github.com/andy489/
+
+// http://codeforces.com/problemset/problem/514/D
+
 #include <iostream>
 #include <vector>
 
@@ -11,44 +15,63 @@ using namespace std;
 
 int n, m, k;
 
-vector<vector<vector<int>>> st;
-vector<vector<int>> a;
 vector<int> log, temp, ans;
+vector<vector<int>> a;
+vector<vector<vector<int>>> st;
 
 void log2() {
     log.resize(n + 1);
+
     for (int i = 2; i <= n; ++i)
         log[i] = log[i / 2] + 1;
+
+    st.assign(m, vector<vector<int>>(n, vector<int>(log[n] + 1)));
 }
 
 void build(int m) {
     for (int i = 0; i < n; ++i)
         st[m][i][0] = a[m][i];
 
-    int k = log[n];
+    int k(log[n]);
+
     for (int j = 1; j <= k; ++j)
-        for (int i = 0; i <= n - (1 << j); ++i)
+        for (int i = 0; i + (1 << j) <= n; ++i)
             st[m][i][j] = max(st[m][i][j - 1], st[m][i + (1 << (j - 1))][j - 1]);
 }
 
-long long query(int m, int L, int R) {
+int query(int m, int L, int R) {
     int j = log[R - L + 1];
     return max(st[m][L][j], st[m][R - (1 << j) + 1][j]);
 }
 
+void init() {
+    a.assign(m, vector<int>(n));
+
+    for (int i = 0; i < n; ++i)
+        for (int j = 0; j < m; ++j)
+            cin >> a[j][i];
+
+    log2();
+
+    temp.resize(m);
+    ans.resize(m);
+
+    for (int i = 0; i < m; ++i)
+        build(i);
+}
+
 void solve() {
-    int l = 1, r = n + 1;
-    int mid;
+    int l(0), r(n - 1), mid;
 
-    while (l < r) {
+    while (l <= r) {
         mid = (l + r) >> 1;
-        bool possible = false;
+        bool possible(false);
 
-        for (int l = 0, r = l + mid - 1; r < n; ++l, ++r) {
+        for (int L = 0, R = L + mid; R < n; ++L, ++R) {
             int sum = 0;
-            for (int kk = 0; kk < m; ++kk) {
-                temp[kk] = query(kk, l, r);
-                sum += temp[kk];
+            for (int i = 0; i < m; ++i) {
+                temp[i] = query(i, L, R);
+                sum += temp[i];
             }
             if (sum <= k) {
                 possible = true;
@@ -60,33 +83,14 @@ void solve() {
                 ans[i] = temp[i];
             l = mid + 1;
         } else
-            r = mid;
+            r = mid - 1;
     }
+    for (int i = 0; i < m; ++i)
+        cout << ans[i] << ' ';
 }
 
 int main() {
     ios;
     cin >> n >> m >> k;
-
-    a.assign(m, vector<int>(n));
-
-    for (int i = 0; i < n; ++i)
-        for (int j = 0; j < m; ++j)
-            cin >> a[j][i];
-
-    log2();
-
-    st.assign(m, vector<vector<int>>(n, vector<int>(log[n] + 1)));
-
-    for (int i = 0; i < m; ++i)
-        build(i);
-
-    temp.resize(m);
-    ans.resize(m);
-
-    solve();
-
-    for (int i = 0; i < m; ++i)
-        cout << ans[i] << ' ';
-    return 0;
+    return init(), solve(), 0;
 }

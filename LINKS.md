@@ -10,6 +10,7 @@
   - https://leetcode.com/problemset/all/
   - https://www.spoj.com
   - https://www.codechef.com
+  - https://devskill.com/CodingProblems
 
 #### Homeworks 2018-2019:
 - https://www.hackerrank.com/practice-1-si

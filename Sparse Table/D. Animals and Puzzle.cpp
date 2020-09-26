@@ -2,7 +2,6 @@
 
 // https://codeforces.com/contest/713/problem/D
 
-
 #include <cstdio>
 #include <algorithm>
  
@@ -56,7 +55,7 @@ void build() {
                 st[0][y][i][j] = max(st[0][y - 1][i][j], st[0][y - 1][i][j + (1 << (y - 1))]);
  
     for (int x = 1; x <= 9; ++x)
-        for (int y = 0; y < 10; ++y)
+        for (int y = 0; y <=9; ++y)
             for (int i = 0; i <= n - (1 << x); ++i)
                 for (int j = 0; j <= m - (1 << y); ++j)
                     st[x][y][i][j] = max(st[x - 1][y][i][j], st[x - 1][y][i + (1 << (x - 1))][j]);

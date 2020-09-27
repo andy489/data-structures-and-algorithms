@@ -84,4 +84,6 @@ int main() {
     cout << bridges.size() << '\n';
     for (const auto e: bridges)
         cout << e.u << ' ' << e.v << '\n';
+    
+    return 0;
 }

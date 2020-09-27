@@ -7,65 +7,62 @@
 #include <iostream>
 #include <vector>
 #include <list>
- 
+
 using namespace std;
- 
-#define ios ios::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr)
+
+#define ios ios::sync_with_stdio(false), cin.tie(nullptr), cout.tie(nullptr)
 #define pb push_back
-#define pii pair<int,int>
- 
+#define pii pair<int, int>
+#define f first
+#define s second
+
+int n, m;
+
 vector<list<int>> adj;
 vector<bool> vis;
 vector<int> tin, low;
- 
-int timer;
- 
-vector<pii > de; // directed edges
+vector<pii > de;
 
-// we will direct all span edges downwаrds and all back edges upwаrds
-void dfs(int u, int par = -1) {
+void tarjan(int u = 1, int p = -1) {
     vis[u] = true;
-    tin[u] = low[u] = timer++;
-    for (const auto &child: adj[u]) {
-        if (child == par)
-            continue;
+    tin[u] = low[u] = m++;
+    for (const int &child: adj[u]) {
+        if (child == p) continue;
         if (vis[child]) {
             low[u] = min(low[u], tin[child]);
             if (tin[child] < tin[u]) // back edge
                 de.emplace_back(u, child);
         } else {
             de.emplace_back(u, child);
-            dfs(child, u);
+            tarjan(child, u);
             low[u] = min(low[u], low[child]);
-            if (low[child] > tin[u]) {
-                cout << 0; // if the graph contains bridges this is impossible
-                exit(0);
-            }
+            if (low[child] > tin[u])
+                cout << 0, exit(0); // the graph contains bridges
         }
     }
 }
- 
+
 int main() {
     ios;
-    int n, m, u, v;
     cin >> n >> m;
- 
+
     adj.resize(n + 1);
     vis.resize(n + 1);
     tin.resize(n + 1);
     low.resize(n + 1);
     de.reserve(m);
     
+    int a, b;
     while (m--) {
-        cin >> u >> v;
-        adj[u].pb(v);
-        adj[v].pb(u);
+        cin >> a >> b;
+        adj[a].pb(b);
+        adj[b].pb(a);
     }
- 
-    dfs(1);
- 
-    for (const auto &e: de)
-        cout << e.first << ' ' << e.second << '\n';
- 
+
+    tarjan();
+
+    for(const pii&e:de)
+        cout<<e.f<<' '<<e.s<<'\n';
+
     return 0;
 }

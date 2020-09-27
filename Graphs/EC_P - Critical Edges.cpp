@@ -11,84 +11,64 @@
 
 using namespace std;
 
-vector<list<int>> adj;
-vector<bool> vis;
+#define ios ios::sync_with_stdio(false), cin.tie(nullptr), cout.tie(nullptr)
+#define pb push_back
+#define f first
+#define s second
 
-vector<int> tin, low; //tin = time of entry into node
+typedef pair<int, int> pii;
+
+int n, m, timer;
+
+vector<bool> vis;
+vector<int> tin, low;
+vector<list<int>> adj;
+
+// tin = time of entry into node
 // low -> none of the vertices child and its descendants in the DFS traversal tree
 // has a back-edge to vertex v or any of its ancestors (v, child)
-int timer;
 
-set<pair<int, int>> ans;
+set<pii> ans;
 
-void dfs(int v, int p = -1) {
-    vis[v] = true;
-    tin[v] = low[v] = timer++;
-    for (const int& child : adj[v]) {
+void tarjan(int u = 1, int p = -1) {
+    vis[u] = true;
+    tin[u] = low[u] = timer++;
+    for (const auto &child : adj[u]) {
         if (child == p) continue;
-        if (vis[child]) {
-            low[v] = min(low[v], tin[child]);
-        } else {
-            dfs(child, v);
-            low[v] = min(low[v], low[child]);
-            if (low[child] > tin[v])
-                if (child > v)
-                    ans.insert({v, child});
-                else
-                    ans.insert({child, v});
+        if (vis[child]) low[u] = min(low[u], tin[child]);
+        else {
+            tarjan(child, u);
+            low[u] = min(low[u], low[child]);
+            if (low[child] > tin[u])
+                ans.insert({min(child, u), max(child, u)});
         }
     }
 }
 
 int main() {
-    int t, n, m, u, v;
+    ios;
+    int t, a, b;
     cin >> t;
     for (int i = 1; i <= t; ++i) {
         cin >> n >> m;
         adj.assign(n + 1, list<int>());
-        vis.assign(n + 1, 0);
+        vis.assign(n + 1, false);
         tin.assign(n + 1, 0);
         low.assign(n + 1, 0);
-
         while (m--) {
-            cin >> u >> v;
-            adj[u].push_back(v);
-            adj[v].push_back(u);
+            cin >> a >> b;
+            adj[a].pb(b);
+            adj[b].pb(a);
         }
-        dfs(1);
         cout << "Caso #" << i << '\n';
+        tarjan();
         if (ans.size()) {
             cout << ans.size() << '\n';
-            for (const auto &edge:ans) {
-                cout << edge.first << ' ' << edge.second << '\n';
-            }
+            for (const pii &e: ans)
+                cout << e.f << ' ' << e.s << '\n';
         } else
             cout << "Sin bloqueos\n";
         ans.clear();
     }
+    return 0;
 }
-
-/*
-3
-
-5 4
-1 2
-4 2
-2 3
-4 5
-
-5 5
-1 2
-1 3
-3 2
-3 4
-5 4
-
-4 6
-1 3
-1 4
-2 1
-3 2
-4 2
-4 3
-*/

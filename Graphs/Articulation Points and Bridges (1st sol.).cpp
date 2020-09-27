@@ -1,3 +1,7 @@
+// github.com/andy489
+
+// https://www.hackerearth.com/practice/algorithms/graphs/articulation-points-and-bridges/tutorial/
+
 #include <iostream>
 #include <vector>
 #include <list>

@@ -1,6 +1,6 @@
 ### Additional Algorithms
-## 1. Tarjan algorithm for finding bridges and articulation points
-## 2. Sparse Table
+#### 1. Tarjan algorithm for finding bridges and articulation points
+#### 2. Sparse Table
 N|Algorithm|About|Time complexity|Statement|Solution
 :-:|:-:|:-:|:-:|:-:|:-:
 1.01|Finding **bridges** in a graph|graphs, dfs trees, back edges|O(N+M)|[Critical edges](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Graphs/EC_P%20-%20Critical%20Edges.pdf)|[Solution.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Graphs/EC_P%20-%20Critical%20Edges.cpp)<br>[Debug.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Graphs/Bridges%20in%20an%20Graph%20(debug).cpp)<br>[Debug.gif](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Graphs/Bridges%20in%20a%20Graph%20dfs%20tree.gif)<br>[Examples (exploring).cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/Graphs/Bridges%20(example).cpp)

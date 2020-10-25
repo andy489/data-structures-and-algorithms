@@ -1,3 +1,5 @@
+// github.com/andy489
+
 #include <stdio.h>
 
 using namespace std;

@@ -11,6 +11,7 @@
   - https://www.spoj.com
   - https://www.codechef.com
   - https://devskill.com/CodingProblems
+  - https://open.kattis.com/problems
 
 #### Homeworks 2018-2019:
 - https://www.hackerrank.com/practice-1-si

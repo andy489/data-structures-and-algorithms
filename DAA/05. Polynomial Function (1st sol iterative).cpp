@@ -1,6 +1,7 @@
 // github.com/andy489
 
 // https://www.hackerrank.com/contests/rmq-test-1/challenges/polynomial-function/problem
+// https://www.hackerrank.com/contests/tr-1585425135/challenges/poly-1-1
 
 #include <cstdio>
 

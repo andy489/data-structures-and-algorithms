@@ -4,32 +4,27 @@
 
 #include <cstdio>
 #include <vector>
-#include <algorithm>
-#include <climits>
 #include <queue>
 
 using namespace std;
 
-#define mxN 100000
-#define s(x) scanf("%d",&x)
-#define fup(x, y) for(int x=0;x<y;++x)
+const int MXN = 1e5 + 5;
+#define s3(a, b, c) scanf("%d%d%d",&a,&b,&c)
+#define s4(a, b, c, d) scanf("%d%d%d%d",&a,&b,&c,&d)
+#define eb emplace_back
 
 struct Node {
-    int t, w, x, y;
+    int x, w, t;
 
-    Node(int x, int y, int w, int t) : x(x), y(y), w(w), t(t) {}
+    Node(int x, int w, int t) : x(x), w(w), t(t) {}
 };
 
-int n, m, t, maxWeight;
-vector<int> dist;
-vector<bool> visited;
-vector<vector<Node>> adj;
+int dist[MXN], n, m, t, maxWeight;;
+bool visited[MXN];
+vector<Node> adj[MXN];
 
 bool validate(int w) {
-    fup(i, n) {
-        visited[i] = false;
-        dist[i] = INT_MAX;
-    }
+    fill(dist, dist + MXN, 1e9);
 
     queue<int> Q;
     int curr;
@@ -42,9 +37,9 @@ bool validate(int w) {
         Q.pop();
         visited[curr] = true;
 
-        fup(i, (int) adj[curr].size()) {
-            if (adj[curr][i].w <= w) {
-                int to(adj[curr][i].y), len(adj[curr][i].t);
+        for (const Node &child: adj[curr]) {
+            if (child.w <= w) {
+                int to(child.x), len(child.t);
 
                 if (dist[curr] + len < dist[to]) {
                     Q.push(to);
@@ -59,7 +54,7 @@ bool validate(int w) {
 int binSearchOnAns(int l, int r) {
     int ans = -1;
     while (l <= r) {
-        int m = l + (r - l) / 2;
+        int m = (l + r) >> 1;
 
         if (validate(m)) {
             if (ans == -1)
@@ -73,17 +68,14 @@ int binSearchOnAns(int l, int r) {
 }
 
 int main() {
-    dist.assign(mxN, 0);
-    visited.assign(mxN, false);
-    adj.resize(mxN + 1);
-    s(n), s(m), s(t);
+    s3(n, m, t);
 
     int a, b, c, d;
-    fup(i, m) {
-        s(a), s(b), s(c), s(d);
+    while (m--) {
+        s4(a, b, c, d);
         maxWeight = max(maxWeight, c);
         --a, --b;
-        adj[a].emplace_back(a, b, c, d);
+        adj[a].eb(b, c, d);
     }
     return printf("%d", binSearchOnAns(0, maxWeight)), 0;
 }

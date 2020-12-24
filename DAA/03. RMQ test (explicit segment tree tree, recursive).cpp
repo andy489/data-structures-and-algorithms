@@ -1,5 +1,8 @@
+// https://www.hackerrank.com/contests/rmq-test-1/challenges/rmq-test
+
 #include <cstdio>
 #include <algorithm>
+
 using namespace std;
 
 typedef long long ll;

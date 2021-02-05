@@ -1,4 +1,3 @@
-Прикачени документи:
 - Описание на проблема и алгоритъма за решаването му: "DSA Project Airline Connections.pdf"
 - Описание на ключов алгоритъм от решението на проблема: "Kosaraju-Sharir Algorithm (Strоngly Connected Components).pdf"
 - Имплементация на решението на програмния език C++: "AirportConnections.cpp"

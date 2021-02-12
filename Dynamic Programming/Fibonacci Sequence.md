@@ -19,31 +19,31 @@
 - *Bottom up* approach
   - Solve *iteratively* by solving smaller problems and *constructing the whole solution from the bottom up*
   
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;\blacksquare"> **Recursive approach (*without optimization*) showing the overlapping problem**
+**Recursive approach (*without optimization*) showing the overlapping problem**
+
 ```cpp
 #include <iostream>
 static long overlap(0);
-unsigned long long Fib(unsigned short n)
-{
+unsigned long long Fib(unsigned short n){
 	count++;
 	if (n == 1) return 0;
 	else if (n == 2) return 1;
 	else return Fib(n - 1) + Fib(n - 2);
 }
-int main()
-{
+int main(){
 	unsigned short n; std::cin >> n;
 	std::cout <<"Recur: "<< count << "\nFib: " << Fib(n) << '\n';
 	return 0;
 }
 ```
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;\blacksquare"> **Recursive approach with optimization**
+
+**Recursive approach with optimization**
+
 ```cpp
 #include <iostream>
 static long count(0);
 static unsigned long long* numbers;
-unsigned long long Fib(unsigned short n)
-{
+unsigned long long Fib(unsigned short n){
 	if (numbers[n]!=0) return numbers[n];
 	count++;
 	if (n == 1) return 0;
@@ -52,8 +52,7 @@ unsigned long long Fib(unsigned short n)
 	numbers[n] = result;
 	return result;
 }
-int main()
-{
+int main(){
 	unsigned short n; std::cin >> n;
 	numbers = new unsigned long long[n+1]();
 	std::cout <<"Recur: "<< count << "\nFib: " << Fib(n) << '\n';
@@ -89,8 +88,7 @@ int main()
 unsigned long long f[MAX] = { 0 };
 
 // Returns n'th fuibonacci number using table f[] 
-unsigned long long fib(unsigned long long n) //O(log n) arithmatic operations 
-{
+unsigned long long fib(unsigned long long n){ //O(log n) arithmatic operations 
 	// Base cases 
 	if (n == 0) return 0;
 	if (n == 1 || n == 2) return (f[n] = 1);
@@ -107,8 +105,7 @@ unsigned long long fib(unsigned long long n) //O(log n) arithmatic operations
 	return f[n];
 }
 
-int main()
-{
+int main(){
 	size_t n; std::cin >> n;
 	std::cout << fib(n) << '\n';
 	return 0;

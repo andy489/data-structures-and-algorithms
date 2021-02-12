@@ -64,12 +64,10 @@ int main(){
 
 ```cpp
 #include <iostream>
-int main()
-{
+int main(){
 	unsigned long long fir(0), sec(1); unsigned short n; std::cin >> n;
 	if (n == 1) { std::cout << 0; return 0; }
-	do
-	{
+	do{
 		n--;
 		unsigned long long fib_n = fir + sec;
 		fir = sec;

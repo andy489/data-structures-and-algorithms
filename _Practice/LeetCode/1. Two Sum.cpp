@@ -1,6 +1,6 @@
 // github.com/andy489
 // https://leetcode.com/problems/two-sum/
-// Time: O(n)
+// Time: O(n) in expectation
 
 class Solution {
 public:

@@ -1,3 +1,7 @@
+// github.com/andy489
+// https://leetcode.com/problems/two-sum/
+// Time: O(n)
+
 class Solution {
 public:
     vector<int> twoSum(vector<int> &nums, int target) {

@@ -1,6 +1,6 @@
 // github.com/andy489
 // https://leetcode.com/problems/kth-largest-element-in-an-array/
-// O(n) in expectation
+// Time: O(n) in expectation
 
 class Solution {
 public:

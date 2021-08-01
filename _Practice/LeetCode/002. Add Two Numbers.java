@@ -1,4 +1,3 @@
-// github.com/andy489
 // https://leetcode.com/problems/add-two-numbers
 // Time: O(n), where n = max(size(list1), size(list2))
 

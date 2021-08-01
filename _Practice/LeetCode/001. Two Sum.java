@@ -1,4 +1,3 @@
-// github.com/andy489
 // https://leetcode.com/problems/two-sum/
 // Time: O(n) in expectation
 

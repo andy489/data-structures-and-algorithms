@@ -1,6 +1,6 @@
 // Binary search
 // https://leetcode.com/problems/median-of-two-sorted-arrays/
-// Time: O(min(n1, n2))
+// Time: O(log(min(n1, n2)))
 
 class Solution {
 public:

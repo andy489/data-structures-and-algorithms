@@ -1,6 +1,6 @@
-// github.com/andy489
+// Smart sliding window
 // https://leetcode.com/problems/longest-substring-without-repeating-characters/
-// Time: O(n), smart sliding window
+// Time: O(n)
 
 class Solution {
 public:

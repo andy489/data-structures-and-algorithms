@@ -4,15 +4,16 @@
 
 class Solution {
 private:
-    pair<int, int> expandPalindrome(string &s, int l, int r) {
-        while (0 <= l && r < s.size() && s[l] == s[r]) { l--, r++; }
-        return {l + 1, r};
-    }
-
     int substrLength(pair<int, int> substr) {
         return substr.second - substr.first + 1;
     }
 
+    pair<int, int> expandPalindrome(string &s, int l, int r) {
+        int SIZE - s.size();
+        while (0 <= l && r < SIZE && s[l] == s[r]) { l--, r++; }
+        return {l + 1, r};
+    }
+    
 public:
     string longestPalindrome(string s) {
         int SIZE = s.size();

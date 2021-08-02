@@ -1,4 +1,4 @@
-// Brute force
+// Оptimized brute force
 // https://leetcode.com/problems/longest-palindromic-substring/
 // Time: O(n^2)
 

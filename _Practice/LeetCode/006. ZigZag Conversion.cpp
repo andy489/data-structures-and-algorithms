@@ -1,4 +1,5 @@
-// the sequence of line numbers in which a letter is placed: 0, 1, 2, ..., numRows - 1, numRows - 2, ..., 0, 1, 2, ..., numRows - 1, numRows - 2, ...
+// the sequence of line numbers in which a letter is placed: 
+// 0, 1, 2, ..., numRows - 1, numRows - 2, ..., 0, 1, 2, ..., numRows - 1, numRows - 2, ...
 // https://leetcode.com/problems/zigzag-conversion/
 // Time: O(n)
 

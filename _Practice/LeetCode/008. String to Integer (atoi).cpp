@@ -7,7 +7,7 @@ public:
         long res = 0;
         int i = 0;
         bool neg = 0;
-        while (s[i++] == ' ');
+        while (isspace(s[i++]));
         if (s[--i] == '-' || s[i] == '+') neg = (s[i++] == '-');
         while (isdigit(s[i])) {
             res = res * 10 + s[i++] - '0';

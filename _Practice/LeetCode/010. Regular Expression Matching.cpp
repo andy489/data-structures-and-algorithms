@@ -17,7 +17,7 @@ public:
                 return i >= n; // check if we also read the string for matching
             }
             // index i could be technically out of bounds here (that's why cache rows are n+1)
-            bool match = (i < n && (s[i] == p[j] || p[j] == '.'));
+            bool match = i < n && (s[i] == p[j] || p[j] == '.');
             // * has the highest precedence (we hendle * first)
             if (j + 1 < m && p[j + 1] == '*') {
                 return (bool) (cache[i][j] = (dfs(i, j + 2) // don't use *

@@ -1,4 +1,4 @@
-// leetcode.com/problems/merge-k-sorted-lists/
+// https://leetcode.com/problems/merge-k-sorted-lists/
 // Time: O(n*log(k))
 
 /**

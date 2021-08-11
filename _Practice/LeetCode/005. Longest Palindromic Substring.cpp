@@ -9,7 +9,7 @@ private:
     }
 
     pair<int, int> expandPalindrome(string &s, int l, int r) {
-        int SIZE - s.size();
+        int SIZE = s.size();
         while (0 <= l && r < SIZE && s[l] == s[r]) { l--, r++; }
         return {l + 1, r};
     }

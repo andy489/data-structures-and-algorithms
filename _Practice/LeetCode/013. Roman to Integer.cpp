@@ -1,5 +1,5 @@
 // https://leetcode.com/problems/roman-to-integer/
-// O(n)
+// Time: O(n)
 
 class Solution {
 public:

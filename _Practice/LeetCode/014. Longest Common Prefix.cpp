@@ -1,5 +1,4 @@
 // https://leetcode.com/problems/longest-common-prefix/
-// Time: O(nlog(n)*m), where n is the size of strs and m = min(sizes(strs))
 
 class Solution {
 public:

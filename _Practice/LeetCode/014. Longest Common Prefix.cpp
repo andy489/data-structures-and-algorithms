@@ -1,4 +1,5 @@
 // https://leetcode.com/problems/longest-common-prefix/
+// Time: O(S*log(n)), where S = sum of all characters in strs
 
 class Solution {
 public:

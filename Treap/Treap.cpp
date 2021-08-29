@@ -1,5 +1,5 @@
 #include <cstdio>     // printf(..)
-#include <cstdlib>    //rand(..)
+#include <cstdlib>    // rand(..)
 #include <ctime>      // time(..)
 #include <algorithm>  // swap(..)
 

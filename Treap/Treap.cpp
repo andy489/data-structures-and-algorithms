@@ -87,6 +87,18 @@ private:
         upd_cnt(t);
         return t;
     }
+    
+    pnode uniteUtil(pnode l, pnode r) { // O(N*log(N/M))
+        if (!l || !r)   // base case
+            return l ? l : r;
+        if (l->prior < r->prior)    // guarantee that l->prior >= r->prior
+            swap(l, r);
+        pnode lt, rt;
+        split(r, l->key, lt, rt);   // split the treap with lower prior in root into lt and rt
+        l->l = uniteUtil(l->l, lt); // combine l->l and lt
+        l->r = uniteUtil(l->r, rt); // combine l->r and rt
+        return l;
+    }
 
     void LDRutil(pnode s) { // simple LDR traversal (used as print function)
         if (!s) return;
@@ -98,6 +110,10 @@ private:
 public:
     Treap() : root(nullptr) {}
 
+    pnode getRoot(){
+        return this->root;
+    }
+    
     void insert(pnode it) {
         insertUtil(this->root, it);
     }
@@ -110,15 +126,19 @@ public:
         root = buildUtil(a, n);
     }
 
+    void unite(pnode t){
+        this->root = uniteUtil(this->root, t);
+    }
+    
     void LDR() {
         LDRutil(this->root);
     }
 };
 
 int main() {
-    srand(time(nullptr));
+     srand(time(nullptr));
 
-    Treap T1, T2;
+    Treap T1, T2, T3;
     int *a = new int[10];
 
     for (int i = 0; i < 10; ++i) {
@@ -136,5 +156,13 @@ int main() {
 
     T1.LDR();
     T2.LDR();
+
+    for (int i = 10; i < 20; ++i) {
+        pnode n = new Node(i);
+        T3.insert(n);
+    }
+
+    T1.unite(T3.getRoot());
+    T1.LDR();
     return 0;
 }

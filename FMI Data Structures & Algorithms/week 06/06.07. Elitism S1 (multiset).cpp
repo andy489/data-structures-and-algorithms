@@ -13,7 +13,7 @@ multiset<int, greater<int> > l;
 
 int main() {
     scanf("%d", &N);
-    for(;N--;) {    // same as while(N--){, when N becoes 0, which is equiv to false, the cycle will end
+    for(;N--;) {    // same as while(N--){, when N becomes 0, which is equiv to false, the cycle will end
         scanf("%d", &a);
         if (l.empty()) l.insert(a);
         else if (a > *l.begin()) r.insert(a);

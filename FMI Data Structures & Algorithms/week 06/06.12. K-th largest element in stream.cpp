@@ -10,10 +10,10 @@ public:
         int size(nums.size()), i(0);
 
         for (; i < size; ++i) {
-            if (pq.size() < k)
+            if (minHeap.size() < k)
                 minHeap.push(nums[i]);
             else {
-                if (nums[i] > pq.top()) {
+                if (nums[i] > minHeap.top()) {
                     minHeap.pop();
                     minHeap.push(nums[i]);
                 }
@@ -25,7 +25,7 @@ public:
         if (minHeap.size() < k)
             minHeap.push(val);
         else {
-            if (val > pq.top()) {
+            if (val > minHeap.top()) {
                 minHeap.pop();
                 minHeap.push(val);
             }

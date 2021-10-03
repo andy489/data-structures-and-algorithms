@@ -23,7 +23,7 @@ int main() {
         else if (r.size() > l.size())
             l.insert(*r.begin()), r.erase(r.begin());
         if (l.size() > r.size()) printf("%d.0\n", *l.begin());
-        else printf("%d.%c\n", (*l.begin() + *r.begin()) / 2, ((*l.begin() + *r.begin()) & 1) ? '5' : '0');
+        else printf("%.1f\n", (*l.begin() + *r.begin()) / 2.0);
     }
     return 0;
 }

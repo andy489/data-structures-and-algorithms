@@ -13,7 +13,7 @@ multiset<int, greater<int> > l;
 
 int main() {
     scanf("%d", &N);
-    for (; i < N; ++i) {
+    for (;--N;) {
         scanf("%d", &a);
         if (l.empty()) l.insert(a);
         else if (a > *l.begin()) r.insert(a);

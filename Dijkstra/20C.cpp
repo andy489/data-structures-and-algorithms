@@ -19,8 +19,6 @@ using namespace std;
 struct Edge {
     int v, w;
 
-    Edge() : v(int()), w(int()) {}
-
     Edge(int v, int w) : v(v), w(w) {}
 };
 
@@ -59,6 +57,9 @@ void dijkstra(int s = 1) {
         Q.pop();
         if (dist[u]!=INF) {
             for (const Edge &child:adj[u]) {
+                if(par[child.v] == u){
+                    continue;
+                }
                 int v = child.v;
                 int w = child.w;
                 if (dist[u] + w < dist[v]) {

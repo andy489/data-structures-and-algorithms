@@ -22,7 +22,7 @@ int main() {
     sort(v.begin(), v.end(), greater<int>());
 
     for (int i = 0; i < n; ++i) {
-        if(!us.count(v[i]*k)){
+        if(!us.count(v[i] * k)){
             us.insert(v[i]);
         }
     }

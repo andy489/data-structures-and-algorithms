@@ -10,7 +10,7 @@ typedef long long ll;
 int main() {
     int n;
     ll k;
-    scanf("%d%lld", &n, &k);
+    scanf("%d %lld", &n, &k);
 
     vector<ll> v(n);
     unordered_set<ll> us;

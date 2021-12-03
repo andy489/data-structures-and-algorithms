@@ -27,5 +27,5 @@ int main() {
         }
     }
 
-    printf("%lu", us.size());
+    return printf("%lu", us.size()), 0;
 }

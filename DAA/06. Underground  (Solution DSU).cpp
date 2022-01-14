@@ -11,7 +11,7 @@ using namespace std;
 #define s second
 typedef pair<int, int> pii;
 
-int n, m;
+int n, m, maxLvl;
 
 const int MXN = 1e5 + 5;
 
@@ -35,10 +35,10 @@ void uni(int u, int v) {
 
 int addEdges(int ans = 0) {
     initDSU();
-    for (int i = 0; i < n; ++i)
+    for (int i = 0; i < maxLvl; ++i)
         for (const auto &e:edges[i]) {
             int u = find(e.f), v = find(e.s);
-            if (u == v) return ans = i, ans;
+            if (u == v) return ans = i;
             uni(u, v);
         }
     return ans;
@@ -48,8 +48,11 @@ int main() {
     s2(n, m);
     int u, v, lvl;
 
-    for (int i = 0; i < m; ++i)
+
+    for (int i = 0; i < m; ++i) {
         s3(u, v, lvl), edges[lvl].eb(u, v);
+        maxLvl = max(lvl, maxLvl);
+    }
 
     return printf("%d\n", addEdges()), 0;
 }

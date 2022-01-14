@@ -35,7 +35,7 @@ void uni(int u, int v) {
 
 int addEdges(int ans = 0) {
     initDSU();
-    for (int i = 0; i < maxLvl; ++i)
+    for (int i = 1; i < maxLvl; ++i)
         for (const auto &e:edges[i]) {
             int u = find(e.f), v = find(e.s);
             if (u == v) return ans = i;

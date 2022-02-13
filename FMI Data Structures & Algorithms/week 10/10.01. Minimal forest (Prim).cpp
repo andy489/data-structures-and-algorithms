@@ -40,16 +40,17 @@ int prim(int start) {
             break;
         }
 
-        int u = s.begin()->to;
-        visited[u] = true;
+        Edge curr = *s.begin();
+        s.erase(curr);
 
-        totalCost += s.begin()->cost;
-        s.erase(s.begin());
+        visited[curr.to] = true;
+        totalCost += curr.cost;
 
-        for (const Edge e : adj[u]) {
+
+        for (const Edge e : adj[curr.to]) {
             if (!visited[e.to] && e.cost < minEdge[e.to].cost) {
                 s.erase({e.to, minEdge[e.to].cost});
-                minEdge[e.to] = {u, e.cost};
+                minEdge[e.to] = {curr.to, e.cost};
                 s.insert({e.to, e.cost});
             }
         }

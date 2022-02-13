@@ -6,7 +6,7 @@
 
 using namespace std;
 
-static const int INF = 1 << 18;
+static const int INF = 2 << 10;
 
 struct Edge {
     int to = -1;
@@ -66,8 +66,7 @@ void init() {
     visited.resize(n);
 
     int from, to, cost;
-    
-    while(m--) {
+    while (m--) {
         scanf("%d %d %d", &from, &to, &cost);
 
         adj[from].push_back({to, cost});

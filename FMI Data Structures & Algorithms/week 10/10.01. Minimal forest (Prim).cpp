@@ -12,26 +12,25 @@ struct Edge {
     int to = -1;
     int cost = INF;
 
-    Edge() = default;
+    bool operator<(const Edge &other) const {
+        if (cost == other.cost) {
+            return to < other.to;
+        }
 
-    Edge(int to, int cost) : to(to), cost(cost) {}
-
-    bool operator<(const Edge &rhs) const {
-        return make_pair(cost, to) < make_pair(rhs.cost, rhs.to);
+        return cost < other.cost;
     }
 };
 
-int n, m; // nodes and edges
-int from, to, w;
+int n;
 
 vector<vector<Edge>> adj;
 vector<bool> visited;
 
 int prim(int start) {
-    int total_weight = 0;
+    int totalCost = 0;
 
-    vector<Edge> min_edge(n);
-    min_edge[start].cost = 0;
+    vector<Edge> minEdge(n);
+    minEdge[start].cost = 0;
 
     set<Edge> s;
     s.insert({start, 0});
@@ -44,32 +43,35 @@ int prim(int start) {
         int u = s.begin()->to;
         visited[u] = true;
 
-        total_weight += s.begin()->cost;
+        totalCost += s.begin()->cost;
         s.erase(s.begin());
 
         for (const Edge e : adj[u]) {
-            if (!visited[e.to] && e.cost < min_edge[e.to].cost) {
-                s.erase({e.to, min_edge[e.to].cost});
-                min_edge[e.to] = {u, e.cost};
+            if (!visited[e.to] && e.cost < minEdge[e.to].cost) {
+                s.erase({e.to, minEdge[e.to].cost});
+                minEdge[e.to] = {u, e.cost};
                 s.insert({e.to, e.cost});
             }
         }
     }
 
-    return total_weight;
+    return totalCost;
 }
 
 void init() {
+    int m;
     scanf("%d %d", &n, &m);
 
     adj.resize(n);
     visited.resize(n);
 
-    for (int i = 0; i < m; ++i) {
-        scanf("%d %d %d", &from, &to, &w);
+    int from, to, cost;
+    
+    while(m--) {
+        scanf("%d %d %d", &from, &to, &cost);
 
-        adj[from].push_back({to, w});
-        adj[to].push_back({from, w});
+        adj[from].push_back({to, cost});
+        adj[to].push_back({from, cost});
     }
 }
 

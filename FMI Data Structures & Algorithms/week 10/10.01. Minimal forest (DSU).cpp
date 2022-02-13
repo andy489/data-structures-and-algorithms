@@ -1,5 +1,4 @@
 // https://www.hackerrank.com/contests/practice-9-sda/challenges/forest-1
-// github.com/andy489
 
 #include <iostream>
 #include <vector>

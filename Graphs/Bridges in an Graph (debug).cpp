@@ -1,63 +1,48 @@
-// github.com/andy489
+// https://codeforces.com/blog/entry/68138
 
-// Debug: https://codeforces.com/blog/entry/68138
-
-#include <iostream>
+#include <cstdio>
 #include <vector>
 #include <list>
 #include <set>
 
 using namespace std;
 
-#define pb push_back
-
-vector<list<int>> adj;
-vector<bool> vis;
-
-vector<int> tin, low;
 int timer;
 
-struct Edge {
-    int u, v;
+vector<list<int>> adj;
+vector<bool> vis; // visited
+vector<int> tin; // time of entry into node
+vector<int> low; // low[v] = min{tin[v], tin[par], low[to]},
+// for all par for which (v, par) is a back edge, for all to for which (v, to) is a tree edge
 
-    Edge(int u, int v) {
-        if (u > v)
-            swap(u, v);
-        this->u = u;
-        this->v = v;
+set<pair<int, int>> dfs_spanning_edges;
+set<pair<int, int>> back_edges;
+set<pair<int, int>> bridges;
+
+void tarjan(int u = 1, int par = -1) {
+    vis[u] = true;
+    tin[u] = low[u] = timer++;
+
+    if (par != -1) {
+        dfs_spanning_edges.insert({par, u});
     }
 
-    bool operator<(const Edge &rhs) const {
-        if (this->u > rhs.u)
-            return false;
-        else if (this->u == rhs.u)
-            return this->v < rhs.v;
-        else
-            return true;
-    }
-};
+    for (const int &child : adj[u]) {
+        if (child == par) {
+            continue;
+        }
 
-set<Edge> dfs_spanning_edges, back_edges, bridges;
-
-void dfs(int v, int par = -1) {
-    vis[v] = true;
-    tin[v] = low[v] = timer++;
-    if(par!=-1) {
-        Edge se(v, par);
-        dfs_spanning_edges.insert(se);
-    }
-    for (const int &child : adj[v]) {
-        if (child == par) continue;
         if (vis[child]) {
-            low[v] = min(low[v], tin[child]);
-            Edge be(v, child);
-            back_edges.insert(be);
+            low[u] = min(low[u], tin[child]);
+            if (back_edges.find({child, u}) == back_edges.end()) {
+                back_edges.insert({u, child});
+            }
         } else {
-            dfs(child, v);
-            low[v] = min(low[v], low[child]);
-            if (low[child] > tin[v]){
-                Edge br(v, child);
-                bridges.insert(br);
+            tarjan(child, u);
+            low[u] = min(low[u], low[child]);
+
+            if (low[child] > tin[u]) {
+                bridges.insert({u, child});
             }
         }
     }
@@ -65,37 +50,54 @@ void dfs(int v, int par = -1) {
 
 int main() {
     int n, m;
+    scanf("%d %d", &n, &m);
 
-    n = 12, m = 16;
-    adj.assign(n + 1, list<int>());
-    vis.assign(n + 1, 0);
-    tin.assign(n + 1, 0);
-    low.assign(n + 1, 0);
+    adj.resize(n + 1);
+    vis.resize(n + 1);
+    tin.resize(n + 1);
+    low.resize(n + 1);
 
-    adj[1].pb(3), adj[1].pb(5), adj[1].pb(6), adj[1].pb(9);
-    adj[2].pb(4), adj[2].pb(6), adj[2].pb(8);
-    adj[3].pb(1), adj[3].pb(5), adj[3].pb(6), adj[3].pb(7), adj[3].pb(8);
-    adj[4].pb(2), adj[4].pb(10);
-    adj[5].pb(3), adj[5].pb(1), adj[5].pb(7);
-    adj[6].pb(3), adj[6].pb(1), adj[6].pb(2);
-    adj[7].pb(5), adj[7].pb(3);
-    adj[8].pb(2), adj[8].pb(3);
-    adj[9].pb(1), adj[9].pb(11), adj[9].pb(12);
-    adj[10].pb(4);
-    adj[11].pb(9), adj[11].pb(12);
-    adj[12].pb(9), adj[12].pb(11);
+    int a, b;
+    while (m--) {
+        scanf("%d %d", &a, &b);
+        adj[a].push_back(b);
+        adj[b].push_back(a);
+    }
 
+    tarjan();
 
-    dfs(1); // dfs tree
+    printf("bridges: %lu\n", bridges.size());
+    for (const auto &br:bridges) {
+        printf("%d %d\n", br.first, br.second);
+    }
+    printf("dfs spanning edges: %lu\n", dfs_spanning_edges.size());
+    for (const auto &sp:dfs_spanning_edges) {
+        printf("%d %d\n", sp.first, sp.second);
+    }
+    printf("back edges: %lu\n", back_edges.size());
+    for (const auto &be:back_edges) {
+        printf("%d %d\n", be.first, be.second);
+    }
 
-    cout << "bridges: " << bridges.size() << '\n';
-    for (const auto &e:bridges)
-        cout << e.u << ' ' << e.v << '\n';
-    cout << "dfs spanning edges: " << dfs_spanning_edges.size() << '\n';
-    for (const auto &e:dfs_spanning_edges)
-        cout << e.u << ' ' << e.v << '\n';
-    cout << "back edges: " << back_edges.size() << '\n';
-    for (const auto &e:back_edges)
-        cout << e.u << ' ' << e.v << '\n';
+    printf("Total edges: %lu\n(bridges are spanning edges)", dfs_spanning_edges.size() + back_edges.size());
 }
 
+/*
+12 16
+9 12
+10 4
+9 1
+5 1
+2 6
+7 3
+5 7
+6 3
+8 2
+1 6
+3 1
+2 4
+3 8
+11 9
+12 11
+5 3
+*/

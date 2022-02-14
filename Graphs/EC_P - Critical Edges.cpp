@@ -10,16 +10,12 @@ using namespace std;
 
 int timer;
 
+vector<list<int>> adj;
 vector<bool> vis; // visited
 vector<int> tin; // time of entry into node
 vector<int> low; // low[v] = min{tin[v], tin[par], low[to]},
 // for all par for which (v, par) is a back edge
 // for all to for which (v, to) is a tree edge
-vector<list<int>> adj;
-
-// tin = time of entry into node
-// low -> none of the vertices child and its descendants in the DFS traversal tree
-// has a back-edge to vertex v or any of its ancestors (v, child)
 
 set<pair<int, int>> bridges;
 

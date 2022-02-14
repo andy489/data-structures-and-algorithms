@@ -1,74 +1,87 @@
-// github.com/andy489
-
 // https://www.spoj.com/problems/EC_P/
+// https://codeforces.com/blog/entry/68138
 
-// Additional: https://codeforces.com/blog/entry/68138
-
-#include <iostream>
+#include <cstdio>
 #include <vector>
 #include <list>
 #include <set>
 
 using namespace std;
 
-#define ios ios::sync_with_stdio(false), cin.tie(nullptr), cout.tie(nullptr)
-#define pb push_back
-#define f first
-#define s second
+int timer;
 
-typedef pair<int, int> pii;
-
-int n, m, timer;
-
-vector<bool> vis;
-vector<int> tin, low;
+vector<bool> vis; // visited
+vector<int> tin; // time of entry into node
+vector<int> low; // low[v] = min{tin[v], tin[par], low[to]},
+// for all par for which (v, par) is a back edge
+// for all to for which (v, to) is a tree edge
 vector<list<int>> adj;
 
 // tin = time of entry into node
 // low -> none of the vertices child and its descendants in the DFS traversal tree
 // has a back-edge to vertex v or any of its ancestors (v, child)
 
-set<pii> ans;
+set<pair<int, int>> bridges;
 
-void tarjan(int u = 1, int p = -1) {
+void tarjan(int u = 1, int par = -1) {
     vis[u] = true;
     tin[u] = low[u] = timer++;
+
     for (const auto &child : adj[u]) {
-        if (child == p) continue;
-        if (vis[child]) low[u] = min(low[u], tin[child]);
-        else {
+        if (child == par) {
+            continue;
+        }
+
+        if (vis[child]) {
+            low[u] = min(low[u], tin[child]);
+        } else {
             tarjan(child, u);
             low[u] = min(low[u], low[child]);
-            if (low[child] > tin[u])
-                ans.insert({min(child, u), max(child, u)});
+
+            if (low[child] > tin[u]) {
+                bridges.insert({min(child, u), max(child, u)});
+            }
         }
     }
 }
 
 int main() {
-    ios;
-    int t, a, b;
-    cin >> t;
+    int t;
+    scanf("%d", &t);
+
+    int n, m;
     for (int i = 1; i <= t; ++i) {
-        cin >> n >> m;
+        scanf("%d %d", &n, &m);
+
         adj.assign(n + 1, list<int>());
         vis.assign(n + 1, false);
         tin.assign(n + 1, 0);
         low.assign(n + 1, 0);
+
+        int a, b;
         while (m--) {
-            cin >> a >> b;
-            adj[a].pb(b);
-            adj[b].pb(a);
+            scanf("%d %d", &a, &b);
+            adj[a].push_back(b);
+            adj[b].push_back(a);
         }
-        cout << "Caso #" << i << '\n';
+
+        printf("Caso #%d\n", i);
+
         tarjan();
-        if (ans.size()) {
-            cout << ans.size() << '\n';
-            for (const pii &e: ans)
-                cout << e.f << ' ' << e.s << '\n';
-        } else
-            cout << "Sin bloqueos\n";
-        ans.clear();
+
+        if (bridges.empty()) {
+            printf("Sin bloqueos\n");
+        } else {
+            printf("%lu\n", bridges.size());
+
+            for (const auto &br: bridges) {
+                printf("%d %d\n", br.first, br.second);
+            }
+        }
+
+        bridges.clear();
+        timer = 0;
     }
+
     return 0;
 }

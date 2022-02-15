@@ -1,147 +1,186 @@
-// github.com/andy489
-
 // https://codeforces.com/contest/231/problem/E
 
-#include <stdio.h>
+#include <cstdio>
 #include <vector>
 #include <list>
 #include <stack>
-
-#define pb push_back
 
 using namespace std;
 
 const int MOD = 1e9 + 7;
 
-int n, m, timer, color, N, K;
+int n, timer, color, N, K;
 
-vector<list<int>> adj, newAdj;
-vector<int> tin, low, cycleColor, dep, dfsIn, sum, sz, mult, flog;
+vector<list<int>> adj, compressed_adj;
+vector<int> tin, low, cycle_color, dep, dfs_in, sum, comp_size, multiplier, floor_log;
 
-stack<int> s;
-
-vector<vector<int>> st;
+stack<int> dfs_stack;
+vector<vector<int>> sparse_table;
 
 void init() {
-    scanf("%d%d", &n, &m);
+    int m;
+    scanf("%d %d", &n, &m);
+
     adj.resize(n + 1);
-    int u, v;
-    while (m--) {
-        scanf("%d%d", &u, &v);
-        adj[u].pb(v);
-        adj[v].pb(u);
-    }
+    compressed_adj.resize(n + 1);
+
     tin.resize(n + 1);
     low.resize(n + 1);
-    cycleColor.resize(n + 1);
-    sz.resize(n + 1);
+
+    cycle_color.resize(n + 1);
+    comp_size.resize(n + 1);
+
+    int u, v;
+    while (m--) {
+        scanf("%d %d", &u, &v);
+        adj[u].push_back(v);
+        adj[v].push_back(u);
+    }
 }
 
 void tarjan(int u = 1, int p = 0) {
     tin[u] = low[u] = ++timer;
-    s.push(u);
-    for (const int &child: adj[u]) {
-        if (child == p)
+    dfs_stack.push(u);
+
+    for (int child: adj[u]) {
+        if (child == p) {
             continue;
-        if (tin[child])
+        }
+
+        if (tin[child]) {
             low[u] = min(low[u], tin[child]);
-        else {
+        } else {
             tarjan(child, u);
             low[u] = min(low[u], low[child]);
         }
-
     }
+
     if (low[u] == tin[u]) {
-        int v;
         color++;
+
+        int v;
         do {
-            v = s.top(), s.pop();
-            cycleColor[v] = color;
-            ++sz[color];
+            v = dfs_stack.top();
+            dfs_stack.pop();
+
+            cycle_color[v] = color;
+            ++comp_size[color];
         } while (u != v);
     }
 }
 
-void squeeze() {
-    newAdj.resize(n + 1);
-
+void squeeze_graph() {
     for (int u = 1; u <= n; ++u) {
-        for (const int &child: adj[u]) {
-            int a = cycleColor[u], b = cycleColor[child];
-            if (a ^ b)
-                newAdj[cycleColor[u]].pb(cycleColor[child]);
+        for (int child: adj[u]) {
+            int a = cycle_color[u];
+            int b = cycle_color[child];
+
+            if (a ^ b) {
+                compressed_adj[cycle_color[u]].push_back(cycle_color[child]);
+            }
         }
     }
 
     dep.resize(n + 1);
-    dfsIn.resize(n + 1);
+    dfs_in.resize(n + 1);
+
     timer = 0;
+
     sum.resize(n + 1);
-    flog.resize(2 * n);
+    floor_log.resize(2 * n);
 }
 
-void dp() {
-    for (int i = 1; i <= color; ++i)
-        sum[i] = sz[i] > 1;
+void dynamic_preprocess() {
+    for (int i = 1; i <= color; ++i) {
+        sum[i] = comp_size[i] > 1;
+    }
 
-    for (int i = 2; i < 2 * n; ++i)
-        flog[i] = flog[i >> 1] + 1;
+    for (int i = 2; i < 2 * n; ++i) {
+        floor_log[i] = floor_log[i >> 1] + 1;
+    }
 
-    K = flog[2 * n - 1];
+    K = floor_log[2 * n - 1];
     N = 2 * n - 1;
-    st.assign(K + 1, vector<int>(N));
+
+    sparse_table.assign(K + 1, vector<int>(N));
 }
 
 void dfs(int u = 1, int p = 0) {
     dep[u] = dep[p] + 1;
-    st[0][++timer] = u;
+    sparse_table[0][++timer] = u;
     sum[u] += sum[p];
-    dfsIn[u] = timer;
+    dfs_in[u] = timer;
 
-    for (const int &child: newAdj[u]) {
-        if (child == p)
+    for (int child: compressed_adj[u]) {
+        if (child == p) {
             continue;
+        }
+
         dfs(child, u);
-        st[0][++timer] = u;
+
+        sparse_table[0][++timer] = u;
     }
 }
 
-void build() {
-    for (int j = 1; j <= K; ++j)
+void build_sparse_table() {
+    for (int j = 1; j <= K; ++j) {
         for (int i = 1; i + (1 << j) <= timer; ++i) {
-            int a = st[j - 1][i];
-            int b = st[j - 1][i + (1 << (j - 1))];
-            st[j][i] = (dep[a] < dep[b] ? a : b);
+            int a = sparse_table[j - 1][i];
+            int b = sparse_table[j - 1][i + (1 << (j - 1))];
+
+            sparse_table[j][i] = (dep[a] < dep[b] ? a : b);
         }
+    }
 }
 
-void precalc() {
-    mult.resize(n + 1);
-    mult[0] = 1;
-    for (int i = 1; i <= n; ++i)
-        mult[i] = 2LL * mult[i - 1] % MOD;
+void pre_process() {
+    multiplier.resize(n + 1);
+    multiplier[0] = 1;
+
+    for (int i = 1; i <= n; ++i) {
+        multiplier[i] = 2LL * multiplier[i - 1] % MOD;
+    }
 }
 
-int LCA(int u, int v) {
-    int L = dfsIn[u], R = dfsIn[v];
-    if (L > R)swap(L, R);
-    int k = flog[R - L + 1];
-    int a = st[k][L], b = st[k][R - (1 << k) + 1];
+int lowest_common_ancestor(int u, int v) {
+    int l = dfs_in[u];
+    int r = dfs_in[v];
+
+    if (l > r) {
+        swap(l, r);
+    }
+
+    int k = floor_log[r - l + 1];
+
+    int a = sparse_table[k][l];
+    int b = sparse_table[k][r - (1 << k) + 1];
+
     return (dep[a] < dep[b] ? a : b);
 }
 
 void solve() {
     int q, u, v, lca;
     scanf("%d", &q);
+
     while (q--) {
         scanf("%d%d", &u, &v);
-        u = cycleColor[u];
-        v = cycleColor[v];
-        lca = LCA(u, v);
-        printf("%d\n", mult[sum[u] + sum[v] - (sum[lca] << 1) + (sz[lca] > 1)]);
+
+        u = cycle_color[u];
+        v = cycle_color[v];
+
+        lca = lowest_common_ancestor(u, v);
+        printf("%d\n", multiplier[sum[u] + sum[v] - (sum[lca] << 1) + (comp_size[lca] > 1)]);
     }
 }
 
 int main() {
-    return init(), tarjan(), squeeze(), dp(), dfs(), build(), precalc(), solve(), 0;
+    init();
+    tarjan();
+    squeeze_graph();
+    dynamic_preprocess();
+    dfs();
+    build_sparse_table();
+    pre_process();
+    solve();
+    return 0;
 }

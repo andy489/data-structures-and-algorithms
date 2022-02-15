@@ -1,36 +1,41 @@
-// github.com/andy489
-
 // https://codeforces.com/contest/231/problem/E
 
-#include <cstdio>
+#include <stdio.h>
+#include <string.h>
 #include <cmath>
 #include <vector>
 #include <queue>
 
 using namespace std;
 
-const int MAX = 100001;
-int MOD = 1000000007, n, u, v, m, L[MAX], N[MAX], C[MAX], ndfs, comp;
+const int MAX = 1e5 + 1, MOD = 1e9 + 7;
+
+int n, tin[MAX], low[MAX], C[MAX], timer, comp;
+int cont[MAX], po[MAX];
+int dp[MAX][18], cant[MAX], num[MAX], level[MAX];
+
 vector<int> adj[MAX], tree[MAX];
 
-void tarjan(int u, int par = -1) {
-    L[u] = N[u] = ++ndfs;
+void tarjan(int u = 1, int par = -1) {
+    tin[u] = low[u] = ++timer;
+
     for (const auto &x: adj[u]) {
-        if (!N[x]) {
+        if (!tin[x]) {
             tarjan(x, u);
-            L[u] = min(L[u], L[x]);
-        } else if (x != par)
-            L[u] = min(L[u], L[x]);
+            low[u] = min(low[u], low[x]);
+        } else if (x != par) {
+            low[u] = min(low[u], low[x]);
+        }
     }
 }
 
 bool is_bridge(int a, int b) {
-    if (N[a] > N[b])
+    if (tin[a] > tin[b]) {
         swap(a, b);
-    return N[a] < L[b];
-}
+    }
 
-int cont[MAX];
+    return tin[a] < low[b];
+}
 
 void bfs() {
     queue<int> q;
@@ -39,9 +44,12 @@ void bfs() {
             q.push(i);
             C[i] = comp;
             cont[comp]++;
+
+            int u;
             while (!q.empty()) {
                 u = q.front();
                 q.pop();
+
                 for (const auto &v:adj[u]) {
                     if (!is_bridge(u, v) && !C[v]) {
                         C[v] = comp;
@@ -58,28 +66,32 @@ void bfs() {
     }
 }
 
-int dp[MAX][18], cant[MAX], num[MAX], level[MAX];
+void dfs(int node = 1) {
+    num[timer++] = node;
 
-void dfs(int nodo) {
-    num[ndfs++] = nodo;
     int x;
-    for (int i = tree[nodo].size() - 1; i >= 0; i--) {
-        x = tree[nodo][i];
+    for (int i = (int) tree[node].size() - 1; i >= 0; i--) {
+        x = tree[node][i];
+
         if (!level[x]) {
-            level[x] = level[nodo] + 1;
-            cant[x] = cant[nodo];
-            if (cont[x] > 1)
+            level[x] = level[node] + 1;
+            cant[x] = cant[node];
+
+            if (cont[x] > 1) {
                 cant[x]++;
+            }
+
             dfs(x);
-            dp[x][0] = nodo;
+            dp[x][0] = node;
         }
     }
 }
 
 void built_lca() {
-    for (int i = 0; i < ndfs; i++) {
+    for (int i = 0; i < timer; i++) {
         int x = num[i];
         int j = 1;
+
         while (j < 18 && dp[x][j - 1] != -1) {
             dp[x][j] = dp[dp[x][j - 1]][j - 1];
             j++;
@@ -88,17 +100,25 @@ void built_lca() {
 }
 
 int query(int a, int b) {
-    if (level[b] < level[a])
+    if (level[b] < level[a]) {
         swap(a, b);
+    }
+
     int j = 17;
+
     while (level[b] > level[a]) {
-        if (dp[b][j] != -1 && level[dp[b][j]] >= level[a])
+        if (dp[b][j] != -1 && level[dp[b][j]] >= level[a]) {
             b = dp[b][j];
+        }
         j--;
     }
-    if (a == b)
+
+    if (a == b) {
         return a;
+    }
+
     j = 17;
+
     while (j >= 0) {
         if (dp[a][j] != dp[b][j]) {
             a = dp[a][j];
@@ -109,40 +129,52 @@ int query(int a, int b) {
     return dp[a][0];
 }
 
-int po[MAX];
-
 int main() {
+    int m;
     scanf("%d%d", &n, &m);
 
     po[0] = 1;
 
-    for (int i = 1; i <= n; ++i)
+    for (int i = 1; i <= n; ++i) {
         po[i] = (po[i - 1] * 2) % MOD;
+    }
 
+    int u, v;
     while (m--) {
         scanf("%d%d", &u, &v);
         adj[u].push_back(v);
         adj[v].push_back(u);
     }
-    tarjan(1);
-    ndfs = 0;
+    tarjan();
+
+    timer = 0;
     comp = 1;
+
     bfs();
+
     level[1] = 1;
-    if (cont[1] > 1)
+    if (cont[1] > 1) {
         cant[1] = 1;
+    }
+
     memset(dp, -1, sizeof(dp));
-    dfs(1);
+
+    dfs();
     built_lca();
+
     int q;
     scanf("%d", &q);
+
     while (q--) {
         scanf("%d%d", &u, &v);
         int lca = query(C[u], C[v]);
         int x = cant[C[u]] + cant[C[v]] - 2 * cant[lca];
-        if (cont[lca] > 1)
+        if (cont[lca] > 1) {
             x++;
+        }
+
         printf("%d\n", po[x]);
     }
+
     return 0;
 }

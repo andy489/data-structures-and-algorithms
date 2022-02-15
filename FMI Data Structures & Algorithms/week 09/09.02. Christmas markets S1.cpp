@@ -1,53 +1,59 @@
-// github.com/andy489
-
 // https://www.hackerrank.com/contests/practice-8-sda/challenges/challenge-2303
 
-#include <iostream>
+#include <cstdio>
 #include <vector>
 #include <unordered_map>
+#include <string>
 
 using namespace std;
 
-typedef unordered_map<string, vector<string>> Graph;
-typedef unordered_map<string, bool> Table;
+int n;
+unordered_map<string, vector<string>> adj;
+unordered_map<string, bool> visited;
+vector<string> route;
 
-bool DFS(Graph &g, Table &visited, const string &start, vector<string> &res) {
+bool dfs(const string &start) {
     visited[start] = true;
-    res.push_back(start);
-    for (auto &v: g[start]) {
-        if (v == res[0]) {
-            res.push_back(res[0]);
+    route.push_back(start);
+
+    for (const string &city: adj[start]) {
+        if (city == route[0]) {
+            route.push_back(city);
             return true;
         }
-        if (!visited[v] && DFS(g, visited, v, res)) return true;
+
+        if (!visited[city] && dfs(city)) {
+            return true;
+        }
     }
-    res.pop_back();
+    route.pop_back();
     return false;
 }
 
-auto inp(int m) {
-    Graph g;
+void init(int m) {
+    char from[10], to[10];
     while (m--) {
-        string from, to;
-        cin >> from >> to;
-        g[move(from)].push_back(move(to));
+        scanf("%s %s", from, to);
+        adj[from].push_back(to);
     }
-    return g;
 }
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-
     int m;
-    cin >> m >> m;
-    auto g = inp(m);
-    string start;
-    cin >> start;
-    Table visited;
-    vector<string> res;
-    if (DFS(g, visited, start, res))
-        for (auto &city: res)
-            cout << city << ' ';
-    else cout << -1;
+    scanf("%d %d", &n, &m);
+    
+    init(m);
+
+    char start[10];
+    scanf("%s", start);
+
+    if (dfs(start)) {
+        for (const string &city: route) {
+            printf("%s ", city.c_str());
+        }
+    } else {
+        printf("-1");
+    }
+
+    return 0;
 }

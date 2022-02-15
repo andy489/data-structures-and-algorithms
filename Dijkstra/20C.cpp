@@ -76,17 +76,17 @@ void dijkstra(int start = 1) {
     }
 }
 
-void restore_path() {
+void restore_path(int start_node) {
     if (parent[n] == n) { // or id dist[n] == INF
         return void(printf("-1\n"));
     }
 
-    printf("1 ");
+    printf("%d ", start_node);
     int traversal_node = n;
     stack<int> path;
     path.push(traversal_node);
 
-    while (parent[traversal_node] != 1) {
+    while (parent[traversal_node] != start_node) {
         traversal_node = parent[traversal_node];
         path.push(traversal_node);
     }
@@ -100,6 +100,6 @@ void restore_path() {
 int main() {
     init();
     dijkstra();
-    restore_path();
+    restore_path(1);
     return 0;
 }

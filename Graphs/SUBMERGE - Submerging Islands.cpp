@@ -1,74 +1,83 @@
-// github.com/andy489
-
 // https://www.spoj.com/problems/SUBMERGE/
+// https://cp-algorithms.com/graph/cutpoints.html
 
-// Additional: https://cp-algorithms.com/graph/cutpoints.html
-
-#include <iostream>
+#include <cstdio>
 #include <vector>
 #include <list>
 #include <set>
 
 using namespace std;
 
-#define pb push_back
-
+int n;
 vector<list<int>> adj;
-vector<bool> vis;
-vector<int> tin, low, ans;
+vector<bool> visited;
+vector<int> tin, low, result;
+set<int> articulation_points;
 
 int timer;
 
-set<int> art;
-
-void dfs(int u, int par = -1) {
-    vis[u] = true;
+void tarjan(int u = 1, int par = -1) {
+    visited[u] = true;
     tin[u] = low[u] = timer++;
+
     int children = 0;
-    for (const auto &child : adj[u]) {
-        if (child == par)
+    for (int child : adj[u]) {
+        if (child == par) {
             continue;
-        if (vis[child]) {
+        }
+
+        if (visited[child]) {
             low[u] = min(low[u], tin[child]);
         } else {
-            dfs(child, u);
+            tarjan(child, u);
             low[u] = min(low[u], low[child]);
+
             if (low[child] >= tin[u] && par != -1) {
-                art.insert(u);
+                articulation_points.insert(u);
             }
+
             ++children;
         }
     }
-    if (par == -1 && children > 1)
-        art.insert(u);
+
+    if (par == -1 && children > 1) {
+        articulation_points.insert(u);
+    }
+}
+
+void init(int m) {
+    adj.assign(n + 1, list<int>());
+    visited.assign(n + 1, false);
+    tin.assign(n + 1, 0);
+    low.assign(n + 1, 0);
+
+    int u, v;
+    while (m--) {
+        scanf("%d %d", &u, &v);
+        adj[u].push_back(v);
+        adj[v].push_back(u);
+    }
 }
 
 int main() {
-    int n, m, u, v;
-    while (cin >> u >> v) {
-        if (u == 0 && v == 0)
-            break;
+    int m;
 
-        n = u, m = v;
+    scanf("%d %d", &n, &m);
+    while (m + n != 0) {
+        init(m);
 
-        adj.assign(n + 1, list<int>());
-        vis.assign(n + 1, false);
-        tin.assign(n + 1, 0);
-        low.assign(n + 1, 0);
+        tarjan();
 
-        while (m--) {
-            cin >> u >> v;
-            adj[u].pb(v);
-            adj[v].pb(u);
-        }
+        result.push_back(articulation_points.size());
+        articulation_points.clear();
 
-        dfs(1);
-
-        ans.pb(art.size());
-        art.clear();
+        scanf("%d %d", &n, &m);
     }
-    for (const auto &x:ans)
-        cout << x << '\n';
+
+    for (int articulation_points_count :result) {
+        printf("%d\n", articulation_points_count);
+    }
+
     return 0;
 }
 
@@ -87,9 +96,9 @@ int main() {
 3 2
 3 5
 0 0
- ans:
- 0
- 1
+result:
+0
+1
 
 6 7
 1 6
@@ -100,6 +109,6 @@ int main() {
 3 4
 4 1
 0 0
- ans:
- 1
+result:
+1
 */

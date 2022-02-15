@@ -3,17 +3,18 @@
 #include <cstdio>
 #include <vector>
 #include <unordered_map>
+#include <unordered_set>
 #include <string>
 
 using namespace std;
 
 int n;
 unordered_map<string, vector<string>> adj;
-unordered_map<string, bool> visited;
+unordered_set<string> visited;
 vector<string> route;
 
 bool dfs(const string &start) {
-    visited[start] = true;
+    visited.insert(start);
     route.push_back(start);
 
     for (const string &city: adj[start]) {
@@ -22,7 +23,7 @@ bool dfs(const string &start) {
             return true;
         }
 
-        if (!visited[city] && dfs(city)) {
+        if (!visited.count(city) && dfs(city)) {
             return true;
         }
     }

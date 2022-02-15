@@ -55,7 +55,7 @@ void dijkstra(int start = 1) {
         }
 
         if (dist[u] != INF) {
-            for (const auto &child:adj[u]) {
+            for (const auto &child : adj[u]) {
                 if (parent[child.first] == u) {
                     continue;
                 }

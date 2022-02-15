@@ -1,93 +1,89 @@
-// github.com/andy489
-
 // https://www.hackerrank.com/challenges/dijkstrashortreach/problem
 
 #include <cstdio>
 #include <vector>
+#include <list>
 #include <queue>
-#include <climits>
 
 using namespace std;
-typedef pair<int, int> pii;
 
-class Graph {
-    vector<vector<pii>> adj;
-    vector<bool> visited;
-    vector<int> paths;
+const int INF = 0x7fffffff;
 
-    int v;
+int n;
 
-    void clearVisited() {
-        visited.assign(v + 1, 0);
-    }
+vector<list<pair<int, int>>> adj;
+vector<bool> visited;
+vector<int> dist;
 
-public:
-    Graph(int v) : v(v) {
-        adj.assign(v + 1, vector<pii>());
-        paths.assign(v + 1, INT_MAX);
-    }
+void dijkstra(int start) {
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<>> Q;
+    Q.push({0, start});
+    dist[start] = 0;
 
-    void insert(pii v1, pii v2) {
-        adj[v1.second].push_back(v2);
-        adj[v2.second].push_back(v1);
-    }
+    while (!Q.empty()) {
+        int u = Q.top().second;
 
-    void djiikstra(int start) {
-        clearVisited();
-        priority_queue<pii, vector<pii>, greater<pii>> pq;
-        pq.push({0, start});
-        paths[start] = 0;
+        Q.pop();
+        if (visited[u]) {
+            continue;
+        }
 
-        while (!pq.empty()) {
-            int dist = pq.top().first;
-            int v = pq.top().second;
-            pq.pop();
-            if (visited[v])
+        visited[u] = true;
+
+        for (const auto &child : adj[u]) {
+            if (visited[child.first]) {
                 continue;
-            visited[v] = true;
-            for (const auto &child : adj[v]) {
-                if (visited[child.second])
-                    continue;
-                if (paths[v] + child.first < paths[child.second]) {
-                    paths[child.second] = paths[v] + child.first;
-                    pq.push({paths[child.second], child.second});
-                }
             }
-        }
 
-        for (int i = 1; i <= v; ++i) {
-            if (i != start) {
-                if (paths[i] == INT_MAX)
-                    printf("%d ", -1);
-                else
-                    printf("%d ", paths[i]);
+            int v = child.first;
+            int w = child.second;
+
+            if (dist[u] + w < dist[v]) {
+                dist[v] = dist[u] + w;
+                Q.push({dist[v], v});
             }
         }
     }
-};
+}
 
+void display_distances(int start){
+    for (int i = 1; i <= n; ++i) {
+        if (i != start) {
+            if (dist[i] == INF) {
+                printf("%d ", -1);
+            } else {
+                printf("%d ", dist[i]);
+            }
+        }
+    }
+}
 
 int main() {
     int t;
     scanf("%d", &t);
 
     while (t--) {
-        int n, m;
+        int m;
         scanf("%d %d", &n, &m);
 
-        int v1, v2, weight;
+        int u, v, w;
 
-        Graph G(n);
+        adj.assign(n + 1, list<pair<int, int>>());
+        visited.assign(n + 1, false);
+        dist.assign(n + 1, INF);
 
         while (m--) {
-            scanf("%d %d %d", &v1, &v2, &weight);
-            G.insert({weight, v1}, {weight, v2});
+            scanf("%d %d %d", &u, &v, &w);
+            adj[u].push_back({v, w});
+            adj[v].push_back({u, w});
         }
 
         int start;
         scanf("%d", &start);
 
-        G.djiikstra(start);
+        dijkstra(start);
+        display_distances(start);
+
         printf("\n");
     }
     return 0;

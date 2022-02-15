@@ -3,7 +3,6 @@
 //  Time:   O(|V|+|E|.log(|V|)) =   O((n + m).log(n))
 //  Space:  O(|V|+|E|)          =   O(n + m)
 
-
 #include <cstdio>
 #include <vector>
 #include <list>
@@ -39,7 +38,6 @@ void init() {
         adj[u].push_back({v, w});
         adj[v].push_back({u, w});
     }
-
 }
 
 void dijkstra(int start = 1) {

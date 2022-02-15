@@ -1,7 +1,8 @@
 //  http://codeforces.com/contest/20/problem/C
 
-//  Time complexity:  O(|V|+|E|log(|V|))  = O((n+m)log(n))
-//  Space:            O(|V|+|E|)          = O(n+m)
+//  Time:   O(|V|+|E|.log(|V|)) =   O((n + m).log(n))
+//  Space:  O(|V|+|E|)          =   O(n + m)
+
 
 #include <cstdio>
 #include <vector>
@@ -9,81 +10,84 @@
 #include <queue>
 #include <stack>
 
-typedef long long ll;
-#define pb push_back
-
-const ll INF = 9'223'372'036'854'775'807;
-
 using namespace std;
 
-struct Edge {
-    int v, w;
-
-    Edge(int v, int w) : v(v), w(w) {}
-};
-
 int n;
-vector<list<Edge>> adj;
-vector<int> par;
-vector<ll> dist;
+const long long INF = 0xffffffffff;
+
+vector<list<pair<int, int>>> adj;
+vector<int> parent;
+vector<long long> dist;
 
 void init() {
-    int m, u, v, w;
+    int m;
     scanf("%d %d", &n, &m);
+
     adj.resize(n + 1);
+
+    int u, v, w;
     while (m--) {
         scanf("%d %d %d", &u, &v, &w);
-        adj[u].pb({v, w});
-        adj[v].pb({u, w});
+        adj[u].push_back({v, w});
+        adj[v].push_back({u, w});
     }
+
 }
 
-void dijkstra(int s = 1) {
-    par.resize(n + 1);
-    for (int i = 1; i <= n; ++i) {
-        par[i] = i;
-    }
+void dijkstra(int start = 1) {
+    parent.resize(n + 1);
     dist.resize(n + 1, INF);
 
-    priority_queue<pair<ll, int>> Q;
-    Q.push({0LL, s});
-    dist[s] = 0;
+    for (int i = 1; i <= n; ++i) {
+        parent[i] = i;
+    }
+
+    priority_queue<pair<long long, int>, vector<pair<long long, int>>, greater<>> Q;
+    Q.push({0, start});
+    dist[start] = 0;
 
     while (!Q.empty()) {
         int u = Q.top().second;
+        Q.pop();
+
         if (u == n) {
             return;
         }
-        Q.pop();
-        if (dist[u]!=INF) {
-            for (const Edge &child:adj[u]) {
-                if(par[child.v] == u){
+
+        if (dist[u] != INF) {
+            for (const auto &child:adj[u]) {
+                if (parent[child.first] == u) {
                     continue;
                 }
-                int v = child.v;
-                int w = child.w;
+
+                int v = child.first;
+                int w = child.second;
+
                 if (dist[u] + w < dist[v]) {
                     dist[v] = dist[u] + w;
-                    Q.push({-dist[v], v});
-                    par[v] = u;
+                    Q.push({dist[v], v});
+                    parent[v] = u;
                 }
             }
         }
     }
 }
 
-void printPath(){
+void print_path() {
     if (dist[n] == INF) {
         return void(printf("-1\n"));
     }
+
     printf("1 ");
-    int t = n;
+    int traversal_node = n;
     stack<int> path;
-    path.push(t);
-    while (par[t] != 1) {
-        t = par[t];
-        path.push(t);
+    path.push(traversal_node);
+
+    while (parent[traversal_node] != 1) {
+        traversal_node = parent[traversal_node];
+        path.push(traversal_node);
     }
+
     while (!path.empty()) {
         printf("%d ", path.top());
         path.pop();
@@ -93,6 +97,6 @@ void printPath(){
 int main() {
     init();
     dijkstra();
-    printPath();
+    print_path();
     return 0;
 }

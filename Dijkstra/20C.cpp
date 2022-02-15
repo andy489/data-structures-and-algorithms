@@ -73,7 +73,7 @@ void dijkstra(int start = 1) {
     }
 }
 
-void print_path() {
+void restore_path() {
     if (dist[n] == INF) {
         return void(printf("-1\n"));
     }
@@ -97,6 +97,6 @@ void print_path() {
 int main() {
     init();
     dijkstra();
-    print_path();
+    restore_path();
     return 0;
 }

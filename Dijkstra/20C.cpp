@@ -16,6 +16,7 @@ int n;
 const long long INF = 0xffffffffff;
 
 vector<list<pair<int, int>>> adj;
+vector<bool> visited;
 vector<int> parent;
 vector<long long> dist;
 
@@ -24,6 +25,13 @@ void init() {
     scanf("%d %d", &n, &m);
 
     adj.resize(n + 1);
+    visited.resize(n + 1, false);
+    parent.resize(n + 1);
+    dist.resize(n + 1, INF);
+
+    for (int i = 1; i <= n; ++i) {
+        parent[i] = i;
+    }
 
     int u, v, w;
     while (m--) {
@@ -35,13 +43,6 @@ void init() {
 }
 
 void dijkstra(int start = 1) {
-    parent.resize(n + 1);
-    dist.resize(n + 1, INF);
-
-    for (int i = 1; i <= n; ++i) {
-        parent[i] = i;
-    }
-
     priority_queue<pair<long long, int>, vector<pair<long long, int>>, greater<>> Q;
     Q.push({0, start});
     dist[start] = 0;
@@ -54,27 +55,31 @@ void dijkstra(int start = 1) {
             return;
         }
 
-        if (dist[u] != INF) {
-            for (const auto &child : adj[u]) {
-                if (parent[child.first] == u) {
-                    continue;
-                }
+        if (visited[u]) {
+            continue;
+        }
 
-                int v = child.first;
-                int w = child.second;
+        visited[u] = true;
 
-                if (dist[u] + w < dist[v]) {
-                    dist[v] = dist[u] + w;
-                    Q.push({dist[v], v});
-                    parent[v] = u;
-                }
+        for (const auto &child : adj[u]) {
+            if (visited[child.first]) {
+                continue;
+            }
+
+            int v = child.first;
+            int w = child.second;
+
+            if (dist[u] + w < dist[v]) {
+                dist[v] = dist[u] + w;
+                Q.push({dist[v], v});
+                parent[v] = u;
             }
         }
     }
 }
 
 void restore_path() {
-    if (dist[n] == INF) {
+    if (parent[n] == n) { // or id dist[n] == INF
         return void(printf("-1\n"));
     }
 

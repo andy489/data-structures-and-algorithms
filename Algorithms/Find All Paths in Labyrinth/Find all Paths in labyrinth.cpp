@@ -1,66 +1,98 @@
-/* Даден е лабиринт, представен чрез матрица от клетки. Целта е да намерим всички пътища от стартовата позиция 
-(клетка с координати (0,0)) до финалната позиция (клетка със символ 'e'). Празните (проходими) клетки са маркирани с '-', а
-стените (непроходимите клетки) са маркирани с '*'. На първия и втория ред ще получим размерите на лабиринта. На следващите 
-редове ще получаваме клетките на лабиринта. Редът на пътищата е без значение. */
-
-// github.com/andy489
+/*
+ * Даден е лабиринт, представен чрез матрица от клетки.
+ * Целта е да намерим всички пътища от стартовата позиция
+ * (клетка с координати (0,0)) до финалната позиция
+ * (клетка със символ 'e'). Празните (проходими) клетки са
+ * маркирани с '-', а стените (непроходимите клетки) са маркирани със '*'.
+ * На първия и втория ред ще получим размерите на лабиринта.
+ * На следващите редове ще получаваме клетките на лабиринта.
+ * Редът на пътищата е без значение.
+ */
 
 #include <iostream>
 #include <vector>
 
-char** labyrinth;
-int rows, cols;
-std::vector<char> path;
+using namespace std;
 
-void readLabyrinth() {
-	std::cout << "rows: ";
-	std::cin >> rows;
-	std::cout << "cols: ";
-	std::cin >> cols;
-	// заделяме динамична памет за лабиринта
-	labyrinth = new char*[rows];
-	for (int i = 0; i < rows; i++) labyrinth[i] = new char[cols];
-	// въвеждаме лабиринта от конзолата
-	for (int i = 0; i < rows; i++)
-		for (int j = 0; j < cols; j++) std::cin >> labyrinth[i][j];
+vector<vector<char> > maze;
+
+int rows, cols;
+vector<char> path;
+
+void input_maze() {
+    cout << "rows: ";
+    cin >> rows;
+    cout << "cols: ";
+    cin >> cols;
+    cout << "maze: " << endl;
+
+    maze.resize(rows, vector<char>(cols));
+
+    for (int i = 0; i < rows; ++i) {
+        for (int j = 0; j < cols; ++j) {
+            cin >> maze[i][j];
+        }
+    }
 }
-void eraseLabyrinth() { // функция за освобождаване на динамично заделената памет за лабиринта
-	for (int i = 0; i < rows; i++) delete[] labyrinth[i];
-	delete[] labyrinth;
+
+bool out_of_border(int row, int col) {
+    return row < 0 || col < 0 || row > rows - 1 || col > cols - 1;
 }
-bool outOfLabyrinth(int row, int col) { // област на допустимите стойности
-	return (row<0 || col<0 || row>rows - 1 || col>cols - 1) ? true : false;
+
+bool is_exit(int row, int col) {
+    return maze[row][col] == 'e';
 }
-bool isExit(int row, int col) { // стигнали сме до желаната дестинация
-	return labyrinth[row][col] == 'e';
+
+bool is_passable(int row, int col) {
+    return !(maze[row][col] == 'x' || maze[row][col] == '*');
 }
-bool isPassable(int row, int col) { // ако е посетено или е стена върни лъжа, в противен случай върни истина
-	return (labyrinth[row][col] == 'X' || labyrinth[row][col] == '*') ? false : true;
+
+void print_solution() {
+    const int PATH_SIZE = path.size();
+    for (int i = 1; i < PATH_SIZE; ++i) {
+        cout << path[i];
+        if (i != PATH_SIZE - 1) {
+            cout << "->";
+        }
+    }
+
+    cout << endl;
 }
-void printSolution() { // принтираме но без първия символ, който е стартовия S
-	for (unsigned i = 1; i < path.size(); i++) std::cout << path[i];
-	std::cout << std::endl;
-}
+
 void solve(int row, int col, char direction) {
-	if (outOfLabyrinth(row, col)) return;
-	path.push_back(direction); // съхраняваме потенциално носещия решение път
-	if (isExit(row, col)) printSolution();
-	else if (isPassable(row, col)) {
-		// при разгъване
-		labyrinth[row][col] = 'X'; // маркираме като посетена клетка
-		// извикваме рекурсивно функцията		
-		solve(row, col + 1, 'R'); // надясно
-		solve(row, col - 1, 'L'); // наляво
-		solve(row + 1, col, 'D'); // надолу
-		solve(row - 1, col, 'U'); // нагоре
-		// при свиване
-		labyrinth[row][col] = '-'; // отмаркираме посетената клетка (непосетена)
-	}
-	path.pop_back(); // премахваме неоптималния път
+    if (out_of_border(row, col)) {
+        return;
+    }
+
+    path.push_back(direction);
+
+    if (is_exit(row, col)) {
+        print_solution();
+    } else if (is_passable(row, col)) {
+        maze[row][col] = 'x'; // mark visited
+
+        solve(row, col + 1, 'R');
+        solve(row, col - 1, 'L');
+        solve(row + 1, col, 'D');
+        solve(row - 1, col, 'U');
+
+        maze[row][col] = '-';
+    }
+
+    path.pop_back();
 }
+
 int main() {
-	readLabyrinth();
-	solve(0, 0, 'S');
-	eraseLabyrinth();
-	return 0;
+    input_maze();
+    solve(0, 0, 's');
+    return 0;
 }
+
+/*
+4
+4
+s - - x
+- - - x
+- - x -
+x - e -
+*/

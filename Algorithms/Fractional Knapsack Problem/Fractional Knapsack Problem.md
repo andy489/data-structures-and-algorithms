@@ -3,7 +3,7 @@ A modification of the famous knapsack problem is the so-called [continuous (or f
 
 We have **N** items, each with a certain **weight** and **price**. The knapsack has a **maximum capacity**, so we need to choose what to take in order to **maximize the value (price)** of the items in it. 
 
-Unlike the classical version of the problem where an object should either be taken in its entirety or not at all, in this version **we can take a fraction of each item**. For example, such items may be liquids or powders; unlike solid objects which (presumably) we cannot split, we’ll assume that all items under consideration can be divided in any proportion. Therefore, the weight can be thought as the maximum quantity Q of an item we are allowed to take – we can take any amount in the range [0 … Q]. Note that in this version of the problem the knapsack will always be filled completely (if the total quantity of items is greater than its capacity).
+Unlike the classical version of the problem where an object should either be taken in its entirety or not at all, in this version **we can take a fraction of each item**. For example, such items may be liquids or powders; unlike solid objects which (presumably) we cannot split, we will assume that all items under consideration can be divided in any proportion. Therefore, the weight can be thought as the maximum quantity Q of an item we are allowed to take – we can take any amount in the range [0…Q]. Note that in this version of the problem the knapsack will always be filled completely (if the total quantity of items is greater than its capacity).
 
 Items will be given on separate lines in format **price -> weight**. Round all numbers to two digits after the decimal separator.
 
@@ -24,95 +24,119 @@ Capacity: 10<br>Items: 1<br>25 -> 5|Take 100% of item with price 25 and weight 5
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <sstream>
+
+using namespace std;
 
 struct Item {
-	double price;
-	double weight;
-	double density;
-	Item(double price, double weight); // constructor with parameters
-	friend std::ostream& operator<<(std::ostream& os, const Item* item); // operator <<
+    double price;
+    double weight;
+    double density;
+
+    Item() = default;
+
+    friend ostream &operator<<(ostream &os, const Item *item) {
+        os << item->price << " -> " << item->weight << " quality/density " << item->density << '\n';
+        return os;
+    }
 };
 
-struct byDensity {
-	bool operator()(Item *a, Item *b) const {
-		return a->density > b->density;
-	}
+struct By_density {
+    bool operator()(Item a, Item b) const {
+        return a.density > b.density;
+    }
 };
 
-std::vector<Item*> inputData(size_t items) {
-	std::vector<Item*>allItems(items);
+void input_data(vector<Item> &all_items, int n) {
+    all_items.resize(n);
 
-	for (size_t i = 0; i < items; i++) {
-		double price, weight; std::cin >> price >> weight;
-		Item* newItem = new Item(price, weight);
-		allItems[i] = newItem;
-	}
-	return allItems;
+    string line;
+    cout << "Enter every item on a new line with"
+         << "price and weight separated by arrows \" -> \": "
+         << endl;
+
+    cin.ignore();
+    double cost, weight;
+    for (int i = 0; i < n; ++i) {
+        cout << "Item " << i + 1 << ": ";
+
+        getline(cin, line);
+
+        istringstream iss(line);
+
+        iss >> cost;
+        for (int i = 0; i < 4; ++i) {
+            iss.ignore();
+        }
+        iss >> weight;
+
+        Item *current_item = &all_items[i];
+
+        current_item->weight = weight;
+        current_item->price = cost;
+        current_item->density = cost / weight;
+    }
 }
 
-void releaseVectorOfPointers(std::vector<Item*> &allItems) {
-	size_t SIZE = allItems.size();
-	for (size_t i = 0; i < SIZE; i++) {
-		delete allItems[i];
-	}
-	allItems.clear();
+void print_items(const vector<Item> &all_items) {
+    const int N = all_items.size();
+
+    for (int i = 0; i < N; ++i) {
+        cout << &all_items[i];
+    }
 }
 
-void printItems(std::vector<Item*> allItems, size_t items) {
-	for (size_t i = 0; i < items; i++) {
-		std::cout << allItems[i];
-	}
-}
-
-double getMin(double a, double b) {
-	return a > b ? b : a;
+double get_min(double a, double b) {
+    return a > b ? b : a;
 }
 
 int main() {
-	std::cout << "Capacity: ";
-	double capacity; std::cin >> capacity;
-	std::cout << "Items: ";
-	size_t items; std::cin >> items;
+    cout << "Capacity: ";
+    double capacity;
+    cin >> capacity;
 
-	std::vector<Item*>allItems = inputData(items);
-	// sort descending starting from the most expensive
-	sort(allItems.begin(), allItems.end(), byDensity());
-	// printItems(allItems, items);
-	size_t indx(0); double totalPrice(0.0);
-	while (capacity > 0 && indx < items) {
-		double currItemWeight = allItems[indx]->weight;
-		double currItemPrice = allItems[indx]->price;
-		double takenQuantity = getMin(capacity, currItemWeight);
+    cout << "Items: ";
+    int items;
+    cin >> items;
 
-		double percentageQuantity = takenQuantity / currItemWeight;
+    vector<Item> all_items;
 
-		totalPrice += percentageQuantity * currItemPrice;
+    input_data(all_items, items);
 
-		capacity -= takenQuantity;
+    sort(all_items.begin(), all_items.end(), By_density());
 
-		indx++;
+    print_items(all_items);
 
-		std::cout.setf(std::ios::fixed);
-		std::cout.precision(2);
-		std::cout << "Take " << percentageQuantity * 100 << "% of item with price " << currItemPrice << " and weight "
-			<< currItemWeight<<'\n';
-	}
-	std::cout.setf(std::ios::fixed);
-	std::cout.precision(2);
-	std::cout << "Total price: " << totalPrice;
-	releaseVectorOfPointers(allItems);
-	return 0;
-}
+    int index = 0;
+    double total_price = 0.0;
 
-std::ostream & operator<<(std::ostream & os, const Item* item) {
-	os << item->price << " -> " << item->weight << " quality/density " << item->density << '\n';
-	return os;
-}
+    while (capacity > 0 && index < items) {
+        double curr_item_weight = all_items[index].weight;
+        double curr_item_cost = all_items[index].price;
 
-Item::Item(double price, double weight) {
-	this->price = price;
-	this->weight = weight;
-	this->density = price / weight;
+        double taken_quantity = get_min(capacity, curr_item_weight);
+        double percentage_quantity = taken_quantity / curr_item_weight;
+
+        total_price += percentage_quantity * curr_item_cost;
+        capacity -= taken_quantity;
+
+        index++;
+
+        cout.setf(ios::fixed);
+        cout.precision(2);
+        cout << "Take "
+             << percentage_quantity * 100
+             << "% of item with price "
+             << curr_item_cost << " and weight "
+             << curr_item_weight << endl;
+    }
+
+    cout.setf(ios::fixed);
+    cout.precision(2);
+
+    cout << "Total price: " << total_price;
+
+    return 0;
 }
 
 ```

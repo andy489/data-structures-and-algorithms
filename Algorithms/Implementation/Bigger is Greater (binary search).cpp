@@ -1,51 +1,51 @@
-// github.com/andy489
+// https://www.hackerrank.com/challenges/bigger-is-greater/problem
+// 1st solution (bs)
 
-// First Solution (binary search)
 #include <iostream>
-#include <string>
 #include <algorithm>
+
 using namespace std;
 
 int main() {
-	int q, i;
-	cin >> q;
-	while (q--) {
-		string word;
-		cin >> word;
+    int q, i;
+    cin >> q;
 
-		int length = (int)word.length(),
-			indx(-1);
+    while (q--) {
+        string word;
+        cin >> word;
 
-		char curr = word[length - 1];
+        int length = word.length();
+        int index = -1;
 
-		for (i = length - 1;i > 0;i--)
-		{
-			if (word[i] > word[i - 1])
-			{
-				indx = i - 1;
-				curr = word[indx];
-				break;
-			}
-		}
+        char curr = word[length - 1];
 
-		if (indx == -1) cout << "no answer\n";
-		else { // binary search to find the best swap
-			int l(indx + 1),
-				r(length - 1),
-				mid,ans;
-			while (l <= r) {
-				mid = l + (r - l) / 2;
-				if (word[mid] > curr) {
-					ans = mid;
-					l = mid + 1;
-				}
-				else {
-					r = mid - 1;
-				}
-			}
-			swap(word[indx], word[ans]);
-			reverse(word.begin() + indx + 1, word.end());
-			cout << word << '\n';
-		}
-	}	
+        for (i = length - 1; i > 0; --i) {
+            if (word[i] > word[i - 1]) {
+                index = i - 1;
+                curr = word[index];
+                break;
+            }
+        }
+
+        if (index == -1) cout << "no answer\n";
+        else { // binary search to find the best swap
+            int l = index + 1;
+            int r = length - 1;
+            int mid;
+            int ans;
+
+            while (l <= r) {
+                mid = l + (r - l) / 2;
+                if (word[mid] > curr) {
+                    ans = mid;
+                    l = mid + 1;
+                } else {
+                    r = mid - 1;
+                }
+            }
+            swap(word[index], word[ans]);
+            reverse(word.begin() + index + 1, word.end());
+            cout << word << endl;
+        }
+    }
 }

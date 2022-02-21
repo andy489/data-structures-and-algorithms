@@ -1,38 +1,39 @@
-// github.com/andy489
+// // https://www.hackerrank.com/challenges/larrys-array/problem
 
-#include <bits/stdc++.h>
+#include <iostream>
+
 using namespace std;
+
 const int N = 1509;
 int n;
 int a[N];
 
 void input() {
-    scanf("%d", &n);
-    for (int i = 1; i <= n; i++)
-        scanf("%d", &a[i]);
+    cin >> n;
+    for (int i = 1; i <= n; ++i) {
+        cin >> a[i];
+    }
 }
 
 void sol() {
     int K = 1;
-    for (int i = 1; i <= n; i++) {
-        for (int j = i + 1; j <= n; j++) {
+    for (int i = 1; i <= n; ++i) {
+        for (int j = i + 1; j <= n; ++j) {
             K ^= (a[i] > a[j]);
         }
     }
-    if (K) {
-        printf("YES\n");
-    }
-    else {
-        printf("NO\n");
-    }
+
+    cout << (K ? "YES" : "NO") << endl;
 }
 
 int main() {
-    int test;
-    scanf("%d", &test);
-    while (test--){
+    int tests;
+    cin >> tests;
+
+    while (tests--) {
         input();
         sol();
     }
+
     return 0;
 }

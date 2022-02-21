@@ -4,59 +4,68 @@ You are given an *unsorted array* with both *positive* and *negative* elements. 
 
 Example input|Expected output
 -|-
-8<br>2, 3, 7, 6, 8, -1, -10, 15|1
-8<br>2, 3, -7, 6, 8, 1, -10, 15|4
-4<br>1, 1, 0, -1, -2|2 
+2, 3, 7, 6, 8, -1, -10, 15|1
+2, 3, -7, 6, 8, 1, -10, 15|4
+1, 1, 0, -1, -2|2 
 
 #### Solution
 
 ```cpp
-#include <iostream> 
+#include <iostream>
+#include <sstream>
+#include <vector>
 
-int findMissing(int* arr, int n)
-{	
-	int val; // to store current array element 	 
-	int nextval; // to store next array element in current traversal
+using namespace std;
 
-	for (int i = 0; i < n; i++) 
-	{
-		/* if value is negative or greater than array size, then it cannot 
-		 be marked in array. So move to next element. */
-		if (arr[i] <= 0 || arr[i] > n) continue;
+int find_missing(vector<int> &arr) {
+    const int n = arr.size();
 
-		val = arr[i];
+    for (int i = 0; i < n; i++) {
+        int curr = arr[i];
+        // cannot mark in array range
+        if (curr <= 0 || curr > n) {
+            continue;
+        }
 
-		/* traverse the array until we reach at an element which 
-		 is already marked or which could not be marked. */
-		while (arr[val - 1] != val) 
-		{
-			nextval = arr[val - 1];
-			arr[val - 1] = val;
-			val = nextval;
-			if (val <= 0 || val > n) break;
-		}
-	}
+        /* traverse the array until we reach at an element which
+         is already marked or which could not be marked. */
+        while (arr[curr - 1] != curr) {
+            int next = arr[curr - 1];
+            arr[curr - 1] = curr;
+            curr = next;
+            if (curr <= 0 || curr > n) {
+                break;
+            }
+        }
+    }
 
-	/* find first array index which is not marked which is also the 
-	 smallest positive missing number. */
-	for (int i = 0; i < n; i++) 
-	{
-		if (arr[i] != i + 1) 
-		{
-			return i + 1;
-		}
-	}
+    /* find first array index which is not marked which is also the
+     smallest positive missing number. */
+    for (int i = 0; i < n; i++) {
+        if (arr[i] != i + 1) {
+            return i + 1;
+        }
+    }
 
-	/* if all indices are marked, then smallest missing positive number is array size + 1. */
-	return n + 1;
+    /* if all indices are marked, then smallest missing positive number is array size + 1. */
+    return n + 1;
 }
 
-int main()
-{
-	int arr[] = { 2, 3, 7, 6, 8, -1, -10, 15 };
-	int n = sizeof(arr) / sizeof(arr[0]);
-	std::cout << findMissing(arr, n);
-	return 0;
+int main() {
+    string line;
+    getline(cin, line);
+    istringstream iss(line);
+
+    vector<int> arr;
+
+    int num;
+    while (iss >> num) {
+        arr.push_back(num);
+        iss.ignore();
+    }
+
+    cout << find_missing(arr);
+    return 0;
 }
 
 ```

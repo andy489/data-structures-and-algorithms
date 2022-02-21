@@ -1,45 +1,56 @@
-// github.com/andy489
+// https://www.hackerrank.com/challenges/the-grid-search/problem
+// 2nd solution
 
-// Second Solution
 #include <iostream>
 #include <vector>
+
 using namespace std;
 
-int q, R, C, r, c, i, j,a,b;
+const int MAX = 1000;
+
 vector<vector<char>> G, g;
 
-void inputGrid(int r, int c, vector<vector<char>>& grid){
-    for (i = 0;i < r;++i){
-        for (j = 0;j < c;++j){
+void input_grid(int r, int c, vector<vector<char>> &grid) {
+    for (int i = 0; i < r; ++i) {
+        for (int j = 0; j < c; ++j) {
             cin >> grid[i][j];
         }
     }
 }
 
-bool fingerPrint(int x, int y){
-    for(a=0;a<r;++a){
-        for(b=0;b<c;++b){
-            if(g[a][b]!=G[x+a][y+b]) return false;
+bool finger_print(int x, int y, int r, int c) {
+    for (int a = 0; a < r; ++a) {
+        for (int b = 0; b < c; ++b) {
+            if (g[a][b] != G[x + a][y + b]) return false;
         }
-    }return true;
+    }
+    return true;
 }
 
-int main(){
-    cin >> q;L:
-    while (q--){
-        bool isPresent(false);
-        cin >> R >> C;
-        G.assign(1000, vector<char>(1000));
-        inputGrid(R, C, G);
-        cin >> r >> c;
-        g.assign(1000, vector<char>(1000));
-        inputGrid(r, c, g);
+int main() {
+    int q;
+    cin >> q;
 
-        for (i = 0;i < R - r + 1;++i){
-            for (j = 0;j < C - c + 1;++j){
-                isPresent |= fingerPrint(i, j);                
+    int R, C, r, c;
+    while (q--) {
+        bool is_present = false;
+        cin >> R >> C;
+
+        G.assign(MAX, vector<char>(MAX));
+        input_grid(R, C, G);
+
+        cin >> r >> c;
+        g.assign(MAX, vector<char>(MAX));
+        input_grid(r, c, g);
+
+        for (int i = 0; i < R - r + 1; ++i) {
+            for (int j = 0; j < C - c + 1; ++j) {
+                is_present |= finger_print(i, j, r, c);
             }
         }
-        cout<<(isPresent?"YES":"NO")<<'\n';        
-    }return 0;
+
+        cout << (is_present ? "YES" : "NO") << endl;
+    }
+
+    return 0;
 }

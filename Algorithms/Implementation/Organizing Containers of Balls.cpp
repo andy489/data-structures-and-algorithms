@@ -1,22 +1,32 @@
-// github.com/andy489
+// https://www.hackerrank.com/challenges/organizing-containers-of-balls/problem
 
 #include <iostream>
 #include <vector>
 #include <algorithm>
+
 using namespace std;
-int main(){
-    int q, n, i, j, x;
+
+int main() {
+    int q, n, x;
     cin >> q;
-    while (q--){cin >> n;
-        vector<int>a(n), b(n);
-        for (i = 0;i < n;++i){
-            for (j = 0;j < n;++j){cin >> x;
+
+    while (q--) {
+        cin >> n;
+
+        vector<int> a(n);
+        vector<int> b(n);
+
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                cin >> x;
                 a[i] += x; //count of balls in each container
                 b[j] += x; //count of balls in each type
             }
         }
+
         sort(a.begin(), a.end());
         sort(b.begin(), b.end());
-        a==b?cout<<"Possible\n":cout<<"Impossible\n";
+
+        cout << (a == b ? "Possible" : "Impossible") << endl;
     }
 }

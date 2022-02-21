@@ -1,24 +1,34 @@
-// github.com/andy489
+// https://www.hackerrank.com/challenges/lisa-workbook/problem
 
-#include <stdio.h>
+#include <iostream>
+
+using namespace std;
 
 int main() {
     int n, k;
-    scanf("%d %d", &n, &k);
-    int a[n], i, j;
-    for (i = 0; i < n; ++i) {
-        scanf("%d", a + i);
+    cin >> n >> k;
+
+    int a[n];
+
+    for (int i = 0; i < n; ++i) {
+        cin >> a[i];
     }
-    int c = 0, pg = 1;
-    for (i = 0; i < n; ++i) {
-        for (j = 1; j <= a[i]; ++j) {
-            if (j == pg)
+
+    int c = 0;
+    int pg = 1;
+
+    for (int i = 0; i < n; ++i) {
+        for (int j = 1; j <= a[i]; ++j) {
+            if (j == pg) {
                 ++c;
-            if (j % k == 0 && j < a[i])
+            }
+            if (j % k == 0 && j < a[i]) {
                 ++pg;
+            }
         }
         ++pg;
     }
-    printf("%d", c);
+
+    cout << c;
     return 0;
 }

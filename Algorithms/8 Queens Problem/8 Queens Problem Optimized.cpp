@@ -1,67 +1,72 @@
-// github.com/andy489
-
 #include <iostream>
 #include <set>
-#define size 8
 
-bool chessboard[size][size];
+using namespace std;
 
-std::set<int> attackedCols;
-std::set<int> attackedLeftDiagonals;
-std::set<int> attackedRightDiagonals;
+const int SIZE = 8;
 
-unsigned count;
+bool board[SIZE][SIZE];
 
-bool canPlaceQueen(int row, int col){
-	bool positionOccupied =
-		attackedCols.count(col) ||
-		attackedLeftDiagonals.count(col - row) ||
-		attackedRightDiagonals.count(row + col);
-	return !positionOccupied;
-}
-void markAllAttackedPositions(int row, int col){
-	attackedCols.insert(col);
-	attackedLeftDiagonals.insert(col-row);
-	attackedRightDiagonals.insert(row+col);
-	chessboard[row][col] = true;
-}
-void unmarkAllAttackedPositions(int row, int col){	
-	attackedCols.erase(col);
-	attackedLeftDiagonals.erase(col - row);
-	attackedRightDiagonals.erase(row + col);
-	chessboard[row][col] = false;
-}
-void printSolution(){
-	count++;
-	int row,col;
-	for (row = 0; row < size; row++){
-		for (col = 0; col < size; col++){
-			if (chessboard[row][col] == 1) std::cout << "Q ";
-			else std::cout << "- ";
-		}
-		std::cout << '\n';
-	}
-	std::cout << '\n';
+set<int> attacked_cols;
+set<int> attacked_left_diagonals;
+set<int> attacked_right_diagonals;
+
+int cnt;
+
+bool can_place_queen(int row, int col) {
+    bool position_occupied = attacked_cols.count(col) ||
+                             attacked_left_diagonals.count(col - row) ||
+                             attacked_right_diagonals.count(row + col);
+    return !position_occupied;
 }
 
-void putQueens(int row)
-{
-	if (row == size){
-		printSolution();		
-	}
-	else{ int col;
-		for (col = 0; col < size; col++){
-			if (canPlaceQueen(row, col)){
-				markAllAttackedPositions(row, col);
-				putQueens(row + 1);
-				unmarkAllAttackedPositions(row, col);
-			}
-		}
-	}
+void mark_all_attacked_positions(int row, int col) {
+    attacked_cols.insert(col);
+    attacked_left_diagonals.insert(col - row);
+    attacked_right_diagonals.insert(row + col);
+    board[row][col] = true;
 }
 
-int main(){
-	putQueens(0);
-	std::cout << "Total count: " << count << "\n";
-	return 0;
+void unmark_all_attacked_positions(int row, int col) {
+    attacked_cols.erase(col);
+    attacked_left_diagonals.erase(col - row);
+    attacked_right_diagonals.erase(row + col);
+    board[row][col] = false;
+}
+
+void print_solution() {
+    cnt++;
+    int row, col;
+    for (row = 0; row < SIZE; row++) {
+        for (col = 0; col < SIZE; col++) {
+            if (board[row][col] == 1) {
+                cout << "Q ";
+            } else {
+                cout << "- ";
+            }
+        }
+        cout << endl;
+    }
+    cout << endl;
+}
+
+void put_queens(int row) {
+    if (row == SIZE) {
+        print_solution();
+    } else {
+        int col;
+        for (col = 0; col < SIZE; col++) {
+            if (can_place_queen(row, col)) {
+                mark_all_attacked_positions(row, col);
+                put_queens(row + 1);
+                unmark_all_attacked_positions(row, col);
+            }
+        }
+    }
+}
+
+int main() {
+    put_queens(0);
+    cout << "Total count: " << cnt << endl;
+    return 0;
 }

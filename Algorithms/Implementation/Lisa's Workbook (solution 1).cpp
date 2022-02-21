@@ -1,15 +1,20 @@
-// github.com/andy489
+// https://www.hackerrank.com/challenges/lisa-workbook/problem
 
-#include <stdio.h>
+#include <iostream>
+
+using namespace std;
 
 int main() {
     int n, k;
-    scanf("%d %d", &n, &k);
-    int p = 1, c = 0, i, j;
-    for(i=0;i<n;++i){
+    cin >> n >> k;
+
+    int p = 1;
+    int c = 0;
+    for (int i = 0; i < n; ++i) {
         int t;
-        scanf("%d", &t);
-        for (j = 0; j < t; ++j) {
+        cin >> t;
+
+        for (int j = 0; j < t; ++j) {
             int q = p + j / k;
             if (q == j + 1) {
                 ++c;
@@ -17,6 +22,7 @@ int main() {
         }
         p += (t + k - 1) / k;
     }
-    printf("%d", c);
+
+    cout << c << endl;
     return 0;
 }

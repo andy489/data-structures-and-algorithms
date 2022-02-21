@@ -1,19 +1,22 @@
-// github.com/andy489
+// https://www.hackerrank.com/challenges/bigger-is-greater/problem
+// 2nd solution (build-in func)
 
-// Second Solution (built-in function)
 #include <iostream>
-#include <string>
 #include <algorithm>
+
 using namespace std;
+
 int main() {
     int t;
-    cin>>t;
+    cin >> t;
+
     string w;
-    while(t--) {
+    while (t--) {
         cin >> w;
-        if (next_permutation(w.begin(), w.end()))
+        if (next_permutation(w.begin(), w.end())) {
             cout << w << '\n';
-        else
+        } else {
             cout << "no answer\n";
+        }
     }
 }

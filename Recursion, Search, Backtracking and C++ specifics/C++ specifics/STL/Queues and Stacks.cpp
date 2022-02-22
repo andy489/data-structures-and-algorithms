@@ -1,26 +1,32 @@
-// github.com/andy489
+// https://www.hackerrank.com/challenges/30-queues-stacks/problem
 
 #include <iostream>
 #include <queue>
 #include <stack>
+
 using namespace std;
 
 class Solution {
-    //Write your code here
+    // Write your code here
     queue<char>q;
     stack<char>s;
+    
     public:
+
     void pushCharacter(char c){
         s.push(c);
     }
+
     void enqueueCharacter(char c){
         q.push(c);
     }
+
     char popCharacter(){
         char c=s.top();
         s.pop();
         return c;
     }
+
     char dequeueCharacter(){
         char c=q.front();
         q.pop();

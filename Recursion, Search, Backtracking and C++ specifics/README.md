@@ -1,0 +1,18 @@
+# C++ Specifics
+
+Subdomain|Challenge|Difficulty|Solution
+:-:|:-:|:-:|:-:|
+C++>STL|[Deque-STL](https://www.hackerrank.com/challenges/deque-stl/problem)|50|[Solution (linear).cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/C%2B%2B/STL/Deque-STL%20(linear).cpp)
+C++>STL|[Phone Book](https://www.hackerrank.com/challenges/30-dictionaries-and-maps/problem)|30|[Solution.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/C%2B%2B/STL/Phone%20Book.cpp)
+C++>STL|[2D Arrays](https://www.hackerrank.com/challenges/30-2d-arrays/problem)| 30 |[Solution.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/C%2B%2B/STL/2D%20Arrays.cpp)
+C++>STL|[Queues and Stacks](https://www.hackerrank.com/challenges/30-queues-stacks/problem)| 30 |[Solution](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/C%2B%2B/STL/Queues%20and%20Stacks.cpp)
+C++>STL|[Lower Bound-STL](https://www.hackerrank.com/challenges/cpp-lower-bound/problem)| 15|[Solution 1 (array).cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/C%2B%2B/STL/Lower%20Bound%20(array).cpp)<br>[Solution 2 (vector).cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/C%2B%2B/STL/Lower%20Bound%20(vector).cpp)
+C++>Linked List| [Insert Function](https://www.hackerrank.com/challenges/30-linked-list/problem)| 30 |[Solution.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/C%2B%2B/Linked%20List/Insert%20Function.cpp)
+C++>Linked List | [Remove Duplicates](https://www.hackerrank.com/challenges/30-linked-list-deletion/problem)| 30 |[Solution.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/C%2B%2B/Linked%20List/Remove%20Duplicates.cpp)
+C++>Exceptions | [String to Integer](https://www.hackerrank.com/challenges/30-exceptions-string-to-integer/problem)|15|[Solution.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/C%2B%2B/Exceptions/String%20to%20Integer.cpp)
+C++>Exceptions | [More Exceptions](https://www.hackerrank.com/challenges/30-more-exceptions/problem) |30|[Solution.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/C%2B%2B/Exceptions/More%20Exceptions.cpp)
+C++>BST| [Binary Search Trees](https://www.hackerrank.com/challenges/30-binary-search-trees/problem)|30|[Solution.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/C%2B%2B/BST/Binary%20Search%20Trees.cpp)
+C++>BST| [Level Order Traversal](https://www.hackerrank.com/challenges/30-binary-trees/copy-from/139201508)|30|[Solution.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/C%2B%2B/BST/Level%20Order%20Traversal.cpp)
+C++>Running Time and Complexity | [Is Prime](https://www.hackerrank.com/challenges/30-running-time-and-complexity/copy-from/143047512)|30|[Solution.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/C%2B%2B/Running%20Time%20and%20Complexity/Is%20Prime.cpp)
+C++>RegEx,Patterns|[e-mail](https://www.hackerrank.com/challenges/30-regex-patterns/problem)|30|[Solution.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/C%2B%2B/RegExp%2C%20Patterns/e-mail.cpp)
+C++>Bitwise|[Bitwise AND](https://www.hackerrank.com/challenges/30-bitwise-and/problem)|30|[Solution.cpp](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/C%2B%2B/Bitwise/Bitwise%20AND.cpp)<br>[Explanation.md](https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/C%2B%2B/Bitwise/Bitwise%20AND%20Explanation.md)

@@ -587,7 +587,7 @@ int main() {
 
 Примери:
 <p align="center">
-  <img width="940" style="border: 2px solid gray"
+  <img width="1020" style="border: 2px solid gray"
   src="https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Recursive%20Algorithms%20and%20Backtracking%2002.png" alt="еxamples for task 8" />
 </p>
 

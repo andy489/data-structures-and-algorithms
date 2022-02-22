@@ -1,7 +1,7 @@
 # Recursion
 
 <p align="center">
-  <img width="680"
+  <img width="480"
   src="https://github.com/andy489/Data_Structures_and_Algorithms_CPP/blob/master/assets/Recursive%20Algorithms%20and%20Backtracking%2001.png" alt="Example for recursion in nature" />
 </p>
 

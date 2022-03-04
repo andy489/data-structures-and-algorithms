@@ -15,11 +15,14 @@
   - https://devskill.com/CodingProblems
   - https://open.kattis.com/problems
   - https://action.informatika.bg
+<<<<<<< HEAD
   – https://cses.fi/problemset
   – http://poj.org/problemlist
   – https://judge.openfmi.net
   – https://contest.yandex.com/contest-list
   – https://dmoj.ca/problems
+=======
+>>>>>>> a674b5087f154dceb508862394b61ae15b13c37f
 
 #### Homeworks 2018-2019:
 - https://www.hackerrank.com/practice-1-si

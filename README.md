@@ -3,8 +3,8 @@ FMI Data Structures and Algorithms 2019-2020
 [Week 01](#fmi-week-01)
 [Week 02](#fmi-week-02)
 
-N|local N|Topics|Problem Statement|Solution|
-:-|:-|:-|:-|:-
+N|local N|Topics|Problem Statement|Solution &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
+:-|:-|:-|:-|-:
 [<a name="fmi-week-02">**Week 02**</a>](#fmi-week-02)|||
 040|26|Searching|[Upper–Lower Bounds](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/1%20%E2%80%93%20FMI%20Data%20Structures%20%26%20Algorithms/02-week/02%E2%80%9326%20Upper%E2%80%93lower%20bound.pdf)|[![](https://img.shields.io/badge/Solution-C%2B%2B-red)](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/1%20%E2%80%93%20FMI%20Data%20Structures%20%26%20Algorithms/02-week/02%E2%80%9326%20Upper%E2%80%93lower%20bound.cpp)
 039|25|Searching|[Office Printers](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/1%20%E2%80%93%20FMI%20Data%20Structures%20%26%20Algorithms/02-week/02%E2%80%9325%20Office%20printers.pdf)|[![](https://img.shields.io/badge/Solution-C%2B%2B-red)](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/1%20%E2%80%93%20FMI%20Data%20Structures%20%26%20Algorithms/02-week/02%E2%80%9325%20Office%20printers.cpp)

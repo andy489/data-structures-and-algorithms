@@ -13,7 +13,7 @@ void encode(const string &pass, vector<int> &reps, vector<char> &chars) {
     reps.reserve(SIZE); // stock up to avoid frequent resize
     chars.reserve(SIZE); // stock up
 
-    for (int i = 0; i < SIZE; i++) {
+    for (int i = 0; i < SIZE; ++i) {
         int curr_count = 0;
         char curr = pass[i];
         

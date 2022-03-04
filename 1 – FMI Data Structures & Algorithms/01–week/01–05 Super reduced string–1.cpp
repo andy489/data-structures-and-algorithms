@@ -29,7 +29,8 @@ int main() {
                 ans_str_len -= 2;
             }
         }
-        ans_str_len++;
+        
+        ++ans_str_len;
     }
     cout << (ans_str_len ? ans.substr(0, ans_str_len) : "Empty String");
 }

@@ -52,6 +52,7 @@ int main() {
                 cout << "NO";
                 return 0;
             }
+            
             odd_cnt_char = true;
         }
     }

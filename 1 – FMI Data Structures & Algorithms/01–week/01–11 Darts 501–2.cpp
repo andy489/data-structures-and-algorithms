@@ -23,7 +23,7 @@ int main() {
 
     p.push_back(25); // outer circle
 
-    for (int i = 1; i <= 20; i++) {
+    for (int i = 1; i <= 20; ++i) {
         p.push_back(2 * i); // points from double circle
     }
     

@@ -1,11 +1,11 @@
 FMI Data Structures and Algorithms 2019-2020
 :-
-<a href="fmi-week-01">Week 01</a>
+[Week 01](#fmi-week-01)
 
 
 N|local N|Topics|Problem Statement|Solution|
 :-|:-|:-|:-|:-
-[**Week 01**](#fmi-week-01)|||
+[<a name="fmi-week-01">**Week 01**</a>](#fmi-week-01)|||
 014|14|Counting, Stripe Interview|[First Missing Positive](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/1%20%E2%80%93%20FMI%20Data%20Structures%20%26%20Algorithms/01%E2%80%93week/01%E2%80%9314%20First%20Missing%20Positive.pdf)|[Solution.cpp](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/1%20%E2%80%93%20FMI%20Data%20Structures%20&%20Algorithms/01%E2%80%93week/01%E2%80%9314%20First%20Missing%20Positive.cpp)
 013|13|Implementation, Recursion|[Palindrome Sentence Check](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/1%20%E2%80%93%20FMI%20Data%20Structures%20%26%20Algorithms/01%E2%80%93week/01%E2%80%9313%20Palindrome%20sentence%20check.pdf)|[Solution.cpp](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/1%20%E2%80%93%20FMI%20Data%20Structures%20%26%20Algorithms/01%E2%80%93week/01%E2%80%9313%20Palindrome%20sentence%20check.cpp)
 012|12|Binary Search|[Climbing The Leaderboard](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/1%20%E2%80%93%20FMI%20Data%20Structures%20%26%20Algorithms/01%E2%80%93week/01%E2%80%9312%20Climbing%20the%20leaderboard.pdf)|[Solution.cpp](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/1%20%E2%80%93%20FMI%20Data%20Structures%20&%20Algorithms/01%E2%80%93week/01%E2%80%9312%20Climbing%20the%20leaderboard%20(bin%20search).cpp)

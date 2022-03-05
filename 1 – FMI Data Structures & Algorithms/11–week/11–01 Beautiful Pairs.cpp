@@ -6,7 +6,7 @@
 
 using namespace std;
 
-int beautifulPairs(const vector<int> &arr, multiset<int> &ms) {
+int beautiful_airs(const vector<int> &arr, multiset<int> &ms) {
     int pairs_cnt = 0;
 
     for (int e:arr) {
@@ -41,7 +41,7 @@ int main() {
         ms.insert(e);
     }
 
-    cout << beautifulPairs(arr, ms);
+    cout << beautiful_pairs(arr, ms);
 
     return 0;
 }

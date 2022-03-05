@@ -17,7 +17,7 @@
 [Week 14](#fmi-week-14)
 [Week 15](#fmi-week-15)
 
-&nbsp; &nbsp; &nbsp; &nbsp; N &nbsp; &nbsp; &nbsp; &nbsp;|local|Topics|Problem Statement|&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Solution &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
+&nbsp; &nbsp; &nbsp; &nbsp; N &nbsp; &nbsp; &nbsp; &nbsp;|local|Topics|Problem Statement|&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Solution &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
 :-|:-|:-|:-|-:
 [<a name="fmi-week-15">**Week 15**</a>](#fmi-week-15)||[Back to Content](#content)|
 167|05|BFS, Graph, Traversals|[Shortest Tour](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/1%20%E2%80%93%20FMI%20Data%20Structures%20%26%20Algorithms/15%E2%80%932020-01-24%E2%80%93exam/05%20Shortest%20tour.pdf)|[![](https://img.shields.io/badge/Solution-C%2B%2B-red)](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/1%20%E2%80%93%20FMI%20Data%20Structures%20%26%20Algorithms/15%E2%80%932020-01-24%E2%80%93exam/05%20Shortest%20tour%20(bfs).cpp)

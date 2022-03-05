@@ -1,5 +1,3 @@
-### 2019-2020 links:<br>
-
 #### Data Structures and Algorithms:
 - Competitive programming algorithms: 
   - http://e-maxx.ru/algo/ 

@@ -127,20 +127,31 @@ int gauss(vector<vector<long double> > &_a, vector<long double> &ans) {
     }
 
     ans.assign(MM, 0);
-    for (int i = 0; i < MM; ++i)
-        if (where[i] != -1)
+    
+    for (int i = 0; i < MM; ++i) {
+        if (where[i] != -1) {
             ans[i] = _a[where[i]][MM] / _a[where[i]][i];
+        }
+    }
+    
     for (int i = 0; i < NN; ++i) {
         long double sum = 0;
-        for (int j = 0; j < MM; ++j)
+        
+        for (int j = 0; j < MM; ++j) {
             sum += ans[j] * _a[i][j];
-        if (abs(sum - _a[i][MM]) > EPS)
+        }
+        
+        if (abs(sum - _a[i][MM]) > EPS) {
             return 0;
+        }
     }
 
-    for (int i = 0; i < MM; ++i)
-        if (where[i] == -1)
+    for (int i = 0; i < MM; ++i) {
+        if (where[i] == -1) {
             return INF;
+        }
+    }
+    
     return 1;
 }
 

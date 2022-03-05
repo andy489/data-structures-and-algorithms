@@ -15,6 +15,3 @@ DoublyLinkedListNode *reverse(DoublyLinkedListNode *head) {
 
     return newHead;
 }
-
-
-

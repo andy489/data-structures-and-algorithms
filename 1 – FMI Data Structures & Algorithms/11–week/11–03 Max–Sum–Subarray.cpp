@@ -10,7 +10,6 @@ int main() {
     int n;
     cin >> n;
 
-
     int best_sum = 0;
     int curr_sum = 0;
 

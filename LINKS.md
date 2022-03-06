@@ -21,6 +21,7 @@
   - https://judge.openfmi.net
   - https://contest.yandex.com/contest-list
   - https://dmoj.ca/problems
+  - https://skelet.ludost.net/DAA/problems/
 
 #### Homeworks 2018-2019:
 - https://www.hackerrank.com/practice-1-si

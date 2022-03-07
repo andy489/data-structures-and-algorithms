@@ -1,34 +1,19 @@
-// https://leetcode.com/problems/add-two-numbers
+// https://leetcode.com/problems/two-sum/
 
 class Solution {
 public:
-    ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) {
-        ListNode *start = new ListNode(0);
-        ListNode *res = start;
-
-        int carry = 0;
-
-        while (l1 || l2) {
-            int sum = carry;
-            if (l1) {
-                sum += l1->val;
-                l1 = l1->next;
+    vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int, int> indices;
+        
+        const int SIZE = nums.size();
+        for (int i = 0; i < SIZE; ++i) {
+            if (indices.count(target - nums[i])) {
+                return {indices[target - nums[i]], i};
             }
-            if (l2) {
-                sum += l2->val;
-                l2 = l2->next;
-            }
-
-            carry = sum / 10;
             
-            start->next = new ListNode(sum % 10);
-            start = start->next;
+            indices[nums[i]] = i;
         }
         
-        if (carry) {
-            start->next = new ListNode(carry);
-        }
-
-        return res->next;
+        return {-1, -1};
     }
 };

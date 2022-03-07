@@ -1,3 +1,5 @@
+## Practice
+
 N|Problem|Tags|Solution
 :-|:-|:-|-:
 01|[Agrain](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/5%20%E2%80%93%20DAA/01%20%E2%80%93%20Agrain.pdf)|Searching|[Solution.cpp](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/5%20%E2%80%93%20DAA/01%20%E2%80%93%20Agrain.cpp)<br>[Editorial.pdf](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/5%20%E2%80%93%20DAA/01%20%E2%80%93%20Agrain%20(editorial).pdf)
@@ -8,3 +10,21 @@ N|Problem|Tags|Solution
 06|[Underground](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/5%20%E2%80%93%20DAA/06%20%E2%80%93%20Underground.pdf)|Graph|[Solution.cpp](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/5%20%E2%80%93%20DAA/06%20%E2%80%93%20Underground.cpp)
 07|[Beads](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/5%20%E2%80%93%20DAA/07%20%E2%80%93%20Beads.pdf)|DP|[Solution.cpp](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/5%20%E2%80%93%20DAA/07%20%E2%80%93%20Beads.cpp)
 08|[Ledges](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/5%20%E2%80%93%20DAA/08%20%E2%80%93%20Ledges.pdf)|DP|[Solution.cpp](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/5%20%E2%80%93%20DAA/08%20%E2%80%93%20Ledges.cpp)
+
+## Control Test 01
+
+N|Problem|Tags|Solution
+:-|:-|:-|-:
+01|[Skale](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/5%20%E2%80%93%20DAA/Control%20Test%202021-02-11/01%20%E2%80%93%20Skale.pdf)|Searching|[Solution–1.cpp](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/5%20%E2%80%93%20DAA/Control%20Test%202021-02-11/01%20%E2%80%93%20Skale%E2%80%931.cpp)<br>[Solution–2.cpp](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/5%20%E2%80%93%20DAA/Control%20Test%202021-02-11/01%20%E2%80%93%20Skale%E2%80%932.cpp)
+02|[Fans](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/5%20%E2%80%93%20DAA/Control%20Test%202021-02-11/02%20%E2%80%93%20Fans.pdf)|Searching|[Solution–1.cpp](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/5%20%E2%80%93%20DAA/Control%20Test%202021-02-11/02%20%E2%80%93%20Fans%E2%80%931.cpp)<br>[Solution–2.cpp](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/5%20%E2%80%93%20DAA/Control%20Test%202021-02-11/02%20%E2%80%93%20Fans%E2%80%932.cpp)
+03|[Early Shoppint](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/5%20%E2%80%93%20DAA/Control%20Test%202021-02-11/03%20%E2%80%93%20Early%20shopping.pdf)|graph, dfs, traversals|[Solution–1.cpp](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/5%20%E2%80%93%20DAA/Control%20Test%202021-02-11/03%20%E2%80%93%20Early%20shopping%E2%80%931.cpp)<br>[Solution–2.cpp](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/5%20%E2%80%93%20DAA/Control%20Test%202021-02-11/03%20%E2%80%93%20Early%20shopping%E2%80%932.cpp)
+04|[Eliot](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/5%20%E2%80%93%20DAA/Control%20Test%202021-02-11/04%20%E2%80%93%20Eliot.pdf)|Implementation, Sorting|[Solution–1.cpp](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/5%20%E2%80%93%20DAA/Control%20Test%202021-02-11/04%20%E2%80%93%20Eliot%E2%80%931.cpp)<br>[Solution–2.cpp](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/5%20%E2%80%93%20DAA/Control%20Test%202021-02-11/04%20%E2%80%93%20Eliot%E2%80%932.cpp)
+
+## Control Test 02
+
+N|Problem|Tags|Solution
+:-|:-|:-|-:
+01|[Graph Queries](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/5%20%E2%80%93%20DAA/Control%20Test%202021-02-12/01%20%E2%80%93%20Graph%20queries.pdf)|Graph, Queries|[Silution–1.cpp](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/5%20%E2%80%93%20DAA/Control%20Test%202021-02-12/01%20%E2%80%93%20Graph%20queries%E2%80%931.cpp)<br>[Solution–2.cpp](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/5%20%E2%80%93%20DAA/Control%20Test%202021-02-12/01%20%E2%80%93%20Graph%20queries%E2%80%932.cpp)
+02|[Hierarchy](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/5%20%E2%80%93%20DAA/Control%20Test%202021-02-12/02%20%E2%80%93%20Hierarchy.pdf)|Graph|[Solution.cpp](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/5%20%E2%80%93%20DAA/Control%20Test%202021-02-12/02%20%E2%80%93%20Hierarchy%20(dsu).cpp)
+03|[Typist](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/5%20%E2%80%93%20DAA/Control%20Test%202021-02-12/03%20%E2%80%93%20%D0%A2ypist.pdf)|DP, Implementation|[Solution–1 (dp).cpp](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/5%20%E2%80%93%20DAA/Control%20Test%202021-02-12/03%20%E2%80%93%20Typist%E2%80%931%20(dp).cpp)<br>[Solution–2 (fibonacci).cpp](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/5%20%E2%80%93%20DAA/Control%20Test%202021-02-12/03%20%E2%80%93%20Typist%E2%80%932%20(fibonacci).cpp)
+04|[Starcraft 2](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/5%20%E2%80%93%20DAA/Control%20Test%202021-02-12/04%20%E2%80%93%20Starcraft%202.pdf)|DP|[Solution–2.cpp](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/5%20%E2%80%93%20DAA/Control%20Test%202021-02-12/04%20%E2%80%93%20Starcraft%202.cpp)

@@ -1,21 +1,12 @@
 
-[<a name="content">**FMI Data Structures and Algorithms 2019-2020**</a>](#content)
-:-
-[Week 01](#fmi-week-01)
-[Week 02](#fmi-week-02)
-[Week 03](#fmi-week-03)
-[Week 04](#fmi-week-04)
-[Week 05](#fmi-week-05)
-[Week 06](#fmi-week-06)
-[Week 07](#fmi-week-07)
-[Week 08](#fmi-week-08)
-[Week 09](#fmi-week-09)
-[Week 10](#fmi-week-10)
-[Week 11](#fmi-week-11)
-[Week 12](#fmi-week-12)
-[Week 13](#fmi-week-13)
-[Week 14](#fmi-week-14)
-[Week 15](#fmi-week-15)
+[<a name="content">**FMI Data Structures and Algorithms 2019-2020 I**</a>](#content)|Content|||
+:-|:-|:-|:-
+part I|part II|part III|other|
+[Week 01](#fmi-week-01)|[Week 06](#fmi-week-06)|[Week 11](#fmi-week-11)|[Data Structures](https://github.com/andy489/Data_Structures_and_Algorithms/tree/master/2%20%E2%80%93%20Data%20Structures)
+[Week 02](#fmi-week-02)|[Week 07](#fmi-week-07)|[Week 12](#fmi-week-12)|[Algorithms](https://github.com/andy489/Data_Structures_and_Algorithms/tree/master/3%20%E2%80%93%20Algorithms)
+[Week 03](#fmi-week-03)|[Week 08](#fmi-week-08)|[Week 13](#fmi-week-13)|[DSA Project](https://github.com/andy489/Data_Structures_and_Algorithms/tree/master/4%20%E2%80%93%20DSA%20project)
+[Week 04](#fmi-week-04)|[Week 09](#fmi-week-09)|[Week 14](#fmi-week-14)|[DAA](https://github.com/andy489/Data_Structures_and_Algorithms/tree/master/5%20%E2%80%93%20DAA)
+[Week 05](#fmi-week-05)|[Week 10](#fmi-week-10)|[Week 15](#fmi-week-15)|[Practice](https://github.com/andy489/Data_Structures_and_Algorithms/tree/master/6%20%E2%80%93%20Practice)
 
 &nbsp; &nbsp; &nbsp; &nbsp; N &nbsp; &nbsp; &nbsp; &nbsp;|local|Topics|Problem Statement|&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Solution &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
 :-|:-|:-|:-|-:

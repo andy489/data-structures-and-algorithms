@@ -8,7 +8,7 @@ part I|part II|part III|other|
 [Week 04](#fmi-week-04)|[Week 09](#fmi-week-09)|[Week 14](#fmi-week-14)|[DAA](https://github.com/andy489/Data_Structures_and_Algorithms/tree/master/5%20%E2%80%93%20DAA)
 [Week 05](#fmi-week-05)|[Week 10](#fmi-week-10)|[Week 15](#fmi-week-15)|[Practice](https://github.com/andy489/Data_Structures_and_Algorithms/tree/master/6%20%E2%80%93%20Practice)
 
-&nbsp; &nbsp; &nbsp; &nbsp; N &nbsp; &nbsp; &nbsp; &nbsp;|local|Topics|Problem Statement|&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Solution &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
+&nbsp; &nbsp; &nbsp; &nbsp; N &nbsp; &nbsp; &nbsp; &nbsp;|local|Tags|Problem Statement|&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Solution &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
 :-|:-|:-|:-|-:
 [<a name="fmi-week-15">**Week 15**</a>](#fmi-week-15)||[Back to Content](#content)|
 167|05|BFS, Graph, Traversals|[Shortest Tour](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/1%20%E2%80%93%20FMI%20Data%20Structures%20%26%20Algorithms/15%E2%80%932020-01-24%E2%80%93exam/05%20Shortest%20tour.pdf)|[Solution.cpp](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/1%20%E2%80%93%20FMI%20Data%20Structures%20%26%20Algorithms/15%E2%80%932020-01-24%E2%80%93exam/05%20Shortest%20tour%20(bfs).cpp)

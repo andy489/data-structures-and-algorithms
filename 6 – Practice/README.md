@@ -1,5 +1,10 @@
-## Code Forces
+[<a name="content">Content</a>](#content)
+:-
+[Code Forces](#code-forces)
+[Leet Code](#leet-code)
 
+## [<a name="code-forces">Code Forces</a>](#code-forces)
+#### [Back to Content](#content)
 Problem|Tags|Difficulty|Solution
 :-|:-|:-|-:|
 [115A Party](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/6%20%E2%80%93%20Practice/code%20forces/0115A%20Party.pdf)|dfs and similar, graphs, trees|900|[Solution–1 (dfs).cpp](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/6%20%E2%80%93%20Practice/code%20forces/0115A%20Party%E2%80%931%20(dfs).cpp)<br>[Solution–2.cpp](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/6%20%E2%80%93%20Practice/code%20forces/0115A%20Party%E2%80%932.cpp)
@@ -23,8 +28,8 @@ Problem|Tags|Difficulty|Solution
 [1325D Ehab the Xorcist](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/6%20%E2%80%93%20Practice/code%20forces/1325D%20Ehab%20the%20Xorcist.pdf)|bitmasks, constructive algorithms, greedy, number theory|1700|[Solution.cpp](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/6%20%E2%80%93%20Practice/code%20forces/1325D%20Ehab%20the%20Xorcist.cpp)<br>[Explanation.pdf](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/6%20%E2%80%93%20Practice/code%20forces/1325D%20Ehab%20the%20Xorcist%20Explained.pdf)
 [1325E Ehab's REAL Number Theory Problem](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/6%20%E2%80%93%20Practice/code%20forces/1325E%20Ehab's%20REAL%20Number%20Theory%20Problem.pdf)|brute force, dfs and similar, graphs, number theory, shortest paths|2600|[Solution.cpp](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/6%20%E2%80%93%20Practice/code%20forces/1325E%20Ehab's%20REAL%20Number%20Theory%20Problem.cpp)<br>[Explanation.pdf](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/6%20%E2%80%93%20Practice/code%20forces/1325E%20Ehab's%20REAL%20Number%20Theory%20Problem%20Explained.pdf)
 
-## Leet Code
-
+## [<a name="leet-code">Leet Code</a>](#leet-code)
+#### [Back to Content](#content)
 N|Problem|Difficulty|Solution
 :-|:-|:-|-:
 1|[Two Sum](https://leetcode.com/problems/two-sum/)|easy|[Solution.cpp](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/6%20%E2%80%93%20Practice/leet%20code/001.%20Two%20Sum.cpp)<br>[Solution.java](https://github.com/andy489/Data_Structures_and_Algorithms/blob/master/6%20%E2%80%93%20Practice/leet%20code/001.%20Two%20Sum.java)

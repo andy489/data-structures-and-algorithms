@@ -59,4 +59,6 @@ int main() {
     solve();
 
     print_ans();
+    
+    return 0;
 }

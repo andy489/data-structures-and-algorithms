@@ -1,3 +1,13 @@
+<div align="center">
+    
+![](https://img.shields.io/badge/Problems-%3E%20300-brightgreen)                                &nbsp; &nbsp;
+![](https://img.shields.io/github/commit-activity/m/andy489/Data_Structures_and_Algorithms)     &nbsp; &nbsp;
+![](https://img.shields.io/github/stars/andy489/Data_Structures_and_Algorithms?style=social)    &nbsp; &nbsp;
+![](https://img.shields.io/github/forks/andy489/Data_Structures_and_Algorithms?style=social)    &nbsp; &nbsp;
+![](https://img.shields.io/github/last-commit/andy489/Data_Structures_and_Algorithms)
+    
+</div>
+
 ## Content
 
 <div align="center">

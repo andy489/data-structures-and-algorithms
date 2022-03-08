@@ -20,31 +20,31 @@
             <td><a href="#fmi-week-01">Week 01</a></td>
             <td><a href="#fmi-week-06">Week 06</a></td>
             <td><a href="#fmi-week-11">Week 11</a></td>
-            <td><a href="https://github.com/andy489/Data_Structures_and_Algorithms/tree/master/2%20%E2%80%93%20Data%20Structures">Data Structures</a></td>
+            <td><strong><a href="https://github.com/andy489/Data_Structures_and_Algorithms/tree/master/2%20%E2%80%93%20Data%20Structures">Data Structures</a></strong></td>
         </tr>
         <tr>
             <td><a href="#fmi-week-02">Week 02</a></td>
             <td><a href="#fmi-week-07">Week 07</a></td>
             <td><a href="#fmi-week-12">Week 12</a></td>
-            <td><a href="https://github.com/andy489/Data_Structures_and_Algorithms/tree/master/3%20%E2%80%93%20Algorithms">Algorithms</a></td>
+            <td><strong><a href="https://github.com/andy489/Data_Structures_and_Algorithms/tree/master/3%20%E2%80%93%20Algorithms">Algorithms</a></strong></td>
         </tr>
         <tr>
             <td><a href="#fmi-week-03">Week 03</a></td>
             <td><a href="#fmi-week-08">Week 08</a></td>
             <td><a href="#fmi-week-13">Week 13</a></td>
-            <td><a href="https://github.com/andy489/Data_Structures_and_Algorithms/tree/master/4%20%E2%80%93%20DSA%20project">DSA Project</a></td>
+            <td><strong><a href="https://github.com/andy489/Data_Structures_and_Algorithms/tree/master/4%20%E2%80%93%20DSA%20project">DSA Project</a></strong></td>
         </tr>
         <tr>
             <td><a href="#fmi-week-04">Week 04</a></td>
             <td><a href="#fmi-week-09">Week 09</a></td>
             <td><a href="#fmi-week-14">Week 14</a></td>
-            <td><a href="https://github.com/andy489/Data_Structures_and_Algorithms/tree/master/5%20%E2%80%93%20DAA">DAA</a></td>
+            <td><strong><a href="https://github.com/andy489/Data_Structures_and_Algorithms/tree/master/5%20%E2%80%93%20DAA">DAA</a></strong></td>
         </tr>
         <tr>
             <td><a href="#fmi-week-05">Week 05</a></td>
             <td><a href="#fmi-week-10">Week 10</a></td>
             <td><a href="#fmi-week-15">Week 15</a></td>
-            <td><a href="https://github.com/andy489/Data_Structures_and_Algorithms/tree/master/6%20%E2%80%93%20Practice">Practice</a></td>
+            <td><strong><a href="https://github.com/andy489/Data_Structures_and_Algorithms/tree/master/6%20%E2%80%93%20Practice">Practice</a></strong></td>
         </tr>
     </tbody>
 </table>

@@ -10,8 +10,6 @@ class Solution {
 
         int minRefuels = 0;
 
-        final int N = stations.length;
-
         for (int[] station : stations) {
             while (startFuel < station[0]) {
                 if (pq.isEmpty()) {

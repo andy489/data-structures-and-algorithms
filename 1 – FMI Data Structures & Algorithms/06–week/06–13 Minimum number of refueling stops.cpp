@@ -2,31 +2,40 @@
 
 class Solution {
 public:
-    int minRefuelStops(int target, int startFuel, vector<vector<int>>& stations) {
-        priority_queue<int> pq;
-        
-        int passed = 0;
-        int cnt = 0;
-        
-        stations.push_back({target, 0});
-        const int SIZE = stations.size();
+    int minRefuelStops(int target, int startFuel, vector <vector<int>> &stations) {
+        if (startFuel >= target) {
+            return 0;
+        }
 
-        while (passed < SIZE && startFuel < target){
-            while (!pq.empty() && stations[passed][0] > startFuel){
+        priority_queue<int> pq;
+
+        int minRefuels = 0;
+
+        for (const auto &station : stations) {
+            while (startFuel < station[0]) {
+                if (pq.empty()) {
+                    return -1;
+                }
+
                 startFuel += pq.top();
                 pq.pop();
-                ++cnt;
+                
+                minRefuels++;
             }
 
-            if (stations[passed][0] > startFuel) {
+            pq.push(station[1]);
+        }
+
+        while (startFuel < target) {
+            if (pq.empty()) {
                 return -1;
             }
 
-            pq.push(stations[passed][1]);
-            
-            ++passed;
+            startFuel += pq.top();
+            pq.pop();
+            minRefuels++;
         }
 
-        return cnt;
+        return minRefuels;
     }
 };

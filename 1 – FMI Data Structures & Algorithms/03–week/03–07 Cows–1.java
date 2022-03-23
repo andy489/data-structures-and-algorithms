@@ -1,3 +1,5 @@
+// https://www.hackerrank.com/contests/practice-3-sda/challenges/cows-sda
+
 import java.util.Arrays;
 import java.util.Scanner;
 

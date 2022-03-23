@@ -34,14 +34,14 @@ int bin_search_on_ans(const vector<int> &huts, int k) {
 
     int ans = -1;
 
-    while (l < r) {
+    while (l <= r) {
         mid = l + (r - l) / 2;
 
         if (validate(mid, huts, k)) {
             ans = max(ans, mid);
             l = mid + 1;
         } else {
-            r = mid;
+            r = mid -1;
         }
     }
     return ans;

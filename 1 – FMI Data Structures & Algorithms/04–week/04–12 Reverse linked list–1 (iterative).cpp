@@ -11,7 +11,6 @@ SinglyLinkedListNode *reverse(SinglyLinkedListNode *head) {
         prev = traverse;
         traverse = next;
     }
-
-    head = prev;
-    return head;
+    
+    return prev;
 }

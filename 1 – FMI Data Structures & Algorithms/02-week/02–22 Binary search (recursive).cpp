@@ -13,9 +13,9 @@ bool bin_search(const vector<int> &arr, int begin, int end, int x) {
 
         if (arr[mid] > x) {
             return bin_search(arr, begin, mid - 1, x);
+        } else {
+            return bin_search(arr, mid + 1, end, x);
         }
-
-        return bin_search(arr, mid + 1, end, x);
     }
 
     return false;

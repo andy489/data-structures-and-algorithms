@@ -25,8 +25,7 @@ public:
         if (head == nullptr) {
             head = tail = new_node;
         } else {
-            Node *temp = head;
-            new_node->next = temp;
+            new_node->next = head;
             head = new_node;
         }
 

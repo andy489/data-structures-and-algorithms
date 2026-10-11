@@ -5,99 +5,88 @@
 
 ---
 
-## Solution (Information-Theoretic / Base Encoding)
+## Intuition
 
-### Key Insight
+Forget the pigs for a moment. The real question is: **how much information can we extract?**
 
-The core idea is to think in terms of **information capacity**.
-
-**How many test rounds do we have?**
+You have a fixed time budget — `minutesToTest` minutes — and each test takes `minutesToDie` minutes to produce a result. So you can run at most:
 
 ```
 rounds = minutesToTest / minutesToDie
 ```
 
-**What outcomes can a single pig encode?**
+test rounds total.
 
-Each pig participates in up to `rounds` tests. After all tests complete, a pig's **death round** tells us information:
-- It died in round 1
-- It died in round 2
-- ...
-- It died in round `rounds`
-- It never died (survived all rounds)
+---
 
-So one pig can encode **`rounds + 1` distinct outcomes**.
+## What can one pig tell you?
 
-**How many pigs do we need?**
+A pig drinks some buckets in round 1, some in round 2, ..., some in round `rounds`. After all rounds you observe **exactly one of these outcomes**:
 
-With `p` pigs, each able to encode `(rounds + 1)` outcomes independently, we can distinguish:
+| Outcome | Meaning |
+|---------|---------|
+| Died in round 1 | The poisoned bucket was one it drank in round 1 |
+| Died in round 2 | The poisoned bucket was one it drank in round 2 (but not round 1) |
+| ... | ... |
+| Died in round `rounds` | Drank from the poisoned bucket only in the last round |
+| **Never died** | The poisoned bucket was never given to this pig |
+
+So **one pig encodes `rounds + 1` distinct outcomes** — not just 2 (alive/dead), but `rounds + 1`.
+
+---
+
+## How many pigs for `buckets` buckets?
+
+With `p` pigs, each independently producing `rounds + 1` outcomes, the total number of distinguishable situations is:
 
 ```
-(rounds + 1)^p  total states
+(rounds + 1)^p
 ```
 
-We need this to be at least `buckets`. Therefore:
+We need this to cover all `buckets`:
 
 ```
 (rounds + 1)^p >= buckets
+```
+
+Solving for `p` (change-of-base formula, any log base works since it cancels):
+
+```
 p >= log(buckets) / log(rounds + 1)
 p = ceil(log(buckets) / log(rounds + 1))
 ```
 
-### Encoding Strategy (how to actually assign buckets to pigs)
+---
 
-Think of each bucket as a number in base `(rounds + 1)`. Assign each pig to a positional digit:
+## Concrete example
 
-- **Pig 0** handles the least significant digit.
-- **Pig 1** handles the next digit.
-- ...and so on.
+`buckets = 25`, `minutesToDie = 15`, `minutesToTest = 60`  
+→ `rounds = 4`, base = `rounds + 1 = 5`
 
-In round `r` (1-indexed), each pig `i` drinks from all buckets whose base-`(rounds+1)` representation has digit value `r` at position `i`.
+Each pig has 5 outcomes (died round 1/2/3/4, or survived). With 2 pigs: `5² = 25` states — exactly enough for 25 buckets.
 
-After all rounds, the pattern of which pigs died and in which round uniquely encodes the poisoned bucket's index.
+**How to assign buckets?** Label each bucket 0–24 as a 2-digit base-5 number:
 
-### Example Walkthrough
-
-`buckets = 4`, `minutesToDie = 15`, `minutesToTest = 30` → `rounds = 2`, base = 3
-
-Label buckets 0..3 in base 3:
 ```
-Bucket 0 → (0, 0)
-Bucket 1 → (1, 0)
-Bucket 2 → (2, 0)
-Bucket 3 → (0, 1)
+Bucket  0 → (0, 0)    Bucket  5 → (0, 1)    ...    Bucket 24 → (4, 4)
 ```
 
-- Pig 0 (units digit): drinks bucket 1 in round 1, bucket 2 in round 2.
-- Pig 1 (next digit): drinks bucket 3 in round 1.
+- **Pig 0** (units digit): in round `r`, drinks all buckets whose units digit is `r`.
+- **Pig 1** (fives digit): in round `r`, drinks all buckets whose fives digit is `r`.
 
-Observation outcomes map 1-to-1 to bucket indices.
+After all rounds, Pig 0 dying in round 3 means units digit = 3; Pig 1 surviving means fives digit = 0. Together they point to exactly **one** bucket.
 
-### Complexity
+---
+
+## Why increment pigs in a loop (not use the formula directly)?
+
+The formula involves `ceil` and floating-point `log`, which can have precision issues. Incrementing `pigs` until `(rounds+1)^pigs >= buckets` is simple, exact, and terminates in at most ~10 iterations for any realistic input.
+
+---
+
+## Complexity
 
 | | |
 |---|---|
-| Time | O(1) — single formula |
+| Time | O(log(buckets) / log(rounds+1)) ≈ O(1) for practical inputs |
 | Space | O(1) |
-
-### Code
-
-```cpp
-int poorPigs(int buckets, int minutesToDie, int minutesToTest) {
-    int rounds = minutesToTest / minutesToDie;
-    int pigs = 0;
-    while (pow(rounds + 1, pigs) < buckets)
-        ++pigs;
-    return pigs;
-}
-```
-
-```java
-public int poorPigs(int buckets, int minutesToDie, int minutesToTest) {
-    int rounds = minutesToTest / minutesToDie;
-    int pigs = 0;
-    while (Math.pow(rounds + 1, pigs) < buckets)
-        ++pigs;
-    return pigs;
-}
-```

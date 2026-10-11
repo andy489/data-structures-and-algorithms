@@ -68,13 +68,19 @@ Each pig has 5 outcomes (died round 1/2/3/4, or survived). With 2 pigs: `5² = 2
 **How to assign buckets?** Label each bucket 0–24 as a 2-digit base-5 number:
 
 ```
-Bucket  0 → (0, 0)    Bucket  5 → (0, 1)    ...    Bucket 24 → (4, 4)
+Bucket  0 → (fives=0, units=0)
+Bucket  1 → (fives=0, units=1)
+...
+Bucket  5 → (fives=1, units=0)
+Bucket  6 → (fives=1, units=1)
+...
+Bucket 24 → (fives=4, units=4)
 ```
 
-- **Pig 0** (units digit): in round `r`, drinks all buckets whose units digit is `r`.
-- **Pig 1** (fives digit): in round `r`, drinks all buckets whose fives digit is `r`.
+- **Pig 0** (fives digit): in round `r`, drinks all buckets whose fives digit is `r`.
+- **Pig 1** (units digit): in round `r`, drinks all buckets whose units digit is `r`.
 
-After all rounds, Pig 0 dying in round 3 means units digit = 3; Pig 1 surviving means fives digit = 0. Together they point to exactly **one** bucket.
+After all rounds, Pig 0 dying in round 3 means fives digit = 3; Pig 1 surviving means units digit = 0. Together they point to exactly **one** bucket.
 
 ---
 

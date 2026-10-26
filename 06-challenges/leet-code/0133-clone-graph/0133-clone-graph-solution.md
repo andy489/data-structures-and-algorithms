@@ -26,3 +26,26 @@ The map doubles as a visited guard — if we reach a node already in the map we 
 |---|---|
 | Time | O(V + E) — each node and edge visited exactly once |
 | Space | O(V) — map + recursion stack, both bounded by the number of nodes |
+
+---
+
+## Solution 2: BFS with HashMap — O(V+E) time, O(V) space
+
+**Idea:** Same clone registry (`original → clone`), but use a BFS queue instead of recursion. Seed the queue with the start node, then for each dequeued node connect its clone to all neighbor clones, enqueuing unseen neighbors as they are discovered.
+
+**Algorithm:**
+1. If `node` is `null`, return `null`.
+2. Create a clone of `node`, store it in `cloned`, and enqueue `node`.
+3. While the queue is non-empty:
+   - Dequeue `current`.
+   - For each `neighbor` of `current`:
+     - If not yet in `cloned`, create its clone and enqueue it.
+     - Append `cloned[neighbor]` to `cloned[current].neighbors`.
+4. Return `cloned[node]`.
+
+**Complexity:**
+
+| | |
+|---|---|
+| Time | O(V + E) — each node and edge processed exactly once |
+| Space | O(V) — map + queue, no recursion stack |

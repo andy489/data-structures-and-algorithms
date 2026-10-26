@@ -8,12 +8,14 @@ class Solution {
         if (node == null) {
             return null;
         }
+
+        // already cloned — return existing copy to preserve graph structure
         if (cloned.containsKey(node)) {
             return cloned.get(node);
         }
 
         Node clone = new Node(node.val);
-        cloned.put(node, clone);
+        cloned.put(node, clone); // register before recursing to handle cycles
 
         for (Node neighbor : node.neighbors) {
             clone.neighbors.add(cloneGraph(neighbor));

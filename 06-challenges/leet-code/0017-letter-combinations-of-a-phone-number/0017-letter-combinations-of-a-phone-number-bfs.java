@@ -15,23 +15,16 @@ class Solution {
         Queue<String> q = new LinkedList<>();
         q.add("");
 
-        final int n = digits.length();
-        int SIZE = 1;
-        int i = 0;
+        for (char d : digits.toCharArray()) {
+            int size = q.size();
 
-        while (q.peek().length() < n) {
-            while (SIZE > 0) {
+            while (size-- > 0) {
                 String cur = q.remove();
 
-                SIZE--;
-
-                for (char c : pad[digits.charAt(i) - '2'].toCharArray()) {
+                for (char c : pad[d - '2'].toCharArray()) {
                     q.add(cur + c);
                 }
             }
-
-            SIZE = q.size();
-            i++;
         }
 
         res.addAll(q);

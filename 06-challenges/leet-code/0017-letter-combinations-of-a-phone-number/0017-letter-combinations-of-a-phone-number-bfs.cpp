@@ -3,7 +3,7 @@
 // Time: O(4^n), where n is the number of digits
 
 class Solution {
-    const const vector <string> pad = {
+    const vector <string> pad = {
             "abc", "def", "ghi", "jkl",
             "mno", "pqrs", "tuv", "wxyz"
     };

@@ -10,7 +10,7 @@ class Solution {
     const int convert[10] = {0, 3, 6, 9, 12, 15, 19, 22, 26};
 
 public:
-    vector <string> letterCombinations(string &digits) {
+    vector <string> letterCombinations(string digits) {
         n = digits.size();
 
         if (!n) {

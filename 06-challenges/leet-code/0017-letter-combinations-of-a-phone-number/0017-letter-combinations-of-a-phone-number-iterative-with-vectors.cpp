@@ -1,4 +1,4 @@
-// https://leetcode.com/problems/letter-combinations-of-a-phone-number/]
+// https://leetcode.com/problems/letter-combinations-of-a-phone-number/
 // iterative with vectors
 // Time: O(4^n), where n is the number of digits
 

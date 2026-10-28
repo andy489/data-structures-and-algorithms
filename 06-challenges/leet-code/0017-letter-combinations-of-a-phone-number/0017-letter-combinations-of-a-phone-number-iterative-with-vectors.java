@@ -1,5 +1,5 @@
 // https://leetcode.com/problems/letter-combinations-of-a-phone-number/
-// linked list, iterative
+// iterative (queue as linked list)
 // Time: O(4^n), where n is the number of digits
 
 class Solution {

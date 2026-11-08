@@ -42,3 +42,22 @@
 |---|---|
 | Time  | O(n + m) — linear preprocessing + linear search |
 | Space | O(m) — the `lps` array |
+
+---
+
+## Solution 3: Z-Algorithm — O(n + m) time, O(n + m) space
+
+**Idea:** Concatenate `needle + "$" + haystack` into a string `s`. Build the Z-array where `z[i]` is the length of the longest substring starting at `s[i]` that matches a prefix of `s`. Any position `i` in the haystack part where `z[i] >= m` is a match; the index in the original haystack is `i - m - 1`.
+
+**Algorithm:**
+1. Form `s = needle + "$" + haystack` (the `"$"` sentinel prevents a Z-value from spanning the boundary).
+2. Build `z[0..len-1]` using the standard Z-box technique (maintain a window `[l, r]` of the rightmost matching segment).
+3. For each `i` from `m + 1` to `len - 1`: if `z[i] >= m`, return `i - m - 1`.
+4. Return `-1`.
+
+**Complexity:**
+
+| | |
+|---|---|
+| Time  | O(n + m) — one pass to build Z-array, one pass to scan |
+| Space | O(n + m) — the concatenated string and Z-array |

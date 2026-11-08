@@ -52,3 +52,40 @@ class Solution2 {
         return lps;
     }
 }
+
+// Solution3: Z-Algorithm — O(n + m) time, O(n + m) space
+// https://cp-algorithms.com/string/z-function.html
+class Solution3 {
+    public int strStr(String haystack, String needle) {
+        int n = haystack.length(), m = needle.length();
+        // sentinel "$" ensures z-values never span the needle/haystack boundary
+        String s = needle + "$" + haystack;
+        int[] z = buildZ(s);
+        for (int i = m + 1; i < s.length(); i++) {
+            if (z[i] >= m) {
+                return i - m - 1; // map back to haystack index
+            }
+        }
+        return -1;
+    }
+
+    // z[i] = length of longest substring starting at s[i] matching a prefix of s
+    private int[] buildZ(String s) {
+        int len = s.length();
+        int[] z = new int[len];
+        int l = 0, r = 0; // [l, r) = rightmost Z-box seen so far
+        for (int i = 1; i < len; i++) {
+            if (i < r) {
+                z[i] = Math.min(r - i, z[i - l]); // reuse already-computed info
+            }
+            while (i + z[i] < len && s.charAt(z[i]) == s.charAt(i + z[i])) {
+                z[i]++; // extend the match
+            }
+            if (i + z[i] > r) {
+                l = i;
+                r = i + z[i]; // advance the Z-box
+            }
+        }
+        return z;
+    }
+}

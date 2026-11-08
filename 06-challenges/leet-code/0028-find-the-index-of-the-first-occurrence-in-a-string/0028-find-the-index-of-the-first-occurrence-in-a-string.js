@@ -48,3 +48,38 @@ function buildLps(needle) {
     }
     return lps;
 }
+
+// Solution3: Z-Algorithm — O(n + m) time, O(n + m) space
+// https://cp-algorithms.com/string/z-function.html
+var strStr3 = function(haystack, needle) {
+    const n = haystack.length, m = needle.length;
+    // sentinel "$" ensures z-values never span the needle/haystack boundary
+    const s = needle + "$" + haystack;
+    const z = buildZ(s);
+    for (let i = m + 1; i < s.length; i++) {
+        if (z[i] >= m) {
+            return i - m - 1; // map back to haystack index
+        }
+    }
+    return -1;
+};
+
+// z[i] = length of longest substring starting at s[i] matching a prefix of s
+function buildZ(s) {
+    const len = s.length;
+    const z = new Array(len).fill(0);
+    let l = 0, r = 0; // [l, r) = rightmost Z-box seen so far
+    for (let i = 1; i < len; i++) {
+        if (i < r) {
+            z[i] = Math.min(r - i, z[i - l]); // reuse already-computed info
+        }
+        while (i + z[i] < len && s[z[i]] === s[i + z[i]]) {
+            z[i]++; // extend the match
+        }
+        if (i + z[i] > r) {
+            l = i;
+            r = i + z[i]; // advance the Z-box
+        }
+    }
+    return z;
+}

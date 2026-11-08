@@ -43,3 +43,31 @@ class Solution2:
                 lps[i] = 0
                 i += 1
         return lps
+
+
+# Solution3: Z-Algorithm — O(n + m) time, O(n + m) space
+# https://cp-algorithms.com/string/z-function.html
+class Solution3:
+    def strStr(self, haystack: str, needle: str) -> int:
+        n, m = len(haystack), len(needle)
+        # sentinel "$" ensures z-values never span the needle/haystack boundary
+        s = needle + "$" + haystack
+        z = self._build_z(s)
+        for i in range(m + 1, len(s)):
+            if z[i] >= m:
+                return i - m - 1  # map back to haystack index
+        return -1
+
+    # z[i] = length of longest substring starting at s[i] matching a prefix of s
+    def _build_z(self, s: str) -> list[int]:
+        length = len(s)
+        z = [0] * length
+        l, r = 0, 0  # [l, r) = rightmost Z-box seen so far
+        for i in range(1, length):
+            if i < r:
+                z[i] = min(r - i, z[i - l])  # reuse already-computed info
+            while i + z[i] < length and s[z[i]] == s[i + z[i]]:
+                z[i] += 1  # extend the match
+            if i + z[i] > r:
+                l, r = i, i + z[i]  # advance the Z-box
+        return z

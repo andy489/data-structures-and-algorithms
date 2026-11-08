@@ -7,7 +7,7 @@ class Solution:
         # only overflow case: -2^31 / -1 = 2^31, which exceeds INT_MAX
         if dividend == INT_MIN and divisor == -1:
             return INT_MAX
-        sign = 1 if (dividend > 0) == (divisor > 0) else -1
+        negative = (dividend > 0) != (divisor > 0)
         a, b = abs(dividend), abs(divisor)
         quotient = 0
         while a >= b:
@@ -18,4 +18,4 @@ class Solution:
                 multiple <<= 1
             a -= temp
             quotient += multiple
-        return sign * quotient
+        return -quotient if negative else quotient

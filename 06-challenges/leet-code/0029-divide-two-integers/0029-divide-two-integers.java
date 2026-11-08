@@ -21,6 +21,6 @@ class Solution {
             a -= temp;
             quotient += multiple;
         }
-        return sign * quotient;
+        return sign == 1 ? quotient : -quotient;
     }
 }

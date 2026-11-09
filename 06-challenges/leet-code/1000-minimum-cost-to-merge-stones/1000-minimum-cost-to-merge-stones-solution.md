@@ -71,20 +71,20 @@ The left part `stones[i..m]` must be reducible to exactly 1 pile (so it can part
 
 ## Worked Example — `stones = [3,5,1,2,6], k = 3`
 
-**Prefix sums:** `[0, 3, 8, 9, 11, 17]`
-
 **Feasibility:** `(5 - 1) % (3 - 1) = 4 % 2 = 0` → possible ✓
+
+**Prefix sums:** `[0, 3, 8, 9, 11, 17]`
 
 **Base cases:** all `dp[i][i] = 0` (a single pile costs nothing).
 
 **Fill by length:**
 
-- Length 2: `dp[i][i+1]` — step size is `k-1=2`, no valid split within length 2 that keeps left part at length ≥1 and steps by 2 → stays 0. `(1) % 2 ≠ 0` so no extra sum added.
+- Length 2: `dp[i][i+1]` — the only split is `m=i`, giving `dp[i][i] + dp[i+1][i+1] = 0`. `(1) % 2 ≠ 0` so no extra sum added. All length-2 entries stay 0.
 
 - Length 3 (segments of length 3, reducible to 1 pile since `(3-1)%2=0`):
   - `dp[0][2]` (stones `[3,5,1]`): split at `m=0`: `dp[0][0] + dp[1][2] = 0 + 0 = 0`. Add `sum(0..2) = 9`. → `dp[0][2] = 9`
-  - `dp[1][3]` (stones `[5,1,2]`): split at `m=1`: `0 + 0 = 0`. Add `sum(1..3) = 8`. → `dp[1][3] = 8`
-  - `dp[2][4]` (stones `[1,2,6]`): split at `m=2`: `0 + 0 = 0`. Add `sum(2..4) = 9`. → `dp[2][4] = 9`
+  - `dp[1][3]` (stones `[5,1,2]`): split at `m=1`: `dp[1][1] + dp[2][3] = 0 + 0 = 0`. Add `sum(1..3) = 8`. → `dp[1][3] = 8`
+  - `dp[2][4]` (stones `[1,2,6]`): split at `m=2`: `dp[2][2] + dp[3][4] = 0 + 0 = 0`. Add `sum(2..4) = 9`. → `dp[2][4] = 9`
 
 - Length 5 (full array, reducible to 1 pile since `(5-1)%2=0`):
   - `dp[0][4]` (stones `[3,5,1,2,6]`): try splits at `m=0` and `m=2`:

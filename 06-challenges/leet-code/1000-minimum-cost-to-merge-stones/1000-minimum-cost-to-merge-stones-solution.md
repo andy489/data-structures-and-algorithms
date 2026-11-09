@@ -87,27 +87,70 @@ sum(0..4) = prefix[5] - prefix[0] = 17 - 0  = 17  (stones [3,5,1,2,6])
 
 These sums are added to `dp[i][j]` whenever a segment can be collapsed to 1 pile — they represent the cost of that final k-way merge.
 
-**Base cases:** all `dp[i][i] = 0` (a single pile costs nothing).
+**Base cases:** all `dp[i][i] = 0` (a single pile costs nothing to "merge").
 
-**Fill by length:**
+**Fill by length** (the outer loop iterates `len` from `k` up to `n`; we precompute every subarray from shortest to longest so that when we need `dp[i][m]` or `dp[m+1][j]` for a longer segment they are already ready):
 
-- Length 2: `dp[i][i+1]` — with `k=3` you need 3 piles to merge, so a 2-pile segment cannot be reduced further on its own. The split `m=i` gives `dp[i][i] + dp[i+1][i+1] = 0+0 = 0`, meaning no merge was performed — these two piles simply sit waiting to be consumed as part of a larger merge at a higher DP level. `(j-i) % (k-1) = 1 % 2 ≠ 0` confirms this segment cannot reach 1 pile, so no sum is added. All length-2 entries stay 0.
+---
 
-- Length 3 (segments of length 3, reducible to 1 pile since `(3-1)%2=0`):
-  - `dp[0][2]` (stones `[3,5,1]`): split at `m=0`: `dp[0][0] + dp[1][2] = 0 + 0 = 0`. Add `sum(0..2) = prefix[3]-prefix[0] = 9`. → `dp[0][2] = 9`
-  - `dp[1][3]` (stones `[5,1,2]`): split at `m=1`: `dp[1][1] + dp[2][3] = 0 + 0 = 0`. Add `sum(1..3) = prefix[4]-prefix[1] = 8`. → `dp[1][3] = 8`
-  - `dp[2][4]` (stones `[1,2,6]`): split at `m=2`: `dp[2][2] + dp[3][4] = 0 + 0 = 0`. Add `sum(2..4) = prefix[5]-prefix[2] = 9`. → `dp[2][4] = 9`
+**Length 2** — 4 segments: `[0,1]`, `[1,2]`, `[2,3]`, `[3,4]`
 
-- Length 5 (full array, reducible to 1 pile since `(5-1)%2=0`):
-  - `dp[0][4]` (stones `[3,5,1,2,6]`): try splits at `m=0` and `m=2`:
-    - `m=0`: `dp[0][0] + dp[1][4]`
-      - `dp[1][4]` (stones `[5,1,2,6]`, length 4, `(3)%2≠0` → reduces to 2 piles): split at `m=1` and `m=3`:
-        - `m=1`: `dp[1][1] + dp[2][4] = 0 + 9 = 9`
-        - `m=3`: `dp[1][3] + dp[4][4] = 8 + 0 = 8`
-        - `dp[1][4] = 8` (no extra sum since not reducible to 1)
-      - So `m=0` gives `0 + 8 = 8`
-    - `m=2`: `dp[0][2] + dp[3][4] = 9 + 0 = 9`
-    - Best: `8`. Add `sum(0..4) = prefix[5]-prefix[0] = 17`. → `dp[0][4] = 8 + 17 = 25` ✓
+With `k=3` you need 3 piles to merge, so a 2-pile segment cannot be reduced further on its own. The only split `m=i` gives `dp[i][i] + dp[i+1][i+1] = 0+0 = 0` — no merge happened, the two piles just sit waiting to be part of a larger merge later. `(j-i) % (k-1) = 1 % 2 ≠ 0` confirms the segment cannot reach 1 pile, so no sum is added.
+
+```
+dp[0][1] = 0    dp[1][2] = 0    dp[2][3] = 0    dp[3][4] = 0
+```
+
+---
+
+**Length 3** — 3 segments: `[0,2]`, `[1,3]`, `[2,4]`
+
+Length 3 with `k=3`: `(3-1) % (3-1) = 0` → this segment CAN be collapsed to 1 pile. The only split is `m=i` (left side is 1 pile, right side is 2 piles that together come to `k=3` total). After minimising splits, we add the full segment sum as the cost of the final 3-way merge.
+
+- `dp[0][2]` (stones `[3,5,1]`):
+  - split `m=0`: `dp[0][0] + dp[1][2] = 0 + 0 = 0`
+  - `(2-0) % 2 = 0` → add `sum(0..2) = prefix[3]-prefix[0] = 9`
+  - **`dp[0][2] = 9`**
+
+- `dp[1][3]` (stones `[5,1,2]`):
+  - split `m=1`: `dp[1][1] + dp[2][3] = 0 + 0 = 0`
+  - add `sum(1..3) = prefix[4]-prefix[1] = 8`
+  - **`dp[1][3] = 8`**
+
+- `dp[2][4]` (stones `[1,2,6]`):
+  - split `m=2`: `dp[2][2] + dp[3][4] = 0 + 0 = 0`
+  - add `sum(2..4) = prefix[5]-prefix[2] = 9`
+  - **`dp[2][4] = 9`**
+
+---
+
+**Length 4** — 2 segments: `[0,3]`, `[1,4]`
+
+Length 4 with `k=3`: `(4-1) % (3-1) = 3 % 2 = 1 ≠ 0` → this segment can only be reduced to 2 piles (not 1). No sum is added. Splits step by `k-1=2`, so `m ∈ {i, i+2}`.
+
+- `dp[0][3]` (stones `[3,5,1,2]`):
+  - split `m=0`: `dp[0][0] + dp[1][3] = 0 + 8 = 8`
+  - split `m=2`: `dp[0][2] + dp[3][3] = 9 + 0 = 9`
+  - min = 8, `(3-0) % 2 ≠ 0` → no sum added
+  - **`dp[0][3] = 8`**
+
+- `dp[1][4]` (stones `[5,1,2,6]`):
+  - split `m=1`: `dp[1][1] + dp[2][4] = 0 + 9 = 9`
+  - split `m=3`: `dp[1][3] + dp[4][4] = 8 + 0 = 8`
+  - min = 8, `(4-1) % 2 ≠ 0` → no sum added
+  - **`dp[1][4] = 8`**
+
+---
+
+**Length 5** — 1 segment: `[0,4]` (the full array)
+
+`(5-1) % (3-1) = 0` → can be collapsed to 1 pile. Splits: `m ∈ {0, 2}`.
+
+- `dp[0][4]` (stones `[3,5,1,2,6]`):
+  - split `m=0`: `dp[0][0] + dp[1][4] = 0 + 8 = 8`
+  - split `m=2`: `dp[0][2] + dp[3][4] = 9 + 0 = 9`
+  - min = 8, `(4-0) % 2 = 0` → add `sum(0..4) = prefix[5]-prefix[0] = 17`
+  - **`dp[0][4] = 8 + 17 = 25`** ✓
 
 **Answer: 25** ✓
 
@@ -117,5 +160,25 @@ These sums are added to `dp[i][j]` whenever a segment can be collapsed to 1 pile
 
 | | |
 |---|---|
-| Time  | O(n³ / k) — O(n²) states, each with O(n/k) split points |
-| Space | O(n²) — the DP table |
+| Time  | O(n³ / k) |
+| Space | O(n²) |
+
+**Time complexity breakdown:**
+
+The three nested loops:
+
+1. **Outer loop** — `len` from `k` to `n`: at most `n` iterations.
+2. **Middle loop** — starting index `i` from `0` to `n - len`: at most `n` iterations.
+3. **Inner loop** — split point `m` from `i` to `j - 1` stepping by `k - 1`:
+
+   For a segment of length `len`, the number of valid split points is:
+   ```
+   floor((len - 1) / (k - 1))
+   ```
+   Averaged over all segment lengths (from `k` to `n`), this is approximately `n / k`.
+
+Multiplying: `n` (lengths) × `n` (start positions) × `n/k` (splits) = **O(n³ / k)**.
+
+When `k = 2` (binary merge) this is O(n³) — the classic interval DP. When `k` is large the inner loop has fewer valid split points, so the algorithm speeds up proportionally.
+
+**Space complexity:** The DP table is `n × n` entries → **O(n²)**. The prefix array is O(n) and is dominated by the table.

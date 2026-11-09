@@ -79,7 +79,7 @@ The left part `stones[i..m]` must be reducible to exactly 1 pile (so it can part
 
 **Fill by length:**
 
-- Length 2: `dp[i][i+1]` — the only split is `m=i`, giving `dp[i][i] + dp[i+1][i+1] = 0`. `(1) % 2 ≠ 0` so no extra sum added. All length-2 entries stay 0.
+- Length 2: `dp[i][i+1]` — with `k=3` you need 3 piles to merge, so a 2-pile segment cannot be reduced further on its own. The split `m=i` gives `dp[i][i] + dp[i+1][i+1] = 0+0 = 0`, meaning no merge was performed — these two piles simply sit waiting to be consumed as part of a larger merge at a higher DP level. `(j-i) % (k-1) = 1 % 2 ≠ 0` confirms this segment cannot reach 1 pile, so no sum is added. All length-2 entries stay 0.
 
 - Length 3 (segments of length 3, reducible to 1 pile since `(3-1)%2=0`):
   - `dp[0][2]` (stones `[3,5,1]`): split at `m=0`: `dp[0][0] + dp[1][2] = 0 + 0 = 0`. Add `sum(0..2) = 9`. → `dp[0][2] = 9`

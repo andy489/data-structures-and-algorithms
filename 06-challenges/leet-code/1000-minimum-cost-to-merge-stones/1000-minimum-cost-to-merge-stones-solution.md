@@ -7,16 +7,24 @@
 
 ## Feasibility Check
 
-Before anything, ask: is it even possible to reduce `n` piles to 1?
+Every single merge operation takes `k` piles and turns them into `1` pile. So the pile count drops by exactly `k - 1` each time.
 
-Each merge takes `k` piles and produces 1, so it reduces the count by `k - 1`. Starting from `n` piles we need to reach 1, meaning we must reduce by `n - 1` total. This is only possible if `(n - 1)` is divisible by `(k - 1)`:
+Starting from `n` piles, you want to reach `1` pile. That means you need to reduce the count by exactly `n - 1`.
+
+Since each merge reduces by `k - 1`, after `t` merges the total reduction is `t * (k - 1)`. So you need:
+
+```
+t * (k - 1) = n - 1
+```
+
+This has an integer solution for `t` only when `(n - 1)` is exactly divisible by `(k - 1)`:
 
 ```
 (n - 1) % (k - 1) == 0  →  possible
 otherwise               →  return -1
 ```
 
-**Example:** `n = 4, k = 3` → `(4-1) % (3-1) = 3 % 2 = 1 ≠ 0` → impossible → `-1`.
+**Example:** `n = 4, k = 3` → each merge reduces count by 2. Start: 4 piles → after 1 merge: 2 piles → stuck, cannot merge 2 piles when `k = 3`. Formally: `(4-1) % (3-1) = 3 % 2 = 1 ≠ 0` → `-1`.
 
 ---
 

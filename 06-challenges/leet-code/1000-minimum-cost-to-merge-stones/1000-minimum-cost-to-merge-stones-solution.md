@@ -73,7 +73,19 @@ The left part `stones[i..m]` must be reducible to exactly 1 pile (so it can part
 
 **Feasibility:** `(5 - 1) % (3 - 1) = 4 % 2 = 0` → possible ✓
 
-**Prefix sums:** `[0, 3, 8, 9, 11, 17]`
+**Prefix sums:** `prefix = [0, 3, 8, 9, 11, 17]`
+
+Each entry is a running total: `prefix[i] = stones[0] + ... + stones[i-1]`.
+The cost of the final merge over a segment `stones[i..j]` equals the total stones in it — computed instantly as `prefix[j+1] - prefix[i]`:
+
+```
+sum(0..2) = prefix[3] - prefix[0] = 9  - 0  = 9   (stones [3,5,1])
+sum(1..3) = prefix[4] - prefix[1] = 11 - 3  = 8   (stones [5,1,2])
+sum(2..4) = prefix[5] - prefix[2] = 17 - 8  = 9   (stones [1,2,6])
+sum(0..4) = prefix[5] - prefix[0] = 17 - 0  = 17  (stones [3,5,1,2,6])
+```
+
+These sums are added to `dp[i][j]` whenever a segment can be collapsed to 1 pile — they represent the cost of that final k-way merge.
 
 **Base cases:** all `dp[i][i] = 0` (a single pile costs nothing).
 
@@ -82,9 +94,9 @@ The left part `stones[i..m]` must be reducible to exactly 1 pile (so it can part
 - Length 2: `dp[i][i+1]` — with `k=3` you need 3 piles to merge, so a 2-pile segment cannot be reduced further on its own. The split `m=i` gives `dp[i][i] + dp[i+1][i+1] = 0+0 = 0`, meaning no merge was performed — these two piles simply sit waiting to be consumed as part of a larger merge at a higher DP level. `(j-i) % (k-1) = 1 % 2 ≠ 0` confirms this segment cannot reach 1 pile, so no sum is added. All length-2 entries stay 0.
 
 - Length 3 (segments of length 3, reducible to 1 pile since `(3-1)%2=0`):
-  - `dp[0][2]` (stones `[3,5,1]`): split at `m=0`: `dp[0][0] + dp[1][2] = 0 + 0 = 0`. Add `sum(0..2) = 9`. → `dp[0][2] = 9`
-  - `dp[1][3]` (stones `[5,1,2]`): split at `m=1`: `dp[1][1] + dp[2][3] = 0 + 0 = 0`. Add `sum(1..3) = 8`. → `dp[1][3] = 8`
-  - `dp[2][4]` (stones `[1,2,6]`): split at `m=2`: `dp[2][2] + dp[3][4] = 0 + 0 = 0`. Add `sum(2..4) = 9`. → `dp[2][4] = 9`
+  - `dp[0][2]` (stones `[3,5,1]`): split at `m=0`: `dp[0][0] + dp[1][2] = 0 + 0 = 0`. Add `sum(0..2) = prefix[3]-prefix[0] = 9`. → `dp[0][2] = 9`
+  - `dp[1][3]` (stones `[5,1,2]`): split at `m=1`: `dp[1][1] + dp[2][3] = 0 + 0 = 0`. Add `sum(1..3) = prefix[4]-prefix[1] = 8`. → `dp[1][3] = 8`
+  - `dp[2][4]` (stones `[1,2,6]`): split at `m=2`: `dp[2][2] + dp[3][4] = 0 + 0 = 0`. Add `sum(2..4) = prefix[5]-prefix[2] = 9`. → `dp[2][4] = 9`
 
 - Length 5 (full array, reducible to 1 pile since `(5-1)%2=0`):
   - `dp[0][4]` (stones `[3,5,1,2,6]`): try splits at `m=0` and `m=2`:
@@ -95,7 +107,7 @@ The left part `stones[i..m]` must be reducible to exactly 1 pile (so it can part
         - `dp[1][4] = 8` (no extra sum since not reducible to 1)
       - So `m=0` gives `0 + 8 = 8`
     - `m=2`: `dp[0][2] + dp[3][4] = 9 + 0 = 9`
-    - Best: `8`. Add `sum(0..4) = 17`. → `dp[0][4] = 8 + 17 = 25` ✓
+    - Best: `8`. Add `sum(0..4) = prefix[5]-prefix[0] = 17`. → `dp[0][4] = 8 + 17 = 25` ✓
 
 **Answer: 25** ✓
 

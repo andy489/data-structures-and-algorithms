@@ -236,20 +236,14 @@ Matches the observed ~5 iterations in the worked examples.
 
 Epsilon is the **stopping threshold** — the maximum error you are willing to accept. The loop condition `r * r > x` is just a specific choice of epsilon.
 
-**In the integer version**, we stop as soon as `r² <= x`, meaning the error is less than 1 (the smallest gap between integers). Effectively:
+**In the integer version (Solution 2)**, we stop as soon as `r² <= x`, meaning the error is less than 1 (the smallest gap between integers). Effectively:
 
 ```
 ε = 1
-stop when:  r  -  sqrt(x)  <  1
+stop when:  r*r <= x   (i.e. r - sqrt(x) < 1)
 ```
 
-**In the general floating-point version**, you choose any ε you need:
-
-```
-stop when:  |r - prev_r|  <  ε
-```
-
-or equivalently:
+**In the general floating-point version (Solution 3)**, you choose any ε you need:
 
 ```
 stop when:  |r*r - x|  <  ε
@@ -257,29 +251,50 @@ stop when:  |r*r - x|  <  ε
 
 | Desired precision | ε |
 |---|---|
-| Whole number (this problem) | `1` (or `r*r <= x` in integers) |
-| 1 decimal place | `0.1` |
-| 5 decimal places | `0.00001` = `1e-5` |
+| Whole number (Solution 2) | implicit `1` via `r*r <= x` |
+| 1 decimal place | `1e-1` |
+| 5 decimal places | `1e-5` |
 | 10 decimal places | `1e-10` |
 
 The smaller ε is, the more iterations you need — but because convergence is quadratic, each extra decimal place of precision costs only **one more iteration**.
 
-**Floating-point implementation with ε:**
-
-```java
-double mySqrtPrecise(double x, double eps) {
-    if (x == 0) return 0;
-    double r = x;
-    while (Math.abs(r * r - x) > eps) {
-        r = (r + x / r) / 2.0;
-    }
-    return r;
-}
-```
-
-For 5 decimal places: `mySqrtPrecise(8.0, 1e-5)` → `2.82843` (true value `2.82842...`).
+For 5 decimal places: `mySqrt(8.0, 1e-5)` → `2.82843` (true value `2.82842...`).
 
 Because convergence is quadratic, going from `ε = 1` to `ε = 1e-5` adds only ~`log₂(5) ≈ 2` extra iterations — essentially free.
+
+---
+
+## Solution 3: Newton's Method with explicit ε — O(log log(x/ε)) time, O(1) space
+
+Same recurrence as Solution 2, but uses floating-point arithmetic and an explicit epsilon instead of integer floor truncation.
+
+**Algorithm:**
+1. If `x == 0`, return `0`.
+2. Start with `r = x`.
+3. While `|r*r - x| > ε`: `r = (r + x / r) / 2.0`.
+4. Return `r`.
+
+**Complexity:**
+
+| | |
+|---|---|
+| Time  | O(log log(x/ε)) — each iteration doubles precision; to reach error ε from error ~x takes log log(x/ε) steps |
+| Space | O(1) |
+
+### Worked Example — `x = 8.0, ε = 1e-5`
+
+Start: `r = 8.0`
+
+| Iteration | r | \|r²-8\| | action |
+|-----------|---|----------|--------|
+| 1 | 8.0 | 56.0 | > 1e-5 → r = (8 + 1)/2 = **4.5** |
+| 2 | 4.5 | 12.25 | > 1e-5 → r = (4.5 + 8/4.5)/2 = **3.1389** |
+| 3 | 3.1389 | 1.853 | > 1e-5 → r = **2.8432** |
+| 4 | 2.8432 | 0.0832 | > 1e-5 → r = **2.8284** |
+| 5 | 2.8284 | 0.000012 | > 1e-5 → r = **2.82843** |
+| 6 | 2.82843 | ~0 | <= 1e-5 → **exit** |
+
+Return `2.82843`. ✓ (true value: `2.828427...`)
 
 ---
 

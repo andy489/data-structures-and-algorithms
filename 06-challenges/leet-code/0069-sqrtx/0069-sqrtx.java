@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/sqrtx/
 
-// Solution: Binary Search — O(log x) time, O(1) space
+// Solution 1: Binary Search — O(log x) time, O(1) space
 class Solution {
     public int mySqrt(int x) {
         if (x < 2) {
@@ -19,5 +19,20 @@ class Solution {
             }
         }
         return hi;
+    }
+}
+
+// Solution 2: Newton's Method (Babylonian method, ~2000 BCE) — O(log log x) time, O(1) space
+// r_next = (r + x/r) / 2  converges quadratically; AM-GM guarantees r >= sqrt(x) always
+class Solution2 {
+    public int mySqrt(int x) {
+        if (x == 0) {
+            return 0;
+        }
+        long r = x;
+        while (r * r > x) {
+            r = (r + x / r) / 2;
+        }
+        return (int) r;
     }
 }

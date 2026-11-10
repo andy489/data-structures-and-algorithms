@@ -330,7 +330,7 @@ Same recurrence as Solution 2, but floating-point with an explicit stopping cond
 **Algorithm:**
 1. If `x == 0`, return `0`.
 2. Start with `r = x`.
-3. While `|r*r - x| > ε`: `r = (r + x / r) / 2.0`.
+3. While `r*r - x > ε`: `r = (r + x / r) / 2.0`. (AM-GM guarantees `r >= sqrt(x)` always, so `r*r - x >= 0` — `abs` is not needed)
 4. Return `r`.
 
 **Complexity:**

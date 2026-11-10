@@ -79,6 +79,6 @@ class Solution4:
         if x == 0:
             return 0
         r = x
-        while abs(r * r - x) > eps:
+        while r * r - x > eps:
             r = (r + x / r) / 2.0
         return r

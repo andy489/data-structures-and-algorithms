@@ -98,7 +98,7 @@ class Solution4 {
             return 0;
         }
         double r = x;
-        while (Math.abs(r * r - x) > eps) {
+        while (r * r - x > eps) {
             r = (r + x / r) / 2.0;
         }
         return r;

@@ -87,7 +87,7 @@ var mySqrt4 = function(x, eps = 1e-5) {
         return 0;
     }
     let r = x;
-    while (Math.abs(r * r - x) > eps) {
+    while (r * r - x > eps) {
         r = (r + x / r) / 2.0;
     }
     return r;

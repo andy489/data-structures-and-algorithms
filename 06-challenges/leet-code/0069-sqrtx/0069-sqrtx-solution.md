@@ -251,6 +251,32 @@ How many extra iterations does a smaller ε cost?
 
 That is the concrete payoff of quadratic convergence.
 
+### Validation for Solutions 3 and 4
+
+Two things must be validated at the boundary of these functions:
+
+**1. `x >= 0`**
+
+Square root of a negative number is undefined in real arithmetic. Pass a negative `x` and the loop would run forever (or produce NaN on the first `sqrt` attempt).
+
+**2. `eps >= machine epsilon`**
+
+`double` / `float64` has 52 mantissa bits, giving a machine epsilon of `2^-52 ≈ 2.22e-16` (in Java: `Math.ulp(1.0)`, in Python: `sys.float_info.epsilon`, in JS: `Number.EPSILON`).
+
+If you ask for `eps = 1e-20`:
+- The stopping condition `|r*r - x| > eps` may never become false, because adjacent representable doubles are further apart than `1e-20` for typical values of `r*r`.
+- Result: **infinite loop**.
+
+Minimum safe epsilon by language:
+
+| Language | Value | Constant |
+|---|---|---|
+| Java | `~2.22e-16` | `Math.ulp(1.0)` |
+| Python | `~2.22e-16` | `sys.float_info.epsilon` |
+| JavaScript | `~2.22e-16` | `Number.EPSILON` |
+
+Both checks are at system boundaries (caller-supplied inputs), which is exactly where validation belongs.
+
 ---
 
 ## Solution 3: Binary Search with explicit ε — O(log(x/ε)) time, O(1) space

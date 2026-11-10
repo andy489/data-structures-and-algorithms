@@ -1,5 +1,7 @@
 # https://leetcode.com/problems/sqrtx/
 
+import sys
+
 # Solution 1: Binary Search, integer — O(log x) time, O(1) space
 # Implicit epsilon = 1: search space shrinks by half each step; stops at floor(sqrt(x))
 class Solution:
@@ -35,8 +37,19 @@ class Solution2:
 # Solution 3: Binary Search, floating-point with explicit epsilon — O(log(x/eps)) time, O(1) space
 # General version: narrow [lo, hi] until hi - lo < eps.
 # eps = 1e-5 gives 5 decimal places; each extra decimal place doubles the iterations (~log2(10) ≈ 3.3 more steps).
+#
+# Validation:
+#   x   >= 0                    : sqrt of a negative number is undefined in reals
+#   eps >= sys.float_info.epsilon : below machine epsilon (~2.2e-16) adjacent floats are
+#                                  indistinguishable and the loop may never converge
+_MACHINE_EPS = sys.float_info.epsilon  # 2^-52 ≈ 2.22e-16
+
 class Solution3:
     def mySqrt(self, x: float, eps: float = 1e-5) -> float:
+        if x < 0:
+            raise ValueError(f"x must be non-negative, got: {x}")
+        if eps < _MACHINE_EPS:
+            raise ValueError(f"eps must be >= machine epsilon ({_MACHINE_EPS}), got: {eps}")
         if x == 0:
             return 0
         lo, hi = 0.0, max(1.0, x)
@@ -52,8 +65,17 @@ class Solution3:
 # Solution 4: Newton's Method, floating-point with explicit epsilon — O(log log(x/eps)) time, O(1) space
 # General version: stop when |r*r - x| < eps.
 # eps = 1e-5 gives 5 decimal places; each extra decimal place costs ~1 iteration (quadratic convergence).
+#
+# Validation:
+#   x   >= 0                    : sqrt of a negative number is undefined in reals
+#   eps >= sys.float_info.epsilon : below machine epsilon the stopping condition |r*r - x| > eps
+#                                  may never be satisfied due to floating-point rounding
 class Solution4:
     def mySqrt(self, x: float, eps: float = 1e-5) -> float:
+        if x < 0:
+            raise ValueError(f"x must be non-negative, got: {x}")
+        if eps < _MACHINE_EPS:
+            raise ValueError(f"eps must be >= machine epsilon ({_MACHINE_EPS}), got: {eps}")
         if x == 0:
             return 0
         r = x

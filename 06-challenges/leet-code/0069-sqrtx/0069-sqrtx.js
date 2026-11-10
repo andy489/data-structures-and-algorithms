@@ -35,10 +35,24 @@ var mySqrt2 = function(x) {
     return r;
 };
 
+// Machine epsilon for JS number (IEEE 754 double): 2^-52 ≈ 2.22e-16
+const MACHINE_EPS = Number.EPSILON; // 2^-52
+
 // Solution 3: Binary Search, floating-point with explicit epsilon — O(log(x/eps)) time, O(1) space
 // General version: narrow [lo, hi] until hi - lo < eps.
 // eps = 1e-5 gives 5 decimal places; each extra decimal place doubles the iterations (~log2(10) ≈ 3.3 more steps).
+//
+// Validation:
+//   x   >= 0           : sqrt of a negative number is undefined in reals
+//   eps >= Number.EPSILON : below machine epsilon (~2.2e-16) adjacent doubles are
+//                          indistinguishable and the loop may never converge
 var mySqrt3 = function(x, eps = 1e-5) {
+    if (x < 0) {
+        throw new RangeError(`x must be non-negative, got: ${x}`);
+    }
+    if (eps < MACHINE_EPS) {
+        throw new RangeError(`eps must be >= machine epsilon (${MACHINE_EPS}), got: ${eps}`);
+    }
     if (x === 0) {
         return 0;
     }
@@ -57,7 +71,18 @@ var mySqrt3 = function(x, eps = 1e-5) {
 // Solution 4: Newton's Method, floating-point with explicit epsilon — O(log log(x/eps)) time, O(1) space
 // General version: stop when |r*r - x| < eps.
 // eps = 1e-5 gives 5 decimal places; each extra decimal place costs ~1 iteration (quadratic convergence).
+//
+// Validation:
+//   x   >= 0           : sqrt of a negative number is undefined in reals
+//   eps >= Number.EPSILON : below machine epsilon the stopping condition |r*r - x| > eps
+//                          may never be satisfied due to floating-point rounding
 var mySqrt4 = function(x, eps = 1e-5) {
+    if (x < 0) {
+        throw new RangeError(`x must be non-negative, got: ${x}`);
+    }
+    if (eps < MACHINE_EPS) {
+        throw new RangeError(`eps must be >= machine epsilon (${MACHINE_EPS}), got: ${eps}`);
+    }
     if (x === 0) {
         return 0;
     }

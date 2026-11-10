@@ -42,8 +42,23 @@ class Solution2 {
 // Solution 3: Binary Search, floating-point with explicit epsilon — O(log(x/eps)) time, O(1) space
 // General version: narrow [lo, hi] until hi - lo < eps.
 // eps = 1e-5 gives 5 decimal places; each extra decimal place doubles the iterations (~log₂(10) ≈ 3.3 more steps).
+//
+// Validation:
+//   x   >= 0           : sqrt of a negative number is undefined in reals
+//   eps >= 2^-52 (~2.2e-16) : Double has 52 mantissa bits; below machine epsilon the loop
+//                             can never converge because adjacent doubles are indistinguishable
 class Solution3 {
+    // Machine epsilon for double: the smallest e such that 1.0 + e != 1.0
+    private static final double DOUBLE_EPS = Math.ulp(1.0); // 2^-52 ≈ 2.22e-16
+
     public double mySqrt(double x, double eps) {
+        if (x < 0) {
+            throw new IllegalArgumentException("x must be non-negative, got: " + x);
+        }
+        if (eps < DOUBLE_EPS) {
+            throw new IllegalArgumentException(
+                "eps must be >= machine epsilon (" + DOUBLE_EPS + "), got: " + eps);
+        }
         if (x == 0) {
             return 0;
         }
@@ -63,8 +78,22 @@ class Solution3 {
 // Solution 4: Newton's Method, floating-point with explicit epsilon — O(log log(x/eps)) time, O(1) space
 // General version: stop when |r*r - x| < eps.
 // eps = 1e-5 gives 5 decimal places; each extra decimal place costs ~1 iteration (quadratic convergence).
+//
+// Validation:
+//   x   >= 0           : sqrt of a negative number is undefined in reals
+//   eps >= 2^-52 (~2.2e-16) : below machine epsilon the stopping condition |r*r - x| > eps
+//                             may never be satisfied due to floating-point rounding
 class Solution4 {
+    private static final double DOUBLE_EPS = Math.ulp(1.0); // 2^-52 ≈ 2.22e-16
+
     public double mySqrt(double x, double eps) {
+        if (x < 0) {
+            throw new IllegalArgumentException("x must be non-negative, got: " + x);
+        }
+        if (eps < DOUBLE_EPS) {
+            throw new IllegalArgumentException(
+                "eps must be >= machine epsilon (" + DOUBLE_EPS + "), got: " + eps);
+        }
         if (x == 0) {
             return 0;
         }

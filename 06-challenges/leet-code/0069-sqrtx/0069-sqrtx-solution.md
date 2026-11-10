@@ -137,21 +137,98 @@ That is the definition of `floor(sqrt(x))`. ✓
 
 ---
 
-### Why is it so fast?
+### Why is it so fast? — Proof that it is O(log log x)
 
-Let `e_n = r_n - sqrt(x)` be the error. Substituting `r_n = sqrt(x) + e_n` into the recurrence:
+#### Step 1 — Name the error
+
+Let `e_n` be how far off our guess is at step `n`:
 
 ```
-e_{n+1}  =  e_n²  /  (2 · r_n)
-         <=  e_n²  /  (2 · sqrt(x))
+e_n  =  r_n  -  sqrt(x)
 ```
 
-The error **squares every iteration**. If the error is 100, next step it's ~10, then ~0.1, then ~0.0001. The number of correct digits doubles each step. For any 32-bit input this takes at most **5–6 iterations** from any starting point, versus ~16 for binary search.
+So `e_0 = x - sqrt(x)` (we start at `r = x`), and we stop when `e_n < 1` (error less than 1 means we have the right integer floor).
+
+#### Step 2 — Derive how the error evolves
+
+Substitute `r_n = sqrt(x) + e_n` into the Newton recurrence `r_{n+1} = (r_n + x/r_n) / 2`:
+
+```
+e_{n+1}  =  r_{n+1} - sqrt(x)
+          =  (r_n + x/r_n) / 2  -  sqrt(x)
+          =  (r_n² + x - 2·r_n·sqrt(x))  /  (2·r_n)
+          =  (r_n - sqrt(x))²  /  (2·r_n)
+          =  e_n²  /  (2·r_n)
+```
+
+Since `r_n >= sqrt(x)` (proved in Part 1):
+
+```
+e_{n+1}  <=  e_n²  /  (2·sqrt(x))
+```
+
+The error at the next step is at most the **square** of the current error, divided by a constant. This is called **quadratic convergence**.
+
+#### Step 3 — Unroll the recurrence
+
+Let `C = 2·sqrt(x)`. Then:
+
+```
+e_1  <=  e_0²  /  C
+e_2  <=  e_1²  /  C  <=  (e_0²/C)²  /  C  =  e_0⁴  /  C³
+e_3  <=  e_0⁸  /  C⁷
+e_k  <=  e_0^(2^k)  /  C^(2^k - 1)
+```
+
+The exponent on `e_0` is `2^k` — it **doubles every step**.
+
+#### Step 4 — Find when we stop
+
+We need `e_k < 1`. Ignoring the denominator (it only helps), we need:
+
+```
+e_0^(2^k)  <  1
+```
+
+Taking logarithm of both sides:
+
+```
+2^k · log(e_0)  <  0
+```
+
+That is automatically satisfied once `e_0 < 1`, but we want the general case where `e_0` can be as large as `x`. We need:
+
+```
+2^k  >=  log(e_0)  /  log(C/e_0)
+```
+
+The key point is that `e_0 < x` and `C ~ sqrt(x)`, so `log(e_0) ~ log(x)`. Therefore:
+
+```
+2^k  ~  log(x)
+k    ~  log(log(x))
+```
+
+#### Step 5 — The intuition in one line
+
+Binary search **halves** the search space each step → needs `log(x)` steps.
+Newton **squares away** the error each step → only needs `log(log(x))` steps, because you just need to double the exponent until it reaches `log(x)`, and doubling takes logarithm time again.
+
+#### Sanity check
+
+For `x = 2^31`:
+
+```
+log₂(x)       =  31        ← binary search steps
+log₂(log₂(x)) =  log₂(31) ≈ 5  ← Newton steps
+```
+
+Matches the observed ~5 iterations in the worked examples.
 
 | Method | Iterations (32-bit) | Convergence |
 |---|---|---|
-| Binary search | ~16 | linear (halves error each step) |
-| Newton's method | ~5 | quadratic (squares error each step) |
+| Binary search | ~16 | linear — error halves each step |
+| Newton's method | ~5 | quadratic — error squares each step |
 
 ---
 

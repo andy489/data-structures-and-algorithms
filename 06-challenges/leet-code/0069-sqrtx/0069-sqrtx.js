@@ -1,6 +1,7 @@
 // https://leetcode.com/problems/sqrtx/
 
-// Solution 1: Binary Search — O(log x) time, O(1) space
+// Solution 1: Binary Search, integer — O(log x) time, O(1) space
+// Implicit epsilon = 1: search space shrinks by half each step; stops at floor(sqrt(x))
 var mySqrt = function(x) {
     if (x < 2) {
         return x;
@@ -34,10 +35,29 @@ var mySqrt2 = function(x) {
     return r;
 };
 
-// Solution 3: Newton's Method, floating-point with explicit epsilon — O(log log(x/eps)) time, O(1) space
-// General version: stop when |r*r - x| < eps.
-// eps = 1e-5 gives 5 decimal places of precision; each extra decimal place costs ~1 iteration.
+// Solution 3: Binary Search, floating-point with explicit epsilon — O(log(x/eps)) time, O(1) space
+// General version: narrow [lo, hi] until hi - lo < eps.
+// eps = 1e-5 gives 5 decimal places; each extra decimal place doubles the iterations (~log2(10) ≈ 3.3 more steps).
 var mySqrt3 = function(x, eps = 1e-5) {
+    if (x === 0) {
+        return 0;
+    }
+    let lo = 0, hi = Math.max(1, x);
+    while (hi - lo > eps) {
+        const mid = lo + (hi - lo) / 2.0;
+        if (mid * mid <= x) {
+            lo = mid;
+        } else {
+            hi = mid;
+        }
+    }
+    return lo;
+};
+
+// Solution 4: Newton's Method, floating-point with explicit epsilon — O(log log(x/eps)) time, O(1) space
+// General version: stop when |r*r - x| < eps.
+// eps = 1e-5 gives 5 decimal places; each extra decimal place costs ~1 iteration (quadratic convergence).
+var mySqrt4 = function(x, eps = 1e-5) {
     if (x === 0) {
         return 0;
     }

@@ -234,39 +234,72 @@ Matches the observed ~5 iterations in the worked examples.
 
 ### The role of epsilon (ε)
 
-Epsilon is the **stopping threshold** — the maximum error you are willing to accept. The loop condition `r * r > x` is just a specific choice of epsilon.
+Epsilon is the **stopping threshold** — the maximum error you are willing to accept.
 
-**In the integer version (Solution 2)**, we stop as soon as `r² <= x`, meaning the error is less than 1 (the smallest gap between integers). Effectively:
+In the **integer versions** (Solutions 1 and 2) ε is implicit: we work in whole numbers, so the finest granularity is 1 and we stop as soon as we hit the floor. In the **floating-point versions** (Solutions 3 and 4) ε is explicit: you declare how close is "close enough".
 
-```
-ε = 1
-stop when:  r*r <= x   (i.e. r - sqrt(x) < 1)
-```
+| Desired precision | ε | extra iterations vs. integer |
+|---|---|---|
+| Whole number (Solutions 1 & 2) | implicit `1` | 0 |
+| 1 decimal place | `1e-1` | — |
+| 5 decimal places | `1e-5` | — |
+| 10 decimal places | `1e-10` | — |
 
-**In the general floating-point version (Solution 3)**, you choose any ε you need:
+How many extra iterations does a smaller ε cost?
+- **Binary search** halves the interval each step, so going from ε = 1 to ε = 1e-5 costs `log₂(1/1e-5) ≈ 17` more steps (linear).
+- **Newton's method** squares the precision each step, so the same shrink costs only `log₂(17) ≈ 4` more steps (logarithmic in the number of binary-search steps).
 
-```
-stop when:  |r*r - x|  <  ε
-```
-
-| Desired precision | ε |
-|---|---|
-| Whole number (Solution 2) | implicit `1` via `r*r <= x` |
-| 1 decimal place | `1e-1` |
-| 5 decimal places | `1e-5` |
-| 10 decimal places | `1e-10` |
-
-The smaller ε is, the more iterations you need — but because convergence is quadratic, each extra decimal place of precision costs only **one more iteration**.
-
-For 5 decimal places: `mySqrt(8.0, 1e-5)` → `2.82843` (true value `2.82842...`).
-
-Because convergence is quadratic, going from `ε = 1` to `ε = 1e-5` adds only ~`log₂(5) ≈ 2` extra iterations — essentially free.
+That is the concrete payoff of quadratic convergence.
 
 ---
 
-## Solution 3: Newton's Method with explicit ε — O(log log(x/ε)) time, O(1) space
+## Solution 3: Binary Search with explicit ε — O(log(x/ε)) time, O(1) space
 
-Same recurrence as Solution 2, but uses floating-point arithmetic and an explicit epsilon instead of integer floor truncation.
+Same idea as Solution 1 but on floating-point: narrow the interval `[lo, hi]` until its width drops below ε.
+
+**Key difference from Solution 1:** instead of tracking integer indices we track real bounds and stop when `hi - lo < ε`.
+
+**Note:** `hi` starts at `max(1, x)` rather than `x/2` to handle `0 < x < 1` correctly (sqrt(0.25) = 0.5 > 0.25).
+
+**Algorithm:**
+1. If `x == 0`, return `0`.
+2. Set `lo = 0`, `hi = max(1, x)`.
+3. While `hi - lo > ε`:
+   - `mid = lo + (hi - lo) / 2`
+   - If `mid * mid <= x`: `lo = mid`
+   - Else: `hi = mid`
+4. Return `lo`.
+
+**Complexity:**
+
+| | |
+|---|---|
+| Time  | O(log(x/ε)) — interval halves each step; needs log₂(x/ε) steps to reach width ε |
+| Space | O(1) |
+
+### Worked Example — `x = 8.0, ε = 0.1`
+
+Start: `lo = 0`, `hi = 8`
+
+| Iteration | lo | hi | hi-lo | mid | mid² | action |
+|-----------|----|----|-------|-----|------|--------|
+| 1 | 0 | 8 | 8.0 | 4.0 | 16 | 16 > 8 → hi = 4 |
+| 2 | 0 | 4 | 4.0 | 2.0 | 4 | 4 ≤ 8 → lo = 2 |
+| 3 | 2 | 4 | 2.0 | 3.0 | 9 | 9 > 8 → hi = 3 |
+| 4 | 2 | 3 | 1.0 | 2.5 | 6.25 | 6.25 ≤ 8 → lo = 2.5 |
+| 5 | 2.5 | 3 | 0.5 | 2.75 | 7.5625 | 7.5625 ≤ 8 → lo = 2.75 |
+| 6 | 2.75 | 3 | 0.25 | 2.875 | 8.265 | 8.265 > 8 → hi = 2.875 |
+| 7 | 2.75 | 2.875 | 0.125 | 2.8125 | 7.91 | 7.91 ≤ 8 → lo = 2.8125 |
+| 8 | 2.8125 | 2.875 | 0.0625 | ... | ... | ... |
+| ... | ... | ... | < 0.1 | — | — | **exit** |
+
+Return `lo ≈ 2.82...`. ✓
+
+---
+
+## Solution 4: Newton's Method with explicit ε — O(log log(x/ε)) time, O(1) space
+
+Same recurrence as Solution 2, but floating-point with an explicit stopping condition.
 
 **Algorithm:**
 1. If `x == 0`, return `0`.
@@ -278,59 +311,33 @@ Same recurrence as Solution 2, but uses floating-point arithmetic and an explici
 
 | | |
 |---|---|
-| Time  | O(log log(x/ε)) — each iteration doubles precision; to reach error ε from error ~x takes log log(x/ε) steps |
+| Time  | O(log log(x/ε)) — quadratic convergence; each step doubles the number of correct digits |
 | Space | O(1) |
 
 ### Worked Example — `x = 8.0, ε = 1e-5`
 
 Start: `r = 8.0`
 
-| Iteration | r | \|r²-8\| | action |
+| Iteration | r | \|r²−8\| | action |
 |-----------|---|----------|--------|
-| 1 | 8.0 | 56.0 | > 1e-5 → r = (8 + 1)/2 = **4.5** |
-| 2 | 4.5 | 12.25 | > 1e-5 → r = (4.5 + 8/4.5)/2 = **3.1389** |
-| 3 | 3.1389 | 1.853 | > 1e-5 → r = **2.8432** |
-| 4 | 2.8432 | 0.0832 | > 1e-5 → r = **2.8284** |
-| 5 | 2.8284 | 0.000012 | > 1e-5 → r = **2.82843** |
-| 6 | 2.82843 | ~0 | <= 1e-5 → **exit** |
+| 1 | 8.0 | 56.0 | > 1e-5 → r = (8 + 8/8)/2 = **4.5** |
+| 2 | 4.5 | 12.25 | > 1e-5 → r = (4.5 + 8/4.5)/2 = **3.139** |
+| 3 | 3.139 | 1.853 | > 1e-5 → r = **2.8432** |
+| 4 | 2.8432 | 0.0832 | > 1e-5 → r = **2.82843** |
+| 5 | 2.82843 | ~0.000012 | > 1e-5 → r = **2.828427** |
+| 6 | 2.828427 | ~0 | ≤ 1e-5 → **exit** |
 
-Return `2.82843`. ✓ (true value: `2.828427...`)
-
----
-
-### Algorithm
-
-1. If `x == 0`, return `0`.
-2. Start with `r = x` (always above `sqrt(x)` for `x >= 1`).
-3. While `r * r > x`: `r = (r + x / r) / 2`.
-4. Return `r`.
-
-**Overflow guard:** Use `long` — `r * r` can overflow `int` when `x` is near `2^31 - 1`.
-
-**Complexity:**
-
-| | |
-|---|---|
-| Time  | O(log log x) — quadratic convergence |
-| Space | O(1) |
+Return `2.828427`. ✓ (true value: `2.8284271...`)
 
 ---
 
-### Worked Example — `x = 8`
+### Side-by-side comparison
 
-Start: `r = 8`
+| Solution | Method | ε | Stops when | Time |
+|---|---|---|---|---|
+| 1 | Binary search | implicit 1 | `lo > hi` (integers) | O(log x) |
+| 2 | Newton | implicit 1 | `r*r <= x` (integers) | O(log log x) |
+| 3 | Binary search | explicit | `hi - lo <= ε` | O(log(x/ε)) |
+| 4 | Newton | explicit | `\|r*r - x\| <= ε` | O(log log(x/ε)) |
 
-| Iteration | r | r² | action |
-|-----------|---|----|--------|
-| 1 | 8 | 64 | 64 > 8 → r = (8 + 8/8)/2 = (8+1)/2 = **4** |
-| 2 | 4 | 16 | 16 > 8 → r = (4 + 8/4)/2 = (4+2)/2 = **3** |
-| 3 | 3 | 9  | 9 > 8  → r = (3 + 8/3)/2 = (3+2)/2 = **2** (integer division) |
-| 4 | 2 | 4  | 4 <= 8 → **exit** |
-
-Return `2`. ✓
-
----
-
-### Worked Example — `x = 2147395600` (near `2^31 - 1`, answer = 46340)
-
-Newton's method converges in 5 iterations; binary search would take ~16. The `long` cast prevents `r * r` from overflowing.
+Solutions 3 and 4 generalise their integer counterparts. The Newton variant (4) is dramatically faster for tight ε because halving the interval costs one step but halving the *error exponent* also costs one step — and Newton is already at a tiny error before binary search is halfway done.

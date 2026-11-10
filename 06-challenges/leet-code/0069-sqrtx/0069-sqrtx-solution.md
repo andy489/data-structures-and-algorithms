@@ -60,38 +60,55 @@ Search range: `lo = 1`, `hi = 4`
 
 ## Solution 2: Newton's Method — O(log log x) iterations, O(1) space
 
-### Historical context
+### Where does it come from?
 
-Newton's method (also called the **Newton–Raphson method**) was developed by Isaac Newton around 1669 and independently by Joseph Raphson in 1690. For computing square roots specifically, the underlying recurrence `r ← (r + x/r) / 2` is actually far older — it appears in **Babylonian clay tablets from ~2000 BCE** and is sometimes called the **Babylonian method** or **Heron's method** (after the Greek mathematician Heron of Alexandria, ~60 CE, who described it explicitly). It is arguably the oldest known numerical algorithm.
+About 4000 years ago, Babylonian mathematicians noticed something simple:
 
-Newton rediscovered it as a special case of his general root-finding framework: to solve `f(r) = 0`, iterate `r ← r - f(r) / f'(r)`. For `f(r) = r² - x`, this yields exactly the Babylonian recurrence.
+> If `r` is too large a guess for `√x`, then `x/r` is too small. The true answer is **somewhere in between**.
 
-### Derivation
+So take the average:
 
-We want `sqrt(x)`, i.e. the root of `f(r) = r² - x = 0`. Newton's update rule:
+```
+r_next = (r + x/r) / 2
+```
+
+Repeat until `r` stops changing. That's it. This recurrence appears in **Babylonian clay tablets from ~2000 BCE** and is sometimes called the **Babylonian method** or **Heron's method** (after the Greek mathematician Heron of Alexandria, ~60 CE). It is arguably the oldest known numerical algorithm.
+
+Isaac Newton rediscovered it ~1669 as a special case of his general root-finding framework: to solve `f(r) = 0`, iterate `r ← r - f(r) / f'(r)`. For `f(r) = r² - x` this gives exactly the same recurrence:
 
 ```
 r_next = r - f(r) / f'(r)
        = r - (r² - x) / (2r)
-       = (2r² - r² + x) / (2r)
        = (r + x/r) / 2
 ```
 
-This is the arithmetic mean of `r` and `x/r`. By the AM-GM inequality these two terms straddle `sqrt(x)` (their geometric mean), so the update always overshoots toward `sqrt(x)` — never below it.
+---
 
 ### Proof of correctness
 
-**1. Sequence never goes below sqrt(x) (AM-GM)**
+#### Part 1 — The sequence never goes below sqrt(x)
 
-For any `r > 0`, by AM-GM:
+We need to show: `(r + x/r) / 2 >= sqrt(x)` for any `r > 0`.
+
+This is just the **AM-GM inequality** — the arithmetic mean of two positive numbers is always at least their geometric mean:
+
+```
+(a + b) / 2  >=  sqrt(a · b)
+```
+
+Set `a = r` and `b = x/r`:
 
 ```
 (r + x/r) / 2  >=  sqrt(r · x/r)  =  sqrt(x)
 ```
 
-So `r_next >= sqrt(x)` always. The sequence approaches from above, meaning `r*r > x` is the correct loop guard.
+So `r_next >= sqrt(x)` always. The sequence approaches from above and **never undershoots**. This is why `r * r > x` is the right loop guard — once `r² <= x`, we have arrived.
 
-**2. Sequence is strictly decreasing while r² > x**
+---
+
+#### Part 2 — The sequence strictly decreases while the loop runs
+
+We want to show: if `r² > x`, then `r_next < r`.
 
 ```
 r_next < r
@@ -100,44 +117,48 @@ r_next < r
 ⟺  x < r²
 ```
 
-Which is exactly the loop condition. So each iteration strictly reduces `r`.
+Which is exactly the loop condition. So every iteration shrinks `r`.
 
-**3. Loop terminates at floor(sqrt(x))**
+---
 
-The sequence is monotonically decreasing and bounded below by `sqrt(x)`, so it converges. For integer arithmetic, once `r² <= x` the loop exits. At that point:
+#### Part 3 — The loop stops at exactly floor(sqrt(x))
+
+From Parts 1 and 2 the sequence is:
+- monotonically **decreasing**
+- bounded **below** by `sqrt(x)`
+
+So it must converge. For integer arithmetic, once `r² <= x` the loop exits. At that point:
 
 ```
 r²  <=  x  <  (r+1)²
 ```
 
-The left side is the exit condition. The right side follows because the previous (larger) iterate satisfied `r_prev >= r + 1` and `r_prev >= sqrt(x)`, so `r = floor(sqrt(x))` exactly.
+That is the definition of `floor(sqrt(x))`. ✓
 
-### Convergence: quadratic
+---
 
-Let `e_n = r_n - sqrt(x)` be the error at step `n`. Substituting `r_n = sqrt(x) + e_n`:
+### Why is it so fast?
 
-```
-e_{n+1} = r_{n+1} - sqrt(x)
-        = (r_n + x/r_n)/2 - sqrt(x)
-        = e_n² / (2 · r_n)
-```
-
-Since `r_n >= sqrt(x)`:
+Let `e_n = r_n - sqrt(x)` be the error. Substituting `r_n = sqrt(x) + e_n` into the recurrence:
 
 ```
-e_{n+1}  <=  e_n² / (2 · sqrt(x))
+e_{n+1}  =  e_n²  /  (2 · r_n)
+         <=  e_n²  /  (2 · sqrt(x))
 ```
 
-The error **squares each iteration**. Starting from `r = x`, convergence to the integer answer takes at most ~5 iterations for any 32-bit input — compared to ~16 iterations for binary search.
+The error **squares every iteration**. If the error is 100, next step it's ~10, then ~0.1, then ~0.0001. The number of correct digits doubles each step. For any 32-bit input this takes at most **5–6 iterations** from any starting point, versus ~16 for binary search.
 
-| Method | Iterations | Convergence |
+| Method | Iterations (32-bit) | Convergence |
 |---|---|---|
-| Binary search | O(log x) ≈ 16 for 32-bit | linear |
-| Newton's method | O(log log x) ≈ 5 for 32-bit | quadratic |
+| Binary search | ~16 | linear (halves error each step) |
+| Newton's method | ~5 | quadratic (squares error each step) |
 
-**Algorithm:**
+---
+
+### Algorithm
+
 1. If `x == 0`, return `0`.
-2. Start with `r = x` (safe initial guess above `sqrt(x)` for `x >= 1`).
+2. Start with `r = x` (always above `sqrt(x)` for `x >= 1`).
 3. While `r * r > x`: `r = (r + x / r) / 2`.
 4. Return `r`.
 
@@ -156,12 +177,12 @@ The error **squares each iteration**. Starting from `r = x`, convergence to the 
 
 Start: `r = 8`
 
-| Iteration | r  | r²  | action        |
-|-----------|----|-----|---------------|
-| 1         | 8  | 64  | 64 > 8 → r = (8 + 8/8)/2 = (8+1)/2 = 4 |
-| 2         | 4  | 16  | 16 > 8 → r = (4 + 8/4)/2 = (4+2)/2 = 3 |
-| 3         | 3  | 9   | 9 > 8  → r = (3 + 8/3)/2 = (3+2)/2 = 2 (integer division) |
-| 4         | 2  | 4   | 4 <= 8 → exit |
+| Iteration | r | r² | action |
+|-----------|---|----|--------|
+| 1 | 8 | 64 | 64 > 8 → r = (8 + 8/8)/2 = (8+1)/2 = **4** |
+| 2 | 4 | 16 | 16 > 8 → r = (4 + 8/4)/2 = (4+2)/2 = **3** |
+| 3 | 3 | 9  | 9 > 8  → r = (3 + 8/3)/2 = (3+2)/2 = **2** (integer division) |
+| 4 | 2 | 4  | 4 <= 8 → **exit** |
 
 Return `2`. ✓
 

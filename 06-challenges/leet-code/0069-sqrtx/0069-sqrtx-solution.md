@@ -232,6 +232,57 @@ Matches the observed ~5 iterations in the worked examples.
 
 ---
 
+### The role of epsilon (ε)
+
+Epsilon is the **stopping threshold** — the maximum error you are willing to accept. The loop condition `r * r > x` is just a specific choice of epsilon.
+
+**In the integer version**, we stop as soon as `r² <= x`, meaning the error is less than 1 (the smallest gap between integers). Effectively:
+
+```
+ε = 1
+stop when:  r  -  sqrt(x)  <  1
+```
+
+**In the general floating-point version**, you choose any ε you need:
+
+```
+stop when:  |r - prev_r|  <  ε
+```
+
+or equivalently:
+
+```
+stop when:  |r*r - x|  <  ε
+```
+
+| Desired precision | ε |
+|---|---|
+| Whole number (this problem) | `1` (or `r*r <= x` in integers) |
+| 1 decimal place | `0.1` |
+| 5 decimal places | `0.00001` = `1e-5` |
+| 10 decimal places | `1e-10` |
+
+The smaller ε is, the more iterations you need — but because convergence is quadratic, each extra decimal place of precision costs only **one more iteration**.
+
+**Floating-point implementation with ε:**
+
+```java
+double mySqrtPrecise(double x, double eps) {
+    if (x == 0) return 0;
+    double r = x;
+    while (Math.abs(r * r - x) > eps) {
+        r = (r + x / r) / 2.0;
+    }
+    return r;
+}
+```
+
+For 5 decimal places: `mySqrtPrecise(8.0, 1e-5)` → `2.82843` (true value `2.82842...`).
+
+Because convergence is quadratic, going from `ε = 1` to `ε = 1e-5` adds only ~`log₂(5) ≈ 2` extra iterations — essentially free.
+
+---
+
 ### Algorithm
 
 1. If `x == 0`, return `0`.

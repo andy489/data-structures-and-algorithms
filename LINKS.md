@@ -1,28 +1,35 @@
 #### Data Structures and Algorithms:
-- Competitive programming algorithms: 
-  - http://e-maxx.ru/algo/ 🇷🇺
-  - https://cp-algorithms.com 🇷🇺
+- Competitive programming algorithms:
+
+| Site | Country | Description |
+|---|---|---|
+| [e-maxx.ru/algo](http://e-maxx.ru/algo/) | 🇷🇺 Russia | Original Russian CP algorithms reference |
+| [cp-algorithms.com](https://cp-algorithms.com) | 🇷🇺 Russia | English translation of e-maxx, actively maintained |
+
 - Core concepts illustrated (educational initiative): 
   - https://youtube.com/user/mycodeschool
 
 - Problem sets:
-  - https://codeforces.com 🇷🇺
-  - https://hackerrank.com 🇺🇸
-  - https://leetcode.com 🇺🇸
-  - https://spoj.com 🇵🇱
-  - https://codechef.com 🇮🇳
-  - https://onlinejudge.org 🇺🇸
-  - https://acm.timus.ru/problemset.aspx 🇷🇺
-  - https://devskill.com/CodingProblems 🇧🇩
-  - https://open.kattis.com/problems 🇸🇪
-  - https://action.informatika.bg 🇧🇬
-  - https://cses.fi/problemset 🇫🇮
-  - http://poj.org/problemlist 🇨🇳
-  - https://judge.openfmi.net 🇧🇬
-  - https://contest.yandex.com/contest-list 🇷🇺
-  - https://dmoj.ca/problems 🇨🇦
-  - https://atcoder.jp 🇯🇵
-  - https://csacademy.com 🇷🇴
+
+| Site | Country | Description |
+|---|---|---|
+| [codeforces.com](https://codeforces.com) | 🇷🇺 Russia | World's largest CP platform, regular rated contests |
+| [hackerrank.com](https://hackerrank.com) | 🇺🇸 USA | Interview prep and skill certifications |
+| [leetcode.com](https://leetcode.com) | 🇺🇸 USA | Industry standard for technical interview practice |
+| [spoj.com](https://spoj.com) | 🇵🇱 Poland | Sphere Online Judge, classic problem archive |
+| [codechef.com](https://codechef.com) | 🇮🇳 India | Long challenges and rated contests |
+| [onlinejudge.org](https://onlinejudge.org) | 🇺🇸 USA | UVa OJ, classic ICPC problem archive |
+| [acm.timus.ru](https://acm.timus.ru/problemset.aspx) | 🇷🇺 Russia | Ural Federal University problem archive |
+| [devskill.com](https://devskill.com/CodingProblems) | 🇧🇩 Bangladesh | Curated problems and skill assessment |
+| [open.kattis.com](https://open.kattis.com/problems) | 🇸🇪 Sweden | ICPC-style problems from university contests |
+| [action.informatika.bg](https://action.informatika.bg) | 🇧🇬 Bulgaria | Bulgarian informatics olympiad judge |
+| [cses.fi/problemset](https://cses.fi/problemset) | 🇫🇮 Finland | CSES Problem Set, curated competitive programming syllabus |
+| [poj.org](http://poj.org/problemlist) | 🇨🇳 China | Peking University Online Judge, ICPC classics |
+| [judge.openfmi.net](https://judge.openfmi.net) | 🇧🇬 Bulgaria | Faculty of Mathematics and Informatics (Sofia) judge |
+| [contest.yandex.com](https://contest.yandex.com/contest-list) | 🇷🇺 Russia | Yandex contest platform |
+| [dmoj.ca](https://dmoj.ca/problems) | 🇨🇦 Canada | Don Mills OJ, Canadian olympiad problems |
+| [atcoder.jp](https://atcoder.jp) | 🇯🇵 Japan | High-quality math-heavy contests, weekly ABC/ARC/AGC |
+| [csacademy.com](https://csacademy.com) | 🇷🇴 Romania | Clean UI, strong editorials, advanced algorithms |
 
 - DAA
   - https://skelet.ludost.net/DAA/problems/

@@ -22,3 +22,9 @@
 |---|---|
 | Time | O(n^(T/M)) — branching factor n, depth at most T/M where M is the smallest candidate |
 | Space | O(T/M) — recursion depth, excluding output |
+
+**T and M explained:**
+- **T** = `target` — the sum we must reach
+- **M** = minimum value in `candidates` (smallest element after sorting)
+- **T/M** = maximum recursion depth — worst case is picking the smallest candidate every time (e.g. target=7, min=2 → depth ≤ 4)
+- At each level there are at most `n` branches, so the recursion tree has at most `n^(T/M)` nodes total

@@ -5,16 +5,36 @@
 
 ---
 
-## Solution: Two Binary Searches (Lower/Upper Bound) — O(log n) time, O(1) space
+## Solution: Unified Binary Search with advance predicate — O(log n) time, O(1) space
 
-**Idea:** Run binary search twice — once to find the leftmost index where `target` appears (lower bound), and once to find the rightmost (upper bound). If the lower bound index is out of range or doesn't equal `target`, return `[-1, -1]`.
+**Idea:** Both lower and upper bound searches share identical structure — they differ only in what to do when `nums[mid] == target`. Extract a single `bound(advance)` helper where `advance` is the predicate that drives `lo = mid + 1`: passing `val < target` keeps searching left on a hit (first occurrence); passing `val <= target` keeps searching right (last occurrence). Record `mid` unconditionally whenever `nums[mid] == target` so both branches capture it.
 
 **Algorithm:**
-1. **Lower bound** — binary search for the first index `i` such that `nums[i] >= target`:
-   - While `lo <= hi`: if `nums[mid] < target` → `lo = mid + 1`, else → `hi = mid - 1`, record `mid` as candidate.
-2. **Upper bound** — binary search for the last index `i` such that `nums[i] <= target`:
-   - While `lo <= hi`: if `nums[mid] > target` → `hi = mid - 1`, else → `lo = mid + 1`, record `mid` as candidate.
-3. If lower bound index is valid and `nums[lower] == target`, return `[lower, upper]`; otherwise return `[-1, -1]`.
+1. Define `bound(advance)`: binary search; on each step record `res = mid` if `nums[mid] == target`, then move right if `advance(nums[mid], target)`, else move left.
+2. Call `bound(val < target)` → first occurrence.
+3. Call `bound(val <= target)` → last occurrence.
+4. Return `[first, last]`.
+
+**Complexity:**
+
+| | |
+|---|---|
+| Time | O(log n) — two independent binary searches |
+| Space | O(1) — only pointer variables used |
+
+---
+
+## Solution 2: Lower Bound with target ± 0.5 — O(log n) time, O(1) space
+
+**Idea:** Since the array contains only integers, `target ± 0.5` can never appear in it. A single `lowerBound(x)` — the first index where `nums[i] >= x` — suffices for both boundaries using only strict `<`:
+
+- `lowerBound(target - 0.5)` → first index where `nums[i] >= target` = first occurrence
+- `lowerBound(target + 0.5) - 1` → one before the first index where `nums[i] > target` = last occurrence
+
+**Algorithm:**
+1. Define `lowerBound(x)`: while `lo <= hi`, set `mid`; if `nums[mid] < x` → `lo = mid + 1`; else → `hi = mid - 1`. Return `lo`.
+2. `first = lowerBound(target - 0.5)`, `last = lowerBound(target + 0.5) - 1`.
+3. If `first > last` (target absent), return `[-1, -1]`; otherwise return `[first, last]`.
 
 **Complexity:**
 

@@ -43,3 +43,21 @@
 |---|---|
 | Time | O(n!·n) — same output size |
 | Space | O(k) — k distinct values in the map (excluding output) |
+
+---
+
+## Solution 3: In-place swap backtracking with per-level duplicate set — O(n!·n) time, O(n) space
+
+**Idea:** Extend problem 46's swap approach with a `HashSet seen` at each recursion level. Before swapping `nums[i]` into position `start`, check if that value was already placed there this round — if so, skip. No extra `used[]` array; the array itself is rearranged in-place.
+
+**Algorithm:**
+1. Sort `nums`.
+2. `backtrack(nums, start, result)`: if `start == n`, record copy.
+3. Allocate `Set<Integer> seen`. For `i` from `start` to `n-1`: if `!seen.add(nums[i])`, skip (duplicate at this level). Otherwise swap `start↔i`, recurse with `start+1`, swap back.
+
+**Complexity:**
+
+| | |
+|---|---|
+| Time | O(n!·n) — same output size |
+| Space | O(n) — recursion stack + `seen` set per level (excluding output) |

@@ -59,3 +59,39 @@ class Solution2 {
         }
     }
 }
+
+// Solution3: In-place swap backtracking with per-level duplicate set — O(n!·n) time, O(n) space
+class Solution3 {
+    public List<List<Integer>> permuteUnique(int[] nums) {
+        Arrays.sort(nums);
+        List<List<Integer>> result = new ArrayList<>();
+        backtrack(nums, 0, result);
+        return result;
+    }
+
+    private void backtrack(int[] nums, int start, List<List<Integer>> result) {
+        if (start == nums.length) {
+            List<Integer> perm = new ArrayList<>();
+            for (int n : nums) {
+                perm.add(n);
+            }
+            result.add(perm);
+            return;
+        }
+        Set<Integer> seen = new HashSet<>();
+        for (int i = start; i < nums.length; i++) {
+            if (!seen.add(nums[i])) {
+                continue;
+            }
+            swap(nums, start, i);
+            backtrack(nums, start + 1, result);
+            swap(nums, start, i);
+        }
+    }
+
+    private void swap(int[] nums, int i, int j) {
+        int tmp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tmp;
+    }
+}

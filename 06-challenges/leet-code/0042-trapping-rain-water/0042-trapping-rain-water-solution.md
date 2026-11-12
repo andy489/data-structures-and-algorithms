@@ -11,9 +11,9 @@
 
 **Algorithm:**
 1. `l = 0`, `r = n-1`, `maxL = maxR = 0`, `water = 0`.
-2. While `l < r`:
-   - If `maxL <= maxR`: water `+= maxL - height[l]` (or 0 if negative isn't possible since maxL ≥ height[l]). Update `maxL = max(maxL, height[l])`. Advance `l++`.
-   - Else: symmetrically process right side. Update `maxR`, advance `r--`.
+2. While `l <= r`:
+   - If `maxL <= maxR`: water `+= max(0, maxL - height[l])`. Update `maxL = max(maxL, height[l])`. Advance `l++`.
+   - Else: water `+= max(0, maxR - height[r])`. Update `maxR = max(maxR, height[r])`. Advance `r--`.
 3. Return `water`.
 
 **Complexity:**

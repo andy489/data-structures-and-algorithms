@@ -24,13 +24,14 @@
 
 ---
 
-## Solution 2: Backtracking via in-place swapping — O(n!·n) time, O(n) space
+## Solution 2: Backtracking via in-place swapping with Collections.swap — O(n!·n) time, O(n) space
 
-**Idea:** At depth `start`, swap `nums[start]` with each `nums[i]` for `i >= start`, recurse for `start+1`, then swap back. Avoids the `used` array entirely by rearranging the input array itself.
+**Idea:** Convert `int[]` to `List<Integer>` to use `Collections.swap`. At depth `start`, swap `list.get(start)` with each `list.get(i)` for `i >= start`, recurse for `start+1`, then swap back.
 
 **Algorithm:**
-1. `backtrack(nums, start, result)`: if `start == n`, record a copy of `nums`.
-2. For `i` from `start` to `n-1`: swap `nums[start]` ↔ `nums[i]`, recurse with `start+1`, swap back.
+1. Box `nums` into `List<Integer> list`.
+2. `backtrack(list, start, result)`: if `start == list.size()`, record a copy.
+3. For `i` from `start` to `list.size()-1`: `Collections.swap(list, start, i)`, recurse with `start+1`, swap back.
 
 **Complexity:**
 

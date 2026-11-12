@@ -26,31 +26,27 @@ class Solution {
     }
 }
 
-// Solution2: Backtracking via in-place swapping — O(n!·n) time, O(n) space
+// Solution2: Backtracking via in-place swapping with Collections.swap — O(n!·n) time, O(n) space
 class Solution2 {
     public List<List<Integer>> permute(int[] nums) {
+        List<Integer> list = new ArrayList<>();
+        for (int n : nums) {
+            list.add(n);
+        }
         List<List<Integer>> result = new ArrayList<>();
-        backtrack(nums, 0, result);
+        backtrack(list, 0, result);
         return result;
     }
 
-    private void backtrack(int[] nums, int start, List<List<Integer>> result) {
-        if (start == nums.length) {
-            List<Integer> perm = new ArrayList<>();
-            for (int n : nums) {
-                perm.add(n);
-            }
-            result.add(perm);
+    private void backtrack(List<Integer> list, int start, List<List<Integer>> result) {
+        if (start == list.size()) {
+            result.add(new ArrayList<>(list));
             return;
         }
-        for (int i = start; i < nums.length; i++) {
-            int tmp = nums[start];
-            nums[start] = nums[i];
-            nums[i] = tmp;
-            backtrack(nums, start + 1, result);
-            tmp = nums[start];
-            nums[start] = nums[i];
-            nums[i] = tmp;
+        for (int i = start; i < list.size(); i++) {
+            Collections.swap(list, start, i);
+            backtrack(list, start + 1, result);
+            Collections.swap(list, start, i);
         }
     }
 }

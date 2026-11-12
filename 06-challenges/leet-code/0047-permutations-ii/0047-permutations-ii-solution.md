@@ -25,3 +25,21 @@
 |---|---|
 | Time | O(n!·n) — at most n! unique permutations, O(n) each to copy |
 | Space | O(n) — recursion depth + `used` array (excluding output) |
+
+---
+
+## Solution 2: Backtracking with frequency map — O(n!·n) time, O(k) space
+
+**Idea:** Build a frequency map of all values. At each recursion level, iterate over the map's distinct keys — decrement the count before recursing, increment after. Since we never pick the same key twice at the same level (we check `count > 0`), duplicates are naturally avoided without sorting or a `used[]` array.
+
+**Algorithm:**
+1. Build `Map<Integer, Integer> freq` from `nums`.
+2. `backtrack(freq, n, path, result)`: if `path.size() == n`, record copy.
+3. For each `(key, count)` in `freq`: if `count == 0`, skip. Otherwise decrement, add key to path, recurse, remove from path, increment.
+
+**Complexity:**
+
+| | |
+|---|---|
+| Time | O(n!·n) — same output size |
+| Space | O(k) — k distinct values in the map (excluding output) |

@@ -29,3 +29,33 @@ class Solution {
         }
     }
 }
+
+// Solution2: Backtracking with frequency map — O(n!·n) time, O(k) space (k = distinct values)
+class Solution2 {
+    public List<List<Integer>> permuteUnique(int[] nums) {
+        Map<Integer, Integer> freq = new LinkedHashMap<>();
+        for (int n : nums) {
+            freq.merge(n, 1, Integer::sum);
+        }
+        List<List<Integer>> result = new ArrayList<>();
+        backtrack(freq, nums.length, new ArrayList<>(), result);
+        return result;
+    }
+
+    private void backtrack(Map<Integer, Integer> freq, int n, List<Integer> path, List<List<Integer>> result) {
+        if (path.size() == n) {
+            result.add(new ArrayList<>(path));
+            return;
+        }
+        for (Map.Entry<Integer, Integer> entry : freq.entrySet()) {
+            if (entry.getValue() == 0) {
+                continue;
+            }
+            path.add(entry.getKey());
+            entry.setValue(entry.getValue() - 1);
+            backtrack(freq, n, path, result);
+            path.remove(path.size() - 1);
+            entry.setValue(entry.getValue() + 1);
+        }
+    }
+}

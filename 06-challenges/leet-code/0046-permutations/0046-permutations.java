@@ -36,11 +36,11 @@ class Solution2 {
 
     private void backtrack(int[] nums, int start, List<List<Integer>> result) {
         if (start == nums.length) {
-            List<Integer> perm = new ArrayList<>();
-            for (int n : nums) {
-                perm.add(n);
+            Integer[] boxed = new Integer[nums.length];
+            for (int i = 0; i < nums.length; i++) {
+                boxed[i] = nums[i];
             }
-            result.add(perm);
+            result.add(Arrays.asList(boxed));
             return;
         }
         for (int i = start; i < nums.length; i++) {

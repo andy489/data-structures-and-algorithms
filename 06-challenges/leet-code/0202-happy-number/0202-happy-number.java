@@ -25,7 +25,7 @@ class Solution {
 // Solution2: Hash set cycle detection — O(log n) time, O(log n) space
 class Solution2 {
     public boolean isHappy(int n) {
-        java.util.Set<Integer> seen = new java.util.HashSet<>();
+        Set<Integer> seen = new HashSet<>();
         while (n != 1 && seen.add(n)) {
             int sum = 0;
             while (n > 0) {

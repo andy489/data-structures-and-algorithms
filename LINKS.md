@@ -1,26 +1,28 @@
 #### Data Structures and Algorithms:
 - Competitive programming algorithms: 
-  - http://e-maxx.ru/algo/ 
-  - https://cp-algorithms.com
+  - http://e-maxx.ru/algo/ 🇷🇺
+  - https://cp-algorithms.com 🇷🇺
 - Core concepts illustrated (educational initiative): 
   - https://youtube.com/user/mycodeschool
 
 - Problem sets:
-  - https://codeforces.com
-  - https://hackerrank.com
-  - https://leetcode.com
-  - https://spoj.com
-  - https://codechef.com
-  - https://onlinejudge.org
-  - https://acm.timus.ru/problemset.aspx
-  - https://devskill.com/CodingProblems
-  - https://open.kattis.com/problems
-  - https://action.informatika.bg
-  - https://cses.fi/problemset
-  - http://poj.org/problemlist
-  - https://judge.openfmi.net
-  - https://contest.yandex.com/contest-list
-  - https://dmoj.ca/problems
+  - https://codeforces.com 🇷🇺
+  - https://hackerrank.com 🇺🇸
+  - https://leetcode.com 🇺🇸
+  - https://spoj.com 🇵🇱
+  - https://codechef.com 🇮🇳
+  - https://onlinejudge.org 🇺🇸
+  - https://acm.timus.ru/problemset.aspx 🇷🇺
+  - https://devskill.com/CodingProblems 🇧🇩
+  - https://open.kattis.com/problems 🇸🇪
+  - https://action.informatika.bg 🇧🇬
+  - https://cses.fi/problemset 🇫🇮
+  - http://poj.org/problemlist 🇨🇳
+  - https://judge.openfmi.net 🇧🇬
+  - https://contest.yandex.com/contest-list 🇷🇺
+  - https://dmoj.ca/problems 🇨🇦
+  - https://atcoder.jp 🇯🇵
+  - https://csacademy.com 🇷🇴
 
 - DAA
   - https://skelet.ludost.net/DAA/problems/

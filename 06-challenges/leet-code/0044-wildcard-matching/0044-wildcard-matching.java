@@ -13,71 +13,64 @@
 //   AcceptNode   — the goal; being here means the whole pattern matched
 //
 // Simulation:
-//   activeNodes = set of nodes the NFA is currently "in" (may be many at once).
+//   active = set of nodes the NFA is currently "in" (may be many at once).
 //   For each character of s: ask every active node to fire its read edges →
 //   collect resulting nodes → follow epsilon edges (free jumps) → repeat.
-//   After reading all of s: accept iff AcceptNode is in activeNodes.
+//   After reading all of s: accept iff AcceptNode is in active.
 
 abstract class Node {
-    int id;           // position in the NFA (index into the nodes list)
-    Node next;        // the node immediately after this one in the pattern
+    Node next; // the node immediately after this one in the pattern
 
     // Fire this node on character c: add reachable nodes to the result set.
-    // Returns true if this node itself should stay active (epsilon loop for '*').
-    abstract void fire(char c, Set<Integer> result);
+    abstract void fire(char c, Set<Node> result);
 
     // Epsilon edges: nodes reachable from here without consuming a character.
     // Default: none. StarNode overrides this to add next (star matches empty).
-    void epsilonReach(Set<Integer> result) {}
+    void epsilonReach(Set<Node> result) {}
 }
 
 class LiteralNode extends Node {
     private final char expected;
-    LiteralNode(int id, char expected) { this.id = id; this.expected = expected; }
+    LiteralNode(char expected) { this.expected = expected; }
 
     @Override
-    void fire(char c, Set<Integer> result) {
+    void fire(char c, Set<Node> result) {
         if (c == expected) {
-            result.add(next.id); // character matches: advance to next node
+            result.add(next); // character matches: advance to next node
         }
     }
 }
 
 class WildcardNode extends Node {
-    WildcardNode(int id) { this.id = id; }
-
     @Override
-    void fire(char c, Set<Integer> result) {
-        result.add(next.id); // '?' matches any character: always advance
+    void fire(char c, Set<Node> result) {
+        result.add(next); // '?' matches any character: always advance
     }
 }
 
 class StarNode extends Node {
-    StarNode(int id) { this.id = id; }
-
     @Override
-    void fire(char c, Set<Integer> result) {
-        result.add(id);      // loop: '*' absorbs this character, stays on itself
-        result.add(next.id); // or treat as empty and advance to next node
+    void fire(char c, Set<Node> result) {
+        result.add(this);  // loop: '*' absorbs this character, stays on itself
+        result.add(next);  // or treat as empty and advance to next node
     }
 
     @Override
-    void epsilonReach(Set<Integer> result) {
-        result.add(next.id); // free jump: '*' can match nothing, advance for free
+    void epsilonReach(Set<Node> result) {
+        result.add(next); // free jump: '*' can match nothing, advance for free
     }
 }
 
 class AcceptNode extends Node {
-    AcceptNode(int id) { this.id = id; }
-
     @Override
-    void fire(char c, Set<Integer> result) {
+    void fire(char c, Set<Node> result) {
         // accept node has no outgoing edges; nothing to do
     }
 }
 
 class Nfa {
     private final Node[] nodes;
+    private final Node accept;
 
     Nfa(String pattern) {
         int n = pattern.length();
@@ -85,48 +78,49 @@ class Nfa {
         for (int i = 0; i < n; i++) {
             char pc = pattern.charAt(i);
             if (pc == '?') {
-                nodes[i] = new WildcardNode(i);
+                nodes[i] = new WildcardNode();
             } else if (pc == '*') {
-                nodes[i] = new StarNode(i);
+                nodes[i] = new StarNode();
             } else {
-                nodes[i] = new LiteralNode(i, pc);
+                nodes[i] = new LiteralNode(pc);
             }
         }
-        nodes[n] = new AcceptNode(n);
+        accept = new AcceptNode();
+        nodes[n] = accept;
         for (int i = 0; i < n; i++) {
             nodes[i].next = nodes[i + 1]; // wire each node to the one after it
         }
     }
 
     boolean matches(String s) {
-        Set<Integer> activeNodes = new HashSet<>();
-        activeNodes.add(0);
-        followEpsilonEdges(activeNodes); // handle leading '*'s before we start
+        Set<Node> active = new HashSet<>();
+        active.add(nodes[0]);
+        followEpsilonEdges(active); // handle leading '*'s before we start
 
         for (int i = 0; i < s.length(); i++) {
             char sc = s.charAt(i);
-            Set<Integer> nextActiveNodes = new HashSet<>();
-            for (int id : activeNodes) {
-                nodes[id].fire(sc, nextActiveNodes);
+            Set<Node> next = new HashSet<>();
+            for (Node node : active) {
+                node.fire(sc, next);
             }
-            followEpsilonEdges(nextActiveNodes);
-            activeNodes = nextActiveNodes;
+            followEpsilonEdges(next);
+            active = next;
         }
 
-        return activeNodes.contains(nodes.length - 1); // AcceptNode reachable?
+        return active.contains(accept); // AcceptNode reachable?
     }
 
     // Follow epsilon edges (free jumps) until no new nodes are discovered.
     // Only StarNode has epsilon edges (it can match the empty string).
-    private void followEpsilonEdges(Set<Integer> activeNodes) {
-        Queue<Integer> toExplore = new ArrayDeque<>(activeNodes);
+    private void followEpsilonEdges(Set<Node> active) {
+        Queue<Node> toExplore = new ArrayDeque<>(active);
         while (!toExplore.isEmpty()) {
-            int id = toExplore.poll();
-            Set<Integer> reached = new HashSet<>();
-            nodes[id].epsilonReach(reached);
-            for (int newId : reached) {
-                if (activeNodes.add(newId)) {
-                    toExplore.add(newId);
+            Node node = toExplore.poll();
+            Set<Node> reached = new HashSet<>();
+            node.epsilonReach(reached);
+            for (Node newNode : reached) {
+                if (active.add(newNode)) {
+                    toExplore.add(newNode);
                 }
             }
         }

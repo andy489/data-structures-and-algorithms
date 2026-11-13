@@ -2,7 +2,8 @@
 
 **Problem ID:** 9921
 **Tags:** no tags
-**ACC:** 22.02% (8144 users)
+**ACC:** 22.02%
+**Users:** 8144
 **Link:** https://www.spoj.com/problems/ABCPATH/
 
 ---

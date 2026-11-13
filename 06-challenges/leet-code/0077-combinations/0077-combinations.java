@@ -241,6 +241,43 @@ class Solution9 {
         }
         return dp[n][k];
     }
+}
+
+// Solution10: Knuth's Algorithm T (TAOCP 7.2.1.3) — O(C(n,k)·k) time, O(k) space
+// Uses a (k+2)-element array with sentinels c[0]=0 and c[k+1]=n+1.
+// T1: initialize c[j]=j. T2: visit. T3: find leftmost j where c[j]+1 < c[j+1],
+// resetting c[j]=j along the way. T4: if j>k done. T5: c[j]++, goto T2.
+class Solution10 {
+    public List<List<Integer>> combine(int n, int k) {
+        List<List<Integer>> result = new ArrayList<>();
+        int[] c = new int[k + 2];
+        // T1: initialize
+        for (int j = 1; j <= k; j++) {
+            c[j] = j;
+        }
+        c[k + 1] = n + 1; // upper sentinel
+        while (true) {
+            // T2: visit — record current combination
+            List<Integer> combo = new ArrayList<>();
+            for (int j = 1; j <= k; j++) {
+                combo.add(c[j]);
+            }
+            result.add(combo);
+            // T3: find leftmost j where c[j]+1 < c[j+1]; reset c[j]=j as we go
+            int j = 1;
+            while (c[j] + 1 == c[j + 1]) {
+                c[j] = j;
+                j++;
+            }
+            // T4: done?
+            if (j > k) {
+                break;
+            }
+            // T5: increase
+            c[j]++;
+        }
+        return result;
+    }
 } — O(C(n,k)·k) time, O(C(n,k)·k) space
 // Backtracking converted to iterative BFS: each queue entry is a partial
 // combination; dequeue, extend by one number, re-enqueue or collect.

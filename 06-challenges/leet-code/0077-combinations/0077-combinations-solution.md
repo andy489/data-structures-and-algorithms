@@ -255,6 +255,49 @@ Answer: `dp[4][2]`
 | Time | O(n·k·C(n,k)·k) — fill n·k cells, each copying up to C(n,k) lists of size k |
 | Space | O(n·k·C(n,k)·k) — entire table kept in memory |
 
+---
+
+## Solution 10: Knuth's Algorithm T (TAOCP 7.2.1.3) — O(C(n,k)·k) time, O(k) space
+
+**Idea:**
+
+From Knuth's *The Art of Computer Programming*, Vol. 4A, §7.2.1.3. Uses a `(k+2)`-element array `c[0..k+1]` with two sentinels:
+- `c[0] = 0` (lower sentinel, never touched)
+- `c[k+1] = n+1` (upper sentinel, stops the search)
+
+The array `c[1..k]` holds the current combination. The algorithm advances it by finding the leftmost position `j` where `c[j]+1 < c[j+1]` (there's room to increment), resetting all positions to the left of `j` back to their minimal values `c[j]=j` along the way, then incrementing `c[j]`.
+
+**Steps:**
+- **T1** Initialize: `c[j] = j` for `1 ≤ j ≤ k`; `c[k+1] = n+1`.
+- **T2** Visit: record `{c[1], …, c[k]}`.
+- **T3** Find j: `j = 1`; while `c[j]+1 == c[j+1]`: set `c[j] = j`, advance `j++`.
+- **T4** Terminate if `j > k`.
+- **T5** Increase: `c[j]++`, go to T2.
+
+**Trace:** `n = 4, k = 2`
+
+```
+Init:  c = [0, 1, 2, 5]   → visit {1,2}
+T3: c[1]+1=2==c[2]=2 → c[1]=1, j=2; c[2]+1=3≠c[3]=5 → stop at j=2
+T5: c[2]++ → c=[0,1,3,5]  → visit {1,3}
+T3: j=1; c[1]+1=2≠c[2]=3 → stop at j=1
+T5: c[1]++ → c=[0,2,3,5]  → visit {2,3}
+T3: j=1; c[1]+1=3==c[2]=3 → c[1]=1, j=2; c[2]+1=4≠c[3]=5 → stop
+T5: c[2]++ → c=[0,1,4,5]  → visit {1,4}
+T3: j=1; c[1]+1=2≠c[2]=4 → stop
+T5: c[1]++ → c=[0,2,4,5]  → visit {2,4}
+T3: j=1; c[1]+1=3≠c[2]=4 → stop
+T5: c[1]++ → c=[0,3,4,5]  → visit {3,4}
+T3: c[1]+1=4==c[2]=4 → c[1]=1, j=2; c[2]+1=5==c[3]=5 → c[2]=2, j=3; j>k → done
+```
+
+**Complexity:**
+
+| | |
+|---|---|
+| Time | O(C(n,k)·k) — amortized O(1) advance per combination |
+| Space | O(k) — one array of size k+2, no recursion |
+
 **Idea:**
 
 Instead of iterating all `2^n` masks and filtering, start at the smallest mask with `k` bits set and jump directly to the next one using pure bit arithmetic — no skipping, no `bitCount` check.

@@ -45,8 +45,6 @@ class Solution2 {
 }
 
 // Solution3: Gosper's Hack — O(C(n,k)·k) time, O(k) space
-// Enumerate only the C(n,k) masks with exactly k bits set, skipping all others.
-// Given a valid mask, the next mask with the same popcount is computed in O(1).
 class Solution3 {
     public List<List<Integer>> combine(int n, int k) {
         List<List<Integer>> result = new ArrayList<>();
@@ -128,5 +126,51 @@ class Solution5 {
         List<List<Integer>> withoutN = combine(n - 1, k);
         withN.addAll(withoutN);
         return withN;
+    }
+}
+
+// Solution6: Combinatorial number system — O(C(n,k)·k·n) time, O(k) space
+// Decode each rank m in [0, C(n,k)) directly into its combination using the
+// combinatorial number system: the m-th combination is found by greedily
+// choosing the largest c such that C(c, remaining) <= remaining rank.
+class Solution6 {
+    public List<List<Integer>> combine(int n, int k) {
+        List<List<Integer>> result = new ArrayList<>();
+        int total = comb(n, k);
+        for (int m = 0; m < total; m++) {
+            result.add(decode(m, n, k));
+        }
+        return result;
+    }
+
+    // Decode rank m into the m-th combination of k numbers from {1..n}.
+    private List<Integer> decode(int m, int n, int k) {
+        List<Integer> combo = new ArrayList<>();
+        int remaining = m;
+        for (int i = k; i >= 1; i--) {
+            // find largest c in [i..n] such that C(c-1, i) <= remaining
+            int c = i;
+            while (c < n && comb(c, i) <= remaining) {
+                c++;
+            }
+            remaining -= comb(c - 1, i); // subtract C(c-1, i) — combinations skipped
+            combo.add(c);
+        }
+        return combo;
+    }
+
+    private int comb(int n, int k) {
+        if (k < 0 || k > n) {
+            return 0;
+        }
+        if (k == 0 || k == n) {
+            return 1;
+        }
+        k = Math.min(k, n - k); // use smaller side for efficiency
+        int result = 1;
+        for (int i = 0; i < k; i++) {
+            result = result * (n - i) / (i + 1);
+        }
+        return result;
     }
 }

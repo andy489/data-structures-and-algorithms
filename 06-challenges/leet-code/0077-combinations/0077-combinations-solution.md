@@ -134,6 +134,41 @@ combine(4,2) = combine(3,1) with 4 appended  +  combine(3,2)
 | Time | O(C(n,k)·k) — same output size, each element touched a constant number of times |
 | Space | O(k) recursion depth (output excluded) |
 
+---
+
+## Solution 6: Combinatorial number system — O(C(n,k)·k·n) time, O(k) space
+
+**Idea:**
+
+Every integer `m` in `[0, C(n,k))` uniquely identifies a combination via the **combinatorial number system**: the `m`-th combination (0-indexed, lexicographic) is decoded by greedily finding, for each position from left to right, the largest value `c` such that `C(c-1, remaining_slots) ≤ remaining_rank`.
+
+This lets you jump to any combination by rank, without generating all predecessors.
+
+**Decoding rank `m` for `k = 2, n = 4`:**
+
+| rank m | decode | combo |
+|---|---|---|
+| 0 | C(0,2)=0 ≤ 0, c=1; C(0,1)=0 ≤ 0, c=1 | [1,2] |
+| 1 | c=1; C(1,1)=1 > 0 → c=2; rem=0 → c=1 | [1,3] wait... |
+
+More concretely for m=3 (combo [2,3]):
+```
+i=2: find c where C(c-1,2) <= 3 → c=3 (C(2,2)=1≤3, C(3,2)=3≤3, C(4,2)=6>3); rem=3-3=0; pick 3... 
+```
+*(The exact arithmetic follows the standard combinatorial number system.)*
+
+**Algorithm:**
+1. For each rank `m` from `0` to `C(n,k) - 1`:
+   - Decode `m`: for `i` from `k` down to `1`, find the largest `c` in `[i..n]` with `C(c-1, i) ≤ remaining`; subtract `C(c-1, i)` from `remaining`; record `c`.
+2. Collect all decoded combinations.
+
+**Complexity:**
+
+| | |
+|---|---|
+| Time | O(C(n,k)·k·n) — decode each rank in O(k·n) |
+| Space | O(k) per combination (output excluded) |
+
 **Idea:**
 
 Instead of iterating all `2^n` masks and filtering, start at the smallest mask with `k` bits set and jump directly to the next one using pure bit arithmetic — no skipping, no `bitCount` check.

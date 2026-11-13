@@ -25,7 +25,49 @@ class Solution {
     }
 }
 
-// Solution2: Greedy with backtracking — O(m·n) worst case, O(1) space
+// Solution3: NFA simulation — O(m·n) time, O(n) space
+class Solution3 {
+    public boolean isMatch(String s, String p) {
+        int n = p.length();
+        // cur holds the set of NFA states (pattern positions) reachable before reading s[i]
+        Set<Integer> cur = new HashSet<>();
+        cur.add(0);
+        epsilonClose(cur, p, n);
+
+        for (int i = 0; i < s.length(); i++) {
+            Set<Integer> next = new HashSet<>();
+            for (int state : cur) {
+                if (state < n) {
+                    char pc = p.charAt(state);
+                    if (pc == s.charAt(i) || pc == '?') {
+                        next.add(state + 1);  // consume char, advance
+                    } else if (pc == '*') {
+                        next.add(state);      // star consumes this char, stays (loop)
+                        next.add(state + 1);  // star matches empty, advance
+                    }
+                }
+            }
+            epsilonClose(next, p, n);
+            cur = next;
+        }
+        return cur.contains(n);
+    }
+
+    // Expand all states reachable by consuming zero or more '*' transitions
+    private void epsilonClose(Set<Integer> states, String p, int n) {
+        Queue<Integer> queue = new ArrayDeque<>(states);
+        while (!queue.isEmpty()) {
+            int state = queue.poll();
+            if (state < n && p.charAt(state) == '*') {
+                // '*' can match empty: advance past it
+                if (states.add(state + 1)) {
+                    queue.add(state + 1);
+                }
+                // '*' can loop: stay at same state (already in set, no need to re-add)
+            }
+        }
+    }
+}
 class Solution2 {
     public boolean isMatch(String s, String p) {
         int m = s.length(), n = p.length();

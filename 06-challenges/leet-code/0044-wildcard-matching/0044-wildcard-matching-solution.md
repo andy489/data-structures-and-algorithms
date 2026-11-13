@@ -37,3 +37,21 @@
 |---|---|
 | Time | O(m·n) worst case, O(m+n) average |
 | Space | O(1) |
+
+---
+
+## Solution 3: NFA simulation — O(m·n) time, O(n) space
+
+**Idea:** Model the pattern as an NFA where each position in `p` is a state. A literal or `?` consumes one input character (read transition). A `*` adds an epsilon transition to the next state (match empty) and implicitly loops on any character (handled by keeping the `*` state active while reading). Simulate by tracking the current *set* of active states and advancing it character by character through `s`.
+
+**Algorithm:**
+1. Start with `cur = {0}`, epsilon-closed: while the current frontier contains a `*` state, also add state+1 (star matches empty).
+2. For each character `s[i]`: build `next` by advancing every state in `cur` that matches `s[i]` (literal match or `?`). Epsilon-close `next`.
+3. Accept if state `n` ∈ `cur` after consuming all of `s`.
+
+**Complexity:**
+
+| | |
+|---|---|
+| Time | O(m·n) — m chars × up to n active states |
+| Space | O(n) — two state sets of size ≤ n |

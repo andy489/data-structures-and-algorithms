@@ -3,7 +3,7 @@
 [Code Forces](#code-forces)
 [Leet Code](#leet-code)
 [SPOJ](#spoj)
-[Links](../LINKS.md)
+[Problem Sites](#problem-sites)
 
 ## [<a name="code-forces">Code Forces</a>](#code-forces)
 #### [Back to Content](#content)
@@ -113,3 +113,8 @@ N|Problem|Difficulty|Statement|Solution|Code
 N|Problem|ACC|Users|Statement|Solution|Code
 :-:|:-|:-:|:-:|:-:|:-:|-:
 9921|[ABCPATH ABC Path](https://www.spoj.com/problems/ABCPATH/)|22.02%|8144|[Problem](https://github.com/andy489/data-structures-and-algorithms/blob/master/06-challenges/spoj/9921-ABCPATH/9921-ABCPATH-problem.md)|[Solution](https://github.com/andy489/data-structures-and-algorithms/blob/master/06-challenges/spoj/9921-ABCPATH/9921-ABCPATH-solution.md)|[.cpp](https://github.com/andy489/data-structures-and-algorithms/blob/master/06-challenges/spoj/9921-ABCPATH/9921-ABCPATH.cpp) [.java](https://github.com/andy489/data-structures-and-algorithms/blob/master/06-challenges/spoj/9921-ABCPATH/9921-ABCPATH.java) [.py](https://github.com/andy489/data-structures-and-algorithms/blob/master/06-challenges/spoj/9921-ABCPATH/9921-ABCPATH.py) [.js](https://github.com/andy489/data-structures-and-algorithms/blob/master/06-challenges/spoj/9921-ABCPATH/9921-ABCPATH.js)
+
+## [<a name="problem-sites">Problem Sites</a>](#problem-sites)
+#### [Back to Content](#content)
+
+A curated directory of competitive programming judges and problem archives — see [LINKS.md](../LINKS.md).

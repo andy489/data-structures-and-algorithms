@@ -166,10 +166,32 @@ class Solution6 {
         if (k == 0 || k == n) {
             return 1;
         }
-        k = Math.min(k, n - k); // use smaller side for efficiency
-        int result = 1;
-        for (int i = 0; i < k; i++) {
-            result = result * (n - i) / (i + 1);
+        return result;
+    }
+}
+
+// Solution7: BFS queue — O(C(n,k)·k) time, O(C(n,k)·k) space
+// Backtracking converted to iterative BFS: each queue entry is a partial
+// combination; dequeue, extend by one number, re-enqueue or collect.
+class Solution7 {
+    public List<List<Integer>> combine(int n, int k) {
+        List<List<Integer>> result = new ArrayList<>();
+        Queue<List<Integer>> queue = new ArrayDeque<>();
+        queue.add(new ArrayList<>());
+        while (!queue.isEmpty()) {
+            List<Integer> partial = queue.poll();
+            int size = partial.size();
+            if (size == k) {
+                result.add(partial);
+                continue;
+            }
+            int start = partial.isEmpty() ? 1 : partial.get(size - 1) + 1;
+            int need = k - size;
+            for (int i = start; i <= n - need + 1; i++) { // same pruning as Solution2
+                List<Integer> next = new ArrayList<>(partial);
+                next.add(i);
+                queue.add(next);
+            }
         }
         return result;
     }

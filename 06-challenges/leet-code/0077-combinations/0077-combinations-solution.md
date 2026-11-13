@@ -169,6 +169,40 @@ i=2: find c where C(c-1,2) <= 3 → c=3 (C(2,2)=1≤3, C(3,2)=3≤3, C(4,2)=6>3)
 | Time | O(C(n,k)·k·n) — decode each rank in O(k·n) |
 | Space | O(k) per combination (output excluded) |
 
+---
+
+## Solution 7: BFS queue — O(C(n,k)·k) time, O(C(n,k)·k) space
+
+**Idea:**
+
+Backtracking rewritten as iterative BFS. A queue holds partial combinations. Each iteration: dequeue a partial, and if it has size `k` collect it; otherwise extend it by one more number and enqueue each extension. The same pruning applies — only extend with values up to `n - (k - size) + 1`.
+
+**Example:** `n = 4, k = 2`
+
+```
+Queue: [[]]
+Dequeue []: enqueue [1],[2],[3]
+Dequeue [1]: enqueue [1,2],[1,3],[1,4]
+Dequeue [2]: enqueue [2,3],[2,4]
+Dequeue [3]: enqueue [3,4]
+Dequeue [1,2]: size==k → collect
+Dequeue [1,3]: size==k → collect
+... and so on
+```
+
+**Algorithm:**
+1. Enqueue an empty list.
+2. While queue not empty: dequeue `partial`.
+   - If `partial.size() == k`: add to results.
+   - Else: for `i` from `last+1` to `n - (k - size) + 1`, enqueue `partial + [i]`.
+
+**Complexity:**
+
+| | |
+|---|---|
+| Time | O(C(n,k)·k) — same work as backtracking, iterative |
+| Space | O(C(n,k)·k) — all partial combinations live in the queue simultaneously |
+
 **Idea:**
 
 Instead of iterating all `2^n` masks and filtering, start at the smallest mask with `k` bits set and jump directly to the next one using pure bit arithmetic — no skipping, no `bitCount` check.

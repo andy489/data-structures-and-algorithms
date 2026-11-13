@@ -220,6 +220,41 @@ One subtlety: when the "include `n`" branch appends `n` to cached results, it mu
 | Time | O(C(n,k)·k) — each unique `(n,k)` subproblem computed once |
 | Space | O(n·k) distinct subproblems, each storing its combinations |
 
+---
+
+## Solution 9: Bottom-up DP table — O(n·k·C(n,k)·k) time, O(n·k·C(n,k)·k) space
+
+**Idea:**
+
+Iterative counterpart of Solution 8. Build a 2D table `dp[i][j]` = all combinations of `j` numbers from `{1..i}`, filling it row by row using the same Pascal identity:
+
+```
+dp[i][j] = (dp[i-1][j-1] with i appended to each)  ∪  dp[i-1][j]
+```
+
+**Base cases:**
+- `dp[i][0] = [[]]` for all `i` — one way to choose 0 numbers: the empty set.
+- `dp[i][j] = []` for `j > i` — can't choose more numbers than are available.
+
+**Building the table for `n = 4, k = 2`:**
+
+```
+dp[0][0]=[[]],  dp[0][1]=[]
+dp[1][0]=[[]],  dp[1][1]=[[1]]
+dp[2][0]=[[]],  dp[2][1]=[[1],[2]],          dp[2][2]=[[1,2]]
+dp[3][0]=[[]],  dp[3][1]=[[1],[2],[3]],      dp[3][2]=[[1,2],[1,3],[2,3]]
+dp[4][0]=[[]],  dp[4][1]=[[1],[2],[3],[4]],  dp[4][2]=[[1,2],[1,3],[2,3],[1,4],[2,4],[3,4]]
+```
+
+Answer: `dp[4][2]`
+
+**Complexity:**
+
+| | |
+|---|---|
+| Time | O(n·k·C(n,k)·k) — fill n·k cells, each copying up to C(n,k) lists of size k |
+| Space | O(n·k·C(n,k)·k) — entire table kept in memory |
+
 **Idea:**
 
 Instead of iterating all `2^n` masks and filtering, start at the smallest mask with `k` bits set and jump directly to the next one using pure bit arithmetic — no skipping, no `bitCount` check.

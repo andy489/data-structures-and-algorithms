@@ -205,6 +205,42 @@ class Solution8 {
         memo.put(key, result);
         return result;
     }
+}
+
+// Solution9: Bottom-up DP table — O(n·k·C(n,k)·k) time, O(n·k·C(n,k)·k) space
+// Build dp[i][j] = all combinations of j numbers from {1..i}, row by row.
+// dp[i][j] = (dp[i-1][j-1] with i appended) + dp[i-1][j]  (Pascal identity)
+class Solution9 {
+    public List<List<Integer>> combine(int n, int k) {
+        // dp[i][j]: combinations of j numbers from {1..i}
+        @SuppressWarnings("unchecked")
+        List<List<Integer>>[][] dp = new List[n + 1][k + 1];
+        // base: dp[i][0] = {[]} for all i (one way to choose 0 numbers)
+        for (int i = 0; i <= n; i++) {
+            dp[i][0] = new ArrayList<>();
+            dp[i][0].add(new ArrayList<>());
+        }
+        // base: dp[i][j] = {} for j > i (can't choose more than available)
+        for (int i = 0; i <= n; i++) {
+            for (int j = i + 1; j <= k; j++) {
+                dp[i][j] = new ArrayList<>();
+            }
+        }
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= Math.min(i, k); j++) {
+                dp[i][j] = new ArrayList<>();
+                // include i: take dp[i-1][j-1] and append i to each
+                for (List<Integer> combo : dp[i - 1][j - 1]) {
+                    List<Integer> copy = new ArrayList<>(combo);
+                    copy.add(i);
+                    dp[i][j].add(copy);
+                }
+                // exclude i: copy dp[i-1][j] as-is
+                dp[i][j].addAll(dp[i - 1][j]);
+            }
+        }
+        return dp[n][k];
+    }
 } — O(C(n,k)·k) time, O(C(n,k)·k) space
 // Backtracking converted to iterative BFS: each queue entry is a partial
 // combination; dequeue, extend by one number, re-enqueue or collect.

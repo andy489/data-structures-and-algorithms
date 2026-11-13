@@ -297,7 +297,7 @@ class Solution10 {
             result.add(combo);
             // T3: find leftmost j where c[j]+1 < c[j+1]; reset c[j]=j as we go
             int j = 1;
-            while (c[j] + 1 == c[j + 1]) {
+            while (j <= k && c[j] + 1 == c[j + 1]) {
                 c[j] = j;
                 j++;
             }

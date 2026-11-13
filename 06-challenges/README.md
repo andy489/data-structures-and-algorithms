@@ -107,6 +107,6 @@ N|Problem|Difficulty|Statement|Solution|Code
 ## [<a name="spoj">SPOJ</a>](#spoj)
 #### [Back to Content](#content)
 
-Problem|Tags|Statement|Solution|Code
-:-|:-|:-:|:-:|-:
-[ABCPATH ABC Path](https://www.spoj.com/problems/ABCPATH/)|no tags|[Problem](https://github.com/andy489/data-structures-and-algorithms/blob/master/06-challenges/spoj/9921-ABCPATH/9921-ABCPATH-problem.md)|[Solution](https://github.com/andy489/data-structures-and-algorithms/blob/master/06-challenges/spoj/9921-ABCPATH/9921-ABCPATH-solution.md)|[.cpp](https://github.com/andy489/data-structures-and-algorithms/blob/master/06-challenges/spoj/9921-ABCPATH/9921-ABCPATH.cpp) [.java](https://github.com/andy489/data-structures-and-algorithms/blob/master/06-challenges/spoj/9921-ABCPATH/9921-ABCPATH.java) [.py](https://github.com/andy489/data-structures-and-algorithms/blob/master/06-challenges/spoj/9921-ABCPATH/9921-ABCPATH.py) [.js](https://github.com/andy489/data-structures-and-algorithms/blob/master/06-challenges/spoj/9921-ABCPATH/9921-ABCPATH.js)
+Problem|Tags|ACC|Statement|Solution|Code
+:-|:-|:-:|:-:|:-:|-:
+[ABCPATH ABC Path](https://www.spoj.com/problems/ABCPATH/)|no tags|22.02% (8144)|[Problem](https://github.com/andy489/data-structures-and-algorithms/blob/master/06-challenges/spoj/9921-ABCPATH/9921-ABCPATH-problem.md)|[Solution](https://github.com/andy489/data-structures-and-algorithms/blob/master/06-challenges/spoj/9921-ABCPATH/9921-ABCPATH-solution.md)|[.cpp](https://github.com/andy489/data-structures-and-algorithms/blob/master/06-challenges/spoj/9921-ABCPATH/9921-ABCPATH.cpp) [.java](https://github.com/andy489/data-structures-and-algorithms/blob/master/06-challenges/spoj/9921-ABCPATH/9921-ABCPATH.java) [.py](https://github.com/andy489/data-structures-and-algorithms/blob/master/06-challenges/spoj/9921-ABCPATH/9921-ABCPATH.py) [.js](https://github.com/andy489/data-structures-and-algorithms/blob/master/06-challenges/spoj/9921-ABCPATH/9921-ABCPATH.js)

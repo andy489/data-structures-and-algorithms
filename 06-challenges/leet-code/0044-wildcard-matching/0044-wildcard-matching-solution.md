@@ -85,50 +85,69 @@ i=5 = m, loop ends. j=4=n → true ✓
 
 ---
 
-## Solution 3: NFA simulation — O(m·n) time, O(n) space
+## Solution 3: NFA simulation with OOP node hierarchy — O(m·n) time, O(n) space
 
 **What is an NFA?**
 
-Imagine you're reading the pattern left to right and placing a set of "tokens" on it. Each token sits on a position (state) in the pattern. As you read each character of `s`, every token tries to advance according to the rule at its position. Some tokens may die (can't advance), some survive, some split into two.
+Imagine you're reading the pattern left to right and placing a set of "tokens" on it. Each token sits on a node in the pattern. As you read each character of `s`, every token tries to advance according to the rule at its node. Some tokens may die (can't advance), some survive, some split into two.
 
-At the end, if any token has reached the end of the pattern, the string matches.
+At the end, if any token has reached the `AcceptNode`, the string matches.
 
 Two kinds of moves:
-- **Read move** — consume one character from `s` and advance to the next position. Used by literals and `?`.
-- **Free move (epsilon)** — jump to the next position *without* consuming any character. Used by `*` to skip over itself when matching nothing.
+- **Read move** — consume one character from `s` and advance to the next node. Used by `LiteralNode` and `WildcardNode`.
+- **Free move (epsilon)** — jump to the next node *without* consuming any character. Used by `StarNode` to skip over itself when matching nothing.
 
-**Mapping pattern `"a*b"` to states:**
+**Node class hierarchy:**
 
 ```
-State 0 --read 'a'--> State 1
-State 1 --free------> State 2   (* can match nothing: jump over it for free)
-State 1 --read any--> State 1   (* can match one char: loop back)
-State 2 --read 'b'--> State 3   (accept state)
+abstract Node
+    ├─ LiteralNode   — matches exactly one specific character ('a', 'b', …)
+    ├─ WildcardNode  — matches exactly one arbitrary character ('?')
+    ├─ StarNode      — matches zero or more arbitrary characters ('*')
+    └─ AcceptNode    — terminal; being here means the whole pattern matched
 ```
 
-**Trace on `s = "acdb"`:**
+Each node implements two methods:
+- `fire(c, result)` — given a character, add the nodes reachable by a read move into `result`.
+- `epsilonReach(result)` — add nodes reachable for free (no character consumed). Only `StarNode` overrides this.
 
-| After reading | Active states | Why |
+**Building the NFA from pattern `"a*b"`:**
+
+```
+LiteralNode(0,'a') → StarNode(1) → LiteralNode(2,'b') → AcceptNode(3)
+```
+
+**Edges fired by each node type:**
+
+| Node | `fire(c)` | `epsilonReach()` |
 |---|---|---|
-| (start) | {0} | initial |
-| 'a' | {1, 2} | state 0 reads 'a' → 1; free move 1→2 |
-| 'c' | {1, 2} | state 1 loops on 'c' → 1; free move 1→2 |
-| 'd' | {1, 2} | same |
-| 'b' | {1, 2, 3} | state 1 loops → 1; state 2 reads 'b' → 3 |
+| `LiteralNode('a')` | if `c == 'a'`: add `next` | — |
+| `WildcardNode` | always add `next` | — |
+| `StarNode` | add `self` (loop) + add `next` | add `next` (skip for free) |
+| `AcceptNode` | nothing | — |
 
-State 3 = end of pattern → **match ✓**
+**Trace on `s = "acdb"`, pattern `"a*b"`:**
+
+| After reading | Active nodes | Why |
+|---|---|---|
+| (start) | {0} | initial; epsilon-close: no `*` at 0 |
+| 'a' | {1, 2} | node 0 `LiteralNode('a')` fires → 1; epsilon node 1 `StarNode` → 2 |
+| 'c' | {1, 2} | node 1 `StarNode` fires 'c' → {1, 2}; epsilon 1 → 2 |
+| 'd' | {1, 2} | same |
+| 'b' | {1, 2, 3} | node 1 loops → 1; node 2 `LiteralNode('b')` fires → 3 |
+
+`AcceptNode(3)` is active → **match ✓**
 
 **Algorithm:**
-1. Start with token set `cur = {0}`. Apply free moves: if any state in `cur` is a `*`, also add the next state (the `*` can be skipped for free).
-2. For each character `s[i]`, build a new token set `next`:
-   - Literal or `?` state: if it matches `s[i]`, add `state+1` to `next`.
-   - `*` state: add `state` (loop — `*` consumes this char) and `state+1` (advance past `*`) to `next`.
-3. Apply free moves to `next`, then replace `cur = next`.
-4. After reading all of `s`, return whether the accept state `n` is in `cur`.
+1. Build the node list: one `Node` subclass per pattern character, plus a terminal `AcceptNode`.
+2. Wire each node's `next` pointer to the node after it.
+3. Start `activeNodes = {node 0}`. Follow epsilon edges: for every `StarNode` in the set, also add its `next`.
+4. For each character `s[i]`: call `fire(s[i], nextNodes)` on every active node. Follow epsilon edges on the result. Replace `activeNodes = nextNodes`.
+5. Return whether `AcceptNode` is in `activeNodes`.
 
 **Complexity:**
 
 | | |
 |---|---|
-| Time | O(m·n) — for each of m characters, process up to n active states |
-| Space | O(n) — two token sets, each holding at most n states |
+| Time | O(m·n) — for each of m characters, process up to n active nodes |
+| Space | O(n) — two node-id sets, each holding at most n+1 entries |

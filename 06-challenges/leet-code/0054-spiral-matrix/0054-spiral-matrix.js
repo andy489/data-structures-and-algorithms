@@ -20,3 +20,23 @@ var spiralOrder = function(matrix) {
     }
     return result;
 };
+
+// Solution 2: Recursion — O(m·n) time, O(min(m,n)) space
+var spiralOrder2 = function(matrix) {
+    const result = [];
+    function solve(top, bottom, left, right) {
+        if (top > bottom || left > right) return;
+        for (let c = left; c <= right; c++) result.push(matrix[top][c]);
+        for (let r = top + 1; r <= bottom; r++) result.push(matrix[r][right]);
+        if (top < bottom) {
+            for (let c = right - 1; c >= left; c--) result.push(matrix[bottom][c]);
+        }
+        if (left < right) {
+            for (let r = bottom - 1; r > top; r--) result.push(matrix[r][left]);
+        }
+        solve(top + 1, bottom - 1, left + 1, right - 1);
+    }
+    solve(0, matrix.length - 1, 0, matrix[0].length - 1);
+    return result;
+};
+

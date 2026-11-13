@@ -24,3 +24,24 @@
 |---|---|
 | Time | O(m·n) — each element visited exactly once |
 | Space | O(1) — excluding the output list |
+
+---
+
+## Solution 2: Recursion — O(m·n) time, O(min(m,n)) space
+
+**Idea:** Peel one spiral layer per recursive call. Each call handles the outermost ring defined by `(top, bottom, left, right)` boundaries, then recurses inward by shrinking all four bounds by 1. Base case: `top > bottom` or `left > right`.
+
+**Algorithm:**
+1. If `top > bottom` or `left > right`, return.
+2. Traverse the top row left → right.
+3. Traverse the right column top+1 → bottom.
+4. If `top < bottom`: traverse the bottom row right-1 → left.
+5. If `left < right`: traverse the left column bottom-1 → top+1.
+6. Recurse with `(top+1, bottom-1, left+1, right-1)`.
+
+**Complexity:**
+
+| | |
+|---|---|
+| Time | O(m·n) — each element visited exactly once |
+| Space | O(min(m,n)) — recursion depth equals number of layers |

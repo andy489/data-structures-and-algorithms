@@ -42,3 +42,31 @@ backtrack(1, [])
 |---|---|
 | Time | O(C(n,k)·k) — C(n,k) combinations, each copied in O(k) |
 | Space | O(k) recursion depth + O(C(n,k)·k) for the output |
+
+---
+
+## Solution 2: Bitmask enumeration — O(2^n·n) time, O(k) space
+
+**Idea:**
+
+Each subset of `{1..n}` can be represented as an `n`-bit integer. Bit `i` being set means number `i+1` is included. We iterate all `2^n` masks and keep only those with exactly `k` bits set — those are the valid combinations.
+
+For `n = 4, k = 2`, the masks with 2 bits set are:
+
+```
+0011 → {1,2}   0101 → {1,3}   0110 → {2,3}
+1001 → {1,4}   1010 → {2,4}   1100 → {3,4}
+```
+
+**Algorithm:**
+1. For each `mask` from `0` to `2^n - 1`:
+   - If `Integer.bitCount(mask) != k`: skip.
+   - Otherwise collect all set-bit positions into a combination (bit `i` → number `i+1`).
+2. Return all collected combinations.
+
+**Complexity:**
+
+| | |
+|---|---|
+| Time | O(2^n·n) — check all subsets, scan n bits each |
+| Space | O(k) per combination (output excluded) |

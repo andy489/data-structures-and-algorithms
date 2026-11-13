@@ -73,7 +73,66 @@ For `n = 4, k = 2`, the masks with 2 bits set are:
 
 ---
 
-## Solution 3: Gosper's Hack — O(C(n,k)·k) time, O(k) space
+## Solution 4: Next-combination iteration — O(C(n,k)·k) time, O(k) space
+
+**Idea:**
+
+Maintain a `k`-element array initialized to `[1, 2, …, k]` and advance it to the next combination in lexicographic order, exactly like `std::next_permutation` — but for combinations. No recursion, no bitmasks.
+
+To advance: find the rightmost index `i` where `combo[i]` can still increase (i.e. `combo[i] < n - (k-1-i)`), increment it, then reset every position to its right to the smallest valid values.
+
+**Example trace:** `n = 4, k = 2`
+
+```
+[1,2] → [1,3] → [1,4] → [2,3] → [2,4] → [3,4] → done
+```
+
+**Algorithm:**
+1. Initialize `combo = [1, 2, …, k]`.
+2. Record `combo` as a combination.
+3. Find rightmost `i` where `combo[i] < n - (k-1-i)`. If none: stop.
+4. `combo[i]++`; for each `j > i`: `combo[j] = combo[j-1] + 1`. Go to 2.
+
+**Complexity:**
+
+| | |
+|---|---|
+| Time | O(C(n,k)·k) — advance and copy each combination |
+| Space | O(k) — one working array, no recursion stack |
+
+---
+
+## Solution 5: Pascal's rule decomposition — O(C(n,k)·k) time, O(k) recursion depth
+
+**Idea:**
+
+Use the Pascal's triangle identity: C(n,k) = C(n-1,k-1) + C(n-1,k).
+
+Every combination of `k` numbers from `{1..n}` either includes `n` or doesn't:
+- **Includes `n`**: take all combinations of `k-1` numbers from `{1..n-1}` and append `n`.
+- **Excludes `n`**: take all combinations of `k` numbers from `{1..n-1}`.
+
+Base cases: `k == 0` → one result (empty list); `n == k` → one result (take all).
+
+**Example:** `n = 4, k = 2`
+
+```
+combine(4,2) = combine(3,1) with 4 appended  +  combine(3,2)
+             = {[1,4],[2,4],[3,4]}             +  {[1,2],[1,3],[2,3]}
+```
+
+**Algorithm:**
+1. Base: if `k == 0` return `[[]]`; if `n == k` return `[[1..n]]`.
+2. `withN = combine(n-1, k-1)`, append `n` to each.
+3. `withoutN = combine(n-1, k)`.
+4. Return `withN + withoutN`.
+
+**Complexity:**
+
+| | |
+|---|---|
+| Time | O(C(n,k)·k) — same output size, each element touched a constant number of times |
+| Space | O(k) recursion depth (output excluded) |
 
 **Idea:**
 

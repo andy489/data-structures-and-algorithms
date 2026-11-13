@@ -203,6 +203,23 @@ Dequeue [1,3]: size==k → collect
 | Time | O(C(n,k)·k) — same work as backtracking, iterative |
 | Space | O(C(n,k)·k) — all partial combinations live in the queue simultaneously |
 
+---
+
+## Solution 8: Memoized Pascal decomposition — O(C(n,k)·k) time, O(n·k·C(n,k)) space
+
+**Idea:**
+
+Same Pascal recurrence as Solution 5 but with a cache. The subproblems overlap: `combine(n-2, k-1)` is called by both `combine(n-1, k)` (its "exclude" branch) and `combine(n-1, k-1)` (its "exclude" branch), so without memoization it's recomputed. The cache key is just `n * 21 + k` since both fit in `[0, 20]`.
+
+One subtlety: when the "include `n`" branch appends `n` to cached results, it must deep-copy each list first — otherwise it would mutate lists that are referenced by the cache and used again later.
+
+**Complexity:**
+
+| | |
+|---|---|
+| Time | O(C(n,k)·k) — each unique `(n,k)` subproblem computed once |
+| Space | O(n·k) distinct subproblems, each storing its combinations |
+
 **Idea:**
 
 Instead of iterating all `2^n` masks and filtering, start at the smallest mask with `k` bits set and jump directly to the next one using pure bit arithmetic — no skipping, no `bitCount` check.

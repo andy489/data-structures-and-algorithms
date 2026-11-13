@@ -170,7 +170,42 @@ class Solution6 {
     }
 }
 
-// Solution7: BFS queue — O(C(n,k)·k) time, O(C(n,k)·k) space
+// Solution8: Memoized Pascal decomposition — O(C(n,k)·k) time, O(n·k·C(n,k)·k) space
+// Same recurrence as Solution5 but caches results for overlapping subproblems:
+// combine(n-2,k-1) is needed by both combine(n-1,k) and combine(n-1,k-1).
+class Solution8 {
+    private Map<Integer, List<List<Integer>>> memo = new HashMap<>();
+
+    public List<List<Integer>> combine(int n, int k) {
+        int key = n * 21 + k; // n,k <= 20: unique key fits in one int
+        if (memo.containsKey(key)) {
+            return memo.get(key);
+        }
+        List<List<Integer>> result;
+        if (k == 0) {
+            result = new ArrayList<>();
+            result.add(new ArrayList<>());
+        } else if (n == k) {
+            List<Integer> all = new ArrayList<>();
+            for (int i = 1; i <= n; i++) {
+                all.add(i);
+            }
+            result = new ArrayList<>();
+            result.add(all);
+        } else {
+            // deep-copy withN so cached lists are not mutated when n is appended
+            result = new ArrayList<>();
+            for (List<Integer> combo : combine(n - 1, k - 1)) {
+                List<Integer> copy = new ArrayList<>(combo);
+                copy.add(n);
+                result.add(copy);
+            }
+            result.addAll(combine(n - 1, k));
+        }
+        memo.put(key, result);
+        return result;
+    }
+} — O(C(n,k)·k) time, O(C(n,k)·k) space
 // Backtracking converted to iterative BFS: each queue entry is a partial
 // combination; dequeue, extend by one number, re-enqueue or collect.
 class Solution7 {

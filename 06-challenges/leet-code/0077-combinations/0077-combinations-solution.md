@@ -13,7 +13,7 @@ Build each combination one number at a time. At each recursive call we have a `s
 
 Because we only ever pick numbers ≥ `start`, we never revisit a number we already placed, so we get combinations (unordered, no repeats) naturally without any extra deduplication.
 
-**Pruning:** there's no point trying `start` values where fewer than `k - current size` numbers remain in `[start, n]`. So the loop runs only while `n - i + 1 >= k - current.size()`, i.e. `i <= n - (k - current.size()) + 1`.
+**Pruning:** there's no point trying `start` values where fewer than `k - current size` numbers remain in `[start, n]`. So the loop runs only while `i <= n - (k - current.size()) + 1`.
 
 **Algorithm:**
 1. Start backtracking from `start = 1` with an empty `current` list.
@@ -33,7 +33,7 @@ backtrack(1, [])
     add 3 → [2,3] ✓  add 4 → [2,4] ✓
   add 3 → backtrack(4, [3])
     add 4 → [3,4] ✓
-  add 4 → pruned (n - 4 + 1 = 1 < k - 1 = 1, so loop ends at 3)
+  add 4 → pruned (loop ends at 3)
 ```
 
 **Complexity:**
@@ -69,4 +69,40 @@ For `n = 4, k = 2`, the masks with 2 bits set are:
 | | |
 |---|---|
 | Time | O(2^n·n) — check all subsets, scan n bits each |
+| Space | O(k) per combination (output excluded) |
+
+---
+
+## Solution 3: Gosper's Hack — O(C(n,k)·k) time, O(k) space
+
+**Idea:**
+
+Instead of iterating all `2^n` masks and filtering, start at the smallest mask with `k` bits set and jump directly to the next one using pure bit arithmetic — no skipping, no `bitCount` check.
+
+Given a valid mask, the next mask with the same number of set bits:
+
+```
+c    = mask & -mask       // isolate the lowest set bit
+r    = mask + c           // add c: ripples the trailing block of 1s one position left
+mask = (((r ^ mask) >> 2) / c) | r
+```
+
+The `(r ^ mask)` gives the bits that changed; shifting right by 2 and dividing by `c` packs the trailing 1s back to the lowest positions; OR-ing with `r` combines both parts.
+
+**Example:** `k = 2`, starting mask `0011`:
+
+```
+0011 → 0101 → 0110 → 1001 → 1010 → 1100  (done, next would be ≥ 2^n)
+{1,2}  {1,3}  {2,3}  {1,4}  {2,4}  {3,4}
+```
+
+**Algorithm:**
+1. Start with `mask = (1 << k) - 1` (lowest `k` bits set).
+2. While `mask < (1 << n)`: decode the mask into a combination, then apply Gosper's Hack to advance.
+
+**Complexity:**
+
+| | |
+|---|---|
+| Time | O(C(n,k)·k) — visit exactly C(n,k) masks, decode each in O(n) |
 | Space | O(k) per combination (output excluded) |

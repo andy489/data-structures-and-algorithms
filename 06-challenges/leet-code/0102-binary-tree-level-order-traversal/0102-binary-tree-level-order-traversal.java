@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/binary-tree-level-order-traversal/
 
-// Solution: BFS with Level Snapshot — O(n) time, O(n) space
+// Solution 1: BFS with Level Snapshot — O(n) time, O(n) space
 class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> result = new ArrayList<>();
@@ -25,5 +25,26 @@ class Solution {
             result.add(level);
         }
         return result;
+    }
+}
+
+// Solution 2: DFS with Depth — O(n) time, O(n) space
+class Solution2 {
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> result = new ArrayList<>();
+        dfs(root, 0, result);
+        return result;
+    }
+
+    private void dfs(TreeNode node, int depth, List<List<Integer>> result) {
+        if (node == null) {
+            return;
+        }
+        if (depth == result.size()) {
+            result.add(new ArrayList<>());
+        }
+        result.get(depth).add(node.val);
+        dfs(node.left, depth + 1, result);
+        dfs(node.right, depth + 1, result);
     }
 }

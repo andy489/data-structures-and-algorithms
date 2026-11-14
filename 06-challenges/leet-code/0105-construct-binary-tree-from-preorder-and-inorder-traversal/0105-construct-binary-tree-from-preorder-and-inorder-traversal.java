@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
 
-// Solution: Recursive DFS with HashMap — O(n) time, O(n) space
+// Solution 1: Recursive DFS with HashMap — O(n) time, O(n) space
 class Solution {
     private int[] preorder;
     private Map<Integer, Integer> inorderIndex;
@@ -24,6 +24,31 @@ class Solution {
         TreeNode root = new TreeNode(rootVal);
         root.left = build(preL + 1, preL + leftSize, inL, mid - 1);
         root.right = build(preL + leftSize + 1, preR, mid + 1, inR);
+        return root;
+    }
+}
+
+// Solution 2: Iterative with Stack — O(n) time, O(h) space
+class Solution2 {
+    public TreeNode buildTree(int[] preorder, int[] inorder) {
+        TreeNode root = new TreeNode(preorder[0]);
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        stack.push(root);
+        int inorderIdx = 0;
+        for (int i = 1; i < preorder.length; i++) {
+            TreeNode node = new TreeNode(preorder[i]);
+            if (stack.peek().val != inorder[inorderIdx]) {
+                stack.peek().left = node;
+            } else {
+                TreeNode parent = null;
+                while (!stack.isEmpty() && stack.peek().val == inorder[inorderIdx]) {
+                    parent = stack.pop();
+                    inorderIdx++;
+                }
+                parent.right = node;
+            }
+            stack.push(node);
+        }
         return root;
     }
 }

@@ -5,7 +5,7 @@
 
 ---
 
-## Solution: Recursive DFS with HashMap — O(n) time, O(n) space
+## Solution 1: Recursive DFS with HashMap — O(n) time, O(n) space
 
 **Idea:** The first element of `preorder` is always the root. Locate that root in `inorder` — everything to its left belongs to the left subtree, everything to the right belongs to the right subtree. Recurse with the corresponding slices of `preorder` and `inorder`. Store index positions in a HashMap to avoid O(n) scans on each call.
 
@@ -25,3 +25,24 @@
 |---|---|
 | Time | O(n) — each node visited once; HashMap lookup is O(1) |
 | Space | O(n) — HashMap + recursion stack (O(h), worst O(n) for skewed tree) |
+
+---
+
+## Solution 2: Iterative with Stack — O(n) time, O(h) space
+
+**Idea:** Walk `preorder` left to right; each element is the next node to attach. A stack tracks nodes whose left subtree is still being processed. Compare the stack's top value against `inorder[inorderIdx]` to decide attachment side: if they differ, the new node is a left child; once they match, pop until they diverge — the last popped node receives the new node as its right child.
+
+**Algorithm:**
+1. Create `root` from `preorder[0]`, push it onto the stack, set `inorderIdx = 0`.
+2. For `i` from `1` to `n-1`:
+   - If `stack.peek().val != inorder[inorderIdx]`: attach `preorder[i]` as the left child of the top, push the new node.
+   - Else: pop nodes while `stack` is non-empty and `stack.peek().val == inorder[inorderIdx]`, incrementing `inorderIdx` each time. Attach `preorder[i]` as the right child of the last popped node, push the new node.
+3. Return `root`.
+
+**Complexity:**
+
+| | |
+|---|---|
+| Time | O(n) — each node pushed and popped at most once |
+| Space | O(h) — stack depth equals tree height; O(n) worst case for skewed tree |
+

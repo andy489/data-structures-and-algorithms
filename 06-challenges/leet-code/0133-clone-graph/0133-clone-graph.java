@@ -35,7 +35,7 @@ class Solution2 {
         // maps each original node to its clone
         Map<Node, Node> cloned = new HashMap<>();
 
-        Queue<Node> queue = new LinkedList<>();
+        Queue<Node> queue = new ArrayDeque<>();
 
         cloned.put(node, new Node(node.val));
         queue.offer(node);

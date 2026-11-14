@@ -41,7 +41,7 @@ class Solution2 {
         int n = grid[0].length;
         int count = 0;
 
-        Queue<int[]> queue = new LinkedList<>();
+        Queue<int[]> queue = new ArrayDeque<>();
 
         for (int r = 0; r < m; r++) {
             for (int c = 0; c < n; c++) {

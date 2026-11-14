@@ -12,7 +12,7 @@ class Solution {
             return res;
         }
 
-        Queue<String> q = new LinkedList<>();
+        Queue<String> q = new ArrayDeque<>();
         q.add("");
 
         for (char d : digits.toCharArray()) {

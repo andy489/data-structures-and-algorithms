@@ -22,7 +22,7 @@ class Solution {
 // Solution 2: Iterative (BFS) — O(n) time, O(n) space
 class Solution2 {
     public boolean isSymmetric(TreeNode root) {
-        Queue<TreeNode> queue = new LinkedList<>();
+        Queue<TreeNode> queue = new ArrayDeque<>();
         queue.offer(root.left);
         queue.offer(root.right);
         while (!queue.isEmpty()) {

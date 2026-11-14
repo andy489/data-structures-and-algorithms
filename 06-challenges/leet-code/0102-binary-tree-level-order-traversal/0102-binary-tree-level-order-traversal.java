@@ -7,7 +7,7 @@ class Solution {
         if (root == null) {
             return result;
         }
-        Queue<TreeNode> queue = new LinkedList<>();
+        Queue<TreeNode> queue = new ArrayDeque<>();
         queue.offer(root);
         while (!queue.isEmpty()) {
             int size = queue.size();

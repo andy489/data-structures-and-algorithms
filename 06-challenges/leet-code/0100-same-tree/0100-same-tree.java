@@ -13,7 +13,7 @@ class Solution {
 // Solution 2: Iterative BFS — O(n) time, O(n) space
 class Solution2 {
     public boolean isSameTree(TreeNode p, TreeNode q) {
-        Queue<TreeNode> queue = new LinkedList<>();
+        Queue<TreeNode> queue = new ArrayDeque<>();
         queue.offer(p);
         queue.offer(q);
         while (!queue.isEmpty()) {

@@ -23,6 +23,32 @@
 
 ---
 
+## Proof: G(n) = Cₙ (nth Catalan Number)
+
+The nth Catalan number satisfies:
+
+```
+C₀ = 1,   Cₙ = Σ Cᵢ · Cₙ₋₁₋ᵢ   (i = 0..n-1)
+```
+
+Our recurrence (root `i` from 1 to k):
+
+```
+G(0) = 1,   G(k) = Σ G(i-1) · G(k-i)   (i = 1..k)
+```
+
+Re-index with `j = i - 1` (j runs 0..k-1):
+
+```
+G(k) = Σ G(j) · G(k-1-j)   (j = 0..k-1)
+```
+
+This matches the Catalan recurrence exactly. Since `G(0) = 1 = C₀`, by induction `G(n) = Cₙ` for all n ≥ 0.
+
+**Why the BST recurrence has this form:** Picking root `i` leaves `i-1` values for the left subtree and `k-i` for the right. Only the *count* matters (not the actual values), so both sides contribute independently — giving `G(i-1) · G(k-i)`. Summing over all k root choices yields the formula.
+
+---
+
 ## Solution 2: Closed-Form Catalan Number — O(n) time, O(1) space
 
 **Idea:** The answer is the nth Catalan number: `C(n) = C(2n, n) / (n + 1)`. Compute it directly using the multiplicative formula to avoid large intermediate factorials.

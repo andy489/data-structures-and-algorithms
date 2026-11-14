@@ -19,30 +19,43 @@ var searchMatrix = function(matrix, target) {
 
 // Solution 2: Two Binary Searches — O(log m + log n) time, O(1) space
 var searchMatrix2 = function(matrix, target) {
-    const m = matrix.length, n = matrix[0].length;
-    let lo = 0, hi = m - 1;
-    while (lo < hi) {
-        const mid = (lo + hi + 1) >> 1;
-        if (matrix[mid][0] <= target) {
-            lo = mid;
-        } else {
-            hi = mid - 1;
+    // last index i where arr[i] <= target; -1 if none
+    function upperFloor(arr, target) {
+        let lo = 0, hi = arr.length - 1;
+        while (lo < hi) {
+            const mid = (lo + hi + 1) >> 1;
+            if (arr[mid] <= target) {
+                lo = mid;
+            } else {
+                hi = mid - 1;
+            }
         }
+        return arr[lo] <= target ? lo : -1;
     }
-    if (matrix[lo][0] > target) {
+
+    // exact search in arr
+    function binarySearch(arr, target) {
+        let lo = 0, hi = arr.length - 1;
+        while (lo <= hi) {
+            const mid = (lo + hi) >> 1;
+            if (arr[mid] === target) {
+                return true;
+            } else if (arr[mid] < target) {
+                lo = mid + 1;
+            } else {
+                hi = mid - 1;
+            }
+        }
         return false;
     }
-    const row = lo;
-    lo = 0; hi = n - 1;
-    while (lo <= hi) {
-        const mid = (lo + hi) >> 1;
-        if (matrix[row][mid] === target) {
-            return true;
-        } else if (matrix[row][mid] < target) {
-            lo = mid + 1;
-        } else {
-            hi = mid - 1;
-        }
+
+    // find the last row whose first element <= target
+    const firstCols = matrix.map(r => r[0]);
+    const row = upperFloor(firstCols, target);
+    if (row === -1) {
+        return false;
     }
-    return false;
+
+    // search for target within that row
+    return binarySearch(matrix[row], target);
 };

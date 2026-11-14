@@ -22,32 +22,46 @@ class Solution {
 
 // Solution 2: Two Binary Searches — O(log m + log n) time, O(1) space
 class Solution2 {
-    public boolean searchMatrix(int[][] matrix, int target) {
-        int m = matrix.length, n = matrix[0].length;
-        int lo = 0, hi = m - 1;
+    // last index i in [lo, hi] where arr[i] <= target; returns -1 if none
+    private int upperFloor(int[] arr, int lo, int hi, int target) {
         while (lo < hi) {
             int mid = lo + (hi - lo + 1) / 2;
-            if (matrix[mid][0] <= target) {
+            if (arr[mid] <= target) {
                 lo = mid;
             } else {
                 hi = mid - 1;
             }
         }
-        if (matrix[lo][0] > target) {
-            return false;
-        }
-        int row = lo;
-        lo = 0; hi = n - 1;
+        return arr[lo] <= target ? lo : -1;
+    }
+
+    // exact binary search in arr[lo..hi]; returns true if target found
+    private boolean binarySearch(int[] arr, int lo, int hi, int target) {
         while (lo <= hi) {
             int mid = lo + (hi - lo) / 2;
-            if (matrix[row][mid] == target) {
+            if (arr[mid] == target) {
                 return true;
-            } else if (matrix[row][mid] < target) {
+            } else if (arr[mid] < target) {
                 lo = mid + 1;
             } else {
                 hi = mid - 1;
             }
         }
         return false;
+    }
+
+    public boolean searchMatrix(int[][] matrix, int target) {
+        int m = matrix.length, n = matrix[0].length;
+
+        // find the last row whose first element <= target
+        int[] firstCols = new int[m];
+        for (int i = 0; i < m; i++) firstCols[i] = matrix[i][0];
+        int row = upperFloor(firstCols, 0, m - 1, target);
+        if (row == -1) {
+            return false;
+        }
+
+        // search for target within that row
+        return binarySearch(matrix[row], 0, n - 1, target);
     }
 }

@@ -22,3 +22,24 @@
 |---|---|
 | Time | O(n·2^n) — up to 2^n subsets, each copied in O(n) |
 | Space | O(n) — recursion depth and current subset (excluding output) |
+
+---
+
+## Solution 2: Iterative Insertion — O(n·2^n) time, O(1) space
+
+**Idea:** Start with `[[]]`. For each number (in sorted order), append it to every existing subset to form new subsets. When the current number equals the previous one, only extend the subsets that were added in the previous round (not all existing ones) — this is exactly where the previous duplicate added new subsets, so extending only those avoids duplicates.
+
+**Algorithm:**
+1. Sort `nums`. Initialize `result = [[]]`, `prevSize = 0`.
+2. For each `i` from `0` to `n-1`:
+   - If `i > 0` and `nums[i] == nums[i-1]`: `start = prevSize` (extend only last-round subsets).
+   - Else: `start = 0` (extend all existing subsets).
+   - `prevSize = result.size()`.
+   - For each subset in `result[start..prevSize-1]`, append `nums[i]` and add to `result`.
+
+**Complexity:**
+
+| | |
+|---|---|
+| Time | O(n·2^n) — same number of subsets generated |
+| Space | O(1) — no recursion stack (excluding output) |

@@ -16,3 +16,17 @@ class Solution:
 
         backtrack(0, [])
         return result
+
+
+# Solution 2: Iterative Insertion — O(n·2^n) time, O(1) space
+class Solution2:
+    def subsetsWithDup(self, nums: list[int]) -> list[list[int]]:
+        result = [[]]
+        nums.sort()
+        prev_size = 0
+        for i, num in enumerate(nums):
+            start = prev_size if i > 0 and nums[i] == nums[i - 1] else 0
+            prev_size = len(result)
+            for j in range(start, prev_size):
+                result.append(result[j] + [num])
+        return result

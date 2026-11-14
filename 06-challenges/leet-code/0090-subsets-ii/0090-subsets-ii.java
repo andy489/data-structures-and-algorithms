@@ -21,3 +21,23 @@ class Solution {
         }
     }
 }
+
+// Solution 2: Iterative Insertion — O(n·2^n) time, O(1) space
+class Solution2 {
+    public List<List<Integer>> subsetsWithDup(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        result.add(new ArrayList<>());
+        Arrays.sort(nums);
+        int prevSize = 0;
+        for (int i = 0; i < nums.length; i++) {
+            int start = (i > 0 && nums[i] == nums[i - 1]) ? prevSize : 0;
+            prevSize = result.size();
+            for (int j = start; j < prevSize; j++) {
+                List<Integer> subset = new ArrayList<>(result.get(j));
+                subset.add(nums[i]);
+                result.add(subset);
+            }
+        }
+        return result;
+    }
+}

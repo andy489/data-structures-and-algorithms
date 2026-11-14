@@ -8,3 +8,12 @@ var canJump = function(nums) {
     }
     return true;
 };
+
+// Solution 2: Greedy Right-to-Left — O(n) time, O(1) space
+var canJump2 = function(nums) {
+    let goal = nums.length - 1;
+    for (let i = nums.length - 2; i >= 0; i--) {
+        if (i + nums[i] >= goal) goal = i;
+    }
+    return goal === 0;
+};

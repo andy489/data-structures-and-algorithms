@@ -16,9 +16,21 @@
    - `maxReach = max(maxReach, i + nums[i])`
 3. Return `true`.
 
+---
+
+## Solution 2: Greedy Right-to-Left — O(n) time, O(1) space
+
+**Idea:** Start with `goal = n - 1` (the last index is trivially reachable from itself). Scan backwards: if `i + nums[i] >= goal`, index `i` can reach the current goal, so shift `goal = i`. After the scan, `goal == 0` iff the first index can reach the end.
+
+**Algorithm:**
+1. `goal = n - 1`
+2. For `i` from `n-2` down to `0`:
+   - If `i + nums[i] >= goal`: `goal = i`
+3. Return `goal == 0`.
+
 **Complexity:**
 
 | | |
 |---|---|
-| Time | O(n) — single pass |
+| Time | O(n) — single reverse pass |
 | Space | O(1) — one variable |

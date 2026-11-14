@@ -96,7 +96,20 @@
 
 ---
 
-## Solution 8: `mapfile` (bash 4+) — load into array, index directly — O(n) time, O(n) space
+## Solution 8: `bash` — arithmetic built-in increment, no subshell — O(n) time, O(1) space
+
+**Idea:** Same while-read loop as Solution 7 but replaces `$((cnt+1))` (arithmetic expansion, creates a subshell) and `[ ]` (forks an external process) with `(( ++cnt == 10 ))` — a single bash built-in arithmetic evaluation that increments and tests in one step, with no fork at all. Fastest pure-bash variant for small files.
+
+**Complexity:**
+
+| | |
+|---|---|
+| Time | O(n) — reads up to line 10 then breaks |
+| Space | O(1) — one line in memory |
+
+---
+
+## Solution 9: `mapfile` (bash 4+) — load into array, index directly — O(n) time, O(n) space
 
 **Idea:** `mapfile -t` reads all lines into a bash array (0-indexed). Then check the array length before accessing index 9. Simple and readable, but loads the entire file into memory.
 

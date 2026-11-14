@@ -21,5 +21,8 @@ grep -m1 "" <(tail -n +10 file.txt)
 # Solution 7: bash — while read loop with counter — O(n) time, O(1) space
 cnt=0; while IFS= read -r line; do cnt=$((cnt+1)); [ $cnt -eq 10 ] && echo "$line" && break; done < file.txt
 
-# Solution 8: mapfile (bash 4+) — load into array, index directly — O(n) time, O(n) space
+# Solution 8: bash — arithmetic built-in increment, no subshell — O(n) time, O(1) space
+cnt=0; while IFS= read -r line; do (( ++cnt == 10 )) && { echo "$line"; break; }; done < file.txt
+
+# Solution 9: mapfile (bash 4+) — load into array, index directly — O(n) time, O(n) space
 mapfile -t lines < file.txt; [ ${#lines[@]} -ge 10 ] && echo "${lines[9]}"

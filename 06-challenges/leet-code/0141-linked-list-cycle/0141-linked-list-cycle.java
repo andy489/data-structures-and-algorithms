@@ -14,3 +14,31 @@ public class Solution {
         return false;
     }
 }
+
+// Solution 2: HashSet of visited nodes — O(n) time, O(n) space
+class Solution2 {
+    public boolean hasCycle(ListNode head) {
+        Set<ListNode> visited = new HashSet<>();
+        ListNode cur = head;
+        while (cur != null) {
+            if (!visited.add(cur)) {
+                return true;
+            }
+            cur = cur.next;
+        }
+        return false;
+    }
+}
+
+// Solution 3: Recursive with visited set — O(n) time, O(n) space (+ O(n) stack)
+class Solution3 {
+    public boolean hasCycle(ListNode head) {
+        return detect(head, new HashSet<>());
+    }
+
+    private boolean detect(ListNode node, Set<ListNode> visited) {
+        if (node == null) return false;
+        if (!visited.add(node)) return true;
+        return detect(node.next, visited);
+    }
+}

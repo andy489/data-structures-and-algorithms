@@ -11,3 +11,27 @@ var hasCycle = function(head) {
     }
     return false;
 };
+
+var hasCycle2 = function(head) {
+    const visited = new Set();
+    let cur = head;
+    while (cur !== null) {
+        if (visited.has(cur)) {
+            return true;
+        }
+        visited.add(cur);
+        cur = cur.next;
+    }
+    return false;
+};
+
+var hasCycle3 = function(head) {
+    const visited = new Set();
+    function detect(node) {
+        if (node === null) return false;
+        if (visited.has(node)) return true;
+        visited.add(node);
+        return detect(node.next);
+    }
+    return detect(head);
+};

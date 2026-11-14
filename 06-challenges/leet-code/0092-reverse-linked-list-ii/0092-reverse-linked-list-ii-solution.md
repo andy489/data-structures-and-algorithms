@@ -33,18 +33,17 @@
 
 ## Solution 2: Recursion — O(n) time, O(n) space
 
-**Idea:** When `left == 1` we need to reverse the first `right` nodes: reverse a prefix of length `right`, return the new head, and reattach the original head (now the tail) to the remainder. For `left > 1` we skip the first node and recurse on the rest with `left - 1` and `right - 1`, then prepend the skipped node.
+**Idea:** Decompose into two recursive helpers. `reverseN(head, n)` reverses the first `n` nodes of a list and stores the node after the reversed segment in `successor`, so the new tail can be attached to it. `reverseBetween(head, left, right)` skips nodes until `left == 1`, then delegates to `reverseN(head, right)`.
 
-**Algorithm:**
-1. Base case: if `right == 1`, no reversal needed — set `tail = head.next` and return `head`.
-2. If `left == 1`:
-   - Save `successor = head.next` before the recursive call.
-   - Recurse: `newHead = reverseBetween(successor, 1, right - 1)`.
-   - Wire: `successor.next = head`, `head.next = tail`, `tail = head`.
-   - Return `newHead`.
-3. If `left > 1`:
-   - Recurse: `head.next = reverseBetween(head.next, left - 1, right - 1)`.
-   - Return `head`.
+**Algorithm (`reverseN`):**
+1. Base case: `n == 1` → save `successor = head.next`, return `head`.
+2. Recurse: `newHead = reverseN(head.next, n - 1)`.
+3. Wire: `head.next.next = head` (point the current tail back to `head`), `head.next = successor` (attach `head` to the rest of the list).
+4. Return `newHead`.
+
+**Algorithm (`reverseBetween`):**
+1. If `left == 1`: call `reverseN(head, right)` and return its result.
+2. Otherwise: recurse `head.next = reverseBetween(head.next, left - 1, right - 1)` and return `head`.
 
 **Complexity:**
 

@@ -22,20 +22,22 @@ class Solution {
 
 // Solution 2: Recursion — O(n) time, O(n) space
 class Solution2 {
-    private ListNode tail;
+    private ListNode successor;
 
-    public ListNode reverseBetween(ListNode head, int left, int right) {
-        if (right == 1) {
-            tail = head.next;
+    private ListNode reverseN(ListNode head, int n) {
+        if (n == 1) {
+            successor = head.next;
             return head;
         }
+        ListNode newHead = reverseN(head.next, n - 1);
+        head.next.next = head;
+        head.next = successor;
+        return newHead;
+    }
+
+    public ListNode reverseBetween(ListNode head, int left, int right) {
         if (left == 1) {
-            ListNode successor = head.next;
-            ListNode newHead = reverseBetween(successor, 1, right - 1);
-            successor.next = head;
-            head.next = tail;
-            tail = head;
-            return newHead;
+            return reverseN(head, right);
         }
         head.next = reverseBetween(head.next, left - 1, right - 1);
         return head;

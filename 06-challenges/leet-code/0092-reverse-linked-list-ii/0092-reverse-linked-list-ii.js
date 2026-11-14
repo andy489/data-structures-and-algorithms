@@ -16,17 +16,16 @@ var reverseBetween = function(head, left, right) {
 
 // Solution 2: Recursion — O(n) time, O(n) space
 var reverseBetween2 = function(head, left, right) {
-    let tail = null;
+    let successor = null;
+    function reverseN(node, n) {
+        if (n === 1) { successor = node.next; return node; }
+        const newHead = reverseN(node.next, n - 1);
+        node.next.next = node;
+        node.next = successor;
+        return newHead;
+    }
     function helper(node, lo, hi) {
-        if (hi === 1) { tail = node.next; return node; }
-        if (lo === 1) {
-            const successor = node.next;
-            const newHead = helper(successor, 1, hi - 1);
-            successor.next = node;
-            node.next = tail;
-            tail = node;
-            return newHead;
-        }
+        if (lo === 1) return reverseN(node, hi);
         node.next = helper(node.next, lo - 1, hi - 1);
         return node;
     }

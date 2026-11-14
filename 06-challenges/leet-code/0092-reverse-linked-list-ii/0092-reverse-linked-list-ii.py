@@ -19,19 +19,20 @@ class Solution:
 # Solution 2: Recursion — O(n) time, O(n) space
 class Solution2:
     def reverseBetween(self, head, left: int, right: int):
-        self.tail = None
+        self.successor = None
+
+        def reverse_n(node, n):
+            if n == 1:
+                self.successor = node.next
+                return node
+            new_head = reverse_n(node.next, n - 1)
+            node.next.next = node
+            node.next = self.successor
+            return new_head
 
         def helper(node, lo, hi):
-            if hi == 1:
-                self.tail = node.next
-                return node
             if lo == 1:
-                successor = node.next
-                new_head = helper(successor, 1, hi - 1)
-                successor.next = node
-                node.next = self.tail
-                self.tail = node
-                return new_head
+                return reverse_n(node, hi)
             node.next = helper(node.next, lo - 1, hi - 1)
             return node
 

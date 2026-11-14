@@ -26,8 +26,9 @@ class Solution2:
                 self.tail = node.next
                 return node
             if lo == 1:
-                new_head = helper(node.next, 1, hi - 1)
-                node.next.next = node
+                successor = node.next
+                new_head = helper(successor, 1, hi - 1)
+                successor.next = node
                 node.next = self.tail
                 self.tail = node
                 return new_head

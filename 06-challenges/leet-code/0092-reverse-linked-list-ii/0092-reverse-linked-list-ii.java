@@ -30,8 +30,9 @@ class Solution2 {
             return head;
         }
         if (left == 1) {
-            ListNode newHead = reverseBetween(head.next, 1, right - 1);
-            head.next.next = head;
+            ListNode successor = head.next;
+            ListNode newHead = reverseBetween(successor, 1, right - 1);
+            successor.next = head;
             head.next = tail;
             tail = head;
             return newHead;

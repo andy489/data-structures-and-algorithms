@@ -20,8 +20,9 @@ var reverseBetween2 = function(head, left, right) {
     function helper(node, lo, hi) {
         if (hi === 1) { tail = node.next; return node; }
         if (lo === 1) {
-            const newHead = helper(node.next, 1, hi - 1);
-            node.next.next = node;
+            const successor = node.next;
+            const newHead = helper(successor, 1, hi - 1);
+            successor.next = node;
             node.next = tail;
             tail = node;
             return newHead;

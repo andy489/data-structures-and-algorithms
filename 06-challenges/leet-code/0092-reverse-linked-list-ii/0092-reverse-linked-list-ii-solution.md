@@ -36,11 +36,12 @@
 **Idea:** When `left == 1` we need to reverse the first `right` nodes: reverse a prefix of length `right`, return the new head, and reattach the original head (now the tail) to the remainder. For `left > 1` we skip the first node and recurse on the rest with `left - 1` and `right - 1`, then prepend the skipped node.
 
 **Algorithm:**
-1. Base case: if `right == 1`, no reversal needed — return `head`.
+1. Base case: if `right == 1`, no reversal needed — set `tail = head.next` and return `head`.
 2. If `left == 1`:
-   - Recurse: `newHead = reverseBetween(head.next, 1, right - 1)`.
-   - `head.next.next ... ` — the recursion returns with `head.next` pointing to the new tail of the reversed prefix; attach `head` (the original first node) after it.
-   - Actually: save `head.next` before the call, recurse, then thread `head` onto the returned tail.
+   - Save `successor = head.next` before the recursive call.
+   - Recurse: `newHead = reverseBetween(successor, 1, right - 1)`.
+   - Wire: `successor.next = head`, `head.next = tail`, `tail = head`.
+   - Return `newHead`.
 3. If `left > 1`:
    - Recurse: `head.next = reverseBetween(head.next, left - 1, right - 1)`.
    - Return `head`.

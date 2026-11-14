@@ -22,17 +22,17 @@ class Solution {
 
 // Solution 2: Two Binary Searches — O(log m + log n) time, O(1) space
 class Solution2 {
-    // last index i in [lo, hi] where arr[i] <= target; returns -1 if none
-    private int upperFloor(int[] arr, int lo, int hi, int target) {
+    // last row index in [lo, hi] where matrix[i][0] <= target; returns -1 if none
+    private int findRow(int[][] matrix, int lo, int hi, int target) {
         while (lo < hi) {
             int mid = lo + (hi - lo + 1) / 2;
-            if (arr[mid] <= target) {
+            if (matrix[mid][0] <= target) {
                 lo = mid;
             } else {
                 hi = mid - 1;
             }
         }
-        return arr[lo] <= target ? lo : -1;
+        return matrix[lo][0] <= target ? lo : -1;
     }
 
     // exact binary search in arr[lo..hi]; returns true if target found
@@ -54,9 +54,7 @@ class Solution2 {
         int m = matrix.length, n = matrix[0].length;
 
         // find the last row whose first element <= target
-        int[] firstCols = new int[m];
-        for (int i = 0; i < m; i++) firstCols[i] = matrix[i][0];
-        int row = upperFloor(firstCols, 0, m - 1, target);
+        int row = findRow(matrix, 0, m - 1, target);
         if (row == -1) {
             return false;
         }

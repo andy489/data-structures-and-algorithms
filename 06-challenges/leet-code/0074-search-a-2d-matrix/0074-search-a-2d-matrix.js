@@ -19,18 +19,18 @@ var searchMatrix = function(matrix, target) {
 
 // Solution 2: Two Binary Searches — O(log m + log n) time, O(1) space
 var searchMatrix2 = function(matrix, target) {
-    // last index i where arr[i] <= target; -1 if none
-    function upperFloor(arr, target) {
-        let lo = 0, hi = arr.length - 1;
+    // last row index where matrix[i][0] <= target; -1 if none
+    function findRow(matrix, target) {
+        let lo = 0, hi = matrix.length - 1;
         while (lo < hi) {
             const mid = (lo + hi + 1) >> 1;
-            if (arr[mid] <= target) {
+            if (matrix[mid][0] <= target) {
                 lo = mid;
             } else {
                 hi = mid - 1;
             }
         }
-        return arr[lo] <= target ? lo : -1;
+        return matrix[lo][0] <= target ? lo : -1;
     }
 
     // exact search in arr
@@ -50,8 +50,7 @@ var searchMatrix2 = function(matrix, target) {
     }
 
     // find the last row whose first element <= target
-    const firstCols = matrix.map(r => r[0]);
-    const row = upperFloor(firstCols, target);
+    const row = findRow(matrix, target);
     if (row === -1) {
         return false;
     }

@@ -18,16 +18,16 @@ class Solution:
 
 # Solution 2: Two Binary Searches — O(log m + log n) time, O(1) space
 class Solution2:
-    def _upper_floor(self, arr: list[int], target: int) -> int:
-        # last index where arr[i] <= target; -1 if none
-        lo, hi = 0, len(arr) - 1
+    def _find_row(self, matrix: list[list[int]], target: int) -> int:
+        # last row index where matrix[i][0] <= target; -1 if none
+        lo, hi = 0, len(matrix) - 1
         while lo < hi:
             mid = (lo + hi + 1) // 2
-            if arr[mid] <= target:
+            if matrix[mid][0] <= target:
                 lo = mid
             else:
                 hi = mid - 1
-        return lo if arr[lo] <= target else -1
+        return lo if matrix[lo][0] <= target else -1
 
     def _binary_search(self, arr: list[int], target: int) -> bool:
         # exact search in arr
@@ -44,8 +44,7 @@ class Solution2:
 
     def searchMatrix(self, matrix: list[list[int]], target: int) -> bool:
         # find the last row whose first element <= target
-        first_cols = [row[0] for row in matrix]
-        row = self._upper_floor(first_cols, target)
+        row = self._find_row(matrix, target)
         if row == -1:
             return False
 

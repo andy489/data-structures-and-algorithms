@@ -28,3 +28,26 @@
 |---|---|
 | Time | O(n) — single pass; at most n steps total |
 | Space | O(1) — only a constant number of pointers |
+
+---
+
+## Solution 2: Recursion — O(n) time, O(n) space
+
+**Idea:** When `left == 1` we need to reverse the first `right` nodes: reverse a prefix of length `right`, return the new head, and reattach the original head (now the tail) to the remainder. For `left > 1` we skip the first node and recurse on the rest with `left - 1` and `right - 1`, then prepend the skipped node.
+
+**Algorithm:**
+1. Base case: if `right == 1`, no reversal needed — return `head`.
+2. If `left == 1`:
+   - Recurse: `newHead = reverseBetween(head.next, 1, right - 1)`.
+   - `head.next.next ... ` — the recursion returns with `head.next` pointing to the new tail of the reversed prefix; attach `head` (the original first node) after it.
+   - Actually: save `head.next` before the call, recurse, then thread `head` onto the returned tail.
+3. If `left > 1`:
+   - Recurse: `head.next = reverseBetween(head.next, left - 1, right - 1)`.
+   - Return `head`.
+
+**Complexity:**
+
+| | |
+|---|---|
+| Time | O(n) — linear recursion depth |
+| Space | O(n) — call stack depth proportional to `right` |

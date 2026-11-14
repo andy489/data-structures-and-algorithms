@@ -19,3 +19,24 @@ class Solution {
         return dummy.next;
     }
 }
+
+// Solution 2: Recursion — O(n) time, O(n) space
+class Solution2 {
+    private ListNode tail;
+
+    public ListNode reverseBetween(ListNode head, int left, int right) {
+        if (right == 1) {
+            tail = head.next;
+            return head;
+        }
+        if (left == 1) {
+            ListNode newHead = reverseBetween(head.next, 1, right - 1);
+            head.next.next = head;
+            head.next = tail;
+            tail = head;
+            return newHead;
+        }
+        head.next = reverseBetween(head.next, left - 1, right - 1);
+        return head;
+    }
+}

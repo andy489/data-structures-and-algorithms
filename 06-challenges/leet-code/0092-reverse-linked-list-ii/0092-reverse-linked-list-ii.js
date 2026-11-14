@@ -13,3 +13,21 @@ var reverseBetween = function(head, left, right) {
     }
     return dummy.next;
 };
+
+// Solution 2: Recursion — O(n) time, O(n) space
+var reverseBetween2 = function(head, left, right) {
+    let tail = null;
+    function helper(node, lo, hi) {
+        if (hi === 1) { tail = node.next; return node; }
+        if (lo === 1) {
+            const newHead = helper(node.next, 1, hi - 1);
+            node.next.next = node;
+            node.next = tail;
+            tail = node;
+            return newHead;
+        }
+        node.next = helper(node.next, lo - 1, hi - 1);
+        return node;
+    }
+    return helper(head, left, right);
+};

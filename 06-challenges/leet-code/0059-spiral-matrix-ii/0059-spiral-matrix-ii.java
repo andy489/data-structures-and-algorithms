@@ -18,3 +18,22 @@ class Solution {
         return matrix;
     }
 }
+
+// Solution 2: Recursion — O(n²) time, O(n) space
+class Solution2 {
+    public int[][] generateMatrix(int n) {
+        int[][] matrix = new int[n][n];
+        fill(matrix, 0, n, 1);
+        return matrix;
+    }
+
+    private void fill(int[][] matrix, int offset, int n, int num) {
+        if (n == 0) return;
+        if (n == 1) { matrix[offset][offset] = num; return; }
+        for (int c = offset; c < offset + n - 1; c++) matrix[offset][c] = num++;
+        for (int r = offset; r < offset + n - 1; r++) matrix[r][offset + n - 1] = num++;
+        for (int c = offset + n - 1; c > offset; c--) matrix[offset + n - 1][c] = num++;
+        for (int r = offset + n - 1; r > offset; r--) matrix[r][offset] = num++;
+        fill(matrix, offset + 1, n - 2, num);
+    }
+}

@@ -24,3 +24,21 @@
 |---|---|
 | Time | O(n²) — every cell filled exactly once |
 | Space | O(1) extra — output matrix not counted |
+
+---
+
+## Solution 2: Recursion — O(n²) time, O(n) space
+
+**Idea:** Fill the outermost ring of the current sub-matrix, then recurse inward on the `(n-2) × (n-2)` interior, passing the next number to assign and the current offset.
+
+**Algorithm:**
+1. Base cases: `n == 0` → return; `n == 1` → fill center cell and return.
+2. Fill the four sides of the current ring (top row, right col, bottom row, left col).
+3. Recurse: `fill(matrix, offset + 1, n - 2, num after ring)`.
+
+**Complexity:**
+
+| | |
+|---|---|
+| Time | O(n²) — every cell filled exactly once |
+| Space | O(n) — recursion depth equals number of rings = n/2 |

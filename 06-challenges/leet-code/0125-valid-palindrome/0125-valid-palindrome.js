@@ -22,3 +22,16 @@ var isPalindrome2 = function(s) {
     const cleaned = s.toLowerCase().replace(/[^a-z0-9]/g, '');
     return cleaned === cleaned.split('').reverse().join('');
 };
+
+// Solution 3: Recursive
+var isPalindrome3 = function(s) {
+    function check(left, right) {
+        while (left < right && !isAlnum(s[left])) left++;
+        while (left < right && !isAlnum(s[right])) right--;
+        if (left >= right) return true;
+        if (s[left].toLowerCase() !== s[right].toLowerCase()) return false;
+        return check(left + 1, right - 1);
+    }
+    return check(0, s.length - 1);
+};
+

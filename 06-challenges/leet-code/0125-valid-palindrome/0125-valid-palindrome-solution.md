@@ -41,3 +41,26 @@
 |---|---|
 | Time | O(n) — one pass to clean, one to reverse/compare |
 | Space | O(n) — cleaned string |
+
+---
+
+## Solution 3: Recursive — O(n) time, O(n) space
+
+**Idea:** Recursively advance `left` and `right` past non-alphanumeric characters, compare the characters at the two ends, then recurse on the inner substring. Base case: when the pointers meet or cross, the string is a palindrome.
+
+**Algorithm:**
+1. Define `check(left, right)`:
+   - Advance `left` while non-alphanumeric and `left < right`.
+   - Retreat `right` while non-alphanumeric and `left < right`.
+   - If `left >= right`, return `true`.
+   - If `toLowerCase(s[left]) != toLowerCase(s[right])`, return `false`.
+   - Return `check(left + 1, right - 1)`.
+2. Return `check(0, s.length - 1)`.
+
+**Complexity:**
+
+| | |
+|---|---|
+| Time | O(n) — each character visited at most once |
+| Space | O(n) — recursion stack depth proportional to string length |
+

@@ -41,3 +41,24 @@
 |---|---|
 | Time | O(n) — every node visited once |
 | Space | O(n) — queue holds up to one full level |
+
+---
+
+## Solution 3: DFS Iterative (Explicit Stack) — O(n) time, O(h) space
+
+**Idea:** Replaces the call stack with a heap-allocated `Deque`, avoiding stack-overflow risk on deeply skewed trees. Pairs each node with its current depth; track the running maximum.
+
+**Algorithm:**
+1. If `root` is null, return `0`.
+2. Push `(root, 1)` onto two parallel stacks (`nodes`, `depths`).
+3. While stacks non-empty:
+   - Pop `node` and `d`; update `max = Math.max(max, d)`.
+   - Push non-null right child with `d + 1`, then left child with `d + 1`.
+4. Return `max`.
+
+**Complexity:**
+
+| | |
+|---|---|
+| Time | O(n) — every node visited once |
+| Space | O(h) — stack holds at most one path from root to leaf |

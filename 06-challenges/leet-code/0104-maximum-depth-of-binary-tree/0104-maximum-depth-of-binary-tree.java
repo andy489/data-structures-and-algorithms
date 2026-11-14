@@ -35,3 +35,31 @@ class Solution2 {
         return depth;
     }
 }
+
+// Solution 3: DFS Iterative (Explicit Stack) — O(n) time, O(h) space
+class Solution3 {
+    public int maxDepth(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        Deque<TreeNode> nodes = new ArrayDeque<>();
+        Deque<Integer> depths = new ArrayDeque<>();
+        nodes.push(root);
+        depths.push(1);
+        int max = 0;
+        while (!nodes.isEmpty()) {
+            TreeNode node = nodes.pop();
+            int d = depths.pop();
+            max = Math.max(max, d);
+            if (node.right != null) {
+                nodes.push(node.right);
+                depths.push(d + 1);
+            }
+            if (node.left != null) {
+                nodes.push(node.left);
+                depths.push(d + 1);
+            }
+        }
+        return max;
+    }
+}

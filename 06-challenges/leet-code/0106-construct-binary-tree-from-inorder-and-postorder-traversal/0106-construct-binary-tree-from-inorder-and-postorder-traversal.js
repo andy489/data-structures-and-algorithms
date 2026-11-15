@@ -16,3 +16,24 @@ var buildTree = function(inorder, postorder) {
 
     return build(0, inorder.length - 1, 0, postorder.length - 1);
 };
+
+var buildTree2 = function(inorder, postorder) {
+    const root = new TreeNode(postorder[postorder.length - 1]);
+    const stack = [root];
+    let inorderIdx = inorder.length - 1;
+    for (let i = postorder.length - 2; i >= 0; i--) {
+        const node = new TreeNode(postorder[i]);
+        if (stack[stack.length - 1].val !== inorder[inorderIdx]) {
+            stack[stack.length - 1].right = node;
+        } else {
+            let parent = null;
+            while (stack.length && stack[stack.length - 1].val === inorder[inorderIdx]) {
+                parent = stack.pop();
+                inorderIdx--;
+            }
+            parent.left = node;
+        }
+        stack.push(node);
+    }
+    return root;
+};

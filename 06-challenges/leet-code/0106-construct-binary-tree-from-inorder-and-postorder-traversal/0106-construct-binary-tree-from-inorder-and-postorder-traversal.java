@@ -26,3 +26,28 @@ class Solution {
         return root;
     }
 }
+
+// Solution 2: Iterative Stack — O(n) time, O(n) space
+class Solution2 {
+    public TreeNode buildTree(int[] inorder, int[] postorder) {
+        TreeNode root = new TreeNode(postorder[postorder.length - 1]);
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        stack.push(root);
+        int inorderIdx = inorder.length - 1;
+        for (int i = postorder.length - 2; i >= 0; i--) {
+            TreeNode node = new TreeNode(postorder[i]);
+            if (stack.peek().val != inorder[inorderIdx]) {
+                stack.peek().right = node;
+            } else {
+                TreeNode parent = null;
+                while (!stack.isEmpty() && stack.peek().val == inorder[inorderIdx]) {
+                    parent = stack.pop();
+                    inorderIdx--;
+                }
+                parent.left = node;
+            }
+            stack.push(node);
+        }
+        return root;
+    }
+}

@@ -29,3 +29,27 @@
 |---|---|
 | Time | O(n) — each node visited once; HashMap lookup is O(1) |
 | Space | O(n) — HashMap + O(h) recursion stack (O(n) worst case) |
+
+---
+
+## Solution 2: Iterative Stack — O(n) time, O(n) space
+
+**Idea:** Mirror of the 0105 iterative solution. Process `postorder` **right-to-left** (root is last, so start from index `n-2` after creating the root) and traverse `inorder` **right-to-left**. Attach new nodes as **right children** by default; when the stack top matches `inorder[inorderIdx]`, pop until it doesn't — that last popped node needs a **left child**.
+
+**Why right-to-left:** Postorder is `[left | right | root]`. Reading backwards gives `[root | right | left]`, which mirrors the preorder `[root | left | right]` logic — except we build right subtrees first.
+
+**Algorithm:**
+1. Create `root` from `postorder[n-1]`, push onto stack; set `inorderIdx = n-1`.
+2. For `i` from `n-2` down to `0`:
+   - Create `node = postorder[i]`.
+   - If `stack.top.val != inorder[inorderIdx]`: attach as **right child** of top.
+   - Else: pop stack while top matches `inorder[inorderIdx--]`; attach as **left child** of last popped.
+   - Push `node`.
+3. Return `root`.
+
+**Complexity:**
+
+| | |
+|---|---|
+| Time | O(n) — each node pushed and popped at most once |
+| Space | O(n) — stack depth proportional to tree height |

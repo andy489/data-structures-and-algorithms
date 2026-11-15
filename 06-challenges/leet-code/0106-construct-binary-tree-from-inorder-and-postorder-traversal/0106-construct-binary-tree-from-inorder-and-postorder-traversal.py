@@ -15,3 +15,22 @@ class Solution:
             return root
 
         return build(0, len(inorder) - 1, 0, len(postorder) - 1)
+
+
+class Solution2:
+    def buildTree(self, inorder, postorder):
+        root = TreeNode(postorder[-1])
+        stack = [root]
+        inorder_idx = len(inorder) - 1
+        for i in range(len(postorder) - 2, -1, -1):
+            node = TreeNode(postorder[i])
+            if stack[-1].val != inorder[inorder_idx]:
+                stack[-1].right = node
+            else:
+                parent = None
+                while stack and stack[-1].val == inorder[inorder_idx]:
+                    parent = stack.pop()
+                    inorder_idx -= 1
+                parent.left = node
+            stack.append(node)
+        return root

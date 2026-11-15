@@ -1,13 +1,13 @@
 // https://leetcode.com/problems/binary-tree-level-order-traversal-ii/
 
-// Solution: BFS with Deque (prepend levels) — O(n) time, O(n) space
+// Solution: BFS with ArrayDeque (append then reverse) — O(n) time, O(n) space
 class Solution {
     public List<List<Integer>> levelOrderBottom(TreeNode root) {
-        LinkedList<List<Integer>> result = new LinkedList<>();
+        List<List<Integer>> result = new ArrayList<>();
         if (root == null) {
             return result;
         }
-        Queue<TreeNode> queue = new ArrayDeque<>();
+        Deque<TreeNode> queue = new ArrayDeque<>();
         queue.offer(root);
         while (!queue.isEmpty()) {
             int size = queue.size();
@@ -18,8 +18,9 @@ class Solution {
                 if (node.left != null) queue.offer(node.left);
                 if (node.right != null) queue.offer(node.right);
             }
-            result.addFirst(level);
+            result.add(level);
         }
+        Collections.reverse(result);
         return result;
     }
 }

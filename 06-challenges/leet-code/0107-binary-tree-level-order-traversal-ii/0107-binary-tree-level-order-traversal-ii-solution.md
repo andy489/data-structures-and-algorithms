@@ -5,18 +5,18 @@
 
 ---
 
-## Solution: BFS with Deque (prepend levels) — O(n) time, O(n) space
+## Solution: BFS with ArrayDeque (append then reverse) — O(n) time, O(n) space
 
-**Idea:** Standard BFS level-order traversal collects levels top-to-bottom. By using a `LinkedList` as a deque and prepending each level at the front (`addFirst`), the result is already in bottom-to-top order — no separate reverse step needed.
+**Idea:** Standard BFS level-order traversal using `ArrayDeque` as the queue. Levels are collected top-to-bottom into an `ArrayList`, then `Collections.reverse` flips the list in O(h) at the end. `ArrayDeque` is preferred over `LinkedList` — it avoids per-node heap allocation and has better cache locality.
 
 **Algorithm:**
 1. If `root` is `null`, return empty list.
-2. Initialise a BFS queue with `root` and an output `LinkedList`.
+2. Initialise `ArrayDeque` queue with `root` and an output `ArrayList`.
 3. While the queue is non-empty:
    - Snapshot the current queue size (= nodes on this level).
-   - Dequeue that many nodes, collect their values into a level list, enqueue their non-null children.
-   - **Prepend** the level list to the output (`addFirst`).
-4. Return the output list.
+   - Poll that many nodes, collect their values into a level list, offer their non-null children.
+   - Append the level list to the output.
+4. `Collections.reverse(result)` and return.
 
 **Complexity:**
 

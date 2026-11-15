@@ -9,7 +9,7 @@ class Solution {
         int even = 1, odd = 0, prefix = 0;
         for (int x : arr) {
             prefix += x;
-            if ((prefix & 1) == 1) {
+            if ((prefix & 1) == 1) { // prefix is odd (LSB set)
                 result += even;
                 odd++;
             } else {

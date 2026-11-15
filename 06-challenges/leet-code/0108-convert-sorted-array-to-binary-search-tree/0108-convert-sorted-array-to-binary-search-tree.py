@@ -5,7 +5,7 @@ class Solution:
         def build(lo, hi):
             if lo > hi:
                 return None
-            mid = (lo + hi) // 2
+            mid = lo + (hi - lo) // 2
             root = TreeNode(nums[mid])
             root.left = build(lo, mid - 1)
             root.right = build(mid + 1, hi)
@@ -16,20 +16,20 @@ class Solution:
 
 class Solution2:
     def sortedArrayToBST(self, nums):
-        mid = len(nums) // 2
+        mid = (len(nums) - 1) // 2
         root = TreeNode(nums[mid])
         # stack entries: (parent, lo, hi, side)  side: 0=left, 1=right
         stack = [(root, 0, mid - 1, 0), (root, mid + 1, len(nums) - 1, 1)]
         while stack:
             parent, lo, hi, side = stack.pop()
-            if lo > hi:
+            if lo > hi:           # empty range — nothing to build
                 continue
-            m = (lo + hi) // 2
+            m = lo + (hi - lo) // 2
             node = TreeNode(nums[m])
-            if side == 0:
+            if side == 0:         # attach as left child
                 parent.left = node
-            else:
+            else:                 # attach as right child
                 parent.right = node
-            stack.append((node, lo, m - 1, 0))
-            stack.append((node, m + 1, hi, 1))
+            stack.append((node, lo, m - 1, 0))      # node's left subtree
+            stack.append((node, m + 1, hi, 1))      # node's right subtree
         return root

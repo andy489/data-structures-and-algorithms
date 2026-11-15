@@ -37,7 +37,7 @@ class Solution2 {
         while (!stack.isEmpty()) {
             Object[] entry = stack.pop();
             TreeNode node      = (TreeNode)       entry[0];
-            int remaining      = (int)             entry[1];
+            int remaining      = (int)            entry[1];
             List<Integer> path = (List<Integer>)  entry[2];
             if (node.left == null && node.right == null && remaining == 0) {
                 result.add(path);

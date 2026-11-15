@@ -61,3 +61,23 @@
 |---|---|
 | Time | O(n) — each node visited once |
 | Space | O(n) — heights map + stack |
+
+---
+
+## Solution 4: Iterative Post-Order with Height Stack (no HashMap) — O(n) time, O(h) space
+
+**Idea:** Same iterative post-order traversal as Solution 3, but instead of a HashMap, completed subtree heights are pushed onto a separate `hs` stack. When a node is processed in post-order, its children's heights sit at the top of `hs` — pop right child's height (if it exists), then left child's height (if it exists), check balance, push the new height back. The `hs` stack holds at most O(h) values at any time.
+
+**Algorithm:**
+1. Use the `prev`-pointer post-order pattern to traverse nodes.
+2. When a node is ready to process: `rh = hs.pop()` if right child exists, else `0`; `lh = hs.pop()` if left child exists, else `0`.
+3. If `|lh - rh| > 1`, return `false`.
+4. Push `max(lh, rh) + 1` onto `hs`.
+5. Return `true` if no imbalance found.
+
+**Complexity:**
+
+| | |
+|---|---|
+| Time | O(n) — each node visited once |
+| Space | O(h) — traversal stack + height stack both bounded by tree height |

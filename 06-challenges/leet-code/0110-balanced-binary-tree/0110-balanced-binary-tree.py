@@ -56,3 +56,27 @@ class Solution3:
             else:
                 cur = cur.right
         return True
+
+
+class Solution4:
+    def isBalanced(self, root) -> bool:
+        if not root:
+            return True
+        hs = []  # completed subtree heights bubble up here
+        stack, prev, cur = [], None, root
+        while cur or stack:
+            while cur:
+                stack.append(cur)
+                cur = cur.left
+            cur = stack[-1]
+            if not cur.right or cur.right is prev:
+                stack.pop()
+                rh = hs.pop() if cur.right else 0
+                lh = hs.pop() if cur.left  else 0
+                if abs(lh - rh) > 1:
+                    return False
+                hs.append(max(lh, rh) + 1)
+                prev, cur = cur, None
+            else:
+                cur = cur.right
+        return True

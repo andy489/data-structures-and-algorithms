@@ -79,3 +79,37 @@ class Solution3 {
         return true;
     }
 }
+
+// Solution 4: Iterative Post-Order with Height Stack (no HashMap) — O(n) time, O(h) space
+class Solution4 {
+    public boolean isBalanced(TreeNode root) {
+        if (root == null) {
+            return true;
+        }
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        Deque<Integer> hs = new ArrayDeque<>(); // completed subtree heights bubble up here
+        TreeNode prev = null;
+        TreeNode cur = root;
+        while (cur != null || !stack.isEmpty()) {
+            while (cur != null) {
+                stack.push(cur);
+                cur = cur.left;
+            }
+            cur = stack.peek();
+            if (cur.right == null || cur.right == prev) {
+                stack.pop();
+                int rh = (cur.right != null) ? hs.pop() : 0;
+                int lh = (cur.left  != null) ? hs.pop() : 0;
+                if (Math.abs(lh - rh) > 1) {
+                    return false;
+                }
+                hs.push(Math.max(lh, rh) + 1);
+                prev = cur;
+                cur = null;
+            } else {
+                cur = cur.right;
+            }
+        }
+        return true;
+    }
+}

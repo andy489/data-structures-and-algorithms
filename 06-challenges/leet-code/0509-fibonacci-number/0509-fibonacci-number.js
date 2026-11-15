@@ -13,18 +13,8 @@ var fib2 = function(n, memo = {}) {
     return memo[n] = fib2(n - 1, memo) + fib2(n - 2, memo);
 };
 
-// Solution 3: Iterative DP — O(n) time, O(1) space
+// Solution 3: Iterative DP with Rolling Array — O(n) time, O(1) space
 var fib3 = function(n) {
-    if (n <= 1) return n;
-    let prev = 0, curr = 1;
-    for (let i = 2; i <= n; i++) {
-        [prev, curr] = [curr, prev + curr];
-    }
-    return curr;
-};
-
-// Solution 4: Iterative DP with Rolling Array — O(n) time, O(1) space
-var fib4 = function(n) {
     const SIZE = 3;
     const dp = new Array(SIZE).fill(0);
     dp[1] = 1;
@@ -34,8 +24,8 @@ var fib4 = function(n) {
     return dp[n % SIZE];
 };
 
-// Solution 5: Matrix Exponentiation — O(log n) time, O(log n) space
-var fib5 = function(n) {
+// Solution 4: Matrix Exponentiation — O(log n) time, O(log n) space
+var fib4 = function(n) {
     if (n <= 1) return n;
 
     function matmul(a, b) {

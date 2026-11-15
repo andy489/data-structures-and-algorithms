@@ -18,19 +18,8 @@ class Solution2:
         return memo[n]
 
 
-# Solution 3: Iterative DP — O(n) time, O(1) space
+# Solution 3: Iterative DP with Rolling Array — O(n) time, O(1) space
 class Solution3:
-    def fib(self, n: int) -> int:
-        if n <= 1:
-            return n
-        prev, curr = 0, 1
-        for _ in range(2, n + 1):
-            prev, curr = curr, prev + curr
-        return curr
-
-
-# Solution 4: Iterative DP with Rolling Array — O(n) time, O(1) space
-class Solution4:
     SIZE = 3
 
     def fib(self, n: int) -> int:
@@ -41,8 +30,8 @@ class Solution4:
         return dp[n % self.SIZE]
 
 
-# Solution 5: Matrix Exponentiation — O(log n) time, O(log n) space
-class Solution5:
+# Solution 4: Matrix Exponentiation — O(log n) time, O(log n) space
+class Solution4:
     def fib(self, n: int) -> int:
         if n <= 1:
             return n

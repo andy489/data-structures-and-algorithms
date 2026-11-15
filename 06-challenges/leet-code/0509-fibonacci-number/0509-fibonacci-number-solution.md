@@ -40,28 +40,9 @@
 
 ---
 
-## Solution 3: Iterative DP — O(n) time, O(1) space
+## Solution 3: Iterative DP with Rolling Array — O(n) time, O(1) space
 
-**Idea:** Compute Fibonacci iteratively, keeping only the last two values. Eliminates both the call stack and the memo table.
-
-**Algorithm:**
-1. Handle base cases: return `n` for `n <= 1`.
-2. Maintain `prev = 0`, `curr = 1`.
-3. For each step from `2` to `n`: update `prev, curr = curr, prev + curr`.
-4. Return `curr`.
-
-**Complexity:**
-
-| | |
-|---|---|
-| Time | O(n) — single loop |
-| Space | O(1) — two variables |
-
----
-
-## Solution 4: Iterative DP with Rolling Array — O(n) time, O(1) space
-
-**Idea:** Same bottom-up loop as Solution 3, but uses a size-3 array with modular indexing instead of two scalar variables. Demonstrates the rolling-array pattern that generalises to recurrences with wider windows (e.g. tribonacci).
+**Idea:** Build bottom-up using a size-3 array with modular indexing. Each new value overwrites the slot no longer needed. Demonstrates the rolling-array pattern that generalises to recurrences with wider windows (e.g. tribonacci).
 
 **Algorithm:**
 1. Initialise `dp[0] = 0`, `dp[1] = 1`.
@@ -77,7 +58,7 @@
 
 ---
 
-## Solution 5: Matrix Exponentiation — O(log n) time, O(log n) space
+## Solution 4: Matrix Exponentiation — O(log n) time, O(log n) space
 
 **Idea:** The Fibonacci recurrence maps to matrix multiplication:
 

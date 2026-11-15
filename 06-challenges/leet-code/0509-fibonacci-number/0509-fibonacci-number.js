@@ -23,8 +23,19 @@ var fib3 = function(n) {
     return curr;
 };
 
-// Solution 4: Matrix Exponentiation — O(log n) time, O(log n) space
+// Solution 4: Iterative DP with Rolling Array — O(n) time, O(1) space
 var fib4 = function(n) {
+    const SIZE = 3;
+    const dp = new Array(SIZE).fill(0);
+    dp[1] = 1;
+    for (let i = 2; i <= n; i++) {
+        dp[i % SIZE] = dp[(i - 1) % SIZE] + dp[(i - 2) % SIZE];
+    }
+    return dp[n % SIZE];
+};
+
+// Solution 5: Matrix Exponentiation — O(log n) time, O(log n) space
+var fib5 = function(n) {
     if (n <= 1) return n;
 
     function matmul(a, b) {

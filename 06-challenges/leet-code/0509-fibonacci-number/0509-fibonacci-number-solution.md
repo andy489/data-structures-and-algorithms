@@ -59,7 +59,25 @@
 
 ---
 
-## Solution 4: Matrix Exponentiation — O(log n) time, O(log n) space
+## Solution 4: Iterative DP with Rolling Array — O(n) time, O(1) space
+
+**Idea:** Same bottom-up loop as Solution 3, but uses a size-3 array with modular indexing instead of two scalar variables. Demonstrates the rolling-array pattern that generalises to recurrences with wider windows (e.g. tribonacci).
+
+**Algorithm:**
+1. Initialise `dp[0] = 0`, `dp[1] = 1`.
+2. For each `i` from `2` to `n`: `dp[i % 3] = dp[(i-1) % 3] + dp[(i-2) % 3]`.
+3. Return `dp[n % 3]`.
+
+**Complexity:**
+
+| | |
+|---|---|
+| Time | O(n) — single loop |
+| Space | O(1) — fixed-size array of 3 |
+
+---
+
+## Solution 5: Matrix Exponentiation — O(log n) time, O(log n) space
 
 **Idea:** The Fibonacci recurrence maps to matrix multiplication:
 

@@ -41,8 +41,23 @@ class Solution3 {
     }
 }
 
-// Solution 4: Matrix Exponentiation — O(log n) time, O(log n) space
+// Solution 4: Iterative DP with Rolling Array — O(n) time, O(1) space
 class Solution4 {
+    private static final int SIZE = 3;
+
+    public int fib(int n) {
+        int[] dp = new int[SIZE];
+        dp[0] = 0;
+        dp[1] = 1;
+        for (int i = 2; i <= n; i++) {
+            dp[i % SIZE] = dp[(i - 1) % SIZE] + dp[(i - 2) % SIZE];
+        }
+        return dp[n % SIZE];
+    }
+}
+
+// Solution 5: Matrix Exponentiation — O(log n) time, O(log n) space
+class Solution5 {
     public int fib(int n) {
         if (n <= 1) {
             return n;

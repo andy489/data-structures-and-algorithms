@@ -29,8 +29,20 @@ class Solution3:
         return curr
 
 
-# Solution 4: Matrix Exponentiation — O(log n) time, O(log n) space
+# Solution 4: Iterative DP with Rolling Array — O(n) time, O(1) space
 class Solution4:
+    SIZE = 3
+
+    def fib(self, n: int) -> int:
+        dp = [0] * self.SIZE
+        dp[1] = 1
+        for i in range(2, n + 1):
+            dp[i % self.SIZE] = dp[(i - 1) % self.SIZE] + dp[(i - 2) % self.SIZE]
+        return dp[n % self.SIZE]
+
+
+# Solution 5: Matrix Exponentiation — O(log n) time, O(log n) space
+class Solution5:
     def fib(self, n: int) -> int:
         if n <= 1:
             return n

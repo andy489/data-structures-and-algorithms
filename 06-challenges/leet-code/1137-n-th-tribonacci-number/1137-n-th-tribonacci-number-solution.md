@@ -56,3 +56,43 @@
 |---|---|
 | Time | O(n) — single loop |
 | Space | O(1) — fixed-size array of 4 |
+
+---
+
+## Solution 4: Matrix Exponentiation — O(log n) time, O(1) space
+
+**Idea:** The Tribonacci recurrence maps to a 3×3 matrix multiplication:
+
+```
+| T(n+1) |   | 1 1 1 |   | T(n)   |
+| T(n)   | = | 1 0 0 | × | T(n-1) |
+| T(n-1) |   | 0 1 0 |   | T(n-2) |
+```
+
+Raise `[[1,1,1],[1,0,0],[0,1,0]]` to the power `n-2` (starting from state `[T(2), T(1), T(0)] = [1, 1, 0]`), then read off `result[0][0] + result[0][1]`.
+
+**Deriving the companion matrix:** For any k-term linear recurrence `T(n) = c₁·T(n-1) + c₂·T(n-2) + … + cₖ·T(n-k)`, build a k×k **companion matrix** `M`:
+- **Row 0** (top row): the coefficients `[c₁, c₂, …, cₖ]`
+- **Rows 1 … k-1**: a shifted identity — row `i` has a `1` in column `i-1`, zeros elsewhere
+
+This encodes the recurrence as a single matrix-vector multiplication: `M · [T(n), T(n-1), …, T(n-k+1)]ᵀ = [T(n+1), T(n), …, T(n-k+2)]ᵀ`.
+
+For Tribonacci (k=3, c₁=c₂=c₃=1):
+```
+M = | 1 1 1 |    row 0: [1, 1, 1]
+    | 1 0 0 |    row 1: identity shift → [1, 0, 0]
+    | 0 1 0 |    row 2: identity shift → [0, 1, 0]
+```
+Starting from `[T(2), T(1), T(0)]ᵀ = [1, 1, 0]ᵀ`, applying `M^(n-2)` gives `[T(n), T(n-1), T(n-2)]ᵀ`, so `T(n) = (M^(n-2))[0][0]·1 + (M^(n-2))[0][1]·1 + (M^(n-2))[0][2]·0 = result[0][0] + result[0][1]`.
+
+**Algorithm:**
+1. Base cases: return `0` for `n == 0`, `1` for `n <= 2`.
+2. Compute `M ^ (n-2)` via recursive squaring.
+3. Return `result[0][0] + result[0][1]`.
+
+**Complexity:**
+
+| | |
+|---|---|
+| Time | O(log n) — halving the exponent at each step |
+| Space | O(1) — constant-size 3×3 matrices (O(log n) call stack) |

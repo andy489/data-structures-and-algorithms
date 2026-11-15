@@ -49,3 +49,41 @@ class Solution3 {
         return dp[n % SIZE];
     }
 }
+
+// Solution 4: Matrix Exponentiation — O(log n) time, O(1) space
+class Solution4 {
+    public int tribonacci(int n) {
+        if (n == 0) {
+            return 0;
+        }
+        if (n <= 2) {
+            return 1;
+        }
+        long[][] result = matpow(new long[][]{{1, 1, 1}, {1, 0, 0}, {0, 1, 0}}, n - 2);
+        return (int) (result[0][0] + result[0][1]);
+    }
+
+    private long[][] matpow(long[][] m, int p) {
+        if (p == 1) {
+            return m;
+        }
+        if (p % 2 == 0) {
+            long[][] half = matpow(m, p / 2);
+            return matmul(half, half);
+        }
+        return matmul(m, matpow(m, p - 1));
+    }
+
+    private long[][] matmul(long[][] a, long[][] b) {
+        int s = a.length;
+        long[][] c = new long[s][s];
+        for (int i = 0; i < s; i++) {
+            for (int j = 0; j < s; j++) {
+                for (int k = 0; k < s; k++) {
+                    c[i][j] += a[i][k] * b[k][j];
+                }
+            }
+        }
+        return c;
+    }
+}

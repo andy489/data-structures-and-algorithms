@@ -69,6 +69,19 @@
 
 Raise the base matrix to the n-th power using repeated squaring to compute `F(n)` in O(log n) steps.
 
+**Deriving the companion matrix:** For any k-term linear recurrence `T(n) = c₁·T(n-1) + c₂·T(n-2) + … + cₖ·T(n-k)`, build a k×k **companion matrix** `M`:
+- **Row 0** (top row): the coefficients `[c₁, c₂, …, cₖ]`
+- **Rows 1 … k-1**: a shifted identity — row `i` has a `1` in column `i-1`, zeros elsewhere
+
+This encodes the recurrence as a single matrix-vector multiplication: `M · [T(n), T(n-1), …, T(n-k+1)]ᵀ = [T(n+1), T(n), …, T(n-k+2)]ᵀ`.
+
+For Fibonacci (k=2, c₁=c₂=1):
+```
+M = | 1  1 |    row 0: [1, 1]
+    | 1  0 |    row 1: identity shift → [1, 0]
+```
+`M^n · [F(1), F(0)]ᵀ = [F(n+1), F(n)]ᵀ`, so `F(n) = (M^n)[0][1]`.
+
 **Algorithm:**
 1. Base case: return `n` for `n <= 1`.
 2. Compute `[[1,1],[1,0]] ^ n` via recursive squaring (`matpow`).

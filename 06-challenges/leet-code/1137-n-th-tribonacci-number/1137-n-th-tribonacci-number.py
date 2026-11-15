@@ -34,3 +34,32 @@ class Solution3:
         for i in range(3, n + 1):
             dp[i % self.SIZE] = dp[(i - 1) % self.SIZE] + dp[(i - 2) % self.SIZE] + dp[(i - 3) % self.SIZE]
         return dp[n % self.SIZE]
+
+
+# Solution 4: Matrix Exponentiation — O(log n) time, O(1) space
+class Solution4:
+    def tribonacci(self, n: int) -> int:
+        if n == 0:
+            return 0
+        if n <= 2:
+            return 1
+
+        def matmul(a, b):
+            s = len(a)
+            c = [[0] * s for _ in range(s)]
+            for i in range(s):
+                for j in range(s):
+                    for k in range(s):
+                        c[i][j] += a[i][k] * b[k][j]
+            return c
+
+        def matpow(m, p):
+            if p == 1:
+                return m
+            if p % 2 == 0:
+                half = matpow(m, p // 2)
+                return matmul(half, half)
+            return matmul(m, matpow(m, p - 1))
+
+        r = matpow([[1, 1, 1], [1, 0, 0], [0, 1, 0]], n - 2)
+        return r[0][0] + r[0][1]

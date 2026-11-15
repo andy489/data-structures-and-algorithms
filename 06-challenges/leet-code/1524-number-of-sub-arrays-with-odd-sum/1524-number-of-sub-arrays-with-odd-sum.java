@@ -2,7 +2,7 @@
 
 // Solution: Prefix Sum Parity — O(n) time, O(1) space
 class Solution {
-    private static final int MOD = 1_000_000_007;
+    private static final int MOD = (int) 1e9 + 7;
 
     public int numOfSubarrays(int[] arr) {
         long result = 0;

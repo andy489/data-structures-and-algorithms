@@ -23,7 +23,15 @@
 
 ## Solution 2: Lowest Set Bit — O(1) time, O(1) space
 
-**Idea:** `n & (-n)` isolates the lowest set bit. If that equals `n` itself, then `n` has exactly one bit set — i.e. it is a power of two.
+**Idea:** In two's complement, `-n` is computed by flipping all bits of `n` and adding 1. Adding 1 to a string of trailing 1s carries through them all, so the lowest set bit of `n` is preserved while every bit above it is flipped and every bit below it becomes 0. ANDing `n` with `-n` therefore cancels all the differing upper bits and leaves only the shared lowest set bit.
+
+```
+n      =  0000 1100
+-n     =  1111 0100   (flip all bits, then +1 carries through the trailing 1s)
+n & -n =  0000 0100   ← only the lowest set bit survives
+```
+
+If `n` is a power of two it has exactly one bit set, so `n & (-n) == n`. If it has more than one bit set, the isolated lowest bit is strictly less than `n`.
 
 **Algorithm:**
 1. Return `n > 0 && (n & (-n)) == n`.
@@ -39,14 +47,30 @@
 
 ## Solution 3: Integer Logarithm — O(1) time, O(1) space
 
-**Idea:** `Integer.MAX_VALUE`'s largest power-of-two factor is `2^30 = 1073741824`. Any power of two divides this constant evenly; no non-power-of-two does.
+**Idea:** `Integer.MAX_VALUE`'s largest power-of-two factor is `2^30 = 1 << 30`. Any power of two divides this constant evenly; no non-power-of-two does.
 
 **Algorithm:**
-1. Return `n > 0 && (1073741824 % n == 0)`.
+1. Return `n > 0 && ((1 << 30) % n == 0)`.
 
 **Complexity:**
 
 | | |
 |---|---|
 | Time | O(1) — single modulo operation |
+| Space | O(1) |
+
+---
+
+## Solution 4: Built-in Popcount — O(1) time, O(1) space
+
+**Idea:** A power of two has exactly one bit set. Use the language's built-in popcount (population count) to count set bits and check it equals 1.
+
+**Algorithm:**
+1. Return `n > 0 && bitCount(n) == 1`.
+
+**Complexity:**
+
+| | |
+|---|---|
+| Time | O(1) — hardware-accelerated popcount instruction on modern CPUs |
 | Space | O(1) |

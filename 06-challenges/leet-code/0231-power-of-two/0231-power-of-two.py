@@ -15,4 +15,10 @@ class Solution2:
 # Solution 3: Integer Logarithm — O(1) time, O(1) space
 class Solution3:
     def isPowerOfTwo(self, n: int) -> bool:
-        return n > 0 and 1073741824 % n == 0
+        return n > 0 and (1 << 30) % n == 0
+
+
+# Solution 4: Built-in Popcount — O(1) time, O(1) space
+class Solution4:
+    def isPowerOfTwo(self, n: int) -> bool:
+        return n > 0 and bin(n).count('1') == 1

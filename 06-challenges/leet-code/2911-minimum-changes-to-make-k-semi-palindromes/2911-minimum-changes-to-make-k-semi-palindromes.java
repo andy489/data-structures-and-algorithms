@@ -5,6 +5,7 @@ class Solution {
     public int minimumChanges(String s, int k) {
         int n = s.length();
         int[][] cost = new int[n][n];
+        for (int[] row : cost) Arrays.fill(row, Integer.MAX_VALUE / 2);
 
         for (int i = 0; i < n; i++) {
             for (int j = i + 1; j < n; j++) {
@@ -49,7 +50,7 @@ class Solution2 {
     private char[] c;
 
     private int semiCost(int i, int j) {
-        int len = j - i + 1, best = Integer.MAX_VALUE;
+        int len = j - i + 1, best = Integer.MAX_VALUE / 2;
         for (int d = 1; d < len; d++) {
             if (len % d != 0) continue;
             int changes = 0;

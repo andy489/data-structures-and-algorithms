@@ -1,7 +1,7 @@
 // https://leetcode.com/problems/maximize-consecutive-elements-in-an-array-after-modification/
 
 // Solution: Sort + DP — O(n log n) time, O(n) space
-var maximumSelectedElements = function(nums) {
+var maxSelectedElements = function(nums) {
     nums.sort((a, b) => a - b);
     const dp = new Map();
     let ans = 0;

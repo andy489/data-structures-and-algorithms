@@ -2,7 +2,7 @@
 
 // Solution: Sort + DP — O(n log n) time, O(n) space
 class Solution {
-    public int maximumSelectedElements(int[] nums) {
+    public int maxSelectedElements(int[] nums) {
         Arrays.sort(nums);
         Map<Integer, Integer> dp = new HashMap<>();
         int ans = 0;

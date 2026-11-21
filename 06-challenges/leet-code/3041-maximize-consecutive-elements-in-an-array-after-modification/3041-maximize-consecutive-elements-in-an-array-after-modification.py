@@ -2,7 +2,7 @@
 
 # Solution: Sort + DP — O(n log n) time, O(n) space
 class Solution:
-    def maximumSelectedElements(self, nums: list[int]) -> int:
+    def maxSelectedElements(self, nums: list[int]) -> int:
         nums.sort()
         dp: dict[int, int] = {}
         ans = 0

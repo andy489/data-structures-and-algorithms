@@ -14,7 +14,7 @@ class Solution {
         Map<Long, Integer> remainderIndex = new HashMap<>();
         while (rem != 0) {
             if (remainderIndex.containsKey(rem)) {
-                sb.insert(remainderIndex.get(rem), '(');
+                sb.insert((int) remainderIndex.get(rem), '(');
                 sb.append(')');
                 break;
             }

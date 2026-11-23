@@ -1,0 +1,17 @@
+// https://leetcode.com/problems/word-pattern/
+
+// Solution: Two-Way HashMap — O(n) time, O(n) space
+var wordPattern = function(pattern, s) {
+    const words = s.split(' ');
+    if (words.length !== pattern.length) return false;
+    const charToWord = new Map();
+    const wordToChar = new Map();
+    for (let i = 0; i < pattern.length; i++) {
+        const ch = pattern[i], word = words[i];
+        if (charToWord.has(ch) && charToWord.get(ch) !== word) return false;
+        if (wordToChar.has(word) && wordToChar.get(word) !== ch) return false;
+        charToWord.set(ch, word);
+        wordToChar.set(word, ch);
+    }
+    return true;
+};

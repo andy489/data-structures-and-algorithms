@@ -3,7 +3,7 @@
 // Solution 1: Binary Search + Rolling Hash — O(n log n) time, O(n) space
 class Solution {
     private static final long MOD = (1L << 61) - 1;
-    private static final long BASE = 131;
+    private static final long BASE = 100003;
 
     public int smallestUniqueSubarray(int[] nums) {
         int n = nums.length, lo = 1, hi = n;
@@ -17,19 +17,18 @@ class Solution {
 
     private boolean hasUniqueSubarray(int[] nums, int k) {
         int n = nums.length;
-        long[] pw = new long[k + 1];
-        pw[0] = 1;
-        for (int i = 1; i <= k; i++) pw[i] = mul(pw[i - 1], BASE);
-        long[] h = new long[n + 1];
-        for (int i = 0; i < n; i++) h[i + 1] = mul(h[i], BASE) ^ nums[i];
+        long pw = 1;
+        for (int i = 0; i < k; i++) pw = mul(pw, BASE);
+        long h = 0;
+        for (int i = 0; i < k; i++) h = add(mul(h, BASE), nums[i] + 1);
         Map<Long, Integer> freq = new HashMap<>();
-        for (int i = 0; i + k <= n; i++) {
-            long key = h[i + k] ^ mul(h[i], pw[k]);
-            freq.merge(key, 1, Integer::sum);
+        freq.merge(h, 1, Integer::sum);
+        for (int i = k; i < n; i++) {
+            h = add(mul(h, BASE), nums[i] + 1);
+            h = sub(h, mul(pw, nums[i - k] + 1));
+            freq.merge(h, 1, Integer::sum);
         }
-        for (int cnt : freq.values()) {
-            if (cnt == 1) return true;
-        }
+        for (int cnt : freq.values()) if (cnt == 1) return true;
         return false;
     }
 
@@ -41,10 +40,21 @@ class Solution {
         if (res >= MOD) res -= MOD;
         return res;
     }
+
+    private long add(long a, long b) {
+        a += b;
+        if (a >= MOD) a -= MOD;
+        return a;
+    }
+
+    private long sub(long a, long b) {
+        a -= b;
+        if (a < 0) a += MOD;
+        return a;
+    }
 }
 
 // Solution 2: Linear Scan + Sliding Window (prev/next + deques) — O(n²) worst case, O(n) space
-// A window [l,r] is unique iff max(prev[l..r]) < l AND min(next[l..r]) > r.
 class Solution2 {
     public int smallestUniqueSubarray(int[] nums) {
         int n = nums.length;

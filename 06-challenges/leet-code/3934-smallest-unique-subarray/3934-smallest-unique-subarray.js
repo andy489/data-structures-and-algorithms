@@ -2,40 +2,29 @@
 
 var smallestUniqueSubarray = function(nums) {
     const n = nums.length;
-    const prev = new Int32Array(n).fill(-1);
-    const next = new Int32Array(n).fill(n);
-    const last = new Map();
-    for (let i = 0; i < n; i++) {
-        if (last.has(nums[i])) prev[i] = last.get(nums[i]);
-        last.set(nums[i], i);
-    }
-    last.clear();
-    for (let i = n - 1; i >= 0; i--) {
-        if (last.has(nums[i])) next[i] = last.get(nums[i]);
-        last.set(nums[i], i);
-    }
+    const MOD = (1n << 61n) - 1n;
+    const BASE = 131n;
 
-    const check = (k) => {
-        const maxDq = [], minDq = [];
-        for (let r = 0; r < n; r++) {
-            while (maxDq.length && prev[maxDq[maxDq.length - 1]] <= prev[r]) maxDq.pop();
-            maxDq.push(r);
-            while (minDq.length && next[minDq[minDq.length - 1]] >= next[r]) minDq.pop();
-            minDq.push(r);
-            if (r >= k - 1) {
-                const l = r - k + 1;
-                if (maxDq[0] < l) maxDq.shift();
-                if (minDq[0] < l) minDq.shift();
-                if (prev[maxDq[0]] < l && next[minDq[0]] > r) return true;
-            }
+    const mul = (a, b) => (a * b) % MOD;
+
+    const hasUnique = (k) => {
+        const pw = new Array(k + 1).fill(1n);
+        for (let i = 1; i <= k; i++) pw[i] = mul(pw[i - 1], BASE);
+        const h = new Array(n + 1).fill(0n);
+        for (let i = 0; i < n; i++) h[i + 1] = (mul(h[i], BASE) ^ BigInt(nums[i])) % MOD;
+        const freq = new Map();
+        for (let i = 0; i + k <= n; i++) {
+            const key = (h[i + k] ^ mul(h[i], pw[k])) % MOD;
+            freq.set(key, (freq.get(key) || 0) + 1);
         }
+        for (const cnt of freq.values()) if (cnt === 1) return true;
         return false;
     };
 
     let lo = 1, hi = n;
     while (lo < hi) {
         const mid = (lo + hi) >> 1;
-        if (check(mid)) hi = mid;
+        if (hasUnique(mid)) hi = mid;
         else lo = mid + 1;
     }
     return lo;

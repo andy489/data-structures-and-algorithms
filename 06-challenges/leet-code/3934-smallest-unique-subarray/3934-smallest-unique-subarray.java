@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/smallest-unique-subarray/
 
-// Solution 1: Binary Search + Rolling Hash — O(n log n) time, O(n) space
+// Solution: Binary Search + Rolling Hash — O(n log n) time, O(n) space
 class Solution {
     private static final long MOD = (1L << 61) - 1;
     private static final long BASE = 100003;
@@ -51,25 +51,5 @@ class Solution {
         a -= b;
         if (a < 0) a += MOD;
         return a;
-    }
-}
-
-// Solution 2: Linear Scan + HashMap — O(n²) time, O(n) space
-class Solution2 {
-    public int smallestUniqueSubarray(int[] nums) {
-        int n = nums.length;
-        for (int k = 1; k <= n; k++) {
-            Map<String, Integer> freq = new HashMap<>();
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < k; i++) sb.append(nums[i]).append(',');
-            freq.merge(sb.toString(), 1, Integer::sum);
-            for (int i = k; i < n; i++) {
-                sb.delete(0, sb.indexOf(",") + 1);
-                sb.append(nums[i]).append(',');
-                freq.merge(sb.toString(), 1, Integer::sum);
-            }
-            for (int cnt : freq.values()) if (cnt == 1) return k;
-        }
-        return n;
     }
 }

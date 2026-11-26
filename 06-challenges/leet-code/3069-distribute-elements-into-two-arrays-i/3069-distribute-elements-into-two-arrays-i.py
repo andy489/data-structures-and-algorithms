@@ -1,0 +1,11 @@
+# https://leetcode.com/problems/distribute-elements-into-two-arrays-i/
+
+class Solution:
+    def resultArray(self, nums: list[int]) -> list[int]:
+        arr1, arr2 = [nums[0]], [nums[1]]
+        for x in nums[2:]:
+            if arr1[-1] > arr2[-1]:
+                arr1.append(x)
+            else:
+                arr2.append(x)
+        return arr1 + arr2

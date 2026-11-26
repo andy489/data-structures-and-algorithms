@@ -1,0 +1,13 @@
+# https://leetcode.com/problems/number-of-steps-to-reduce-a-number-in-binary-representation-to-one/
+
+class Solution:
+    def numSteps(self, s: str) -> int:
+        steps = carry = 0
+        for i in range(len(s) - 1, 0, -1):
+            bit = int(s[i]) + carry
+            if bit == 1:
+                steps += 2
+                carry = 1
+            else:
+                steps += 1
+        return steps + carry

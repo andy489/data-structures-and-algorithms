@@ -1,7 +1,7 @@
 # https://leetcode.com/problems/maximum-number-of-items-from-sale-i/
 
 class Solution:
-    def maxItems(self, items: list[list[int]], budget: int) -> int:
+    def maximumSaleItems(self, items: list[list[int]], budget: int) -> int:
         n = len(items)
         min_price = min(p for _, p in items)
 

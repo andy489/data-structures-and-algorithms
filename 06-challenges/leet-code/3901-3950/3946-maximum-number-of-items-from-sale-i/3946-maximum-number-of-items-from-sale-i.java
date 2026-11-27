@@ -2,7 +2,7 @@
 
 // Solution: 0/1 Knapsack + greedy extra copies — O(n² + n·budget) time, O(n + budget) space
 class Solution {
-    public int maxItems(int[][] items, int budget) {
+    public int maximumSaleItems(int[][] items, int budget) {
         int n = items.length;
         int minPrice = Integer.MAX_VALUE;
         for (int[] item : items) {

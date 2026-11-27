@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/maximum-number-of-items-from-sale-i/
 
-var maxItems = function(items, budget) {
+var maximumSaleItems = function(items, budget) {
     const n = items.length;
     const minPrice = Math.min(...items.map(([, p]) => p));
 

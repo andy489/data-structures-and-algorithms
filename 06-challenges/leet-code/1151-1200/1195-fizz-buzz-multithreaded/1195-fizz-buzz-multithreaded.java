@@ -1,8 +1,6 @@
 // https://leetcode.com/problems/fizz-buzz-multithreaded/
 
 // Solution: Semaphores — O(n) time, O(1) space
-import java.util.concurrent.Semaphore;
-
 class FizzBuzz {
     private int n;
     private Semaphore numSem = new Semaphore(1);

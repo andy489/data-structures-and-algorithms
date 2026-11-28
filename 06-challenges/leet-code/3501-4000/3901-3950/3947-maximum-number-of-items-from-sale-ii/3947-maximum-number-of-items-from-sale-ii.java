@@ -1,52 +1,63 @@
 // https://leetcode.com/problems/maximum-number-of-items-from-sale-ii/
 
-// Solution: Greedy — O(n² / factor_max) time, O(n) space
+// Solution: Sieve freeCount + greedy on sorted bonus units — O(n log n) time, O(n) space
 class Solution {
     public int maximumSaleItems(int[][] items, int budget) {
         int n = items.length;
 
-        // freeCount[i] = number of j != i where factor[i] divides factor[j]
+        // Count items per factor value (factor_i <= n)
+        int[] factorCount = new int[n + 1];
+        for (int[] item : items) {
+            factorCount[item[0]]++;
+        }
+
+        // freeCount[i] = number of j != i where factor[i] | factor[j]
+        // = (sum of factorCount[mult] for mult = factor[i], 2*factor[i], ...) - 1 (subtract self)
         int[] freeCount = new int[n];
         for (int i = 0; i < n; i++) {
             int fi = items[i][0];
-            for (int j = 0; j < n; j++) {
-                if (i != j && items[j][0] % fi == 0) {
-                    freeCount[i]++;
-                }
+            int total = 0;
+            for (int mult = fi; mult <= n; mult += fi) {
+                total += factorCount[mult];
             }
+            freeCount[i] = total - 1; // subtract self
         }
 
-        long minPrice = Integer.MAX_VALUE;
-        for (int[] item : items) {
-            if (item[1] < minPrice) {
-                minPrice = item[1];
-            }
-        }
+        // Greedy: for item i, buying up to freeCount[i] copies is "2-for-1" at price[i].
+        // Collect all bonus units (each gives +1 extra free item) sorted by price ascending.
+        // Then fill remaining budget with cheapest item (1-for-1).
 
-        // Sort by effective value of first copy (1 + freeCount[i]) / price descending
+        // Flatten: each bonus unit is one entry with its price
+        // Total bonus units = sum of freeCount[i], up to n*n in worst case — too large to sort directly.
+        // Instead: sort items by price, then greedily take as many bonus units as budget allows.
+
+        // Sort items by price ascending
         Integer[] idx = new Integer[n];
         for (int i = 0; i < n; i++) {
             idx[i] = i;
         }
-        Arrays.sort(idx, (a, b) -> {
-            long lhs = (long)(1 + freeCount[a]) * items[b][1];
-            long rhs = (long)(1 + freeCount[b]) * items[a][1];
-            return Long.compare(rhs, lhs);
-        });
+        Arrays.sort(idx, (a, b) -> items[a][1] - items[b][1]);
 
         long total = 0;
         long remaining = budget;
 
-        for (int i : idx) {
+        for (int ii : idx) {
             if (remaining <= 0) {
                 break;
             }
-            long price = items[i][1];
-            if (price <= remaining) {
-                remaining -= price;
-                total += 1 + freeCount[i];
+            long price = items[ii][1];
+            int bonusUnits = freeCount[ii]; // each bonus unit costs price, yields 2
+
+            if (bonusUnits > 0) {
+                // Buy as many bonus units as possible (up to bonusUnits)
+                long canBuy = Math.min(bonusUnits, remaining / price);
+                total += 2 * canBuy;
+                remaining -= canBuy * price;
             }
         }
+
+        // Fill remaining budget with cheapest item (1-for-1)
+        long minPrice = items[idx[0]][1];
         total += remaining / minPrice;
 
         return (int) total;

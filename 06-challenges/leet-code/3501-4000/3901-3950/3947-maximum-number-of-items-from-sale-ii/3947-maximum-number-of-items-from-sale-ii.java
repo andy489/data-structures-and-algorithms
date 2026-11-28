@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/maximum-number-of-items-from-sale-ii/
 
-// Solution: Sieve freeCount + greedy on bonus units — O(n log n) time, O(n) space
+// Solution: Sieve freeCount (grouped by factor) + greedy on bonus units — O(n log n) time, O(n) space
 class Solution {
     public int maximumSaleItems(int[][] items, int budget) {
         int n = items.length;
@@ -11,20 +11,28 @@ class Solution {
             factorCount[item[0]]++;
         }
 
-        // freeCount[i] = number of j != i where factor[i] | factor[j]
-        // Buying k <= freeCount[i] copies of item i yields 2k items (k purchased + k free).
-        // Buying more than freeCount[i] copies yields freeCount[i] extra free items total.
+        // For each distinct factor value f, compute freePerFactor[f] =
+        // (total items with factor divisible by f) - (items with factor exactly f)
+        // = number of j where f | factor[j] and factor[j] != f
+        // Then freeCount[i] = freePerFactor[factor[i]] + (factorCount[factor[i]] - 1)
+        // which simplifies to: sum of factorCount[mult] for mult=f,2f,... minus 1 (self)
+        // But we compute this once per distinct f, not per item.
+        int[] sumDivisibleBy = new int[n + 1]; // sumDivisibleBy[f] = sum factorCount[f*k] for k=1,2,...
+        for (int f = 1; f <= n; f++) {
+            if (factorCount[f] == 0) {
+                continue;
+            }
+            for (int mult = f; mult <= n; mult += f) {
+                sumDivisibleBy[f] += factorCount[mult];
+            }
+        }
+        // freeCount[i] = sumDivisibleBy[factor[i]] - 1 (subtract self)
         int[] freeCount = new int[n];
         for (int i = 0; i < n; i++) {
-            int fi = items[i][0];
-            int cnt = 0;
-            for (int mult = fi; mult <= n; mult += fi) {
-                cnt += factorCount[mult];
-            }
-            freeCount[i] = cnt - 1;
+            freeCount[i] = sumDivisibleBy[items[i][0]] - 1;
         }
 
-        // Find cheapest item price (best 1-for-1 rate for extra copies)
+        // Find cheapest item price
         long minPrice = Integer.MAX_VALUE;
         for (int[] item : items) {
             if (item[1] < minPrice) {
@@ -32,11 +40,7 @@ class Solution {
             }
         }
 
-        // Greedy: bonus copies (2-for-1) are strictly better than regular copies (1-for-1)
-        // when price[i] <= 2 * minPrice (since 2/price[i] >= 1/minPrice iff price[i] <= 2*minPrice).
-        // Always true if price[i] <= 2*minPrice. When price[i] > 2*minPrice, skip bonus copies.
-        // Sort by price ascending; take all bonus units cheaper than 2*minPrice greedily.
-
+        // Sort by price ascending; take bonus copies (2-for-1) greedily while price <= 2*minPrice
         Integer[] idx = new Integer[n];
         for (int i = 0; i < n; i++) {
             idx[i] = i;
@@ -48,10 +52,8 @@ class Solution {
 
         for (int ii : idx) {
             long price = items[ii][1];
-            // A bonus copy at price is worth taking only if 2/price >= 1/minPrice
-            // i.e., price <= 2 * minPrice
             if (price > 2 * minPrice) {
-                break; // sorted by price, no better bonus units remain
+                break;
             }
             int bonus = freeCount[ii];
             if (bonus > 0 && remaining >= price) {
@@ -61,7 +63,6 @@ class Solution {
             }
         }
 
-        // Fill remaining with cheapest item (1-for-1)
         total += remaining / minPrice;
 
         return (int) total;
